@@ -72,12 +72,6 @@ export default function Research() {
           <p style={{ color: S.muted, fontSize: 'clamp(0.9rem, 1.5vw, 1.1rem)', lineHeight: 1.6, fontWeight: 300, marginBottom: '2.5rem' }}>
             Explores AI-powered strategy generation, NLP-to-algorithm translation, and asynchronous trade execution architecture. Presented at an international conference on Artificial Intelligence for Innovation, Sustainability and Global Development.
           </p>
-          <a href="/assets/documents/Certificate of Presentation and Publication ar international conference on Artificial Intelligence for Innovation, sustainability and global development.pdf"
-            target="_blank" rel="noreferrer"
-            className="inline-flex items-center gap-2 px-6 min-h-[44px] border border-[rgba(255,255,255,0.06)] rounded-full text-[0.72rem] tracking-widest uppercase text-[#edebe6] transition-colors hover:border-[#c9a84c] text-center justify-center w-full sm:w-auto"
-          >
-            View Certificate →
-          </a>
         </div>
 
         {/* Certificate image */}
@@ -124,12 +118,6 @@ export default function Research() {
           <p style={{ color: S.muted, fontSize: 'clamp(0.9rem, 1.5vw, 1.1rem)', lineHeight: 1.6, fontWeight: 300, marginBottom: '2.5rem' }}>
             Selected to present applied AI research. Recognised for academic contribution in applied AI and quantitative FinTech modeling.
           </p>
-          <a href="/assets/documents/Certificate of Presentation and Publication ar international conference on Artificial Intelligence for Innovation, sustainability and global development.pdf"
-            target="_blank" rel="noreferrer"
-            className="inline-flex items-center gap-2 px-6 min-h-[44px] border border-[rgba(255,255,255,0.06)] rounded-full text-[0.72rem] tracking-widest uppercase text-[#edebe6] transition-colors hover:border-[#c9a84c] text-center justify-center w-full sm:w-auto"
-          >
-            View Original PDF →
-          </a>
         </div>
       </div>
 

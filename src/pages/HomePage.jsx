@@ -100,36 +100,31 @@ export default function HomePage() {
       {/* ── 1. HERO ── */}
       <section style={{ minHeight: '100svh', position: 'relative', display: 'flex', alignItems: 'center', overflow: 'hidden' }}>
 
-        {/* Photo — left side, bleeds edge, fades right */}
+        {/* Photo — background on mobile, left side on desktop */}
         <div style={{
-          position: 'absolute', left: 0, top: 0, bottom: 0, width: '52%',
+          position: 'absolute', left: 0, top: 0, bottom: 0,
           zIndex: 0,
-        }} className="hidden lg:block">
+        }} className="w-full lg:w-[52%]">
           <img
             src="/assets/images/personal/Personal Photo 1.webp"
             alt="Durvesh H. Patil"
             style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 15%', display: 'block' }}
           />
-          {/* Right fade gradient */}
-          <div style={{
+          {/* Desktop right fade */}
+          <div className="hidden lg:block" style={{
             position: 'absolute', inset: 0,
             background: 'linear-gradient(to right, transparent 40%, #060606 100%)',
           }} />
-          {/* Bottom fade */}
+          {/* Mobile heavy bottom fade for text readability */}
+          <div className="lg:hidden" style={{
+            position: 'absolute', inset: 0,
+            background: 'linear-gradient(to bottom, transparent 0%, #060606 80%)',
+          }} />
+          {/* Global bottom fade */}
           <div style={{
             position: 'absolute', inset: 0,
             background: 'linear-gradient(to top, #060606 0%, transparent 30%)',
           }} />
-        </div>
-
-        {/* Mobile portrait */}
-        <div className="lg:hidden w-full" style={{ height: '60vh', position: 'relative', overflow: 'hidden', marginTop: '64px' }}>
-          <img
-            src="/assets/images/personal/Personal Photo 1.webp"
-            alt="Durvesh H. Patil"
-            style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 15%' }}
-          />
-          <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, transparent 20%, #060606 95%)' }} />
         </div>
 
         {/* Text content — right side on desktop, below photo on mobile */}
