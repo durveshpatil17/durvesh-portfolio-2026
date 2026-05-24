@@ -123,13 +123,13 @@ export default function HomePage() {
         </div>
 
         {/* Mobile portrait */}
-        <div className="lg:hidden w-full" style={{ height: '55vh', position: 'relative', overflow: 'hidden', marginTop: '64px' }}>
+        <div className="lg:hidden w-full" style={{ height: '60vh', position: 'relative', overflow: 'hidden', marginTop: '64px' }}>
           <img
             src="/assets/images/personal/Personal Photo 1.webp"
             alt="Durvesh H. Patil"
             style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 15%' }}
           />
-          <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, transparent 50%, #060606 100%)' }} />
+          <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, transparent 20%, #060606 95%)' }} />
         </div>
 
         {/* Text content — right side on desktop, below photo on mobile */}
@@ -184,9 +184,9 @@ export default function HomePage() {
             <div style={{ display: 'flex', gap: 0, marginBottom: '3rem', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
               {[
                 { value: '4M+', label: 'Total Views' },
-                { value: '104+', label: 'Followers' },
-                { value: '36+', label: 'Clients' },
-                { value: '2026', label: 'MBA Batch' },
+                { value: '2000+', label: 'Followers' },
+                { value: '2', label: 'AI Systems Built' },
+                { value: '₹13L+', label: 'AUM Handled' },
               ].map((m, i) => (
                 <div key={m.label} style={{
                   flex: 1, paddingTop: '1.25rem',
