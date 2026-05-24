@@ -57,8 +57,8 @@ export default function Research() {
 
         <div style={{
           background: '#ffffff', border: '0.5px solid #e5e5e5', borderRadius: '12px', padding: '1.25rem',
-          display: 'flex', flexDirection: 'column', gap: '1.25rem'
-        }} className="md:flex-row">
+          gap: '1.25rem'
+        }} className="flex flex-col md:flex-row">
           
           {/* Left Column (Text) */}
           <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
@@ -139,8 +139,8 @@ export default function Research() {
 
         <div style={{
           background: '#ffffff', border: '0.5px solid #e5e5e5', borderRadius: '12px', padding: '1.25rem',
-          display: 'flex', flexDirection: 'column', gap: '1.25rem'
-        }} className="md:flex-row">
+          gap: '1.25rem'
+        }} className="flex flex-col md:flex-row">
           
           {/* Left Column (Text) */}
           <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
