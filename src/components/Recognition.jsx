@@ -27,13 +27,13 @@ export default function Recognition() {
       {/* ── SPECIAL ACHIEVERS AWARD ── */}
       <section className="px-6 py-24 md:px-12 md:py-32" style={{ borderTop: `1px solid ${S.border}` }}>
         <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
-          <div className="rec-reveal" style={{ marginBottom: '4rem' }}>
-            <p style={{ fontSize: '0.68rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: S.gold, marginBottom: '1rem', fontWeight: 600 }}>Recognition</p>
-            <h2 style={{ fontFamily: S.serif, fontSize: 'clamp(2rem, 4vw, 3rem)', color: S.text, lineHeight: 1.1, fontWeight: 400 }}>Special Achievers Award.</h2>
+          <div className="rec-reveal" style={{ marginBottom: '3rem' }}>
+            <p style={{ fontSize: '0.65rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: S.gold, marginBottom: '1rem', fontWeight: 600 }}>Recognition</p>
+            <h2 style={{ fontFamily: S.serif, fontSize: 'clamp(1.75rem, 5vw, 3rem)', color: S.text, lineHeight: 1.1, fontWeight: 400 }}>Special Achievers Award.</h2>
           </div>
           {/* --- Block 2: National Recognition --- */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            <div className="order-2 lg:order-1 rec-reveal relative rounded-[1.5rem] overflow-hidden w-full h-[400px] md:h-[500px]" style={{ border: `1px solid ${S.border}` }}>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center">
+            <div className="order-2 lg:order-1 rec-reveal relative rounded-[1.5rem] overflow-hidden w-full h-[320px] md:h-[500px]" style={{ border: `1px solid ${S.border}` }}>
               <img src="/assets/images/achievements/Special Achievers award- Most outstanding Content creator award.jpg"
                 alt="Special Achievers Award — Outstanding Content Creator felicitation at KBT College"
                 style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
@@ -43,13 +43,13 @@ export default function Recognition() {
               </div>
             </div>
             <div className="order-1 lg:order-2">
-              <p style={{ fontFamily: S.serif, fontSize: '1.45rem', color: S.text, lineHeight: 1.55, marginBottom: '2rem', fontStyle: 'italic', fontWeight: 400 }}>
+              <p style={{ fontFamily: S.serif, fontSize: 'clamp(1.2rem, 3vw, 1.45rem)', color: S.text, lineHeight: 1.4, marginBottom: '1.5rem', fontStyle: 'italic', fontWeight: 400 }}>
                 "Recognised for consistent contribution across leadership, digital branding, communication, and institutional activities."
               </p>
-              <p style={{ color: S.muted, fontSize: '0.95rem', lineHeight: 1.8, marginBottom: '1.5rem', fontWeight: 300 }}>
+              <p style={{ color: S.muted, fontSize: 'clamp(0.9rem, 2vw, 0.95rem)', lineHeight: 1.7, marginBottom: '1.25rem', fontWeight: 300 }}>
                 The recognition reflected initiative, execution, creativity, and meaningful involvement across multiple institutional domains — from event branding and social media strategy to cross-functional team coordination.
               </p>
-              <p style={{ color: S.muted, fontSize: '0.95rem', lineHeight: 1.8, fontWeight: 300 }}>
+              <p style={{ color: S.muted, fontSize: 'clamp(0.9rem, 2vw, 0.95rem)', lineHeight: 1.7, fontWeight: 300 }}>
                 Felicitated for the <strong style={{ color: S.text, fontWeight: 500 }}>Outstanding Content Creator</strong> category — acknowledging the role of consistent digital storytelling, reel scripting, and campaign execution in driving real audience engagement.
               </p>
               <div style={{ marginTop: '2.5rem', paddingTop: '2rem', borderTop: `1px solid ${S.border}` }}>
@@ -61,25 +61,25 @@ export default function Recognition() {
       </section>
 
       {/* ── HOD FELICITATION ── */}
-      <section id="recognition" className="px-6 py-24 md:px-12 md:py-32" style={{ borderTop: `1px solid ${S.border}`, background: S.surface }}>
+      <section id="recognition" className="px-6 py-16 md:px-12 md:py-28" style={{ borderTop: `1px solid ${S.border}`, background: S.surface }}>
         <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
-          <div className="rec-reveal" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem', alignItems: 'center' }}>
-            <div>
-              <p style={{ fontSize: '0.68rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: S.gold, marginBottom: '1.5rem', fontWeight: 600 }}>Felicitation</p>
-              <h2 style={{ fontFamily: S.serif, fontSize: 'clamp(1.8rem, 3.5vw, 2.6rem)', color: S.text, lineHeight: 1.15, marginBottom: '2rem', fontWeight: 400 }}>
+          <div className="rec-reveal grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+            <div className="order-1">
+              <p style={{ fontSize: '0.65rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: S.gold, marginBottom: '1.25rem', fontWeight: 600 }}>Felicitation</p>
+              <h2 style={{ fontFamily: S.serif, fontSize: 'clamp(1.6rem, 4vw, 2.6rem)', color: S.text, lineHeight: 1.15, marginBottom: '1.5rem', fontWeight: 400 }}>
                 Recognised by Department Leadership.
               </h2>
-              <p style={{ color: S.muted, fontSize: '0.95rem', lineHeight: 1.8, marginBottom: '1.5rem', fontWeight: 300 }}>
+              <p style={{ color: S.muted, fontSize: 'clamp(0.9rem, 2vw, 0.95rem)', lineHeight: 1.7, marginBottom: '1.25rem', fontWeight: 300 }}>
                 Felicitated during the Farewell Ceremony by the Head of Department for sustained contribution, leadership involvement, and consistent participation across institutional initiatives.
               </p>
-              <p style={{ color: S.muted, fontSize: '0.95rem', lineHeight: 1.8, fontWeight: 300 }}>
+              <p style={{ color: S.muted, fontSize: 'clamp(0.9rem, 2vw, 0.95rem)', lineHeight: 1.7, fontWeight: 300 }}>
                 This recognition reflected long-term commitment toward communication, branding, coordination, and campus engagement — across four years of academic and extracurricular presence.
               </p>
-              <div style={{ marginTop: '2.5rem', paddingTop: '2rem', borderTop: `1px solid ${S.border}` }}>
-                <span style={{ fontSize: '0.65rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: S.muted }}>HOD Felicitation · Farewell Ceremony · Department of Information Technology</span>
+              <div style={{ marginTop: '2rem', paddingTop: '1.5rem', borderTop: `1px solid ${S.border}` }}>
+                <span style={{ fontSize: '0.6rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: S.muted }}>HOD Felicitation · Farewell Ceremony · Department of Information Technology</span>
               </div>
             </div>
-            <div style={{ position: 'relative', borderRadius: '1.5rem', overflow: 'hidden', height: '460px', border: `1px solid ${S.border}` }}>
+            <div className="order-2 w-full h-[320px] md:h-[460px] relative rounded-[1.5rem] overflow-hidden" style={{ border: `1px solid ${S.border}` }}>
               <img src="/assets/images/achievements/Felicitation By HOD.jpg"
                 alt="HOD felicitation on farewell day for leadership and institutional contribution"
                 style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />

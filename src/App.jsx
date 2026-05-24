@@ -52,11 +52,11 @@ export default function App() {
     <div style={{ background: S.bg, color: S.text, fontFamily: S.sans, overflowX: 'hidden' }}>
 
       {/* NAV */}
-      <nav id="navbar" style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 100, padding: '1.25rem 3rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', transition: 'all 0.4s ease' }}>
+      <nav id="navbar" className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 md:px-12 md:py-5 transition-all duration-300">
         <a href="#" style={{ fontFamily: S.serif, fontSize: '1.3rem', color: S.gold, textDecoration: 'none', letterSpacing: '0.04em' }}>DHP.</a>
-        <div style={{ display: 'flex', gap: '2.5rem' }}>
+        <div className="flex gap-5 md:gap-10 overflow-x-auto snap-x" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
           {['Identity', 'Influence', 'Execution', 'Gallery', 'Contact'].map(label => (
-            <a key={label} href={`#${label.toLowerCase()}`} style={{ color: S.muted, textDecoration: 'none', fontSize: '0.72rem', letterSpacing: '0.14em', textTransform: 'uppercase', transition: 'color 0.2s' }}
+            <a key={label} href={`#${label.toLowerCase()}`} className="shrink-0" style={{ color: S.muted, textDecoration: 'none', fontSize: '0.72rem', letterSpacing: '0.14em', textTransform: 'uppercase', transition: 'color 0.2s' }}
               onMouseEnter={e => e.target.style.color = S.text}
               onMouseLeave={e => e.target.style.color = S.muted}>
               {label}
@@ -66,45 +66,41 @@ export default function App() {
       </nav>
 
       {/* ── 1. HERO ── */}
-      <section className="min-h-screen flex items-center px-6 py-24 md:px-12 md:py-32">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center w-full max-w-[1200px] mx-auto">
+      <section className="min-h-[100svh] flex items-center px-6 py-20 md:px-12 md:py-32">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center w-full max-w-[1200px] mx-auto mt-12 md:mt-0">
           {/* Text Content */}
           <div className="reveal" style={{ maxWidth: '600px' }}>
-            <p style={{ fontSize: '0.7rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: S.gold, marginBottom: '2rem', fontWeight: 600 }}>
+            <p style={{ fontSize: '0.7rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: S.gold, marginBottom: '1.5rem', fontWeight: 600 }}>
               MBA @ SCIT Pune · Digital Builder · Content Strategist
             </p>
-            <h1 style={{ fontFamily: S.serif, fontSize: 'clamp(2.6rem, 4.5vw, 3.8rem)', lineHeight: 1.08, color: S.text, marginBottom: '2rem', fontWeight: 400 }}>
+            <h1 style={{ fontFamily: S.serif, fontSize: 'clamp(2rem, 7vw, 3.8rem)', lineHeight: 1.05, color: S.text, marginBottom: '1.5rem', fontWeight: 400 }}>
               Building Digital Presence, Strategic Influence, and{' '}
               <span style={{ fontStyle: 'italic', color: S.gold }}>Meaningful Impact.</span>
             </h1>
-            <p style={{ color: S.muted, fontSize: '1.05rem', lineHeight: 1.7, marginBottom: '3rem', fontWeight: 300, maxWidth: '32rem' }}>
+            <p style={{ color: S.muted, fontSize: 'clamp(0.95rem, 2vw, 1.05rem)', lineHeight: 1.6, marginBottom: '2.5rem', fontWeight: 300, maxWidth: '32rem' }}>
               Leadership-driven digital builder focused on communication, audience engagement, and strategic storytelling.
             </p>
 
             {/* Metrics */}
-            <div style={{ display: 'flex', gap: '2rem', marginBottom: '3rem' }}>
+            <div className="flex flex-wrap gap-6 md:gap-8 mb-8 md:mb-12">
               {[
                 { value: '3.6M+', label: 'Organic Views' },
                 { value: '★', label: 'Outstanding Creator' },
                 { value: '4×', label: 'Social Media Lead' },
               ].map(m => (
-                <div key={m.label} style={{ borderTop: `1px solid ${S.border}`, paddingTop: '1rem' }}>
-                  <div style={{ fontFamily: S.serif, fontSize: '1.8rem', color: S.gold, lineHeight: 1, marginBottom: '0.35rem' }}>{m.value}</div>
-                  <div style={{ fontSize: '0.65rem', textTransform: 'uppercase', letterSpacing: '0.12em', color: S.muted }}>{m.label}</div>
+                <div key={m.label} style={{ borderTop: `1px solid ${S.border}`, paddingTop: '1rem', flex: '1 1 auto' }}>
+                  <div style={{ fontFamily: S.serif, fontSize: 'clamp(1.5rem, 4vw, 1.8rem)', color: S.gold, lineHeight: 1, marginBottom: '0.35rem' }}>{m.value}</div>
+                  <div style={{ fontSize: '0.6rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: S.muted }}>{m.label}</div>
                 </div>
               ))}
             </div>
 
             {/* CTAs */}
-            <div style={{ display: 'flex', gap: '1rem' }}>
-              <a href="#gallery" style={{ padding: '0.8rem 2rem', background: S.gold, color: '#060606', borderRadius: '3rem', fontSize: '0.82rem', fontWeight: 600, textDecoration: 'none', letterSpacing: '0.06em', transition: 'opacity 0.2s' }}
-                onMouseEnter={e => e.target.style.opacity = '0.85'}
-                onMouseLeave={e => e.target.style.opacity = '1'}>
+            <div className="flex flex-wrap gap-4">
+              <a href="#gallery" className="px-6 py-3 md:px-8 md:py-3.5 bg-[#c9a84c] text-[#060606] rounded-full text-[0.8rem] md:text-[0.82rem] font-semibold tracking-wide transition-opacity hover:opacity-85">
                 Explore Journey
               </a>
-              <a href="#contact" style={{ padding: '0.8rem 2rem', border: `1px solid ${S.border}`, color: S.text, borderRadius: '3rem', fontSize: '0.82rem', fontWeight: 500, textDecoration: 'none', letterSpacing: '0.06em', transition: 'border-color 0.2s' }}
-                onMouseEnter={e => e.target.style.borderColor = S.gold}
-                onMouseLeave={e => e.target.style.borderColor = S.border}>
+              <a href="#contact" className="px-6 py-3 md:px-8 md:py-3.5 border border-[rgba(255,255,255,0.06)] text-[#edebe6] rounded-full text-[0.8rem] md:text-[0.82rem] font-medium tracking-wide transition-colors hover:border-[#c9a84c]">
                 Connect
               </a>
             </div>
@@ -126,19 +122,19 @@ export default function App() {
       </section>
 
       {/* ── 2. IDENTITY ── */}
-      <section id="identity" className="px-6 py-24 md:px-12 md:py-32" style={{ borderTop: `1px solid ${S.border}`, background: S.surface }}>
-        <div className="grid grid-cols-1 md:grid-cols-[1fr_1.4fr] gap-12 lg:gap-24 items-center max-w-[1100px] mx-auto">
+      <section id="identity" className="px-6 py-16 md:px-12 md:py-28" style={{ borderTop: `1px solid ${S.border}`, background: S.surface }}>
+        <div className="grid grid-cols-1 md:grid-cols-[1fr_1.4fr] gap-8 lg:gap-20 items-center max-w-[1100px] mx-auto">
           <div className="reveal">
-            <p style={{ fontSize: '0.7rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: S.gold, marginBottom: '1.5rem', fontWeight: 600 }}>Strategic Positioning</p>
-            <h2 style={{ fontFamily: S.serif, fontSize: 'clamp(2rem, 3.5vw, 2.8rem)', color: S.text, lineHeight: 1.15, marginBottom: '2rem', fontWeight: 400 }}>
+            <p style={{ fontSize: '0.65rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: S.gold, marginBottom: '1.25rem', fontWeight: 600 }}>Strategic Positioning</p>
+            <h2 style={{ fontFamily: S.serif, fontSize: 'clamp(1.75rem, 5vw, 2.8rem)', color: S.text, lineHeight: 1.15, marginBottom: '1.5rem', fontWeight: 400 }}>
               A business-minded creator who builds systems, not just content.
             </h2>
           </div>
           <div className="reveal" style={{ transitionDelay: '0.1s' }}>
-            <p style={{ color: S.muted, fontSize: '1.05rem', lineHeight: 1.8, marginBottom: '1.5rem', fontWeight: 300 }}>
+            <p style={{ color: S.muted, fontSize: 'clamp(0.9rem, 2vw, 1.05rem)', lineHeight: 1.7, marginBottom: '1.25rem', fontWeight: 300 }}>
               I am a strategic digital builder operating at the intersection of communication, leadership, and execution. My work spans digital branding, event promotion, audience engagement, and content strategy — coordinated across real institutional environments.
             </p>
-            <p style={{ color: S.muted, fontSize: '1.05rem', lineHeight: 1.8, fontWeight: 300 }}>
+            <p style={{ color: S.muted, fontSize: 'clamp(0.9rem, 2vw, 1.05rem)', lineHeight: 1.7, fontWeight: 300 }}>
               Currently pursuing my MBA at Symbiosis Centre for Information Technology (SCIT), Pune — a platform I treat as an opportunity ecosystem for strategic growth, leadership exposure, and industry-level business thinking.
             </p>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem', marginTop: '2rem' }}>
@@ -153,29 +149,29 @@ export default function App() {
       </section>
 
       {/* ── 3. INFLUENCE ── */}
-      <section id="influence" className="px-6 py-24 md:px-12 md:py-32" style={{ borderTop: `1px solid ${S.border}` }}>
+      <section id="influence" className="px-6 py-16 md:px-12 md:py-28" style={{ borderTop: `1px solid ${S.border}` }}>
         <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
-          <div className="reveal" style={{ textAlign: 'center', maxWidth: '600px', margin: '0 auto 5rem' }}>
-            <p style={{ fontSize: '0.7rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: S.gold, marginBottom: '1.5rem', fontWeight: 600 }}>Digital Branding & Event Strategy</p>
-            <h2 style={{ fontFamily: S.serif, fontSize: 'clamp(2rem, 4vw, 3rem)', color: S.text, lineHeight: 1.1, marginBottom: '1.5rem', fontWeight: 400 }}>Strategic Digital Influence.</h2>
-            <p style={{ color: S.muted, fontSize: '1rem', lineHeight: 1.75, fontWeight: 300 }}>
+          <div className="reveal" style={{ textAlign: 'center', maxWidth: '600px', margin: '0 auto 4rem' }}>
+            <p style={{ fontSize: '0.65rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: S.gold, marginBottom: '1.25rem', fontWeight: 600 }}>Digital Branding & Event Strategy</p>
+            <h2 style={{ fontFamily: S.serif, fontSize: 'clamp(1.75rem, 5vw, 3rem)', color: S.text, lineHeight: 1.1, marginBottom: '1.25rem', fontWeight: 400 }}>Strategic Digital Influence.</h2>
+            <p style={{ color: S.muted, fontSize: 'clamp(0.9rem, 2vw, 1rem)', lineHeight: 1.7, fontWeight: 300 }}>
               Led digital branding and social media initiatives focused on event visibility, audience engagement, and communication strategy.
             </p>
           </div>
 
           {/* 3-column impact blocks */}
-          <div className="reveal grid grid-cols-1 lg:grid-cols-3 gap-px mb-20 border border-[rgba(255,255,255,0.06)] rounded-2xl overflow-hidden bg-[rgba(255,255,255,0.06)]">
+          <div className="reveal grid grid-cols-1 lg:grid-cols-3 gap-px mb-12 md:mb-20 border border-[rgba(255,255,255,0.06)] rounded-2xl overflow-hidden bg-[rgba(255,255,255,0.06)]">
             {[
               { num: '01', title: 'Content Strategy', body: 'Created promotional content, reel scripts, and branding-focused campaigns for cultural and technical events — Techfest 2024, 2025 and Fusion 2025, 2026.' },
               { num: '02', title: 'Team Coordination', body: 'Worked across multiple teams to align communication, branding, and audience outreach toward a consistent digital identity for each event.' },
               { num: '03', title: 'Digital Engagement', body: 'Contributed to stronger participation and visibility through audience-focused storytelling, campaign execution, and organic reach scaling to 3.6M+ views.' },
             ].map(b => (
-              <div key={b.num} style={{ padding: '2.5rem 2rem', background: S.surface, borderRight: `1px solid ${S.border}`, transition: 'background 0.3s' }}
+              <div key={b.num} className="p-6 md:p-8 lg:p-10" style={{ background: S.surface, borderRight: `1px solid ${S.border}`, transition: 'background 0.3s' }}
                 onMouseEnter={e => e.currentTarget.style.background = '#141414'}
                 onMouseLeave={e => e.currentTarget.style.background = S.surface}>
-                <div style={{ fontFamily: S.serif, fontSize: '2.2rem', color: S.gold, opacity: 0.4, marginBottom: '1.25rem' }}>{b.num}</div>
-                <h3 style={{ fontSize: '1rem', fontWeight: 600, color: S.text, marginBottom: '1rem', letterSpacing: '0.01em' }}>{b.title}</h3>
-                <p style={{ color: S.muted, fontSize: '0.9rem', lineHeight: 1.75, fontWeight: 300 }}>{b.body}</p>
+                <div style={{ fontFamily: S.serif, fontSize: '2rem', color: S.gold, opacity: 0.4, marginBottom: '1rem' }}>{b.num}</div>
+                <h3 style={{ fontSize: '1rem', fontWeight: 600, color: S.text, marginBottom: '0.75rem', letterSpacing: '0.01em' }}>{b.title}</h3>
+                <p style={{ color: S.muted, fontSize: '0.9rem', lineHeight: 1.7, fontWeight: 300 }}>{b.body}</p>
               </div>
             ))}
           </div>
@@ -190,21 +186,21 @@ export default function App() {
       </section>
 
       {/* ── 4. OUTSTANDING CREATOR ── */}
-      <section className="px-6 py-24 md:px-12 md:py-32" style={{ borderTop: `1px solid ${S.border}`, background: S.surface }}>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-24 items-center max-w-[1100px] mx-auto">
-          <div className="reveal w-full relative rounded-3xl overflow-hidden h-[400px] md:h-[540px]" style={{ border: `1px solid ${S.border}` }}>
+      <section className="px-6 py-16 md:px-12 md:py-28" style={{ borderTop: `1px solid ${S.border}`, background: S.surface }}>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-20 items-center max-w-[1100px] mx-auto">
+          <div className="reveal w-full relative rounded-3xl overflow-hidden h-[360px] md:h-[500px]" style={{ border: `1px solid ${S.border}` }}>
             <img src="/assets/images/achievements/Special Achievers award- Most outstanding Content creator award.jpg" alt="Outstanding Content Creator award from KBT College of Engineering" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
             <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(6,6,6,0.8) 0%, transparent 50%)' }} />
           </div>
           <div className="reveal" style={{ transitionDelay: '0.1s' }}>
-            <p style={{ fontSize: '0.7rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: S.gold, marginBottom: '1.5rem', fontWeight: 600 }}>Recognition</p>
-            <h2 style={{ fontFamily: S.serif, fontSize: 'clamp(2rem, 3.5vw, 2.8rem)', color: S.text, lineHeight: 1.15, marginBottom: '2rem', fontWeight: 400 }}>
+            <p style={{ fontSize: '0.65rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: S.gold, marginBottom: '1.25rem', fontWeight: 600 }}>Recognition</p>
+            <h2 style={{ fontFamily: S.serif, fontSize: 'clamp(1.75rem, 5vw, 2.8rem)', color: S.text, lineHeight: 1.15, marginBottom: '1.5rem', fontWeight: 400 }}>
               Outstanding Content Creator.
             </h2>
-            <p style={{ color: S.muted, fontSize: '1.05rem', lineHeight: 1.8, marginBottom: '1.5rem', fontWeight: 300 }}>
+            <p style={{ color: S.muted, fontSize: 'clamp(0.9rem, 2vw, 1.05rem)', lineHeight: 1.7, marginBottom: '1.25rem', fontWeight: 300 }}>
               Recognized for consistency, execution, and measurable digital branding contribution. This recognition came through reel scripting, strategic audience engagement, and event promotion campaigns that generated real visibility.
             </p>
-            <p style={{ color: S.muted, fontSize: '1.05rem', lineHeight: 1.8, fontWeight: 300 }}>
+            <p style={{ color: S.muted, fontSize: 'clamp(0.9rem, 2vw, 1.05rem)', lineHeight: 1.7, fontWeight: 300 }}>
               The creator identity — expressed through <strong style={{ color: S.text, fontWeight: 500 }}>_thedurvesh</strong> and <strong style={{ color: S.text, fontWeight: 500 }}>cinesyncbydurvesh</strong> — is cinematic, strategic, and branding-oriented. Not entertainment. Communication.
             </p>
           </div>
@@ -227,16 +223,16 @@ export default function App() {
       </section>
 
       {/* ── 5. EXECUTION ── */}
-      <section id="execution" className="px-6 py-24 md:px-12 md:py-32" style={{ borderTop: `1px solid ${S.border}`, background: S.surface }}>
+      <section id="execution" className="px-6 py-16 md:px-12 md:py-28" style={{ borderTop: `1px solid ${S.border}`, background: S.surface }}>
         <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
-          <div className="reveal" style={{ marginBottom: '4rem' }}>
-            <p style={{ fontSize: '0.7rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: S.gold, marginBottom: '1.25rem', fontWeight: 600 }}>Execution</p>
-            <h2 style={{ fontFamily: S.serif, fontSize: 'clamp(2rem, 4vw, 3rem)', color: S.text, lineHeight: 1.1, fontWeight: 400 }}>
+          <div className="reveal" style={{ marginBottom: '3rem' }}>
+            <p style={{ fontSize: '0.65rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: S.gold, marginBottom: '1rem', fontWeight: 600 }}>Execution</p>
+            <h2 style={{ fontFamily: S.serif, fontSize: 'clamp(1.75rem, 5vw, 3rem)', color: S.text, lineHeight: 1.1, fontWeight: 400 }}>
               Real-world systems. Measurable outcomes.
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
             {[
               {
                 tag: 'AI Engineering', title: 'Algorithmic Strategy Builder',
@@ -251,13 +247,10 @@ export default function App() {
                 body: 'Designed and implemented a scalable WebRTC-based communication platform with real-time video and messaging infrastructure. Engineered for performance under concurrent user load.',
               },
             ].map(p => (
-              <div key={p.title} className="reveal"
-                style={{ padding: '2.5rem', background: '#0a0a0a', border: `1px solid ${S.border}`, borderRadius: '1.5rem', transition: 'border-color 0.3s' }}
-                onMouseEnter={e => e.currentTarget.style.borderColor = `${S.gold}44`}
-                onMouseLeave={e => e.currentTarget.style.borderColor = S.border}>
-                <span style={{ fontSize: '0.6rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: S.gold, fontWeight: 700, marginBottom: '1rem', display: 'block' }}>{p.tag}</span>
-                <h3 style={{ fontSize: '1.1rem', fontWeight: 600, color: S.text, marginBottom: '0.9rem' }}>{p.title}</h3>
-                <p style={{ color: S.muted, fontSize: '0.9rem', lineHeight: 1.75, fontWeight: 300 }}>{p.body}</p>
+              <div key={p.title} className="reveal p-6 md:p-8 lg:p-10 bg-[#0a0a0a] rounded-2xl md:rounded-[1.5rem] transition-colors border border-[rgba(255,255,255,0.06)] hover:border-[#c9a84c] hover:border-opacity-40">
+                <span style={{ fontSize: '0.55rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: S.gold, fontWeight: 700, marginBottom: '0.75rem', display: 'block' }}>{p.tag}</span>
+                <h3 style={{ fontSize: '1.05rem', fontWeight: 600, color: S.text, marginBottom: '0.75rem' }}>{p.title}</h3>
+                <p style={{ color: S.muted, fontSize: '0.85rem', lineHeight: 1.7, fontWeight: 300 }}>{p.body}</p>
               </div>
             ))}
           </div>
@@ -269,16 +262,16 @@ export default function App() {
       <Gallery />
 
       {/* ── CONNECT ── */}
-      <section id="contact" className="px-6 py-24 md:px-12 md:py-32 text-center" style={{ borderTop: `1px solid ${S.border}` }}>
+      <section id="contact" className="px-6 py-16 md:px-12 md:py-28 text-center" style={{ borderTop: `1px solid ${S.border}` }}>
         <div className="reveal" style={{ maxWidth: '640px', margin: '0 auto' }}>
-          <p style={{ fontSize: '0.7rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: S.gold, marginBottom: '2rem', fontWeight: 600 }}>Connect</p>
-          <h2 style={{ fontFamily: S.serif, fontSize: 'clamp(2.5rem, 5vw, 4rem)', color: S.text, lineHeight: 1.05, marginBottom: '1.5rem', fontWeight: 400 }}>
+          <p style={{ fontSize: '0.65rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: S.gold, marginBottom: '1.5rem', fontWeight: 600 }}>Connect</p>
+          <h2 style={{ fontFamily: S.serif, fontSize: 'clamp(2rem, 6vw, 4rem)', color: S.text, lineHeight: 1.05, marginBottom: '1.25rem', fontWeight: 400 }}>
             Let's build something with intent.
           </h2>
-          <p style={{ color: S.muted, fontSize: '1.05rem', lineHeight: 1.75, marginBottom: '3.5rem', fontWeight: 300 }}>
+          <p style={{ color: S.muted, fontSize: 'clamp(0.9rem, 2vw, 1.05rem)', lineHeight: 1.7, marginBottom: '3rem', fontWeight: 300 }}>
             Open to strategic collaborations, leadership roles, and meaningful conversations.
           </p>
-          <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '2.5rem' }}>
+          <div className="flex justify-center flex-wrap gap-6 md:gap-10">
             {[
               { label: 'Email', href: 'mailto:durveshpatilit@gmail.com' },
               { label: 'LinkedIn', href: 'https://www.linkedin.com/in/durvesh-patil-628069214/' },
@@ -286,7 +279,7 @@ export default function App() {
               { label: 'Instagram (Cinema)', href: 'https://www.instagram.com/cinesyncbydurvesh/' },
             ].map(link => (
               <a key={link.label} href={link.href} target="_blank" rel="noreferrer"
-                style={{ color: S.muted, textDecoration: 'none', fontSize: '0.9rem', letterSpacing: '0.1em', textTransform: 'uppercase', borderBottom: `1px solid transparent`, paddingBottom: '2px', transition: 'all 0.2s' }}
+                style={{ color: S.muted, textDecoration: 'none', fontSize: '0.85rem', letterSpacing: '0.1em', textTransform: 'uppercase', borderBottom: `1px solid transparent`, paddingBottom: '2px', transition: 'all 0.2s' }}
                 onMouseEnter={e => { e.target.style.color = S.gold; e.target.style.borderBottomColor = S.gold; }}
                 onMouseLeave={e => { e.target.style.color = S.muted; e.target.style.borderBottomColor = 'transparent'; }}>
                 {link.label}
@@ -296,10 +289,13 @@ export default function App() {
         </div>
       </section>
 
-      <footer style={{ padding: '2rem 3rem', borderTop: `1px solid ${S.border}`, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <span style={{ fontFamily: S.serif, fontSize: '1rem', color: S.gold }}>DHP.</span>
-        <span style={{ fontSize: '0.7rem', color: S.muted, letterSpacing: '0.1em' }}>© 2026 Durvesh H. Patil</span>
-        <span style={{ fontSize: '0.7rem', color: S.muted, letterSpacing: '0.08em' }}>MBA @ SCIT Pune</span>
+      <footer className="flex flex-col md:flex-row justify-center md:justify-between items-center gap-4 px-6 py-8 md:px-12 md:py-10" style={{ borderTop: `1px solid ${S.border}` }}>
+        <span style={{ fontFamily: S.serif, fontSize: '1.2rem', color: S.gold }}>DHP.</span>
+        <div className="flex gap-4 md:gap-8 items-center text-center">
+          <span style={{ fontSize: '0.65rem', color: S.muted, letterSpacing: '0.1em' }}>© 2026 Durvesh H. Patil</span>
+          <span className="hidden md:inline" style={{ color: S.border }}>|</span>
+          <span style={{ fontSize: '0.65rem', color: S.muted, letterSpacing: '0.08em' }}>MBA @ SCIT Pune</span>
+        </div>
       </footer>
     </div>
   );

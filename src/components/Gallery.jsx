@@ -62,7 +62,7 @@ function ImageCard({ item, onClick }) {
 
   return (
     <div
-      className={`gcard col-span-1 ${isLarge ? 'md:col-span-2' : ''}`}
+      className={`gcard col-span-1 ${isLarge ? 'md:col-span-2' : ''} h-[280px] md:h-[400px]`}
       onClick={() => onClick(item)}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
@@ -74,7 +74,6 @@ function ImageCard({ item, onClick }) {
         border: `1px solid ${hovered ? 'rgba(201,168,76,0.4)' : S.border}`,
         background: S.bg,
         transition: 'border-color 0.3s ease',
-        height: '400px', // Taller height allows Portrait photos in span 1 to fit perfectly without cropping!
       }}
     >
       <img
@@ -134,22 +133,22 @@ export default function Gallery() {
   }, []);
 
   return (
-    <section id="gallery" className="px-6 py-24 md:px-12 md:py-32" style={{ borderTop: `1px solid ${S.border}`, background: S.surface }}>
+    <section id="gallery" className="px-6 py-16 md:px-12 md:py-28" style={{ borderTop: `1px solid ${S.border}`, background: S.surface }}>
       <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
 
-        <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', marginBottom: '3.5rem', flexWrap: 'wrap', gap: '1rem' }}>
+        <div className="flex flex-col md:flex-row md:align-items-end justify-between mb-8 md:mb-12 gap-4">
           <div>
-            <p style={{ fontSize: '0.68rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: S.gold, marginBottom: '0.9rem', fontWeight: 600 }}>Visual Archive</p>
-            <h2 style={{ fontFamily: S.serif, fontSize: 'clamp(2rem, 4vw, 3rem)', color: S.text, lineHeight: 1.1, fontWeight: 400 }}>
+            <p style={{ fontSize: '0.65rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: S.gold, marginBottom: '0.9rem', fontWeight: 600 }}>Visual Archive</p>
+            <h2 style={{ fontFamily: S.serif, fontSize: 'clamp(1.75rem, 5vw, 3rem)', color: S.text, lineHeight: 1.1, fontWeight: 400 }}>
               Documented Journey.
             </h2>
           </div>
-          <p style={{ color: S.muted, fontSize: '0.88rem', maxWidth: '280px', lineHeight: 1.65, fontWeight: 300, textAlign: 'right' }}>
+          <p style={{ color: S.muted, fontSize: 'clamp(0.85rem, 2vw, 0.9rem)', maxWidth: '280px', lineHeight: 1.6, fontWeight: 300, textAlign: 'left md:text-right' }}>
             A curated visual record of leadership, execution, and professional growth.
           </p>
         </div>
 
-        <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '3rem', flexWrap: 'wrap' }}>
+        <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '2rem', flexWrap: 'wrap' }}>
           {CATEGORIES.map(cat => (
             <button key={cat.id} onClick={() => setActiveId(cat.id)}
               style={{
