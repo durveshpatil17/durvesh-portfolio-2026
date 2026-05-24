@@ -114,18 +114,19 @@ export default function Research() {
             </div>
           </div>
 
-          {/* Right Column (Image Placeholder) */}
-          <div style={{ 
-            width: '100%', minHeight: '200px', flexShrink: 0,
-            border: '1px dashed #d4d4d8', borderRadius: '8px',
-            display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '0.75rem',
-            padding: '1rem', textAlign: 'center', background: '#fafafa'
-          }} className="md:w-[180px]">
-            <Award size={24} color="#a1a1aa" />
-            <span style={{ fontSize: '11px', color: '#71717a', fontWeight: 500, lineHeight: 1.4 }}>
-              Certificate of Publication<br />IJSMT Vol 03 Issue 04
-            </span>
-          </div>
+          {/* Right Column (Certificate Image) */}
+          <a href="/assets/images/certificates/Internation Journal of science paper publication certificate.jpeg" target="_blank" rel="noreferrer"
+            style={{ 
+              width: '100%', flexShrink: 0,
+              borderRadius: '8px', overflow: 'hidden', border: '1px solid #e5e5e5',
+              display: 'block', position: 'relative', cursor: 'zoom-in',
+              transition: 'transform 0.3s ease, box-shadow 0.3s ease'
+            }} 
+            className="md:w-[240px] hover:-translate-y-1 hover:shadow-lg">
+            <img src="/assets/images/certificates/Internation Journal of science paper publication certificate.jpeg"
+              alt="Certificate of Publication"
+              style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+          </a>
         </div>
       </div>
 
@@ -187,18 +188,19 @@ export default function Research() {
             </p>
           </div>
 
-          {/* Right Column (Image Placeholder) */}
-          <div style={{ 
-            width: '100%', minHeight: '200px', flexShrink: 0,
-            border: '1px dashed #d4d4d8', borderRadius: '8px',
-            display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '0.75rem',
-            padding: '1rem', textAlign: 'center', background: '#fafafa'
-          }} className="md:w-[180px]">
-            <Award size={24} color="#a1a1aa" />
-            <span style={{ fontSize: '11px', color: '#71717a', fontWeight: 500, lineHeight: 1.4 }}>
-              Certificate of Presentation<br />ASN Publication<br />Feb 2026
-            </span>
-          </div>
+          {/* Right Column (Certificate Image) */}
+          <a href="/assets/images/certificates/second-research-certificate.jpg" target="_blank" rel="noreferrer"
+            style={{ 
+              width: '100%', flexShrink: 0,
+              borderRadius: '8px', overflow: 'hidden', border: '1px solid #e5e5e5',
+              display: 'block', position: 'relative', cursor: 'zoom-in',
+              transition: 'transform 0.3s ease, box-shadow 0.3s ease'
+            }} 
+            className="md:w-[240px] hover:-translate-y-1 hover:shadow-lg">
+            <img src="/assets/images/certificates/second-research-certificate.jpg"
+              alt="Certificate of Presentation"
+              style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+          </a>
         </div>
       </div>
 
