@@ -25,14 +25,15 @@ export default function Recognition() {
   return (
     <div ref={ref}>
       {/* ── SPECIAL ACHIEVERS AWARD ── */}
-      <section style={{ padding: '7rem 3rem', borderTop: `1px solid ${S.border}` }}>
+      <section className="px-6 py-24 md:px-12 md:py-32" style={{ borderTop: `1px solid ${S.border}` }}>
         <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
           <div className="rec-reveal" style={{ marginBottom: '4rem' }}>
             <p style={{ fontSize: '0.68rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: S.gold, marginBottom: '1rem', fontWeight: 600 }}>Recognition</p>
             <h2 style={{ fontFamily: S.serif, fontSize: 'clamp(2rem, 4vw, 3rem)', color: S.text, lineHeight: 1.1, fontWeight: 400 }}>Special Achievers Award.</h2>
           </div>
-          <div className="rec-reveal" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem', alignItems: 'center' }}>
-            <div style={{ position: 'relative', borderRadius: '1.5rem', overflow: 'hidden', height: '520px', border: `1px solid ${S.border}` }}>
+          {/* --- Block 2: National Recognition --- */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            <div className="order-2 lg:order-1 rec-reveal relative rounded-[1.5rem] overflow-hidden w-full h-[400px] md:h-[500px]" style={{ border: `1px solid ${S.border}` }}>
               <img src="/assets/images/achievements/Special Achievers award- Most outstanding Content creator award.jpg"
                 alt="Special Achievers Award — Outstanding Content Creator felicitation at KBT College"
                 style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
@@ -41,7 +42,7 @@ export default function Recognition() {
                 <span style={{ fontSize: '0.6rem', letterSpacing: '0.18em', textTransform: 'uppercase', color: S.gold, fontWeight: 700 }}>Special Achievers Award</span>
               </div>
             </div>
-            <div>
+            <div className="order-1 lg:order-2">
               <p style={{ fontFamily: S.serif, fontSize: '1.45rem', color: S.text, lineHeight: 1.55, marginBottom: '2rem', fontStyle: 'italic', fontWeight: 400 }}>
                 "Recognised for consistent contribution across leadership, digital branding, communication, and institutional activities."
               </p>
@@ -60,7 +61,7 @@ export default function Recognition() {
       </section>
 
       {/* ── HOD FELICITATION ── */}
-      <section style={{ padding: '7rem 3rem', borderTop: `1px solid ${S.border}`, background: S.surface }}>
+      <section id="recognition" className="px-6 py-24 md:px-12 md:py-32" style={{ borderTop: `1px solid ${S.border}`, background: S.surface }}>
         <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
           <div className="rec-reveal" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem', alignItems: 'center' }}>
             <div>

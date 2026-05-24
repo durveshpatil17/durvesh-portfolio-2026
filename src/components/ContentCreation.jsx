@@ -52,7 +52,7 @@ export default function ContentCreation() {
   }, []);
 
   return (
-    <section ref={ref} id="creator" style={{ padding: '7rem 3rem', borderTop: `1px solid ${S.border}` }}>
+    <section ref={ref} id="creator" className="px-6 py-24 md:px-12 md:py-32" style={{ borderTop: `1px solid ${S.border}` }}>
       <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
 
         {/* Label */}

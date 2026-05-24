@@ -134,7 +134,7 @@ export default function Gallery() {
   }, []);
 
   return (
-    <section id="gallery" style={{ padding: '7rem 3rem', borderTop: `1px solid ${S.border}`, background: S.surface }}>
+    <section id="gallery" className="px-6 py-24 md:px-12 md:py-32" style={{ borderTop: `1px solid ${S.border}`, background: S.surface }}>
       <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
 
         <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', marginBottom: '3.5rem', flexWrap: 'wrap', gap: '1rem' }}>

@@ -66,7 +66,7 @@ export default function App() {
       </nav>
 
       {/* ── 1. HERO ── */}
-      <section style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', padding: '6rem 3rem' }}>
+      <section className="min-h-screen flex items-center px-6 py-24 md:px-12 md:py-32">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center w-full max-w-[1200px] mx-auto">
           {/* Text Content */}
           <div className="reveal" style={{ maxWidth: '600px' }}>
@@ -117,7 +117,8 @@ export default function App() {
               <img
                 src="/assets/images/personal/Personal Photo 1.webp"
                 alt="Durvesh H. Patil — Strategic Digital Builder and MBA Professional at SCIT Pune"
-                style={{ width: '100%', height: '520px', objectFit: 'cover', objectPosition: 'center 15%', borderRadius: '2rem', display: 'block', position: 'relative', zIndex: 1, border: `1px solid ${S.border}` }}
+                className="w-full h-[400px] md:h-[520px] object-cover object-[center_15%] rounded-[2rem] block relative z-10"
+                style={{ border: `1px solid ${S.border}` }}
               />
             </div>
           </div>
@@ -125,7 +126,7 @@ export default function App() {
       </section>
 
       {/* ── 2. IDENTITY ── */}
-      <section id="identity" style={{ padding: '7rem 3rem', borderTop: `1px solid ${S.border}`, background: S.surface }}>
+      <section id="identity" className="px-6 py-24 md:px-12 md:py-32" style={{ borderTop: `1px solid ${S.border}`, background: S.surface }}>
         <div className="grid grid-cols-1 md:grid-cols-[1fr_1.4fr] gap-12 lg:gap-24 items-center max-w-[1100px] mx-auto">
           <div className="reveal">
             <p style={{ fontSize: '0.7rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: S.gold, marginBottom: '1.5rem', fontWeight: 600 }}>Strategic Positioning</p>
@@ -152,7 +153,7 @@ export default function App() {
       </section>
 
       {/* ── 3. INFLUENCE ── */}
-      <section id="influence" style={{ padding: '7rem 3rem', borderTop: `1px solid ${S.border}` }}>
+      <section id="influence" className="px-6 py-24 md:px-12 md:py-32" style={{ borderTop: `1px solid ${S.border}` }}>
         <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
           <div className="reveal" style={{ textAlign: 'center', maxWidth: '600px', margin: '0 auto 5rem' }}>
             <p style={{ fontSize: '0.7rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: S.gold, marginBottom: '1.5rem', fontWeight: 600 }}>Digital Branding & Event Strategy</p>
@@ -181,17 +182,17 @@ export default function App() {
 
           {/* Event photo strip */}
           <div className="reveal grid grid-cols-1 md:grid-cols-3 gap-4">
-            <img src="/assets/images/achievements/Social Media Head Techfest 2k24.jpg" alt="Leading digital operations for Techfest 2024" style={{ width: '100%', height: '320px', objectFit: 'cover', borderRadius: '1rem', border: `1px solid ${S.border}` }} />
-            <img src="/assets/images/achievements/Techfest 2k25 Candid 2.jpg" alt="Behind the scenes at Techfest 2025 event coordination" style={{ width: '100%', height: '320px', objectFit: 'cover', borderRadius: '1rem', border: `1px solid ${S.border}` }} />
-            <img src="/assets/images/achievements/Crossed 1 Million Views on Social Media event promotion reel of Fusion 2k25.jpg" alt="Fusion 2025 reel crossing 1 million organic views" style={{ width: '100%', height: '320px', objectFit: 'cover', borderRadius: '1rem', border: `1px solid ${S.border}` }} />
+            <img src="/assets/images/achievements/Social Media Head Techfest 2k24.jpg" alt="Leading digital operations for Techfest 2024" className="w-full h-[260px] md:h-[320px] object-cover rounded-2xl" style={{ border: `1px solid ${S.border}` }} />
+            <img src="/assets/images/achievements/Techfest 2k25 Candid 2.jpg" alt="Behind the scenes at Techfest 2025 event coordination" className="w-full h-[260px] md:h-[320px] object-cover rounded-2xl" style={{ border: `1px solid ${S.border}` }} />
+            <img src="/assets/images/achievements/Crossed 1 Million Views on Social Media event promotion reel of Fusion 2k25.jpg" alt="Fusion 2025 reel crossing 1 million organic views" className="w-full h-[260px] md:h-[320px] object-cover rounded-2xl" style={{ border: `1px solid ${S.border}` }} />
           </div>
         </div>
       </section>
 
       {/* ── 4. OUTSTANDING CREATOR ── */}
-      <section style={{ padding: '7rem 3rem', borderTop: `1px solid ${S.border}`, background: S.surface }}>
+      <section className="px-6 py-24 md:px-12 md:py-32" style={{ borderTop: `1px solid ${S.border}`, background: S.surface }}>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-24 items-center max-w-[1100px] mx-auto">
-          <div className="reveal" style={{ position: 'relative', borderRadius: '1.5rem', overflow: 'hidden', height: '540px', border: `1px solid ${S.border}`, width: '100%' }}>
+          <div className="reveal w-full relative rounded-3xl overflow-hidden h-[400px] md:h-[540px]" style={{ border: `1px solid ${S.border}` }}>
             <img src="/assets/images/achievements/Special Achievers award- Most outstanding Content creator award.jpg" alt="Outstanding Content Creator award from KBT College of Engineering" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
             <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(6,6,6,0.8) 0%, transparent 50%)' }} />
           </div>
@@ -225,8 +226,8 @@ export default function App() {
         </div>
       </section>
 
-      {/* ── 6. EXECUTION ── */}
-      <section id="execution" style={{ padding: '7rem 3rem', borderTop: `1px solid ${S.border}`, background: S.surface }}>
+      {/* ── 5. EXECUTION ── */}
+      <section id="execution" className="px-6 py-24 md:px-12 md:py-32" style={{ borderTop: `1px solid ${S.border}`, background: S.surface }}>
         <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
           <div className="reveal" style={{ marginBottom: '4rem' }}>
             <p style={{ fontSize: '0.7rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: S.gold, marginBottom: '1.25rem', fontWeight: 600 }}>Execution</p>
@@ -267,8 +268,8 @@ export default function App() {
 
       <Gallery />
 
-      {/* ── 7. CONTACT ── */}
-      <section id="contact" style={{ padding: '8rem 3rem', borderTop: `1px solid ${S.border}`, textAlign: 'center' }}>
+      {/* ── CONNECT ── */}
+      <section id="contact" className="px-6 py-24 md:px-12 md:py-32 text-center" style={{ borderTop: `1px solid ${S.border}` }}>
         <div className="reveal" style={{ maxWidth: '640px', margin: '0 auto' }}>
           <p style={{ fontSize: '0.7rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: S.gold, marginBottom: '2rem', fontWeight: 600 }}>Connect</p>
           <h2 style={{ fontFamily: S.serif, fontSize: 'clamp(2.5rem, 5vw, 4rem)', color: S.text, lineHeight: 1.05, marginBottom: '1.5rem', fontWeight: 400 }}>
