@@ -14,6 +14,7 @@ export default function LenisProvider({ children }) {
     const raf = (time) => { lenis.raf(time); requestAnimationFrame(raf); };
     requestAnimationFrame(raf);
     lenis.on('scroll', ScrollTrigger.update);
+    lenis.scrollTo(0, {immediate: true});
     gsap.ticker.add((time) => { lenis.raf(time * 1000); });
     gsap.ticker.lagSmoothing(0);
 
@@ -40,6 +41,10 @@ export default function LenisProvider({ children }) {
           y: 0, opacity: 1, duration: 1.1, ease: 'power3.out',
           scrollTrigger: { trigger: el, start: 'top 87%', toggleActions: 'play none none none' }
         });
+      });
+      gsap.from('.skill-pill', {
+        opacity: 0, y: 10, stagger: 0.04, duration: 0.5, ease: 'power2.out',
+        scrollTrigger: { trigger: '.skills-section', start: 'top 85%', toggleActions: 'play none none none' }
       });
     });
     mm.add("(max-width: 767px)", () => {

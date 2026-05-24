@@ -88,3 +88,8 @@ body::before {
     background-color: #c9a84c; transition: width 0.3s ease;
 }
 .animated-underline:hover::after { width: 100%; }
+
+@keyframes pulse-green {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(1.3); }
+}

@@ -3,27 +3,24 @@ export const caseStudies = [
     id: 1,
     tag: 'AI Engineering',
     title: 'Algorithmic Strategy Builder',
-    problem: 'Placeholder problem',
-    approach: 'Architected an NLP-to-strategy translation system for Indian financial markets. Coordinated technical execution, integration architecture, and deployment strategy.',
-    impact: 'Business impact over academic theory.',
-    metrics: []
+    problem: 'Indian markets lacked NLP-driven strategy tools for retail investors.',
+    approach: 'Architected an NLP-to-strategy translation pipeline with full integration and deployment coordination.',
+    impact: 'End-to-end system from ingestion to signal output — business impact over academic theory.',
   },
   {
     id: 2,
     tag: 'FinTech',
     title: 'FinTech Advisory Automation',
-    problem: 'Placeholder problem',
-    approach: 'Led client onboarding, KYC coordination, and SIP recommendation automation for an AMFI-registered MFD business.',
-    impact: '36+ clients, ₹13L+ AUM growth through execution and communication.',
-    metrics: []
+    problem: 'Manual KYC and onboarding created friction in AMFI-registered advisory operations.',
+    approach: 'Led client onboarding automation, SIP recommendation engine, and communication workflow design.',
+    impact: '36+ clients onboarded. ₹13L+ AUM growth through execution-first approach.',
   },
   {
     id: 3,
-    tag: 'Communication System',
+    tag: 'Engineering',
     title: 'Real-Time Communication Platform',
-    problem: 'Placeholder problem',
-    approach: 'Designed and implemented a scalable WebRTC-based communication platform with real-time video and messaging infrastructure.',
-    impact: 'Engineered for performance under concurrent user load.',
-    metrics: []
-  }
+    problem: 'Concurrent users required scalable, low-latency video and messaging infrastructure.',
+    approach: 'Designed and implemented WebRTC-based platform with real-time messaging architecture.',
+    impact: 'Production-grade performance under concurrent user load.',
+  },
 ];
