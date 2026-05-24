@@ -183,8 +183,8 @@ export default function HomePage() {
             {/* Metrics row */}
             <div style={{ display: 'flex', gap: 0, marginBottom: '3rem', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
               {[
-                { value: '4M+', label: 'Views' },
-                { value: '3×', label: '1M+ Reels' },
+                { value: '4M+', label: 'Total Views' },
+                { value: '104+', label: 'Followers' },
                 { value: '36+', label: 'Clients' },
                 { value: '2026', label: 'MBA Batch' },
               ].map((m, i) => (
@@ -308,9 +308,8 @@ export default function HomePage() {
 
           {/* Work rows — editorial list */}
           {[
-            { num: '01', tag: 'AI Engineering', title: 'Algorithmic Strategy Builder', impact: '36+ clients · NLP pipeline for Indian financial markets' },
-            { num: '02', tag: 'FinTech', title: 'FinTech Advisory Automation', impact: '₹13L+ AUM growth · 36+ clients onboarded' },
-            { num: '03', tag: 'Engineering', title: 'Real-Time Communication Platform', impact: 'Production WebRTC · concurrent user architecture' },
+            { num: '01', tag: 'AI Engineering', title: 'AI Strategy Generator Module', impact: 'Built backend APIs using Python, Redis, MySQL, and OpenAI for F&O markets' },
+            { num: '02', tag: 'FinTech', title: 'Family MFD Business Ops', impact: 'Onboarded 36+ clients (₹13L+ AUM), building AI SIP allocation mini-platform' },
           ].map((project) => (
             <WorkRow key={project.num} project={project} />
           ))}
@@ -328,10 +327,10 @@ export default function HomePage() {
             <div style={{ fontFamily: S.serif, fontSize: 'clamp(5rem,15vw,10rem)', color: S.gold, lineHeight: 0.85, fontWeight: 400, letterSpacing: '-0.03em', flexShrink: 0 }}>4M+</div>
             <div style={{ paddingBottom: '0.5rem', maxWidth: '480px' }}>
               <p style={{ fontFamily: S.serif, fontSize: 'clamp(1.4rem,2.5vw,2rem)', color: S.text, lineHeight: 1.2, marginBottom: '1rem', fontWeight: 400 }}>
-                Organic views across two creator brands.
+                Organic views from cinema. Growing tech & MBA brand.
               </p>
               <p style={{ color: S.muted, fontWeight: 300, fontSize: 'clamp(0.9rem,1.5vw,1.05rem)', lineHeight: 1.7 }}>
-                Two active Instagram brands — one for cinema, one for personal brand, tech, and MBA life. Every post is a deliberate act of audience engagement.
+                Two active Instagram brands — one for cinema (where a hobby turned into 4M+ views), and @_thedurvesh, my main account for personal brand, tech, and MBA life.
               </p>
             </div>
           </div>
