@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import gsap from 'gsap';
-import { S, CONTAINER_CLASSES } from '../App';
+import { S, CONTAINER_CLASSES } from '../theme';
 
 const CATEGORIES = [
   {

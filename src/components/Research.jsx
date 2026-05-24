@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { S, CONTAINER_CLASSES } from '../App';
+import { S, CONTAINER_CLASSES } from '../theme';
 
 export default function Research() {
   const ref = useRef(null);
