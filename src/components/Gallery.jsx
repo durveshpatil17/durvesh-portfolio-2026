@@ -1,14 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import gsap from 'gsap';
+import { S, PADDING } from '../App';
 
-const S = {
-  bg: '#060606', surface: '#0e0e0e', border: 'rgba(255,255,255,0.06)',
-  gold: '#c9a84c', text: '#edebe6', muted: '#7a7875',
-  serif: 'Instrument Serif, Georgia, serif', sans: 'Inter, system-ui, sans-serif',
-};
-
-// Carefully assigning 'size: large' (span 2 / Landscape 16:9) and 'normal' (span 1 / Portrait 4:5)
-// so the layout perfectly matches the actual orientation of the photos, preventing cutoff.
 const CATEGORIES = [
   {
     id: 'highlights', label: 'Highlights',
@@ -62,7 +55,7 @@ function ImageCard({ item, onClick }) {
 
   return (
     <div
-      className={`gcard col-span-1 ${isLarge ? 'md:col-span-2' : ''} h-[280px] md:h-[400px]`}
+      className={`gcard col-span-1 md:${isLarge ? 'col-span-2' : 'col-span-1'} w-full h-[320px] sm:h-[400px]`}
       onClick={() => onClick(item)}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
@@ -84,7 +77,7 @@ function ImageCard({ item, onClick }) {
           width: '100%',
           height: '100%',
           objectFit: 'cover',
-          objectPosition: item.position || 'center', // Prevents heads from being cut off
+          objectPosition: item.position || 'center',
           display: 'block',
           transition: 'transform 0.7s cubic-bezier(0.16,1,0.3,1), filter 0.4s',
           transform: hovered ? 'scale(1.03)' : 'scale(1)',
@@ -102,8 +95,8 @@ function ImageCard({ item, onClick }) {
         padding: '1.75rem',
       }}>
         <div style={{ transform: hovered ? 'translateY(0)' : 'translateY(10px)', transition: 'transform 0.4s cubic-bezier(0.16,1,0.3,1)' }}>
-          <h4 style={{ color: S.text, fontSize: '1.05rem', fontWeight: 600, marginBottom: '0.4rem', lineHeight: 1.3 }}>{item.title}</h4>
-          <p style={{ color: S.gold, fontSize: '0.8rem', lineHeight: 1.5, fontWeight: 500 }}>{item.caption}</p>
+          <h4 style={{ color: S.text, fontSize: 'clamp(1rem, 2.5vw, 1.2rem)', fontWeight: 600, marginBottom: '0.4rem', lineHeight: 1.3 }}>{item.title}</h4>
+          <p style={{ color: S.gold, fontSize: 'clamp(0.8rem, 1.5vw, 0.9rem)', lineHeight: 1.5, fontWeight: 500 }}>{item.caption}</p>
         </div>
       </div>
     </div>
@@ -118,12 +111,24 @@ export default function Gallery() {
   const active = CATEGORIES.find(c => c.id === activeId);
 
   useEffect(() => {
-    if (!gridRef.current) return;
-    const cards = gridRef.current.querySelectorAll('.gcard');
-    gsap.fromTo(cards,
-      { y: 30, opacity: 0 },
-      { y: 0, opacity: 1, duration: 0.7, ease: 'power2.out', stagger: 0.08 }
-    );
+    let mm = gsap.matchMedia();
+    mm.add("(min-width: 768px)", () => {
+      if (!gridRef.current) return;
+      const cards = gridRef.current.querySelectorAll('.gcard');
+      gsap.fromTo(cards,
+        { y: 30, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.7, ease: 'power2.out', stagger: 0.08 }
+      );
+    });
+    mm.add("(max-width: 767px)", () => {
+      if (!gridRef.current) return;
+      const cards = gridRef.current.querySelectorAll('.gcard');
+      gsap.fromTo(cards,
+        { opacity: 0 },
+        { opacity: 1, duration: 0.5, ease: 'power2.out', stagger: 0.05 }
+      );
+    });
+    return () => mm.revert();
   }, [activeId]);
 
   useEffect(() => {
@@ -133,17 +138,17 @@ export default function Gallery() {
   }, []);
 
   return (
-    <section id="gallery" className="px-6 py-20 md:px-12 md:py-32" style={{ borderTop: `1px solid ${S.border}`, background: S.surface }}>
-      <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
+    <section id="gallery" className={`${PADDING}`} style={{ borderTop: `1px solid ${S.border}`, background: S.surface }}>
+      <div className="w-full max-w-[1440px] mx-auto">
 
-        <div className="flex flex-col md:flex-row md:align-items-end justify-between mb-10 md:mb-16 gap-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 md:mb-16 gap-6">
           <div>
-            <p style={{ fontSize: '0.65rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: S.gold, marginBottom: '1.25rem', fontWeight: 600 }}>Visual Archive</p>
-            <h2 style={{ fontFamily: S.serif, fontSize: 'clamp(2rem, 5vw, 3.2rem)', color: S.text, lineHeight: 1.15, fontWeight: 400 }}>
+            <p style={{ fontSize: 'clamp(0.6rem, 1.5vw, 0.7rem)', letterSpacing: '0.15em', textTransform: 'uppercase', color: S.gold, marginBottom: '1.25rem', fontWeight: 600 }}>Visual Archive</p>
+            <h2 style={{ fontFamily: S.serif, fontSize: 'clamp(1.8rem, 4vw, 3.5rem)', color: S.text, lineHeight: 1.15, fontWeight: 400 }}>
               Documented Journey.
             </h2>
           </div>
-          <p style={{ color: S.muted, fontSize: 'clamp(1rem, 2vw, 1.1rem)', maxWidth: '280px', lineHeight: 1.8, fontWeight: 300, textAlign: 'left md:text-right' }}>
+          <p style={{ color: S.muted, fontSize: 'clamp(0.9rem, 1.5vw, 1.1rem)', maxWidth: '280px', lineHeight: 1.6, fontWeight: 300, textAlign: 'left' }}>
             A curated visual record of leadership, execution, and professional growth.
           </p>
         </div>
@@ -151,11 +156,11 @@ export default function Gallery() {
         <div style={{ display: 'flex', gap: '0.75rem', marginBottom: '3rem', flexWrap: 'wrap' }}>
           {CATEGORIES.map(cat => (
             <button key={cat.id} onClick={() => setActiveId(cat.id)}
+              className="px-5 py-3 border border-transparent rounded-full transition-all duration-300"
               style={{
-                padding: '0.55rem 1.4rem', borderRadius: '3rem',
                 fontSize: '0.72rem', fontWeight: 600, letterSpacing: '0.12em',
                 textTransform: 'uppercase', cursor: 'pointer',
-                fontFamily: S.sans, transition: 'all 0.25s ease',
+                fontFamily: S.sans,
                 background: activeId === cat.id ? S.gold : 'transparent',
                 color: activeId === cat.id ? '#060606' : S.muted,
                 border: activeId === cat.id ? `1px solid ${S.gold}` : `1px solid ${S.border}`,
@@ -166,7 +171,7 @@ export default function Gallery() {
         </div>
 
         {/* Bento Box Grid - Responsive */}
-        <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4 lg:gap-5">
           {active.items.map((item, i) => (
             <ImageCard key={`${activeId}-${i}`} item={item} onClick={setLightbox} />
           ))}
@@ -179,14 +184,14 @@ export default function Gallery() {
         <div onClick={() => setLightbox(null)} style={{
           position: 'fixed', inset: 0, zIndex: 200,
           background: 'rgba(4,4,4,0.96)', backdropFilter: 'blur(24px)',
-          display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '2rem',
+          display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '1.5rem md:padding-2rem',
         }}>
           <div onClick={e => e.stopPropagation()} style={{ maxWidth: '900px', width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
             <button onClick={() => setLightbox(null)} style={{
               background: 'none', border: `1px solid ${S.border}`, color: S.muted, cursor: 'pointer',
               fontSize: '0.65rem', letterSpacing: '0.15em', textTransform: 'uppercase',
               marginBottom: '1.5rem', display: 'inline-flex', alignItems: 'center', gap: '0.4rem',
-              padding: '0.5rem 1.25rem', borderRadius: '3rem', transition: 'all 0.2s',
+              padding: '0.6rem 1.4rem', borderRadius: '3rem', transition: 'all 0.2s',
               fontFamily: S.sans, alignSelf: 'flex-end',
             }}
               onMouseEnter={e => { e.currentTarget.style.color = S.text; e.currentTarget.style.borderColor = S.gold; }}
@@ -196,11 +201,11 @@ export default function Gallery() {
             </button>
             <img
               src={lightbox.src} alt={lightbox.title}
-              style={{ width: '100%', height: 'auto', maxHeight: '72vh', objectFit: 'contain', borderRadius: '0.5rem', display: 'block', boxShadow: '0 24px 64px rgba(0,0,0,0.4)' }}
+              style={{ width: '100%', height: 'auto', maxHeight: '70vh', objectFit: 'contain', borderRadius: '0.5rem', display: 'block', boxShadow: '0 24px 64px rgba(0,0,0,0.4)' }}
             />
-            <div style={{ marginTop: '2rem', textAlign: 'center' }}>
-              <h3 style={{ color: S.text, fontSize: '1.1rem', fontWeight: 600, marginBottom: '0.5rem' }}>{lightbox.title}</h3>
-              <p style={{ color: S.gold, fontSize: '0.85rem' }}>{lightbox.caption}</p>
+            <div style={{ marginTop: '1.5rem', textAlign: 'center' }}>
+              <h3 style={{ color: S.text, fontSize: 'clamp(1rem, 2vw, 1.2rem)', fontWeight: 600, marginBottom: '0.5rem' }}>{lightbox.title}</h3>
+              <p style={{ color: S.gold, fontSize: 'clamp(0.85rem, 1.5vw, 0.95rem)' }}>{lightbox.caption}</p>
             </div>
           </div>
         </div>

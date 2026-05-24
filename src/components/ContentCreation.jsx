@@ -1,12 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-const S = {
-  bg: '#060606', surface: '#0e0e0e', surface2: '#141414', border: 'rgba(255,255,255,0.06)',
-  gold: '#c9a84c', goldDim: 'rgba(201,168,76,0.12)', text: '#edebe6', muted: '#7a7875',
-  serif: 'Instrument Serif, Georgia, serif', sans: 'Inter, system-ui, sans-serif',
-};
+import { S, PADDING } from '../App';
 
 const STATS = [
   { value: '4M+',   label: 'Total Views' },
@@ -39,24 +34,42 @@ export default function ContentCreation() {
   const ref = useRef(null);
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.utils.toArray('.cc-reveal').forEach((el, i) => {
-        gsap.fromTo(el, { y: 28, opacity: 0 }, {
-          y: 0, opacity: 1, duration: 0.9, ease: 'power3.out',
-          delay: i * 0.05,
-          scrollTrigger: { trigger: el, start: 'top 88%', toggleActions: 'play none none none' },
+    let mm = gsap.matchMedia();
+    
+    mm.add("(min-width: 768px)", () => {
+      const ctx = gsap.context(() => {
+        gsap.utils.toArray('.cc-reveal').forEach((el, i) => {
+          gsap.fromTo(el, { y: 28, opacity: 0 }, {
+            y: 0, opacity: 1, duration: 0.9, ease: 'power3.out',
+            delay: i * 0.05,
+            scrollTrigger: { trigger: el, start: 'top 88%', toggleActions: 'play none none none' },
+          });
         });
-      });
-    }, ref);
-    return () => ctx.revert();
+      }, ref);
+      return () => ctx.revert();
+    });
+
+    mm.add("(max-width: 767px)", () => {
+      const ctx = gsap.context(() => {
+        gsap.utils.toArray('.cc-reveal').forEach((el) => {
+          gsap.fromTo(el, { opacity: 0 }, {
+            opacity: 1, duration: 0.8, ease: 'power2.out',
+            scrollTrigger: { trigger: el, start: 'top 90%', toggleActions: 'play none none none' },
+          });
+        });
+      }, ref);
+      return () => ctx.revert();
+    });
+
+    return () => mm.revert();
   }, []);
 
   return (
-    <section ref={ref} id="creator" className="px-6 py-20 md:px-12 md:py-32" style={{ borderTop: `1px solid ${S.border}` }}>
-      <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
+    <section ref={ref} id="creator" className={`${PADDING}`} style={{ borderTop: `1px solid ${S.border}` }}>
+      <div className="w-full max-w-[1440px] mx-auto">
 
         {/* Label */}
-        <p className="cc-reveal" style={{ fontSize: '0.65rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: S.gold, marginBottom: '2.5rem', fontWeight: 600 }}>
+        <p className="cc-reveal" style={{ fontSize: 'clamp(0.6rem, 1.5vw, 0.7rem)', letterSpacing: '0.15em', textTransform: 'uppercase', color: S.gold, marginBottom: '2.5rem', fontWeight: 600 }}>
           Content Creation
         </p>
 
@@ -65,14 +78,14 @@ export default function ContentCreation() {
 
           {/* LEFT: Narrative + Accounts */}
           <div>
-            <h2 className="cc-reveal" style={{ fontFamily: S.serif, fontSize: 'clamp(2rem, 5vw, 3.5rem)', color: S.text, lineHeight: 1.15, marginBottom: '2rem', fontWeight: 400 }}>
+            <h2 className="cc-reveal" style={{ fontFamily: S.serif, fontSize: 'clamp(1.8rem, 4vw, 3.5rem)', color: S.text, lineHeight: 1.15, marginBottom: '2rem', fontWeight: 400 }}>
               Digital <span style={{ fontStyle: 'italic', color: S.gold }}>Influence.</span>
             </h2>
 
-            <p className="cc-reveal" style={{ color: S.muted, fontSize: 'clamp(1rem, 2vw, 1.1rem)', lineHeight: 1.8, marginBottom: '1.5rem', fontWeight: 300 }}>
+            <p className="cc-reveal" style={{ color: S.muted, fontSize: 'clamp(0.9rem, 1.5vw, 1.1rem)', lineHeight: 1.6, marginBottom: '1.5rem', fontWeight: 300 }}>
               I run two active Instagram channels reaching millions — applying the same systems thinking I bring to branding campaigns and event strategy. From cinema storytelling to personal brand communication, every post is a deliberate act of audience engagement.
             </p>
-            <p className="cc-reveal" style={{ color: S.muted, fontSize: 'clamp(1rem, 2vw, 1.1rem)', lineHeight: 1.8, marginBottom: '2.5rem', fontWeight: 300 }}>
+            <p className="cc-reveal" style={{ color: S.muted, fontSize: 'clamp(0.9rem, 1.5vw, 1.1rem)', lineHeight: 1.6, marginBottom: '2.5rem', fontWeight: 300 }}>
               This creative dimension directly strengthens my MBA profile — demonstrating hands-on digital marketing execution, consumer psychology, brand positioning, and content strategy at scale.
             </p>
 
@@ -82,7 +95,7 @@ export default function ContentCreation() {
                 <div key={acc.handle} style={{
                   display: 'flex', alignItems: 'center', gap: '1rem',
                   padding: '1rem 1.25rem',
-                  background: S.surface2, border: `1px solid ${S.border}`,
+                  background: '#141414', border: `1px solid ${S.border}`,
                   borderRadius: '0.875rem', transition: 'border-color 0.3s',
                 }}
                   onMouseEnter={e => e.currentTarget.style.borderColor = `${S.gold}55`}
@@ -107,11 +120,11 @@ export default function ContentCreation() {
             <div className="cc-reveal" style={{
               display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
               padding: '0.5rem 1rem',
-              background: S.goldDim, border: `1px solid rgba(201,168,76,0.25)`,
+              background: 'rgba(201,168,76,0.12)', border: `1px solid rgba(201,168,76,0.25)`,
               borderRadius: '3rem',
             }}>
               <span style={{ fontSize: '0.75rem' }}>🏆</span>
-              <span style={{ fontSize: '0.65rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: S.gold, fontWeight: 700 }}>
+              <span style={{ fontSize: 'clamp(0.55rem, 1vw, 0.65rem)', letterSpacing: '0.12em', textTransform: 'uppercase', color: S.gold, fontWeight: 700 }}>
                 Outstanding Content Creator Award · KBTCOE 2025
               </span>
             </div>
@@ -120,18 +133,16 @@ export default function ContentCreation() {
           {/* RIGHT: Stats + Why it matters */}
           <div>
             {/* Stats grid */}
-            <div className="cc-reveal" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1px', marginBottom: '2rem', border: `1px solid ${S.border}`, borderRadius: '1rem', overflow: 'hidden' }}>
+            <div className="cc-reveal grid grid-cols-1 sm:grid-cols-2 gap-px mb-8 border border-[rgba(255,255,255,0.06)] rounded-2xl overflow-hidden bg-[rgba(255,255,255,0.06)]">
               {STATS.map((s, i) => (
-                <div key={s.label} className="p-8 md:p-10" style={{
+                <div key={s.label} className="p-6 md:p-8 lg:p-10" style={{
                   background: S.surface,
-                  borderRight: i % 2 === 0 ? `1px solid ${S.border}` : 'none',
-                  borderBottom: i < 2 ? `1px solid ${S.border}` : 'none',
                   textAlign: 'center',
                 }}>
-                  <div style={{ fontFamily: S.serif, fontSize: 'clamp(1.8rem, 4vw, 2.4rem)', color: S.gold, lineHeight: 1, marginBottom: '0.75rem' }}>
+                  <div style={{ fontFamily: S.serif, fontSize: 'clamp(2rem, 4vw, 2.8rem)', color: S.gold, lineHeight: 1, marginBottom: '0.75rem' }}>
                     {s.value}
                   </div>
-                  <div style={{ fontSize: '0.6rem', textTransform: 'uppercase', letterSpacing: '0.15em', color: S.muted, fontWeight: 600 }}>
+                  <div style={{ fontSize: 'clamp(0.55rem, 1vw, 0.65rem)', textTransform: 'uppercase', letterSpacing: '0.15em', color: S.muted, fontWeight: 600 }}>
                     {s.label}
                   </div>
                 </div>
@@ -139,15 +150,15 @@ export default function ContentCreation() {
             </div>
 
             {/* Why this matters block */}
-            <div className="cc-reveal p-8 md:p-10" style={{ background: S.surface, border: `1px solid ${S.border}`, borderRadius: '1.25rem' }}>
-              <p style={{ fontSize: '0.6rem', letterSpacing: '0.18em', textTransform: 'uppercase', color: S.gold, fontWeight: 700, marginBottom: '1.5rem' }}>
+            <div className="cc-reveal p-6 md:p-8 lg:p-10" style={{ background: S.surface, border: `1px solid ${S.border}`, borderRadius: '1.25rem' }}>
+              <p style={{ fontSize: 'clamp(0.55rem, 1vw, 0.65rem)', letterSpacing: '0.18em', textTransform: 'uppercase', color: S.gold, fontWeight: 700, marginBottom: '1.5rem' }}>
                 Why This Matters for MBA
               </p>
               <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                 {WHY.map(point => (
                   <li key={point} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.85rem' }}>
                     <span style={{ width: '5px', height: '5px', borderRadius: '50%', background: S.gold, flexShrink: 0, marginTop: '0.55rem' }} />
-                    <span style={{ color: S.muted, fontSize: '0.95rem', lineHeight: 1.7, fontWeight: 300 }}>{point}</span>
+                    <span style={{ color: S.muted, fontSize: 'clamp(0.9rem, 1.5vw, 1.1rem)', lineHeight: 1.6, fontWeight: 300 }}>{point}</span>
                   </li>
                 ))}
               </ul>
