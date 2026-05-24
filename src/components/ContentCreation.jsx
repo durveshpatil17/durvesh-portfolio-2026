@@ -61,7 +61,7 @@ export default function ContentCreation() {
         </p>
 
         {/* Two-column layout */}
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '5rem', alignItems: 'start' }}>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
 
           {/* LEFT: Narrative + Accounts */}
           <div>

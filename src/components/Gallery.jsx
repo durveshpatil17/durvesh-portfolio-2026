@@ -62,7 +62,7 @@ function ImageCard({ item, onClick }) {
 
   return (
     <div
-      className="gcard"
+      className={`gcard col-span-1 ${isLarge ? 'md:col-span-2' : ''}`}
       onClick={() => onClick(item)}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
@@ -74,7 +74,6 @@ function ImageCard({ item, onClick }) {
         border: `1px solid ${hovered ? 'rgba(201,168,76,0.4)' : S.border}`,
         background: S.bg,
         transition: 'border-color 0.3s ease',
-        gridColumn: isLarge ? 'span 2' : 'span 1',
         height: '400px', // Taller height allows Portrait photos in span 1 to fit perfectly without cropping!
       }}
     >
@@ -167,8 +166,8 @@ export default function Gallery() {
           ))}
         </div>
 
-        {/* Bento Box Grid - 3 Columns */}
-        <div ref={gridRef} style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.25rem' }}>
+        {/* Bento Box Grid - Responsive */}
+        <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {active.items.map((item, i) => (
             <ImageCard key={`${activeId}-${i}`} item={item} onClick={setLightbox} />
           ))}

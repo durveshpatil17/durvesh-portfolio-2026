@@ -66,11 +66,10 @@ export default function App() {
       </nav>
 
       {/* ── 1. HERO ── */}
-      <section className="hero-section" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '8rem 3rem 6rem' }}>
-        <div style={{ maxWidth: '1200px', width: '100%', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '6rem', alignItems: 'center' }}>
-
-          {/* Left: Text */}
-          <div className="reveal">
+      <section style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', padding: '6rem 3rem' }}>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center w-full max-w-[1200px] mx-auto">
+          {/* Text Content */}
+          <div className="reveal" style={{ maxWidth: '600px' }}>
             <p style={{ fontSize: '0.7rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: S.gold, marginBottom: '2rem', fontWeight: 600 }}>
               MBA @ SCIT Pune · Digital Builder · Content Strategist
             </p>
@@ -127,7 +126,7 @@ export default function App() {
 
       {/* ── 2. IDENTITY ── */}
       <section id="identity" style={{ padding: '7rem 3rem', borderTop: `1px solid ${S.border}`, background: S.surface }}>
-        <div style={{ maxWidth: '1100px', margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1.4fr', gap: '6rem', alignItems: 'center' }}>
+        <div className="grid grid-cols-1 md:grid-cols-[1fr_1.4fr] gap-12 lg:gap-24 items-center max-w-[1100px] mx-auto">
           <div className="reveal">
             <p style={{ fontSize: '0.7rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: S.gold, marginBottom: '1.5rem', fontWeight: 600 }}>Strategic Positioning</p>
             <h2 style={{ fontFamily: S.serif, fontSize: 'clamp(2rem, 3.5vw, 2.8rem)', color: S.text, lineHeight: 1.15, marginBottom: '2rem', fontWeight: 400 }}>
@@ -164,7 +163,7 @@ export default function App() {
           </div>
 
           {/* 3-column impact blocks */}
-          <div className="reveal" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2px', marginBottom: '5rem', border: `1px solid ${S.border}`, borderRadius: '1.5rem', overflow: 'hidden' }}>
+          <div className="reveal grid grid-cols-1 lg:grid-cols-3 gap-px mb-20 border border-[rgba(255,255,255,0.06)] rounded-2xl overflow-hidden bg-[rgba(255,255,255,0.06)]">
             {[
               { num: '01', title: 'Content Strategy', body: 'Created promotional content, reel scripts, and branding-focused campaigns for cultural and technical events — Techfest 2024, 2025 and Fusion 2025, 2026.' },
               { num: '02', title: 'Team Coordination', body: 'Worked across multiple teams to align communication, branding, and audience outreach toward a consistent digital identity for each event.' },
@@ -181,7 +180,7 @@ export default function App() {
           </div>
 
           {/* Event photo strip */}
-          <div className="reveal" style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr 1fr', gap: '1rem' }}>
+          <div className="reveal grid grid-cols-1 md:grid-cols-3 gap-4">
             <img src="/assets/images/achievements/Social Media Head Techfest 2k24.jpg" alt="Leading digital operations for Techfest 2024" style={{ width: '100%', height: '320px', objectFit: 'cover', borderRadius: '1rem', border: `1px solid ${S.border}` }} />
             <img src="/assets/images/achievements/Techfest 2k25 Candid 2.jpg" alt="Behind the scenes at Techfest 2025 event coordination" style={{ width: '100%', height: '320px', objectFit: 'cover', borderRadius: '1rem', border: `1px solid ${S.border}` }} />
             <img src="/assets/images/achievements/Crossed 1 Million Views on Social Media event promotion reel of Fusion 2k25.jpg" alt="Fusion 2025 reel crossing 1 million organic views" style={{ width: '100%', height: '320px', objectFit: 'cover', borderRadius: '1rem', border: `1px solid ${S.border}` }} />
@@ -191,8 +190,8 @@ export default function App() {
 
       {/* ── 4. OUTSTANDING CREATOR ── */}
       <section style={{ padding: '7rem 3rem', borderTop: `1px solid ${S.border}`, background: S.surface }}>
-        <div style={{ maxWidth: '1100px', margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '6rem', alignItems: 'center' }}>
-          <div className="reveal" style={{ position: 'relative', borderRadius: '1.5rem', overflow: 'hidden', height: '540px', border: `1px solid ${S.border}` }}>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-24 items-center max-w-[1100px] mx-auto">
+          <div className="reveal" style={{ position: 'relative', borderRadius: '1.5rem', overflow: 'hidden', height: '540px', border: `1px solid ${S.border}`, width: '100%' }}>
             <img src="/assets/images/achievements/Special Achievers award- Most outstanding Content creator award.jpg" alt="Outstanding Content Creator award from KBT College of Engineering" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
             <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(6,6,6,0.8) 0%, transparent 50%)' }} />
           </div>
@@ -236,7 +235,7 @@ export default function App() {
             </h2>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1.5rem' }}>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {[
               {
                 tag: 'AI Engineering', title: 'Algorithmic Strategy Builder',

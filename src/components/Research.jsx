@@ -35,7 +35,7 @@ export default function Research() {
         </div>
 
         {/* Main publication card */}
-        <div className="res-reveal" style={{ display: 'grid', gridTemplateColumns: '1.1fr 1fr', gap: '4rem', alignItems: 'start', marginBottom: '4rem' }}>
+        <div className="res-reveal grid grid-cols-1 md:grid-cols-[1.1fr_1fr] gap-12 md:gap-16 items-start mb-16">
           <div style={{ padding: '3rem', background: S.surface, border: `1px solid ${S.border}`, borderRadius: '1.5rem' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '2rem' }}>
               <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: S.gold, flexShrink: 0 }} />
@@ -86,10 +86,7 @@ export default function Research() {
 
         {/* Second publication — Conference Certificate */}
         <div className="res-reveal" style={{ marginTop: '2rem' }}>
-          <div style={{
-            display: 'grid', gridTemplateColumns: '1fr auto',
-            gap: '2rem', alignItems: 'center',
-            padding: '2rem 2.5rem',
+          <div className="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-6 items-center p-8 md:px-10" style={{
             background: S.surface, border: `1px solid ${S.border}`,
             borderRadius: '1.25rem', transition: 'border-color 0.3s',
           }}
