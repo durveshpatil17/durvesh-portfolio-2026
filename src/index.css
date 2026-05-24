@@ -1,0 +1,39 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* Masonry Layout */
+.masonry-grid {
+    column-count: 1;
+    column-gap: 1rem;
+}
+@media (min-width: 640px) { .masonry-grid { column-count: 2; } }
+@media (min-width: 1024px) { .masonry-grid { column-count: 3; } }
+
+.masonry-item {
+    break-inside: avoid;
+    margin-bottom: 1rem;
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+/* Reveal animation base */
+.reveal {
+    opacity: 0;
+    transform: translateY(36px);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #060606; }
+::-webkit-scrollbar-thumb { background: #2a2a2a; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #c9a84c; }
+
+/* Lenis */
+html.lenis { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto; }
+.lenis.lenis-stopped { overflow: hidden; }
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { -webkit-font-smoothing: antialiased; overflow-x: hidden; }
