@@ -56,7 +56,7 @@ export default function Research() {
           <h3 style={{ fontFamily: S.serif, fontSize: 'clamp(1.2rem, 2.5vw, 1.8rem)', color: S.text, lineHeight: 1.35, marginBottom: '1.5rem', fontWeight: 400 }}>
             A Scalable AI-Driven Natural Language Interface for Algorithmic Trading
           </h3>
-          <div className="grid grid-cols-2 md:grid-cols-2 gap-6 md:gap-8 mb-8 md:mb-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8 mb-8 md:mb-10">
             {[
               { label: 'Journal', value: 'IJSMT' },
               { label: 'Impact Factor', value: '3.8' },
@@ -93,7 +93,7 @@ export default function Research() {
       <div className="res-reveal grid grid-cols-1 md:grid-cols-[1fr_1.1fr] gap-8 md:gap-16 items-start mt-12 md:mt-16">
         
         {/* Certificate image */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', order: 2, md: { order: 1 } }}>
+        <div className="flex flex-col gap-6 order-2 md:order-1">
           <div style={{ position: 'relative', borderRadius: '1.25rem', overflow: 'hidden', border: `1px solid ${S.border}` }}>
             <img src="/assets/images/certificates/second-research-certificate.jpg"
               alt="International Conference Presentation Certificate"
@@ -107,7 +107,7 @@ export default function Research() {
         </div>
 
         {/* Text Details */}
-        <div className="p-6 md:p-12" style={{ background: '#0c0c0c', border: `1px solid ${S.border}`, borderRadius: '1.5rem', order: 1, md: { order: 2 } }}>
+        <div className="p-6 md:p-12 order-1 md:order-2" style={{ background: '#0c0c0c', border: `1px solid ${S.border}`, borderRadius: '1.5rem' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '2rem' }}>
             <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: S.gold, flexShrink: 0 }} />
             <span style={{ fontSize: 'clamp(0.55rem, 1vw, 0.65rem)', letterSpacing: '0.16em', textTransform: 'uppercase', color: S.gold, fontWeight: 700 }}>Conference · Presentation</span>

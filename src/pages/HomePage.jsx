@@ -132,12 +132,13 @@ export default function HomePage() {
           position: 'relative', zIndex: 1,
           width: '100%', maxWidth: '1320px',
           margin: '0 auto',
-          padding: '0 clamp(1.25rem, 5vw, 5rem)',
+          padding: 'clamp(80px, 12vh, 120px) clamp(1.25rem, 5vw, 5rem) 2rem',
           display: 'flex', justifyContent: 'flex-end',
         }}>
-          <div className="reveal" style={{ width: '100%', maxWidth: '600px' }}>
-
-            {/* Eyebrow */}
+          <div style={{ width: '100%', maxWidth: '600px' }}>
+            
+            <div className="reveal">
+              {/* Eyebrow */}
             <p style={{
               fontSize: '0.65rem', letterSpacing: '0.2em', textTransform: 'uppercase',
               color: S.gold, fontWeight: 600, marginBottom: '2rem',
@@ -165,9 +166,10 @@ export default function HomePage() {
             }}>
               Patil<span style={{ color: S.gold }}>.</span>
             </h1>
+            </div>
 
             {/* Bio line */}
-            <p style={{
+            <p className="reveal" style={{
               color: S.muted, fontWeight: 300,
               fontSize: 'clamp(0.95rem, 1.5vw, 1.1rem)',
               lineHeight: 1.65, maxWidth: '420px', marginBottom: '3rem',
@@ -176,7 +178,7 @@ export default function HomePage() {
             </p>
 
             {/* Metrics row */}
-            <div style={{ display: 'flex', gap: 0, marginBottom: '3rem', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
+            <div className="reveal" style={{ display: 'flex', gap: 0, marginBottom: '3rem', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
               {[
                 { value: '4M+', label: 'Total Views' },
                 { value: '2000+', label: 'Followers' },
@@ -195,7 +197,7 @@ export default function HomePage() {
             </div>
 
             {/* CTAs */}
-            <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+            <div className="reveal" style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
               <Link to="/work" style={{
                 padding: '0.875rem 2rem', background: S.gold, color: '#060606',
                 borderRadius: '3rem', fontSize: '0.78rem', fontWeight: 600,
