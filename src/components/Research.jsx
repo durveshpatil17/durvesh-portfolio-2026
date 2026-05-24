@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { FileText, Presentation, Link as LinkIcon, Award } from 'lucide-react';
 import { S } from '../theme';
 
 export default function Research() {
@@ -40,113 +41,175 @@ export default function Research() {
     <div ref={ref} id="research" style={{ marginBottom: 'clamp(5rem, 10vw, 8rem)' }}>
       {/* Header */}
       <div className="res-reveal text-center lg:text-left" style={{ marginBottom: '4rem' }}>
-        <p style={{ fontSize: 'clamp(0.6rem, 1.5vw, 0.7rem)', letterSpacing: '0.15em', textTransform: 'uppercase', color: S.gold, marginBottom: '1.25rem', fontWeight: 600 }}>Academic Contribution</p>
+        <p style={{ fontSize: 'clamp(0.6rem, 1.5vw, 0.7rem)', letterSpacing: '0.15em', textTransform: 'uppercase', color: S.gold, marginBottom: '1.25rem', fontWeight: 500 }}>Academic Contribution</p>
         <h2 style={{ fontFamily: S.serif, fontSize: 'clamp(1.8rem, 4vw, 3.5rem)', color: S.text, lineHeight: 1.1, fontWeight: 400 }}>
           Published Research.
         </h2>
       </div>
 
-      {/* Main publication 1 - Full Width Card */}
-      <div className="res-reveal mb-12 md:mb-16">
-        <div className="p-6 md:p-12" style={{ background: '#0c0c0c', border: `1px solid ${S.border}`, borderRadius: '1.5rem' }}>
+      {/* ── CARD 1: JOURNAL PUBLICATION ── */}
+      <div className="res-reveal mb-12">
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem' }}>
+          <FileText size={16} color="#7a7875" />
+          <span style={{ fontSize: '12px', textTransform: 'uppercase', letterSpacing: '0.08em', color: '#7a7875', fontWeight: 500 }}>Journal Publication</span>
+          <div style={{ flex: 1, height: '1px', background: 'rgba(255,255,255,0.1)' }} />
+        </div>
+
+        <div style={{
+          background: '#ffffff', border: '0.5px solid #e5e5e5', borderRadius: '12px', padding: '1.25rem',
+          display: 'flex', flexDirection: 'column', gap: '1.25rem'
+        }} className="md:flex-row">
           
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '2rem' }}>
-            <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: S.gold, flexShrink: 0 }} />
-            <span style={{ fontSize: 'clamp(0.55rem, 1vw, 0.65rem)', letterSpacing: '0.16em', textTransform: 'uppercase', color: S.gold, fontWeight: 700 }}>Peer Reviewed · Published</span>
-          </div>
-          
-          <h3 style={{ fontFamily: S.serif, fontSize: 'clamp(1.5rem, 3vw, 2.2rem)', color: S.text, lineHeight: 1.35, marginBottom: '2rem', fontWeight: 400 }}>
-            A Scalable AI-Driven Natural Language Interface for Algorithmic Trading with Strategy Validation and Asynchronous Execution
-          </h3>
-          
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 mb-8">
-            {[
-              { label: 'Journal', value: 'IJSMT' },
-              { label: 'Impact Factor', value: '3.8' },
-              { label: 'Domain', value: 'AI & FinTech' },
-              { label: 'Type', value: 'Journal Article' },
-              { label: 'Volume/Issue', value: 'Vol 03, Issue 04' },
-              { label: 'Published', value: 'April 2026' },
-            ].map(m => (
-              <div key={m.label} style={{ paddingTop: '1rem', borderTop: `1px solid ${S.border}` }}>
-                <div style={{ fontSize: 'clamp(0.55rem, 1vw, 0.65rem)', textTransform: 'uppercase', letterSpacing: '0.15em', color: S.muted, marginBottom: '0.5rem' }}>{m.label}</div>
-                <div style={{ fontSize: 'clamp(0.85rem, 1.5vw, 0.9rem)', color: S.text, fontWeight: 500 }}>{m.value}</div>
+          {/* Left Column (Text) */}
+          <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
+            <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', marginBottom: '1rem' }}>
+              <span style={{ background: '#ecfdf5', color: '#059669', fontSize: '11px', fontWeight: 500, padding: '4px 10px', borderRadius: '999px' }}>Peer Reviewed</span>
+              <span style={{ background: '#ecfdf5', color: '#059669', fontSize: '11px', fontWeight: 500, padding: '4px 10px', borderRadius: '999px' }}>Published</span>
+              <span style={{ border: '1px solid #d4d4d8', color: '#52525b', fontSize: '11px', fontWeight: 500, padding: '3px 9px', borderRadius: '999px' }}>Journal Article</span>
+            </div>
+            
+            <h3 style={{ fontSize: '1.1rem', color: '#18181b', lineHeight: 1.4, marginBottom: '1.5rem', fontWeight: 500 }}>
+              A Scalable AI-Driven Natural Language Interface for Algorithmic Trading with Strategy Validation and Asynchronous Execution
+            </h3>
+            
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1rem', marginBottom: '1.25rem' }}>
+              <div>
+                <div style={{ fontSize: '10px', textTransform: 'uppercase', color: '#71717a', marginBottom: '2px' }}>Journal</div>
+                <div style={{ fontSize: '13px', fontWeight: 500, color: '#18181b' }}>IJSMT</div>
               </div>
-            ))}
-          </div>
+              <div>
+                <div style={{ fontSize: '10px', textTransform: 'uppercase', color: '#71717a', marginBottom: '2px' }}>Impact Factor</div>
+                <div style={{ fontSize: '13px', fontWeight: 500, color: '#2563eb' }}>3.8</div>
+              </div>
+              <div>
+                <div style={{ fontSize: '10px', textTransform: 'uppercase', color: '#71717a', marginBottom: '2px' }}>Domain</div>
+                <div style={{ fontSize: '13px', fontWeight: 500, color: '#18181b' }}>AI & FinTech</div>
+              </div>
+              <div>
+                <div style={{ fontSize: '10px', textTransform: 'uppercase', color: '#71717a', marginBottom: '2px' }}>Published</div>
+                <div style={{ fontSize: '13px', fontWeight: 500, color: '#18181b' }}>April 2026</div>
+              </div>
+              <div>
+                <div style={{ fontSize: '10px', textTransform: 'uppercase', color: '#71717a', marginBottom: '2px' }}>Volume / Issue</div>
+                <div style={{ fontSize: '13px', fontWeight: 500, color: '#18181b' }}>03 / 04</div>
+              </div>
+              <div>
+                <div style={{ fontSize: '10px', textTransform: 'uppercase', color: '#71717a', marginBottom: '2px' }}>Type</div>
+                <div style={{ fontSize: '13px', fontWeight: 500, color: '#18181b' }}>Conference Paper</div>
+              </div>
+            </div>
 
-          <div style={{ marginBottom: '2rem' }}>
-            <p style={{ color: S.muted, fontSize: 'clamp(0.9rem, 1.5vw, 1.1rem)', lineHeight: 1.6, fontWeight: 300, marginBottom: '1rem' }}>
-              <strong style={{ color: S.text, fontWeight: 500 }}>Abstract:</strong> Explores AI-powered strategy generation, NLP-to-algorithm translation, and asynchronous trade execution architecture.
+            <div style={{ height: '1px', background: '#e4e4e7', marginBottom: '1.25rem' }} />
+
+            <p style={{ fontSize: '13px', color: '#52525b', lineHeight: 1.65, fontWeight: 400, marginBottom: '1rem' }}>
+              "Explores AI-powered strategy generation, NLP-to-algorithm translation, and asynchronous trade execution architecture. Presented at an international conference on Artificial Intelligence for Innovation, Sustainability and Global Development."
             </p>
-            <p style={{ color: S.gold, fontSize: 'clamp(0.8rem, 1.2vw, 0.9rem)', letterSpacing: '0.04em' }}>
-              DOI: 10.55041/ijsmt.v14.156
-            </p>
+            
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+              <LinkIcon size={14} color="#71717a" />
+              <span style={{ fontSize: '12px', color: '#71717a', fontWeight: 400 }}>DOI link → </span>
+              <a href="https://doi.org/10.55041/ijsmt.v14.156" target="_blank" rel="noreferrer" style={{ fontSize: '12px', color: '#2563eb', fontWeight: 500, textDecoration: 'none' }}>
+                10.55041/ijsmt.v14.156
+              </a>
+            </div>
           </div>
 
-          {/* Pull quote inside the card */}
-          <div style={{ padding: '1.5rem', background: '#141414', border: `1px solid ${S.border}`, borderRadius: '1rem', marginBottom: '2.5rem' }}>
-            <p style={{ fontFamily: S.serif, fontSize: 'clamp(1.1rem, 2.5vw, 1.35rem)', color: S.text, lineHeight: 1.5, fontStyle: 'italic', fontWeight: 400 }}>
-              "The publication experience strengthened analytical thinking, structured problem solving, and research-oriented communication."
-            </p>
+          {/* Right Column (Image Placeholder) */}
+          <div style={{ 
+            width: '100%', minHeight: '200px', flexShrink: 0,
+            border: '1px dashed #d4d4d8', borderRadius: '8px',
+            display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '0.75rem',
+            padding: '1rem', textAlign: 'center', background: '#fafafa'
+          }} className="md:w-[180px]">
+            <Award size={24} color="#a1a1aa" />
+            <span style={{ fontSize: '11px', color: '#71717a', fontWeight: 500, lineHeight: 1.4 }}>
+              Certificate of Publication<br />IJSMT Vol 03 Issue 04
+            </span>
           </div>
-
-          {/* Certificate image inside card bottom */}
-          <div style={{ position: 'relative', borderRadius: '1rem', overflow: 'hidden', border: `1px solid ${S.border}` }}>
-            <img src="/assets/images/certificates/Internation Journal of science paper publication certificate.jpeg"
-              alt="International Journal of Science research publication certificate"
-              style={{ width: '100%', height: 'auto', display: 'block' }} />
-          </div>
-
         </div>
       </div>
 
-      {/* Main publication 2 - Full Width Card */}
-      <div className="res-reveal mt-12 md:mt-16">
-        <div className="p-6 md:p-12" style={{ background: '#0c0c0c', border: `1px solid ${S.border}`, borderRadius: '1.5rem' }}>
-          
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '2rem' }}>
-            <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: S.gold, flexShrink: 0 }} />
-            <span style={{ fontSize: 'clamp(0.55rem, 1vw, 0.65rem)', letterSpacing: '0.16em', textTransform: 'uppercase', color: S.gold, fontWeight: 700 }}>Conference · Presentation</span>
-          </div>
-          
-          <h3 style={{ fontFamily: S.serif, fontSize: 'clamp(1.5rem, 3vw, 2.2rem)', color: S.text, lineHeight: 1.35, marginBottom: '1rem', fontWeight: 400 }}>
-            Algorithmic Trading: Evolution from Rule-Based Models to AI-Driven and Real-Time Architectures — A Comprehensive Review
-          </h3>
-          
-          <p style={{ color: S.muted, fontSize: 'clamp(0.9rem, 1.5vw, 1.05rem)', lineHeight: 1.5, fontWeight: 300, marginBottom: '2rem' }}>
-            International Conference on Artificial Intelligence for Innovation, Sustainability and Global Development
-          </p>
-          
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 mb-8">
-            {[
-              { label: 'Organiser', value: 'ASN Publication' },
-              { label: 'Date', value: '15 February 2026' },
-              { label: 'Mode', value: 'Online / Hybrid' },
-              { label: 'ISBN', value: '15368' },
-              { label: 'Certificate No.', value: 'CF26003' },
-            ].map(m => (
-              <div key={m.label} style={{ paddingTop: '1rem', borderTop: `1px solid ${S.border}` }}>
-                <div style={{ fontSize: 'clamp(0.55rem, 1vw, 0.65rem)', textTransform: 'uppercase', letterSpacing: '0.15em', color: S.muted, marginBottom: '0.5rem' }}>{m.label}</div>
-                <div style={{ fontSize: 'clamp(0.85rem, 1.5vw, 0.9rem)', color: S.text, fontWeight: 500 }}>{m.value}</div>
-              </div>
-            ))}
-          </div>
+      {/* ── CARD 2: CONFERENCE PRESENTATION ── */}
+      <div className="res-reveal mb-10">
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem' }}>
+          <Presentation size={16} color="#7a7875" />
+          <span style={{ fontSize: '12px', textTransform: 'uppercase', letterSpacing: '0.08em', color: '#7a7875', fontWeight: 500 }}>Conference Presentation</span>
+          <div style={{ flex: 1, height: '1px', background: 'rgba(255,255,255,0.1)' }} />
+        </div>
 
-          <div style={{ marginBottom: '2.5rem' }}>
-            <p style={{ color: S.muted, fontSize: 'clamp(0.9rem, 1.5vw, 1.1rem)', lineHeight: 1.6, fontWeight: 300 }}>
-              <strong style={{ color: S.text, fontWeight: 500 }}>Description:</strong> Selected to present applied AI research on the evolution from rule-based to AI-driven real-time trading architectures. Recognised for academic contribution in applied AI and quantitative FinTech modeling.
+        <div style={{
+          background: '#ffffff', border: '0.5px solid #e5e5e5', borderRadius: '12px', padding: '1.25rem',
+          display: 'flex', flexDirection: 'column', gap: '1.25rem'
+        }} className="md:flex-row">
+          
+          {/* Left Column (Text) */}
+          <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
+            <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', marginBottom: '1rem' }}>
+              <span style={{ background: '#eff6ff', color: '#2563eb', fontSize: '11px', fontWeight: 500, padding: '4px 10px', borderRadius: '999px' }}>Presented</span>
+              <span style={{ border: '1px solid #d4d4d8', color: '#52525b', fontSize: '11px', fontWeight: 500, padding: '3px 9px', borderRadius: '999px' }}>Conference Paper</span>
+            </div>
+            
+            <h3 style={{ fontSize: '1.1rem', color: '#18181b', lineHeight: 1.4, marginBottom: '1.5rem', fontWeight: 500 }}>
+              Algorithmic Trading: Evolution from Rule-Based Models to AI-Driven and Real-Time Architectures — A Comprehensive Review
+            </h3>
+            
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1rem', marginBottom: '1.25rem' }}>
+              <div>
+                <div style={{ fontSize: '10px', textTransform: 'uppercase', color: '#71717a', marginBottom: '2px' }}>Conference</div>
+                <div style={{ fontSize: '13px', fontWeight: 500, color: '#18181b' }}>ICAISGD 2026</div>
+              </div>
+              <div>
+                <div style={{ fontSize: '10px', textTransform: 'uppercase', color: '#71717a', marginBottom: '2px' }}>Date</div>
+                <div style={{ fontSize: '13px', fontWeight: 500, color: '#18181b' }}>15 Feb 2026</div>
+              </div>
+              <div>
+                <div style={{ fontSize: '10px', textTransform: 'uppercase', color: '#71717a', marginBottom: '2px' }}>Organiser</div>
+                <div style={{ fontSize: '13px', fontWeight: 500, color: '#18181b' }}>ASN Publication</div>
+              </div>
+              <div>
+                <div style={{ fontSize: '10px', textTransform: 'uppercase', color: '#71717a', marginBottom: '2px' }}>Mode</div>
+                <div style={{ fontSize: '13px', fontWeight: 500, color: '#18181b' }}>Online / Hybrid</div>
+              </div>
+              <div>
+                <div style={{ fontSize: '10px', textTransform: 'uppercase', color: '#71717a', marginBottom: '2px' }}>ISBN</div>
+                <div style={{ fontSize: '13px', fontWeight: 500, color: '#18181b' }}>15368</div>
+              </div>
+              <div>
+                <div style={{ fontSize: '10px', textTransform: 'uppercase', color: '#71717a', marginBottom: '2px' }}>Certificate No.</div>
+                <div style={{ fontSize: '13px', fontWeight: 500, color: '#18181b' }}>CF26003</div>
+              </div>
+            </div>
+
+            <div style={{ height: '1px', background: '#e4e4e7', marginBottom: '1.25rem' }} />
+
+            <p style={{ fontSize: '13px', color: '#52525b', lineHeight: 1.65, fontWeight: 400 }}>
+              "Selected to present applied AI research on the evolution from rule-based to AI-driven real-time trading architectures. Recognised for academic contribution in applied AI and quantitative FinTech modeling."
             </p>
           </div>
 
-          {/* Certificate image inside card bottom */}
-          <div style={{ position: 'relative', borderRadius: '1rem', overflow: 'hidden', border: `1px solid ${S.border}` }}>
-            <img src="/assets/images/certificates/second-research-certificate.jpg"
-              alt="International Conference Presentation Certificate"
-              style={{ width: '100%', height: 'auto', display: 'block' }} />
+          {/* Right Column (Image Placeholder) */}
+          <div style={{ 
+            width: '100%', minHeight: '200px', flexShrink: 0,
+            border: '1px dashed #d4d4d8', borderRadius: '8px',
+            display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '0.75rem',
+            padding: '1rem', textAlign: 'center', background: '#fafafa'
+          }} className="md:w-[180px]">
+            <Award size={24} color="#a1a1aa" />
+            <span style={{ fontSize: '11px', color: '#71717a', fontWeight: 500, lineHeight: 1.4 }}>
+              Certificate of Presentation<br />ASN Publication<br />Feb 2026
+            </span>
           </div>
-
         </div>
+      </div>
+
+      {/* ── BLOCKQUOTE ── */}
+      <div className="res-reveal" style={{
+        borderLeft: `2px solid ${S.gold}`, paddingLeft: '1.5rem', marginTop: '3rem'
+      }}>
+        <p style={{ fontFamily: S.serif, fontSize: 'clamp(1.1rem, 2.5vw, 1.4rem)', color: S.text, lineHeight: 1.5, fontStyle: 'italic', fontWeight: 400, marginBottom: '0.75rem' }}>
+          "The publication experience strengthened analytical thinking, structured problem solving, and research-oriented communication."
+        </p>
+        <span style={{ fontSize: '13px', color: S.muted, fontWeight: 500 }}>— Durvesh H. Patil</span>
       </div>
 
     </div>
