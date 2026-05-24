@@ -66,18 +66,18 @@ export default function App() {
       </nav>
 
       {/* ── 1. HERO ── */}
-      <section className="min-h-[100svh] flex items-center px-6 py-20 md:px-12 md:py-32">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center w-full max-w-[1200px] mx-auto mt-12 md:mt-0">
+      <section className="min-h-[100svh] flex items-center px-6 py-24 md:px-12 md:py-32">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center w-full max-w-[1200px] mx-auto mt-12 md:mt-0">
           {/* Text Content */}
           <div className="reveal" style={{ maxWidth: '600px' }}>
             <p style={{ fontSize: '0.7rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: S.gold, marginBottom: '1.5rem', fontWeight: 600 }}>
               MBA @ SCIT Pune · Digital Builder · Content Strategist
             </p>
-            <h1 style={{ fontFamily: S.serif, fontSize: 'clamp(2rem, 7vw, 3.8rem)', lineHeight: 1.05, color: S.text, marginBottom: '1.5rem', fontWeight: 400 }}>
+            <h1 style={{ fontFamily: S.serif, fontSize: 'clamp(2.2rem, 7vw, 4rem)', lineHeight: 1.1, color: S.text, marginBottom: '2rem', fontWeight: 400 }}>
               Building Digital Presence, Strategic Influence, and{' '}
               <span style={{ fontStyle: 'italic', color: S.gold }}>Meaningful Impact.</span>
             </h1>
-            <p style={{ color: S.muted, fontSize: 'clamp(0.95rem, 2vw, 1.05rem)', lineHeight: 1.6, marginBottom: '2.5rem', fontWeight: 300, maxWidth: '32rem' }}>
+            <p style={{ color: S.muted, fontSize: 'clamp(1rem, 2vw, 1.1rem)', lineHeight: 1.8, marginBottom: '3rem', fontWeight: 300, maxWidth: '32rem' }}>
               Leadership-driven digital builder focused on communication, audience engagement, and strategic storytelling.
             </p>
 
@@ -122,22 +122,22 @@ export default function App() {
       </section>
 
       {/* ── 2. IDENTITY ── */}
-      <section id="identity" className="px-6 py-16 md:px-12 md:py-28" style={{ borderTop: `1px solid ${S.border}`, background: S.surface }}>
-        <div className="grid grid-cols-1 md:grid-cols-[1fr_1.4fr] gap-8 lg:gap-20 items-center max-w-[1100px] mx-auto">
+      <section id="identity" className="px-6 py-20 md:px-12 md:py-32" style={{ borderTop: `1px solid ${S.border}`, background: S.surface }}>
+        <div className="grid grid-cols-1 md:grid-cols-[1fr_1.4fr] gap-12 lg:gap-20 items-center max-w-[1100px] mx-auto">
           <div className="reveal">
             <p style={{ fontSize: '0.65rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: S.gold, marginBottom: '1.25rem', fontWeight: 600 }}>Strategic Positioning</p>
-            <h2 style={{ fontFamily: S.serif, fontSize: 'clamp(1.75rem, 5vw, 2.8rem)', color: S.text, lineHeight: 1.15, marginBottom: '1.5rem', fontWeight: 400 }}>
+            <h2 style={{ fontFamily: S.serif, fontSize: 'clamp(2rem, 5vw, 3rem)', color: S.text, lineHeight: 1.15, marginBottom: '1.5rem', fontWeight: 400 }}>
               A business-minded creator who builds systems, not just content.
             </h2>
           </div>
           <div className="reveal" style={{ transitionDelay: '0.1s' }}>
-            <p style={{ color: S.muted, fontSize: 'clamp(0.9rem, 2vw, 1.05rem)', lineHeight: 1.7, marginBottom: '1.25rem', fontWeight: 300 }}>
+            <p style={{ color: S.muted, fontSize: 'clamp(1rem, 2vw, 1.1rem)', lineHeight: 1.8, marginBottom: '1.5rem', fontWeight: 300 }}>
               I am a strategic digital builder operating at the intersection of communication, leadership, and execution. My work spans digital branding, event promotion, audience engagement, and content strategy — coordinated across real institutional environments.
             </p>
-            <p style={{ color: S.muted, fontSize: 'clamp(0.9rem, 2vw, 1.05rem)', lineHeight: 1.7, fontWeight: 300 }}>
+            <p style={{ color: S.muted, fontSize: 'clamp(1rem, 2vw, 1.1rem)', lineHeight: 1.8, fontWeight: 300 }}>
               Currently pursuing my MBA at Symbiosis Centre for Information Technology (SCIT), Pune — a platform I treat as an opportunity ecosystem for strategic growth, leadership exposure, and industry-level business thinking.
             </p>
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem', marginTop: '2rem' }}>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem', marginTop: '2.5rem' }}>
               {['Leadership', 'Digital Branding', 'Content Strategy', 'Event Promotion', 'Audience Engagement', 'Strategic Communication'].map(tag => (
                 <span key={tag} style={{ padding: '0.35rem 0.9rem', border: `1px solid ${S.border}`, borderRadius: '3rem', fontSize: '0.65rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: S.muted }}>
                   {tag}
@@ -149,29 +149,29 @@ export default function App() {
       </section>
 
       {/* ── 3. INFLUENCE ── */}
-      <section id="influence" className="px-6 py-16 md:px-12 md:py-28" style={{ borderTop: `1px solid ${S.border}` }}>
+      <section id="influence" className="px-6 py-20 md:px-12 md:py-32" style={{ borderTop: `1px solid ${S.border}` }}>
         <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
-          <div className="reveal" style={{ textAlign: 'center', maxWidth: '600px', margin: '0 auto 4rem' }}>
+          <div className="reveal" style={{ textAlign: 'center', maxWidth: '600px', margin: '0 auto 5rem' }}>
             <p style={{ fontSize: '0.65rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: S.gold, marginBottom: '1.25rem', fontWeight: 600 }}>Digital Branding & Event Strategy</p>
-            <h2 style={{ fontFamily: S.serif, fontSize: 'clamp(1.75rem, 5vw, 3rem)', color: S.text, lineHeight: 1.1, marginBottom: '1.25rem', fontWeight: 400 }}>Strategic Digital Influence.</h2>
-            <p style={{ color: S.muted, fontSize: 'clamp(0.9rem, 2vw, 1rem)', lineHeight: 1.7, fontWeight: 300 }}>
+            <h2 style={{ fontFamily: S.serif, fontSize: 'clamp(2rem, 5vw, 3.2rem)', color: S.text, lineHeight: 1.1, marginBottom: '1.5rem', fontWeight: 400 }}>Strategic Digital Influence.</h2>
+            <p style={{ color: S.muted, fontSize: 'clamp(1rem, 2vw, 1.1rem)', lineHeight: 1.8, fontWeight: 300 }}>
               Led digital branding and social media initiatives focused on event visibility, audience engagement, and communication strategy.
             </p>
           </div>
 
           {/* 3-column impact blocks */}
-          <div className="reveal grid grid-cols-1 lg:grid-cols-3 gap-px mb-12 md:mb-20 border border-[rgba(255,255,255,0.06)] rounded-2xl overflow-hidden bg-[rgba(255,255,255,0.06)]">
+          <div className="reveal grid grid-cols-1 lg:grid-cols-3 gap-px mb-16 md:mb-24 border border-[rgba(255,255,255,0.06)] rounded-3xl overflow-hidden bg-[rgba(255,255,255,0.06)]">
             {[
               { num: '01', title: 'Content Strategy', body: 'Created promotional content, reel scripts, and branding-focused campaigns for cultural and technical events — Techfest 2024, 2025 and Fusion 2025, 2026.' },
               { num: '02', title: 'Team Coordination', body: 'Worked across multiple teams to align communication, branding, and audience outreach toward a consistent digital identity for each event.' },
               { num: '03', title: 'Digital Engagement', body: 'Contributed to stronger participation and visibility through audience-focused storytelling, campaign execution, and organic reach scaling to 3.6M+ views.' },
             ].map(b => (
-              <div key={b.num} className="p-6 md:p-8 lg:p-10" style={{ background: S.surface, borderRight: `1px solid ${S.border}`, transition: 'background 0.3s' }}
+              <div key={b.num} className="p-8 md:p-10 lg:p-12" style={{ background: S.surface, borderRight: `1px solid ${S.border}`, transition: 'background 0.3s' }}
                 onMouseEnter={e => e.currentTarget.style.background = '#141414'}
                 onMouseLeave={e => e.currentTarget.style.background = S.surface}>
-                <div style={{ fontFamily: S.serif, fontSize: '2rem', color: S.gold, opacity: 0.4, marginBottom: '1rem' }}>{b.num}</div>
-                <h3 style={{ fontSize: '1rem', fontWeight: 600, color: S.text, marginBottom: '0.75rem', letterSpacing: '0.01em' }}>{b.title}</h3>
-                <p style={{ color: S.muted, fontSize: '0.9rem', lineHeight: 1.7, fontWeight: 300 }}>{b.body}</p>
+                <div style={{ fontFamily: S.serif, fontSize: '2.5rem', color: S.gold, opacity: 0.4, marginBottom: '1.5rem' }}>{b.num}</div>
+                <h3 style={{ fontSize: '1.05rem', fontWeight: 600, color: S.text, marginBottom: '1rem', letterSpacing: '0.01em' }}>{b.title}</h3>
+                <p style={{ color: S.muted, fontSize: '0.95rem', lineHeight: 1.8, fontWeight: 300 }}>{b.body}</p>
               </div>
             ))}
           </div>
@@ -186,21 +186,21 @@ export default function App() {
       </section>
 
       {/* ── 4. OUTSTANDING CREATOR ── */}
-      <section className="px-6 py-16 md:px-12 md:py-28" style={{ borderTop: `1px solid ${S.border}`, background: S.surface }}>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-20 items-center max-w-[1100px] mx-auto">
-          <div className="reveal w-full relative rounded-3xl overflow-hidden h-[360px] md:h-[500px]" style={{ border: `1px solid ${S.border}` }}>
+      <section className="px-6 py-20 md:px-12 md:py-32" style={{ borderTop: `1px solid ${S.border}`, background: S.surface }}>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-24 items-center max-w-[1100px] mx-auto">
+          <div className="reveal w-full relative rounded-3xl overflow-hidden h-[400px] md:h-[500px]" style={{ border: `1px solid ${S.border}` }}>
             <img src="/assets/images/achievements/Special Achievers award- Most outstanding Content creator award.jpg" alt="Outstanding Content Creator award from KBT College of Engineering" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
             <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(6,6,6,0.8) 0%, transparent 50%)' }} />
           </div>
           <div className="reveal" style={{ transitionDelay: '0.1s' }}>
-            <p style={{ fontSize: '0.65rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: S.gold, marginBottom: '1.25rem', fontWeight: 600 }}>Recognition</p>
-            <h2 style={{ fontFamily: S.serif, fontSize: 'clamp(1.75rem, 5vw, 2.8rem)', color: S.text, lineHeight: 1.15, marginBottom: '1.5rem', fontWeight: 400 }}>
+            <p style={{ fontSize: '0.65rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: S.gold, marginBottom: '1.5rem', fontWeight: 600 }}>Recognition</p>
+            <h2 style={{ fontFamily: S.serif, fontSize: 'clamp(2rem, 5vw, 3.2rem)', color: S.text, lineHeight: 1.15, marginBottom: '2rem', fontWeight: 400 }}>
               Outstanding Content Creator.
             </h2>
-            <p style={{ color: S.muted, fontSize: 'clamp(0.9rem, 2vw, 1.05rem)', lineHeight: 1.7, marginBottom: '1.25rem', fontWeight: 300 }}>
+            <p style={{ color: S.muted, fontSize: 'clamp(1rem, 2vw, 1.1rem)', lineHeight: 1.8, marginBottom: '1.5rem', fontWeight: 300 }}>
               Recognized for consistency, execution, and measurable digital branding contribution. This recognition came through reel scripting, strategic audience engagement, and event promotion campaigns that generated real visibility.
             </p>
-            <p style={{ color: S.muted, fontSize: 'clamp(0.9rem, 2vw, 1.05rem)', lineHeight: 1.7, fontWeight: 300 }}>
+            <p style={{ color: S.muted, fontSize: 'clamp(1rem, 2vw, 1.1rem)', lineHeight: 1.8, fontWeight: 300 }}>
               The creator identity — expressed through <strong style={{ color: S.text, fontWeight: 500 }}>_thedurvesh</strong> and <strong style={{ color: S.text, fontWeight: 500 }}>cinesyncbydurvesh</strong> — is cinematic, strategic, and branding-oriented. Not entertainment. Communication.
             </p>
           </div>
@@ -223,16 +223,16 @@ export default function App() {
       </section>
 
       {/* ── 5. EXECUTION ── */}
-      <section id="execution" className="px-6 py-16 md:px-12 md:py-28" style={{ borderTop: `1px solid ${S.border}`, background: S.surface }}>
+      <section id="execution" className="px-6 py-20 md:px-12 md:py-32" style={{ borderTop: `1px solid ${S.border}`, background: S.surface }}>
         <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
-          <div className="reveal" style={{ marginBottom: '3rem' }}>
+          <div className="reveal" style={{ marginBottom: '4rem' }}>
             <p style={{ fontSize: '0.65rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: S.gold, marginBottom: '1rem', fontWeight: 600 }}>Execution</p>
-            <h2 style={{ fontFamily: S.serif, fontSize: 'clamp(1.75rem, 5vw, 3rem)', color: S.text, lineHeight: 1.1, fontWeight: 400 }}>
+            <h2 style={{ fontFamily: S.serif, fontSize: 'clamp(2rem, 5vw, 3.2rem)', color: S.text, lineHeight: 1.1, fontWeight: 400 }}>
               Real-world systems. Measurable outcomes.
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
             {[
               {
                 tag: 'AI Engineering', title: 'Algorithmic Strategy Builder',
@@ -247,10 +247,10 @@ export default function App() {
                 body: 'Designed and implemented a scalable WebRTC-based communication platform with real-time video and messaging infrastructure. Engineered for performance under concurrent user load.',
               },
             ].map(p => (
-              <div key={p.title} className="reveal p-6 md:p-8 lg:p-10 bg-[#0a0a0a] rounded-2xl md:rounded-[1.5rem] transition-colors border border-[rgba(255,255,255,0.06)] hover:border-[#c9a84c] hover:border-opacity-40">
-                <span style={{ fontSize: '0.55rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: S.gold, fontWeight: 700, marginBottom: '0.75rem', display: 'block' }}>{p.tag}</span>
-                <h3 style={{ fontSize: '1.05rem', fontWeight: 600, color: S.text, marginBottom: '0.75rem' }}>{p.title}</h3>
-                <p style={{ color: S.muted, fontSize: '0.85rem', lineHeight: 1.7, fontWeight: 300 }}>{p.body}</p>
+              <div key={p.title} className="reveal p-8 md:p-10 lg:p-12 bg-[#0a0a0a] rounded-3xl transition-colors border border-[rgba(255,255,255,0.06)] hover:border-[#c9a84c] hover:border-opacity-40">
+                <span style={{ fontSize: '0.6rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: S.gold, fontWeight: 700, marginBottom: '1.25rem', display: 'block' }}>{p.tag}</span>
+                <h3 style={{ fontSize: '1.15rem', fontWeight: 600, color: S.text, marginBottom: '1rem' }}>{p.title}</h3>
+                <p style={{ color: S.muted, fontSize: '0.95rem', lineHeight: 1.8, fontWeight: 300 }}>{p.body}</p>
               </div>
             ))}
           </div>

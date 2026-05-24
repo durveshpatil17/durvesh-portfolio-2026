@@ -52,27 +52,27 @@ export default function ContentCreation() {
   }, []);
 
   return (
-    <section ref={ref} id="creator" className="px-6 py-16 md:px-12 md:py-28" style={{ borderTop: `1px solid ${S.border}` }}>
+    <section ref={ref} id="creator" className="px-6 py-20 md:px-12 md:py-32" style={{ borderTop: `1px solid ${S.border}` }}>
       <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
 
         {/* Label */}
-        <p className="cc-reveal" style={{ fontSize: '0.65rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: S.gold, marginBottom: '2rem', fontWeight: 600 }}>
+        <p className="cc-reveal" style={{ fontSize: '0.65rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: S.gold, marginBottom: '2.5rem', fontWeight: 600 }}>
           Content Creation
         </p>
 
         {/* Two-column layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
 
           {/* LEFT: Narrative + Accounts */}
           <div>
-            <h2 className="cc-reveal" style={{ fontFamily: S.serif, fontSize: 'clamp(1.75rem, 5vw, 3.2rem)', color: S.text, lineHeight: 1.1, marginBottom: '1.5rem', fontWeight: 400 }}>
+            <h2 className="cc-reveal" style={{ fontFamily: S.serif, fontSize: 'clamp(2rem, 5vw, 3.5rem)', color: S.text, lineHeight: 1.15, marginBottom: '2rem', fontWeight: 400 }}>
               Digital <span style={{ fontStyle: 'italic', color: S.gold }}>Influence.</span>
             </h2>
 
-            <p className="cc-reveal" style={{ color: S.muted, fontSize: 'clamp(0.9rem, 2vw, 1.05rem)', lineHeight: 1.7, marginBottom: '1.25rem', fontWeight: 300 }}>
+            <p className="cc-reveal" style={{ color: S.muted, fontSize: 'clamp(1rem, 2vw, 1.1rem)', lineHeight: 1.8, marginBottom: '1.5rem', fontWeight: 300 }}>
               I run two active Instagram channels reaching millions — applying the same systems thinking I bring to branding campaigns and event strategy. From cinema storytelling to personal brand communication, every post is a deliberate act of audience engagement.
             </p>
-            <p className="cc-reveal" style={{ color: S.muted, fontSize: 'clamp(0.9rem, 2vw, 1.05rem)', lineHeight: 1.7, marginBottom: '2rem', fontWeight: 300 }}>
+            <p className="cc-reveal" style={{ color: S.muted, fontSize: 'clamp(1rem, 2vw, 1.1rem)', lineHeight: 1.8, marginBottom: '2.5rem', fontWeight: 300 }}>
               This creative dimension directly strengthens my MBA profile — demonstrating hands-on digital marketing execution, consumer psychology, brand positioning, and content strategy at scale.
             </p>
 
@@ -120,18 +120,18 @@ export default function ContentCreation() {
           {/* RIGHT: Stats + Why it matters */}
           <div>
             {/* Stats grid */}
-            <div className="cc-reveal" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1px', marginBottom: '1.5rem', border: `1px solid ${S.border}`, borderRadius: '1rem', overflow: 'hidden' }}>
+            <div className="cc-reveal" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1px', marginBottom: '2rem', border: `1px solid ${S.border}`, borderRadius: '1rem', overflow: 'hidden' }}>
               {STATS.map((s, i) => (
-                <div key={s.label} className="p-5 md:p-7" style={{
+                <div key={s.label} className="p-8 md:p-10" style={{
                   background: S.surface,
                   borderRight: i % 2 === 0 ? `1px solid ${S.border}` : 'none',
                   borderBottom: i < 2 ? `1px solid ${S.border}` : 'none',
                   textAlign: 'center',
                 }}>
-                  <div style={{ fontFamily: S.serif, fontSize: 'clamp(1.5rem, 4vw, 2.4rem)', color: S.gold, lineHeight: 1, marginBottom: '0.5rem' }}>
+                  <div style={{ fontFamily: S.serif, fontSize: 'clamp(1.8rem, 4vw, 2.4rem)', color: S.gold, lineHeight: 1, marginBottom: '0.75rem' }}>
                     {s.value}
                   </div>
-                  <div style={{ fontSize: '0.55rem', textTransform: 'uppercase', letterSpacing: '0.12em', color: S.muted, fontWeight: 600 }}>
+                  <div style={{ fontSize: '0.6rem', textTransform: 'uppercase', letterSpacing: '0.15em', color: S.muted, fontWeight: 600 }}>
                     {s.label}
                   </div>
                 </div>
@@ -139,15 +139,15 @@ export default function ContentCreation() {
             </div>
 
             {/* Why this matters block */}
-            <div className="cc-reveal p-6 md:p-8" style={{ background: S.surface, border: `1px solid ${S.border}`, borderRadius: '1rem' }}>
-              <p style={{ fontSize: '0.55rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: S.gold, fontWeight: 700, marginBottom: '1.25rem' }}>
+            <div className="cc-reveal p-8 md:p-10" style={{ background: S.surface, border: `1px solid ${S.border}`, borderRadius: '1.25rem' }}>
+              <p style={{ fontSize: '0.6rem', letterSpacing: '0.18em', textTransform: 'uppercase', color: S.gold, fontWeight: 700, marginBottom: '1.5rem' }}>
                 Why This Matters for MBA
               </p>
-              <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+              <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                 {WHY.map(point => (
-                  <li key={point} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.65rem' }}>
-                    <span style={{ width: '5px', height: '5px', borderRadius: '50%', background: S.gold, flexShrink: 0, marginTop: '0.45rem' }} />
-                    <span style={{ color: S.muted, fontSize: '0.85rem', lineHeight: 1.6, fontWeight: 300 }}>{point}</span>
+                  <li key={point} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.85rem' }}>
+                    <span style={{ width: '5px', height: '5px', borderRadius: '50%', background: S.gold, flexShrink: 0, marginTop: '0.55rem' }} />
+                    <span style={{ color: S.muted, fontSize: '0.95rem', lineHeight: 1.7, fontWeight: 300 }}>{point}</span>
                   </li>
                 ))}
               </ul>

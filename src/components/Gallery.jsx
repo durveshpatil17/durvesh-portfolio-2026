@@ -133,22 +133,22 @@ export default function Gallery() {
   }, []);
 
   return (
-    <section id="gallery" className="px-6 py-16 md:px-12 md:py-28" style={{ borderTop: `1px solid ${S.border}`, background: S.surface }}>
+    <section id="gallery" className="px-6 py-20 md:px-12 md:py-32" style={{ borderTop: `1px solid ${S.border}`, background: S.surface }}>
       <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
 
-        <div className="flex flex-col md:flex-row md:align-items-end justify-between mb-8 md:mb-12 gap-4">
+        <div className="flex flex-col md:flex-row md:align-items-end justify-between mb-10 md:mb-16 gap-6">
           <div>
-            <p style={{ fontSize: '0.65rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: S.gold, marginBottom: '0.9rem', fontWeight: 600 }}>Visual Archive</p>
-            <h2 style={{ fontFamily: S.serif, fontSize: 'clamp(1.75rem, 5vw, 3rem)', color: S.text, lineHeight: 1.1, fontWeight: 400 }}>
+            <p style={{ fontSize: '0.65rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: S.gold, marginBottom: '1.25rem', fontWeight: 600 }}>Visual Archive</p>
+            <h2 style={{ fontFamily: S.serif, fontSize: 'clamp(2rem, 5vw, 3.2rem)', color: S.text, lineHeight: 1.15, fontWeight: 400 }}>
               Documented Journey.
             </h2>
           </div>
-          <p style={{ color: S.muted, fontSize: 'clamp(0.85rem, 2vw, 0.9rem)', maxWidth: '280px', lineHeight: 1.6, fontWeight: 300, textAlign: 'left md:text-right' }}>
+          <p style={{ color: S.muted, fontSize: 'clamp(1rem, 2vw, 1.1rem)', maxWidth: '280px', lineHeight: 1.8, fontWeight: 300, textAlign: 'left md:text-right' }}>
             A curated visual record of leadership, execution, and professional growth.
           </p>
         </div>
 
-        <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '2rem', flexWrap: 'wrap' }}>
+        <div style={{ display: 'flex', gap: '0.75rem', marginBottom: '3rem', flexWrap: 'wrap' }}>
           {CATEGORIES.map(cat => (
             <button key={cat.id} onClick={() => setActiveId(cat.id)}
               style={{
@@ -166,7 +166,7 @@ export default function Gallery() {
         </div>
 
         {/* Bento Box Grid - Responsive */}
-        <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {active.items.map((item, i) => (
             <ImageCard key={`${activeId}-${i}`} item={item} onClick={setLightbox} />
           ))}
