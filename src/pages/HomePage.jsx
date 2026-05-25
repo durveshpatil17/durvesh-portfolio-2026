@@ -10,6 +10,78 @@ import { reels } from '../data/reels';
 
 gsap.registerPlugin(ScrollTrigger);
 
+const HERO_PHOTOS = [
+  { src: '/assets/images/personal/Personal Photo 1.webp', position: 'center 15%' },
+  { src: '/assets/images/achievements/Special Achievers award- Most outstanding Content creator award.jpg', position: 'center 20%' },
+  { src: '/assets/images/achievements/Techfest 2k25 Candid 2.jpg', position: 'center 10%' },
+];
+
+function HeroSlideshow({ className = '', style = {} }) {
+  const [current, setCurrent] = React.useState(0);
+  const [prev, setPrev] = React.useState(null);
+  const [fading, setFading] = React.useState(false);
+
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      setFading(true);
+      setTimeout(() => {
+        setPrev(current);
+        setCurrent(c => (c + 1) % HERO_PHOTOS.length);
+        setFading(false);
+      }, 800);
+    }, 3500);
+    return () => clearInterval(interval);
+  }, [current]);
+
+  return (
+    <div className={className} style={{ position: 'relative', overflow: 'hidden', ...style }}>
+      {prev !== null && (
+        <img
+          key={`prev-${prev}`}
+          src={HERO_PHOTOS[prev].src}
+          alt=""
+          style={{
+            position: 'absolute', inset: 0,
+            width: '100%', height: '100%',
+            objectFit: 'cover',
+            objectPosition: HERO_PHOTOS[prev].position,
+            opacity: fading ? 0 : 0,
+            transition: 'opacity 0.8s ease',
+          }}
+        />
+      )}
+      <img
+        key={`curr-${current}`}
+        src={HERO_PHOTOS[current].src}
+        alt="Durvesh H. Patil"
+        style={{
+          position: 'absolute', inset: 0,
+          width: '100%', height: '100%',
+          objectFit: 'cover',
+          objectPosition: HERO_PHOTOS[current].position,
+          opacity: fading ? 0 : 1,
+          transition: 'opacity 0.8s ease',
+        }}
+      />
+      <div style={{
+        position: 'absolute', bottom: '1.5rem', left: '50%',
+        transform: 'translateX(-50%)',
+        display: 'flex', gap: '6px', zIndex: 2,
+      }}>
+        {HERO_PHOTOS.map((_, i) => (
+          <div key={i} style={{
+            width: i === current ? '18px' : '6px',
+            height: '6px',
+            borderRadius: '3px',
+            background: i === current ? '#c9a84c' : 'rgba(255,255,255,0.25)',
+            transition: 'all 0.4s ease',
+          }} />
+        ))}
+      </div>
+    </div>
+  );
+}
+
 function WorkRow({ project }) {
   const [hovered, setHovered] = React.useState(false);
   return (
@@ -100,31 +172,30 @@ export default function HomePage() {
       {/* ── 1. HERO ── */}
       <section style={{ minHeight: '100svh', position: 'relative', display: 'flex', alignItems: 'center', overflow: 'hidden' }}>
 
-        {/* Photo — background on mobile, left side on desktop */}
+        {/* Slideshow — left side, bleeds edge, fades right */}
         <div style={{
-          position: 'absolute', left: 0, top: 0, bottom: 0,
+          position: 'absolute', left: 0, top: 0, bottom: 0, width: '52%',
           zIndex: 0,
-        }} className="w-full lg:w-[52%]">
-          <img
-            src="/assets/images/personal/Personal Photo 1.webp"
-            alt="Durvesh H. Patil"
-            style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 15%', display: 'block' }}
-          />
-          {/* Desktop right fade */}
-          <div className="hidden lg:block" style={{
+        }} className="hidden lg:block">
+          <HeroSlideshow style={{ width: '100%', height: '100%' }} />
+          {/* Right fade gradient */}
+          <div style={{
             position: 'absolute', inset: 0,
             background: 'linear-gradient(to right, transparent 40%, #060606 100%)',
+            zIndex: 1, pointerEvents: 'none',
           }} />
-          {/* Mobile heavy bottom fade for text readability */}
-          <div className="lg:hidden" style={{
-            position: 'absolute', inset: 0,
-            background: 'linear-gradient(to bottom, transparent 0%, #060606 80%)',
-          }} />
-          {/* Global bottom fade */}
+          {/* Bottom fade */}
           <div style={{
             position: 'absolute', inset: 0,
             background: 'linear-gradient(to top, #060606 0%, transparent 30%)',
+            zIndex: 1, pointerEvents: 'none',
           }} />
+        </div>
+
+        {/* Mobile portrait — also slideshow */}
+        <div className="lg:hidden w-full" style={{ height: '55vh', position: 'relative', overflow: 'hidden' }}>
+          <HeroSlideshow style={{ width: '100%', height: '100%' }} />
+          <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, transparent 50%, #060606 100%)', zIndex: 1, pointerEvents: 'none' }} />
         </div>
 
         {/* Text content — right side on desktop, below photo on mobile */}

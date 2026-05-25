@@ -15,16 +15,101 @@ const LABEL_STYLE = {
   color: S.gold, fontWeight: 600, marginBottom: '1rem', display: 'block',
 };
 
+const TIMELINE = [
+  {
+    year: '2026',
+    title: 'Social Media Head — Fusion 2026',
+    desc: 'Led digital branding, reel strategy, and content campaigns for Fusion 2026 at Symbiosis International University. Fourth consecutive year heading social media for major college events.',
+    tag: 'Current',
+  },
+  {
+    year: '2025',
+    title: 'Outstanding Content Creator Award',
+    desc: 'Recognized by KBT College of Engineering for consistent digital execution, reel strategy, and measurable audience impact. Content creation scaled dramatically after this recognition.',
+    tag: 'Recognition',
+  },
+  {
+    year: '2025',
+    title: 'Fusion 2025 — Reel Crosses 1 Million Views',
+    desc: 'Event promotion reel for Fusion 2025 organically crossed 1M views. This was the inflection point — content creation accelerated dramatically, total reach now 4M+ across both brands.',
+    tag: 'Creator',
+  },
+  {
+    year: '2024',
+    title: 'MBA at Symbiosis International University',
+    desc: 'Joined Symbiosis Centre for Information Technology (SCIT), Pune — part of Symbiosis International University. Specialising in IT strategy, information management, and business systems.',
+    tag: 'Education',
+  },
+  {
+    year: '2024',
+    title: 'Algorithmic Strategy Builder — Live Industry Project',
+    desc: 'Architected an NLP-to-strategy translation pipeline for Indian financial markets as a live industry project. End-to-end: data ingestion, NLP analysis, signal output. Business impact over academic theory.',
+    tag: 'AI Engineering',
+  },
+  {
+    year: '2024',
+    title: 'Mutual Fund Distribution & Advisory',
+    desc: 'Built and operated an AMFI-registered mutual fund distribution business — client acquisition, KYC coordination, SIP structuring, and portfolio guidance for 36+ clients. ₹13L+ AUM under management.',
+    tag: 'MF Distribution',
+  },
+  {
+    year: '2024',
+    title: 'Social Media Head — Techfest 2024',
+    desc: 'Started a three-year run heading social media for major college events. Techfest 2024 was the first — building the content and branding system that would later drive 1M+ view reels.',
+    tag: 'Creator',
+  },
+  {
+    year: '2023',
+    title: '@cinesyncbydurvesh launched',
+    desc: 'Started a cinema-focused Instagram brand — visual storytelling, editing craft, and cinematic content strategy.',
+    tag: 'Creator',
+  },
+];
+
+const GALLERY_PHOTOS = [
+  { src: '/assets/images/achievements/Social Media Head Techfest 2k24.jpg', caption: 'Social Media Head — Techfest 2024', year: '2024' },
+  { src: '/assets/images/achievements/Techfest 2k25 Candid 2.jpg', caption: 'Behind the scenes — Techfest 2025', year: '2025' },
+  { src: '/assets/images/achievements/Crossed 1 Million Views on Social Media event promotion reel of Fusion 2k25.jpg', caption: 'Fusion 2025 — 1M views reel', year: '2025' },
+  { src: '/assets/images/achievements/Special Achievers award- Most outstanding Content creator award.jpg', caption: 'Outstanding Content Creator Award', year: '2025' },
+];
+
+const REEL_PREVIEWS = [
+  {
+    id: 1,
+    url: 'https://www.instagram.com/p/DU8kUGtiDTd/',
+    type: 'POST',
+    index: '01',
+  },
+  {
+    id: 2,
+    url: 'https://www.instagram.com/p/DWv9flGCNTL/',
+    type: 'POST',
+    index: '02',
+  },
+  {
+    id: 3,
+    url: 'https://www.instagram.com/p/DW6VSjaiHMJ/',
+    type: 'POST',
+    index: '03',
+  },
+  {
+    id: 4,
+    url: 'https://www.instagram.com/reel/DXHB_7cCCE2/',
+    type: 'REEL',
+    index: '04',
+  },
+];
+
 function TimelineRow({ item }) {
   const [hovered, setHovered] = React.useState(false);
 
   const TAG_COLORS = {
-    'Current':      { bg: 'rgba(74,222,128,0.1)',  border: 'rgba(74,222,128,0.25)',  text: '#4ade80' },
-    'Recognition':  { bg: 'rgba(201,168,76,0.1)',  border: 'rgba(201,168,76,0.25)',  text: '#c9a84c' },
-    'FinTech':      { bg: 'rgba(55,138,221,0.1)',   border: 'rgba(55,138,221,0.25)',  text: '#60a5fa' },
-    'Education':    { bg: 'rgba(168,85,247,0.1)',   border: 'rgba(168,85,247,0.25)',  text: '#c084fc' },
-    'AI Engineering':{ bg: 'rgba(251,146,60,0.1)', border: 'rgba(251,146,60,0.25)', text: '#fb923c' },
-    'Creator':      { bg: 'rgba(244,114,182,0.1)', border: 'rgba(244,114,182,0.25)', text: '#f472b6' },
+    'Current':        { bg: 'rgba(74,222,128,0.1)',   border: 'rgba(74,222,128,0.25)',  text: '#4ade80' },
+    'Recognition':    { bg: 'rgba(201,168,76,0.1)',   border: 'rgba(201,168,76,0.25)', text: '#c9a84c' },
+    'MF Distribution':{ bg: 'rgba(55,138,221,0.1)',   border: 'rgba(55,138,221,0.25)', text: '#60a5fa' },
+    'Education':      { bg: 'rgba(168,85,247,0.1)',   border: 'rgba(168,85,247,0.25)', text: '#c084fc' },
+    'AI Engineering': { bg: 'rgba(251,146,60,0.1)',   border: 'rgba(251,146,60,0.25)', text: '#fb923c' },
+    'Creator':        { bg: 'rgba(244,114,182,0.1)',  border: 'rgba(244,114,182,0.25)', text: '#f472b6' },
   };
 
   const tagStyle = TAG_COLORS[item.tag] || TAG_COLORS['Creator'];
@@ -39,7 +124,7 @@ function TimelineRow({ item }) {
           ? 'clamp(1.25rem,2vw,1.75rem) clamp(0.75rem,1.5vw,1.25rem)'
           : 'clamp(1.25rem,2vw,1.75rem) 0',
         display: 'grid',
-        gridTemplateColumns: 'auto auto 1fr auto',
+        gridTemplateColumns: '1fr auto',
         gap: 'clamp(1rem, 2.5vw, 2rem)',
         alignItems: 'center',
         background: hovered ? '#141414' : 'transparent',
@@ -47,49 +132,9 @@ function TimelineRow({ item }) {
         transition: 'all 0.3s ease',
         cursor: 'default',
       }}
-      className="hidden sm:grid"
+      className="sm:grid-cols-[auto_auto_1fr_auto]"
     >
-      {/* Fallback layout for mobile */}
-      <div style={{ display: 'none' }}></div>
-    </div>
-  );
-}
-
-// Mobile-friendly TimelineRow wrapper that falls back properly
-function TimelineRowWrapper({ item }) {
-  const [hovered, setHovered] = React.useState(false);
-
-  const TAG_COLORS = {
-    'Current':      { bg: 'rgba(74,222,128,0.1)',  border: 'rgba(74,222,128,0.25)',  text: '#4ade80' },
-    'Recognition':  { bg: 'rgba(201,168,76,0.1)',  border: 'rgba(201,168,76,0.25)',  text: '#c9a84c' },
-    'FinTech':      { bg: 'rgba(55,138,221,0.1)',   border: 'rgba(55,138,221,0.25)',  text: '#60a5fa' },
-    'Education':    { bg: 'rgba(168,85,247,0.1)',   border: 'rgba(168,85,247,0.25)',  text: '#c084fc' },
-    'AI Engineering':{ bg: 'rgba(251,146,60,0.1)', border: 'rgba(251,146,60,0.25)', text: '#fb923c' },
-    'Creator':      { bg: 'rgba(244,114,182,0.1)', border: 'rgba(244,114,182,0.25)', text: '#f472b6' },
-  };
-
-  const tagStyle = TAG_COLORS[item.tag] || TAG_COLORS['Creator'];
-
-  return (
-    <div
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-      style={{
-        borderTop: '1px solid rgba(255,255,255,0.06)',
-        padding: hovered
-          ? 'clamp(1.25rem,2vw,1.75rem) clamp(0.75rem,1.5vw,1.25rem)'
-          : 'clamp(1.25rem,2vw,1.75rem) 0',
-        display: 'grid',
-        gap: 'clamp(1rem, 2.5vw, 2rem)',
-        alignItems: 'center',
-        background: hovered ? '#141414' : 'transparent',
-        borderRadius: hovered ? '0.75rem' : 0,
-        transition: 'all 0.3s ease',
-        cursor: 'default',
-      }}
-      className="grid-cols-[1fr_auto] sm:grid-cols-[auto_auto_1fr_auto]"
-    >
-      {/* Year (Hidden on mobile) */}
+      {/* Year (desktop) */}
       <span className="hidden sm:block" style={{
         fontFamily: S.serif, fontSize: '0.85rem',
         color: S.muted, opacity: 0.5, flexShrink: 0,
@@ -98,8 +143,8 @@ function TimelineRowWrapper({ item }) {
         {item.year}
       </span>
 
-      {/* Timeline dot (Hidden on mobile) */}
-      <div className="hidden sm:flex" style={{ flexDirection: 'column', alignItems: 'center', flexShrink: 0 }}>
+      {/* Timeline dot (desktop) */}
+      <div className="hidden sm:flex flex-col items-center flex-shrink-0">
         <div style={{
           width: '7px', height: '7px', borderRadius: '50%',
           background: hovered ? S.gold : 'rgba(255,255,255,0.15)',
@@ -151,6 +196,205 @@ function TimelineRowWrapper({ item }) {
   );
 }
 
+function ReelCard({ item, tall = false }) {
+  const [hov, setHov] = React.useState(false);
+  return (
+    <a
+      href={item.url}
+      target="_blank"
+      rel="noreferrer"
+      onMouseEnter={() => setHov(true)}
+      onMouseLeave={() => setHov(false)}
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'space-between',
+        aspectRatio: tall ? '4/5' : '1/1',
+        background: hov ? '#1a1818' : '#141212',
+        border: `1px solid ${hov ? 'rgba(201,168,76,0.35)' : 'rgba(255,255,255,0.07)'}`,
+        borderRadius: '1rem',
+        overflow: 'hidden',
+        textDecoration: 'none',
+        padding: '1.25rem',
+        transition: 'border-color 0.25s, background 0.25s, transform 0.25s',
+        transform: hov ? 'translateY(-3px)' : 'translateY(0)',
+        cursor: 'pointer',
+        position: 'relative',
+      }}
+    >
+      {/* Top row: IG icon + index */}
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" style={{ opacity: hov ? 0.7 : 0.3, transition: 'opacity 0.25s' }}>
+          <rect x="2" y="2" width="20" height="20" rx="6" stroke="#edebe6" strokeWidth="1.5"/>
+          <circle cx="12" cy="12" r="4" stroke="#edebe6" strokeWidth="1.5"/>
+          <circle cx="17.5" cy="6.5" r="1" fill="#edebe6"/>
+        </svg>
+        <span style={{
+          fontFamily: 'Instrument Serif, Georgia, serif',
+          fontSize: '0.75rem', color: 'rgba(255,255,255,0.15)',
+          letterSpacing: '0.05em',
+        }}>{item.index}</span>
+      </div>
+
+      {/* Center: large faint type tag */}
+      <div style={{ textAlign: 'center', flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        {item.type === 'REEL' ? (
+          <div style={{
+            width: '44px', height: '44px', borderRadius: '50%',
+            border: `1px solid ${hov ? 'rgba(201,168,76,0.5)' : 'rgba(255,255,255,0.12)'}`,
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            transition: 'border-color 0.25s',
+          }}>
+            <svg width="14" height="16" viewBox="0 0 14 16" fill="none">
+              <path d="M1 1L13 8L1 15V1Z" fill={hov ? '#c9a84c' : 'rgba(255,255,255,0.4)'} style={{ transition: 'fill 0.25s' }}/>
+            </svg>
+          </div>
+        ) : (
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" style={{ opacity: hov ? 0.5 : 0.15, transition: 'opacity 0.25s' }}>
+            <rect x="3" y="3" width="18" height="18" rx="3" stroke="#edebe6" strokeWidth="1.2"/>
+            <circle cx="8.5" cy="8.5" r="1.5" fill="#edebe6"/>
+            <path d="M3 15l5-5 4 4 3-3 6 6" stroke="#edebe6" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        )}
+      </div>
+
+      {/* Bottom: type label + external arrow */}
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>
+        <span style={{
+          fontSize: '0.6rem', letterSpacing: '0.16em',
+          textTransform: 'uppercase',
+          color: hov ? '#c9a84c' : 'rgba(255,255,255,0.25)',
+          fontWeight: 600, transition: 'color 0.25s',
+        }}>{item.type}</span>
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" style={{ opacity: hov ? 0.8 : 0.2, transition: 'opacity 0.25s' }}>
+          <path d="M7 17L17 7M17 7H7M17 7V17" stroke="#edebe6" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        </svg>
+      </div>
+    </a>
+  );
+}
+
+function HorizontalGallery({ photos }) {
+  const sectionRef = useRef(null);
+  const trackRef = useRef(null);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    const track = trackRef.current;
+    if (!section || !track) return;
+
+    const mm = gsap.matchMedia();
+
+    mm.add('(min-width: 768px)', () => {
+      const totalWidth = track.scrollWidth;
+      const viewportWidth = window.innerWidth;
+      const scrollDistance = totalWidth - viewportWidth;
+
+      const tween = gsap.to(track, {
+        x: -scrollDistance,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: section,
+          start: 'top top',
+          end: () => `+=${scrollDistance}`,
+          pin: true,
+          scrub: 1,
+          anticipatePin: 1,
+          invalidateOnRefresh: true,
+        },
+      });
+      
+      // Sync Lenis with ScrollTrigger
+      if (window.__lenis) {
+        window.__lenis.on('scroll', ScrollTrigger.update);
+      }
+
+      return () => {
+        tween.scrollTrigger?.kill();
+        tween.kill();
+      };
+    });
+
+    return () => mm.revert();
+  }, []);
+
+  return (
+    <div
+      ref={sectionRef}
+      style={{
+        background: '#0c0c0c',
+        overflow: 'hidden',
+        paddingBottom: 'clamp(5rem, 10vw, 9rem)',
+      }}
+    >
+      {/* Horizontal track */}
+      <div
+        ref={trackRef}
+        className="hidden md:flex"
+        style={{
+          gap: 'clamp(1rem, 2vw, 1.5rem)',
+          paddingLeft: 'clamp(1.25rem, 5vw, 5rem)',
+          paddingRight: 'clamp(1.25rem, 5vw, 5rem)',
+          paddingTop: '2rem',
+          width: 'max-content',
+          alignItems: 'flex-start',
+        }}
+      >
+        {photos.map((photo, i) => (
+          <div
+            key={i}
+            style={{
+              flexShrink: 0,
+              width: i % 2 === 0 ? 'clamp(300px, 32vw, 520px)' : 'clamp(240px, 25vw, 400px)',
+              position: 'relative',
+              borderRadius: '1rem',
+              overflow: 'hidden',
+              border: '1px solid rgba(255,255,255,0.07)',
+              marginTop: i % 2 === 1 ? 'clamp(2rem, 4vw, 4rem)' : '0',
+            }}
+          >
+            <img
+              src={photo.src}
+              alt={photo.caption}
+              style={{
+                width: '100%',
+                aspectRatio: i % 2 === 0 ? '3/4' : '4/3',
+                objectFit: 'cover',
+                display: 'block',
+              }}
+            />
+            {/* Caption overlay */}
+            <div style={{
+              position: 'absolute', bottom: 0, left: 0, right: 0,
+              background: 'linear-gradient(to top, rgba(6,6,6,0.88) 0%, transparent 100%)',
+              padding: '2rem 1.25rem 1.25rem',
+            }}>
+              <p style={{ fontSize: '0.62rem', color: 'rgba(201,168,76,0.8)', letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: '0.3rem' }}>{photo.year}</p>
+              <p style={{ fontSize: '0.8rem', color: 'rgba(237,235,230,0.75)', lineHeight: 1.4, fontWeight: 300 }}>{photo.caption}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Mobile fallback — normal scroll grid, hidden on md+ */}
+      <div className="md:hidden" style={{
+        display: 'grid',
+        gridTemplateColumns: '1fr 1fr',
+        gap: '0.75rem',
+        padding: '1.5rem clamp(1.25rem, 5vw, 2rem)',
+      }}>
+        {photos.map((photo, i) => (
+          <div key={i} style={{ borderRadius: '0.75rem', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.07)', position: 'relative' }}>
+            <img src={photo.src} alt={photo.caption} style={{ width: '100%', aspectRatio: '4/3', objectFit: 'cover', display: 'block' }} />
+            <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, background: 'linear-gradient(to top, rgba(6,6,6,0.85), transparent)', padding: '1.25rem 0.75rem 0.75rem' }}>
+              <p style={{ fontSize: '0.6rem', color: 'rgba(237,235,230,0.6)', lineHeight: 1.4 }}>{photo.caption}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 export default function AboutPage() {
   const pageRef = useRef(null);
@@ -196,12 +440,12 @@ export default function AboutPage() {
         {/* Full-bleed background portrait */}
         <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
           <img
-            src="/assets/images/personal/Personal Photo 1.webp"
+            src="/assets/images/achievements/Special Achievers award- Most outstanding Content creator award.jpg"
             alt="Durvesh H. Patil"
-            style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 10%' }}
+            style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 25%' }}
           />
           {/* Dark overlay — heavier at bottom for text legibility */}
-          <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(6,6,6,0.2) 0%, rgba(6,6,6,0.5) 40%, rgba(6,6,6,0.92) 80%, #060606 100%)' }} />
+          <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(6,6,6,0.35) 0%, rgba(6,6,6,0.55) 45%, rgba(6,6,6,0.94) 80%, #060606 100%)' }} />
           {/* Left fade for vignette */}
           <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right, rgba(6,6,6,0.4) 0%, transparent 60%)' }} />
         </div>
@@ -302,51 +546,8 @@ export default function AboutPage() {
           </div>
 
           {/* Timeline rows — editorial list */}
-          {[
-            {
-              year: '2026',
-              title: 'Social Media Lead — Fusion 2026',
-              desc: 'Led digital branding and content strategy for Fusion 2026 at SCIT Pune. Reel campaigns, audience coordination, event visibility.',
-              tag: 'Current',
-            },
-            {
-              year: '2025',
-              title: 'Outstanding Content Creator Award',
-              desc: 'Recognized by KBT College of Engineering for consistent digital execution, reel strategy, and measurable audience impact.',
-              tag: 'Recognition',
-            },
-            {
-              year: '2025',
-              title: 'FinTech Advisory — 36+ Clients',
-              desc: 'Led client onboarding, KYC coordination, and SIP automation for an AMFI-registered advisory operation. ₹13L+ AUM managed.',
-              tag: 'FinTech',
-            },
-            {
-              year: '2024',
-              title: 'MBA at SCIT Pune begins',
-              desc: 'Joined Symbiosis Centre for Information Technology for MBA — specialising in IT strategy, information management, and business systems.',
-              tag: 'Education',
-            },
-            {
-              year: '2024',
-              title: 'Algorithmic Strategy Builder',
-              desc: 'Architected an NLP-to-strategy pipeline for Indian financial markets. End-to-end system — ingestion, analysis, signal output.',
-              tag: 'AI Engineering',
-            },
-            {
-              year: '2024',
-              title: '1M+ Views on a Single Reel',
-              desc: 'Fusion 2025 event promotion reel crossed 1M organic views. Total reach across both creator accounts: 4M+.',
-              tag: 'Creator',
-            },
-            {
-              year: '2023',
-              title: '@cinesyncbydurvesh launched',
-              desc: 'Started a cinema-focused Instagram brand — visual storytelling, editing craft, and cinematic content strategy.',
-              tag: 'Creator',
-            },
-          ].map((item, i) => (
-            <TimelineRowWrapper key={i} item={item} />
+          {TIMELINE.map((item, i) => (
+            <TimelineRow key={i} item={item} />
           ))}
         </div>
       </section>
@@ -369,44 +570,19 @@ export default function AboutPage() {
             </a>
           </div>
 
-          {/* 4-post grid: 2 wide + 2 portrait */}
+          {/* Asymmetric grid: first card tall (4/5), rest square */}
           <div className="about-reveal" style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))',
-            gap: 'clamp(0.75rem, 1.5vw, 1.25rem)',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
+            gap: 'clamp(0.75rem, 1.5vw, 1rem)',
+            alignItems: 'start',
           }}>
-            {reels.map((reel, i) => (
-              <a key={reel.id} href={reel.url} target="_blank" rel="noreferrer"
-                style={{
-                  aspectRatio: i % 3 === 0 ? '4/5' : '1/1',
-                  background: '#141414',
-                  border: '1px solid rgba(255,255,255,0.06)',
-                  borderRadius: '0.875rem',
-                  overflow: 'hidden',
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  flexDirection: 'column', gap: '0.75rem',
-                  textDecoration: 'none', position: 'relative',
-                  transition: 'border-color 0.25s, transform 0.25s',
-                  cursor: 'pointer',
-                }}
-                onMouseEnter={e => { e.currentTarget.style.borderColor = 'rgba(201,168,76,0.35)'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
-                onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(255,255,255,0.06)'; e.currentTarget.style.transform = 'translateY(0)'; }}>
-                {/* Instagram icon */}
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" style={{ opacity: 0.3 }}>
-                  <rect x="2" y="2" width="20" height="20" rx="6" stroke="#edebe6" strokeWidth="1.5"/>
-                  <circle cx="12" cy="12" r="4" stroke="#edebe6" strokeWidth="1.5"/>
-                  <circle cx="17.5" cy="6.5" r="1" fill="#edebe6"/>
-                </svg>
-                {/* Type badge */}
-                <span style={{ fontSize: '0.6rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: S.muted }}>{reel.type}</span>
-                {/* External link icon bottom-right */}
-                <div style={{ position: 'absolute', bottom: '10px', right: '10px', opacity: 0.3 }}>
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
-                    <path d="M7 17L17 7M17 7H7M17 7V17" stroke="#edebe6" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                </div>
-              </a>
-            ))}
+            <ReelCard item={REEL_PREVIEWS[0]} tall={true} />
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 'clamp(0.75rem, 1.5vw, 1rem)' }}>
+              <ReelCard item={REEL_PREVIEWS[1]} tall={false} />
+              <ReelCard item={REEL_PREVIEWS[2]} tall={false} />
+            </div>
+            <ReelCard item={REEL_PREVIEWS[3]} tall={true} />
           </div>
 
           {/* Account cards */}
@@ -433,55 +609,20 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ── 05. GALLERY ── */}
-      <section style={{ ...BORDER_TOP, background: '#0c0c0c', padding: SECTION_PAD }}>
-        <div style={CONTAINER}>
-          <div className="about-reveal" style={{ marginBottom: 'clamp(2.5rem, 4vw, 3.5rem)' }}>
+      {/* ── 05. GALLERY — Horizontal pin scroll ── */}
+      <section style={{ ...BORDER_TOP, background: '#0c0c0c', paddingTop: 'clamp(5rem, 10vw, 9rem)', paddingBottom: 0 }}>
+        <div style={{ maxWidth: '1320px', margin: '0 auto', padding: '0 clamp(1.25rem, 5vw, 5rem)', marginBottom: 'clamp(2.5rem, 4vw, 3.5rem)' }}>
+          <div className="about-reveal">
             <span style={LABEL_STYLE}>Moments</span>
             <h2 style={{ fontFamily: S.serif, fontSize: 'clamp(1.8rem, 4vw, 3.5rem)', color: S.text, fontWeight: 400, lineHeight: 1.1 }}>
               In the room.
             </h2>
           </div>
-
-          {/* Masonry-style uneven grid */}
-          <div className="about-reveal" style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))',
-            gridTemplateRows: 'auto',
-            gap: 'clamp(0.75rem, 1.5vw, 1.25rem)',
-          }}>
-            {[
-              { src: '/assets/images/achievements/Social Media Head Techfest 2k24.jpg', alt: 'Social Media Head — Techfest 2024', span: 2 },
-              { src: '/assets/images/achievements/Techfest 2k25 Candid 2.jpg', alt: 'Techfest 2025', span: 1 },
-              { src: '/assets/images/achievements/Crossed 1 Million Views on Social Media event promotion reel of Fusion 2k25.jpg', alt: 'Fusion 2025 — 1M views', span: 1 },
-              { src: '/assets/images/achievements/Special Achievers award- Most outstanding Content creator award.jpg', alt: 'Outstanding Content Creator Award', span: 1 },
-            ].map((photo, i) => (
-              <div key={i} className={photo.span === 2 ? 'gallery-wide' : undefined} style={{
-                aspectRatio: photo.span === 2 ? '16/9' : '4/5',
-                position: 'relative', overflow: 'hidden',
-                borderRadius: '1rem',
-                border: '1px solid rgba(255,255,255,0.06)',
-              }}>
-                <img
-                  src={photo.src}
-                  alt={photo.alt}
-                  style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', transition: 'transform 0.6s ease' }}
-                  onMouseEnter={e => e.target.style.transform = 'scale(1.03)'}
-                  onMouseLeave={e => e.target.style.transform = 'scale(1)'}
-                />
-                {/* Caption overlay on hover — pure CSS trick */}
-                <div style={{
-                  position: 'absolute', bottom: 0, left: 0, right: 0,
-                  background: 'linear-gradient(to top, rgba(6,6,6,0.85) 0%, transparent 100%)',
-                  padding: '1.5rem 1.25rem 1rem',
-                }}>
-                  <p style={{ fontSize: '0.72rem', color: S.muted, letterSpacing: '0.06em', lineHeight: 1.4 }}>{photo.alt}</p>
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
+
+      {/* Pinned horizontal scroll */}
+      <HorizontalGallery photos={GALLERY_PHOTOS} />
 
       {/* ── 06. RECOGNITION ── */}
       <section style={{ ...BORDER_TOP, padding: SECTION_PAD }}>
@@ -522,9 +663,9 @@ export default function AboutPage() {
               </p>
               <div style={{ borderTop: '1px solid rgba(255,255,255,0.06)', paddingTop: '1.5rem', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
                 {[
-                  '4× Social Media Lead for major events',
-                  'Techfest 2024 & 2025, Fusion 2025 & 2026',
-                  '3.6M+ organic views from event content alone',
+                  '4× Social Media Lead — Techfest 2k24, Fusion 2k25, Techfest 2k25, Fusion 2k26',
+                  'Fusion 2k25 reel crossed 1M views organically — the inflection point',
+                  '4M+ total organic reach across @_thedurvesh and @cinesyncbydurvesh',
                 ].map(point => (
                   <div key={point} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem' }}>
                     <span style={{ width: '5px', height: '5px', borderRadius: '50%', background: S.gold, flexShrink: 0, marginTop: '0.5rem' }} />
