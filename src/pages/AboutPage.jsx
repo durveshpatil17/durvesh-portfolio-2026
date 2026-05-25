@@ -17,52 +17,64 @@ const LABEL_STYLE = {
 
 const TIMELINE = [
   {
+    year: '2024–26',
+    title: 'MBA at SCIT Pune, Symbiosis International University',
+    desc: 'Chose MBA deliberately — for people, strategy, and building. Not by default. Specialising in IT strategy and information management.',
+    tag: 'Education',
+  },
+  {
     year: '2026',
     title: 'Social Media Head — Fusion 2026',
-    desc: 'Led digital branding, reel strategy, and content campaigns for Fusion 2026 at Symbiosis International University. Fourth consecutive year heading social media for major college events.',
+    desc: 'Fourth consecutive event. The system built over three years now runs on its own momentum.',
     tag: 'Current',
   },
   {
     year: '2025',
     title: 'Outstanding Content Creator Award',
-    desc: 'Recognized by KBT College of Engineering for consistent digital execution, reel strategy, and measurable audience impact. Content creation scaled dramatically after this recognition.',
+    desc: 'Felicitated in a ceremony in front of the whole college by Sarchitnis Adv. Nitin Baburao Thakare, Maratha Vidya Prasak Samaj. Recognition that came from four years of just showing up.',
     tag: 'Recognition',
   },
   {
     year: '2025',
     title: 'Fusion 2025 — Reel Crosses 1 Million Views',
-    desc: 'Event promotion reel for Fusion 2025 organically crossed 1M views. This was the inflection point — content creation accelerated dramatically, total reach now 4M+ across both brands.',
+    desc: 'The Fusion 2025 event promotion reel crossed 1M views organically. The hardwork finally converted. Everything accelerated after this.',
     tag: 'Creator',
   },
   {
     year: '2024',
-    title: 'MBA at Symbiosis International University',
-    desc: 'Joined Symbiosis Centre for Information Technology (SCIT), Pune — part of Symbiosis International University. Specialising in IT strategy, information management, and business systems.',
-    tag: 'Education',
+    title: 'Felicitated at Nivesh Mantrana 2024, Indore',
+    desc: "Recognised for digital promotion at Nivesh Mantrana — Central India's first national knowledge summit for mutual fund distributors. 800 MFDs from 45 cities, 6 states. Keynote by MP Chief Minister Mohan Yadav. Felicitated for social media promotion of the event.",
+    tag: 'Recognition',
   },
   {
     year: '2024',
     title: 'Algorithmic Strategy Builder — Live Industry Project',
-    desc: 'Architected an NLP-to-strategy translation pipeline for Indian financial markets as a live industry project. End-to-end: data ingestion, NLP analysis, signal output. Business impact over academic theory.',
+    desc: 'Architected an NLP-to-strategy pipeline for Indian financial markets with TradeArth. End-to-end live industry project. Received PPO from the company.',
     tag: 'AI Engineering',
   },
   {
     year: '2024',
     title: 'Mutual Fund Distribution & Advisory',
-    desc: 'Built and operated an AMFI-registered mutual fund distribution business — client acquisition, KYC coordination, SIP structuring, and portfolio guidance for 36+ clients. ₹13L+ AUM under management.',
+    desc: 'Contributed to family MF distribution business — onboarded 36+ clients, ₹13L+ AUM via SIP & lumpsum. Managed KYC, onboarding, MF suitability, and portfolio tracking.',
     tag: 'MF Distribution',
   },
   {
     year: '2024',
     title: 'Social Media Head — Techfest 2024',
-    desc: 'Started a three-year run heading social media for major college events. Techfest 2024 was the first — building the content and branding system that would later drive 1M+ view reels.',
+    desc: 'First event as Social Media Head at KBT College Nashik. The start of a three-year run across Techfest 2024, 2025 and Fusion 2025, 2026.',
     tag: 'Creator',
   },
   {
     year: '2023',
     title: '@cinesyncbydurvesh launched',
-    desc: 'Started a cinema-focused Instagram brand — visual storytelling, editing craft, and cinematic content strategy.',
+    desc: 'Cinema has always been how I think. Launched a dedicated account for visual storytelling and editing craft.',
     tag: 'Creator',
+  },
+  {
+    year: '—',
+    title: 'The spark — Photoshop & Filmora',
+    desc: 'Childhood. Started editing photos and videos before anyone called it content creation. First post. First recognition. When the internet became accessible, started sharing — and people noticed.',
+    tag: 'Origin',
   },
 ];
 
@@ -137,6 +149,7 @@ function TimelineRow({ item }) {
   const TAG_COLORS = {
     'Current':        { bg: 'rgba(74,222,128,0.1)',   border: 'rgba(74,222,128,0.25)',  text: '#4ade80' },
     'Recognition':    { bg: 'rgba(201,168,76,0.1)',   border: 'rgba(201,168,76,0.25)', text: '#c9a84c' },
+    'Origin':         { bg: 'rgba(156,163,175,0.1)',  border: 'rgba(156,163,175,0.25)', text: '#9ca3af' },
     'MF Distribution':{ bg: 'rgba(55,138,221,0.1)',   border: 'rgba(55,138,221,0.25)', text: '#60a5fa' },
     'Education':      { bg: 'rgba(168,85,247,0.1)',   border: 'rgba(168,85,247,0.25)', text: '#c084fc' },
     'AI Engineering': { bg: 'rgba(251,146,60,0.1)',   border: 'rgba(251,146,60,0.25)', text: '#fb923c' },
@@ -466,56 +479,53 @@ export default function AboutPage() {
       {/* ── 01. HERO ── */}
       <section style={{ minHeight: '100svh', position: 'relative', display: 'flex', alignItems: 'flex-end', overflow: 'hidden', paddingBottom: 'clamp(4rem, 8vw, 7rem)' }}>
 
-        {/* Full-bleed background portrait */}
-        <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
+        {/* Desktop: photo RIGHT side only — no crop, no zoom */}
+        <div style={{ position: 'absolute', right: 0, top: 0, bottom: 0, width: '48%', zIndex: 0 }} className="hidden lg:block">
           <img
             src="/assets/images/personal/Profile photo.jpg"
             alt="Durvesh H. Patil"
-            style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 20%' }}
+            style={{
+              width: '100%', height: '100%',
+              objectFit: 'cover', objectPosition: 'center top',
+              display: 'block',
+            }}
           />
-          {/* Dark overlay — heavier at bottom for text legibility */}
-          <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(6,6,6,0.35) 0%, rgba(6,6,6,0.55) 45%, rgba(6,6,6,0.94) 80%, #060606 100%)' }} />
-          {/* Left fade for vignette */}
-          <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right, rgba(6,6,6,0.4) 0%, transparent 60%)' }} />
+          {/* Left fade — photo fades into dark background */}
+          <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right, #060606 0%, transparent 40%)', zIndex: 1 }} />
+          {/* Bottom fade */}
+          <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, #060606 0%, transparent 35%)', zIndex: 1 }} />
         </div>
 
-        {/* Text — anchored to bottom left */}
+        {/* Mobile: full bleed portrait — keeps the great mobile look */}
+        <div className="lg:hidden w-full" style={{ height: '65vh', position: 'relative', overflow: 'hidden' }}>
+          <img
+            src="/assets/images/personal/Profile photo.jpg"
+            alt="Durvesh H. Patil"
+            style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top' }}
+          />
+          <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(6,6,6,0.2) 0%, rgba(6,6,6,0.5) 50%, #060606 100%)' }} />
+        </div>
+
+        {/* Text — LEFT side on desktop (photo is right), below photo on mobile */}
         <div style={{ position: 'relative', zIndex: 1, width: '100%', maxWidth: '1320px', margin: '0 auto', padding: '0 clamp(1.25rem, 5vw, 5rem)' }}>
-          <div className="about-reveal">
-            <p style={LABEL_STYLE}>About</p>
-            <h1 style={{
-              fontFamily: S.serif,
-              fontSize: 'clamp(3.5rem, 10vw, 9rem)',
-              lineHeight: 0.92, fontWeight: 400,
-              color: S.text, letterSpacing: '-0.02em',
-              marginBottom: '0.1em',
-            }}>
+          <div className="about-reveal" style={{ maxWidth: '560px' }}>
+            <p style={{ fontSize: '0.65rem', letterSpacing: '0.18em', textTransform: 'uppercase', color: '#c9a84c', fontWeight: 600, marginBottom: '2rem', display: 'block' }}>About</p>
+            <h1 style={{ fontFamily: 'Instrument Serif, Georgia, serif', fontSize: 'clamp(3.5rem, 10vw, 9rem)', lineHeight: 0.92, fontWeight: 400, color: '#edebe6', letterSpacing: '-0.02em', marginBottom: '0.1em' }}>
               Durvesh
             </h1>
-            <h1 style={{
-              fontFamily: S.serif,
-              fontSize: 'clamp(3.5rem, 10vw, 9rem)',
-              lineHeight: 0.92, fontWeight: 400,
-              fontStyle: 'italic',
-              color: S.text, letterSpacing: '-0.02em',
-              marginBottom: 'clamp(1.5rem, 3vw, 2.5rem)',
-            }}>
-              Patil<span style={{ color: S.gold }}>.</span>
+            <h1 style={{ fontFamily: 'Instrument Serif, Georgia, serif', fontSize: 'clamp(3.5rem, 10vw, 9rem)', lineHeight: 0.92, fontWeight: 400, fontStyle: 'italic', color: '#edebe6', letterSpacing: '-0.02em', marginBottom: 'clamp(1.5rem, 3vw, 2.5rem)' }}>
+              Patil<span style={{ color: '#c9a84c' }}>.</span>
             </h1>
-            <p style={{
-              color: S.muted, fontWeight: 300,
-              fontSize: 'clamp(1rem, 2vw, 1.25rem)',
-              lineHeight: 1.6, maxWidth: '520px',
-            }}>
-              Engineer-turned-MBA. Builder of systems. Creator of content. Documenting the journey in public.
+            <p style={{ color: '#7a7875', fontWeight: 300, fontSize: 'clamp(1rem, 2vw, 1.2rem)', lineHeight: 1.6, maxWidth: '420px' }}>
+              From Nashik to Pune. From Filmora to 1 million views. Still figuring it out.
             </p>
           </div>
         </div>
 
         {/* Scroll cue */}
         <div style={{ position: 'absolute', bottom: '2.5rem', right: 'clamp(1.25rem, 5vw, 5rem)', zIndex: 2, display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '0.5rem' }}>
-          <div style={{ width: '1px', height: '40px', background: `linear-gradient(to bottom, ${S.muted}, transparent)` }} />
-          <span style={{ fontSize: '0.6rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: S.muted }}>Scroll</span>
+          <div style={{ width: '1px', height: '40px', background: 'linear-gradient(to bottom, #7a7875, transparent)' }} />
+          <span style={{ fontSize: '0.6rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: '#7a7875' }}>Scroll</span>
         </div>
       </section>
 
@@ -533,7 +543,7 @@ export default function AboutPage() {
                 fontSize: 'clamp(1.5rem, 3.5vw, 2.6rem)',
                 color: S.text, lineHeight: 1.35, fontWeight: 400, maxWidth: '800px',
               }}>
-                "I started as an engineer. Then I discovered that the most interesting problems aren't technical — they're strategic. So I became both."
+                "I started editing videos on Filmora as a kid. I didn't know it was building a career. I just knew I loved making things."
               </p>
             </div>
           </div>
@@ -545,19 +555,22 @@ export default function AboutPage() {
             gap: 'clamp(2.5rem, 6vw, 6rem)',
           }}>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.75rem' }}>
-              <p style={{ color: S.muted, fontSize: 'clamp(0.95rem, 1.5vw, 1.1rem)', lineHeight: 1.8, fontWeight: 300 }}>
-                I grew up thinking in systems — engineering, logic, code. Built projects, shipped products, learned NLP. But somewhere along the way I realised I was more interested in <em style={{ color: S.text, fontStyle: 'italic' }}>why</em> something was built than <em style={{ color: S.text, fontStyle: 'italic' }}>how</em>.
+              <p style={{ color: S.muted, fontSize: 'clamp(0.95rem,1.5vw,1.1rem)', lineHeight: 1.75, fontWeight: 300 }}>
+                I grew up in Nashik, always drawn to two things: technology and storytelling. As a kid I was editing photos in Photoshop and cutting videos in Filmora before I fully understood what any of it meant. When the internet became easily accessible and people started sharing content, I did too — because I couldn't not.
               </p>
-              <p style={{ color: S.muted, fontSize: 'clamp(0.95rem, 1.5vw, 1.1rem)', lineHeight: 1.8, fontWeight: 300 }}>
-                That led me to SCIT Pune for my MBA — where I'm studying strategy, FinTech, and information management. And simultaneously building advisory systems, running creator brands, and writing about all of it.
+              <p style={{ color: S.muted, fontSize: 'clamp(0.95rem,1.5vw,1.1rem)', lineHeight: 1.75, fontWeight: 300 }}>
+                Engineering at KBT College of Engineering, Nashik gave me the technical foundation. But somewhere between writing code and watching how a well-made reel makes a crowd go silent — I realised what I actually wanted: to be in the room where problems get solved face to face.
               </p>
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.75rem' }}>
               <p style={{ color: S.muted, fontSize: 'clamp(0.95rem, 1.5vw, 1.1rem)', lineHeight: 1.8, fontWeight: 300 }}>
-                The Instagram accounts started as experiments. <span style={{ color: S.text, fontWeight: 500 }}>@cinesyncbydurvesh</span> for cinema and visual storytelling. <span style={{ color: S.text, fontWeight: 500 }}>@_thedurvesh</span> for personal brand, tech, and the MBA journey. Now they reach millions — organically.
+                That realisation led me to MBA at SCIT Pune, Symbiosis International University. Not as a fallback from engineering — but deliberately, because I love people, strategy, and building solutions that actually fit the human using them.
               </p>
               <p style={{ color: S.muted, fontSize: 'clamp(0.95rem, 1.5vw, 1.1rem)', lineHeight: 1.8, fontWeight: 300 }}>
-                This website is the home base. Articles live here. Work lives here. And the story keeps getting written.
+                The content kept growing alongside it. Four consecutive events. Social media head. Fusion 2025 hit 1 million views. And I got felicitated on stage in front of the entire college by Sarchitnis Adv. Nitin Baburao Thakare, Maratha Vidya Prasak Samaj. That moment made it real.
+              </p>
+              <p style={{ color: S.muted, fontSize: 'clamp(0.95rem, 1.5vw, 1.1rem)', lineHeight: 1.8, fontWeight: 300 }}>
+                I also sing. I listen to podcasts at 2x speed. And I believe deeply in two things: Virat Kohli's '1% chance is enough to go all in' — and Sunil Chhetri's 'always set bigger goals, never limit yourself.'
               </p>
             </div>
           </div>

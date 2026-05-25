@@ -9,70 +9,56 @@ import { reels } from '../data/reels';
 gsap.registerPlugin(ScrollTrigger);
 
 const HERO_PHOTOS = [
-  { src: '/assets/images/personal/Personal photo 3.jpg',   position: 'center 15%' },
-  { src: '/assets/images/personal/Personal Photo 5.jpg',   position: 'center 10%' },
-  { src: '/assets/images/personal/Personal photo 4.jpg',   position: 'center 20%' },
-  { src: '/assets/images/personal/Personal photo 6.jpg',   position: 'center 12%' },
+  { src: '/assets/images/personal/Personal photo 3.jpg',  position: 'center 15%', mobilePosition: 'center 20%' },
+  { src: '/assets/images/personal/Personal Photo 5.jpg',  position: 'center 10%', mobilePosition: 'center 15%' },
+  { src: '/assets/images/personal/Personal photo 4.jpg',  position: 'center 20%', mobilePosition: 'center 25%' },
+  { src: '/assets/images/personal/Personal photo 6.jpg',  position: 'center 12%', mobilePosition: 'center 18%' },
 ];
 
-function HeroSlideshow({ className = '', style = {} }) {
+function HeroSlideshow({ style = {}, isMobile = false }) {
   const [current, setCurrent] = React.useState(0);
-  const [prev, setPrev] = React.useState(null);
   const [fading, setFading] = React.useState(false);
 
   React.useEffect(() => {
     const interval = setInterval(() => {
       setFading(true);
       setTimeout(() => {
-        setPrev(current);
         setCurrent(c => (c + 1) % HERO_PHOTOS.length);
         setFading(false);
       }, 800);
     }, 3500);
     return () => clearInterval(interval);
-  }, [current]);
+  }, []);
+
+  const photo = HERO_PHOTOS[current];
+  const objPos = isMobile ? photo.mobilePosition : photo.position;
 
   return (
-    <div className={className} style={{ position: 'relative', overflow: 'hidden', ...style }}>
-      {prev !== null && (
-        <img
-          key={`prev-${prev}`}
-          src={HERO_PHOTOS[prev].src}
-          alt=""
-          style={{
-            position: 'absolute', inset: 0,
-            width: '100%', height: '100%',
-            objectFit: 'cover',
-            objectPosition: HERO_PHOTOS[prev].position,
-            opacity: fading ? 0 : 0,
-            transition: 'opacity 0.8s ease',
-          }}
-        />
-      )}
+    <div style={{ position: 'relative', overflow: 'hidden', ...style }}>
       <img
-        key={`curr-${current}`}
-        src={HERO_PHOTOS[current].src}
+        key={current}
+        src={photo.src}
         alt="Durvesh H. Patil"
         style={{
           position: 'absolute', inset: 0,
           width: '100%', height: '100%',
           objectFit: 'cover',
-          objectPosition: HERO_PHOTOS[current].position,
+          objectPosition: objPos,
           opacity: fading ? 0 : 1,
           transition: 'opacity 0.8s ease',
         }}
       />
+      {/* Dot indicators */}
       <div style={{
-        position: 'absolute', bottom: '1.5rem', left: '50%',
+        position: 'absolute', bottom: '1.25rem', left: '50%',
         transform: 'translateX(-50%)',
         display: 'flex', gap: '6px', zIndex: 2,
       }}>
         {HERO_PHOTOS.map((_, i) => (
           <div key={i} style={{
             width: i === current ? '18px' : '6px',
-            height: '6px',
-            borderRadius: '3px',
-            background: i === current ? '#c9a84c' : 'rgba(255,255,255,0.25)',
+            height: '5px', borderRadius: '3px',
+            background: i === current ? '#c9a84c' : 'rgba(255,255,255,0.3)',
             transition: 'all 0.4s ease',
           }} />
         ))}
@@ -176,7 +162,7 @@ export default function HomePage() {
           position: 'absolute', left: 0, top: 0, bottom: 0, width: '52%',
           zIndex: 0,
         }} className="hidden lg:block">
-          <HeroSlideshow style={{ width: '100%', height: '100%' }} />
+          <HeroSlideshow style={{ width: '100%', height: '100%' }} isMobile={false} />
           {/* Right fade gradient */}
           <div style={{
             position: 'absolute', inset: 0,
@@ -192,9 +178,14 @@ export default function HomePage() {
         </div>
 
         {/* Mobile portrait — also slideshow */}
-        <div className="lg:hidden w-full" style={{ height: '55vh', position: 'relative', overflow: 'hidden' }}>
-          <HeroSlideshow style={{ width: '100%', height: '100%' }} />
-          <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, transparent 50%, #060606 100%)', zIndex: 1, pointerEvents: 'none' }} />
+        <div className="lg:hidden" style={{ height: '65vh', position: 'relative' }}>
+          <HeroSlideshow style={{ width: '100%', height: '100%' }} isMobile={true} />
+          {/* Bottom gradient over mobile photo */}
+          <div style={{
+            position: 'absolute', inset: 0,
+            background: 'linear-gradient(to bottom, rgba(6,6,6,0.1) 0%, rgba(6,6,6,0.3) 50%, #060606 100%)',
+            zIndex: 1, pointerEvents: 'none',
+          }} />
         </div>
 
         {/* Text content — right side on desktop, below photo on mobile */}
@@ -213,10 +204,9 @@ export default function HomePage() {
               fontSize: '0.65rem', letterSpacing: '0.2em', textTransform: 'uppercase',
               color: S.gold, fontWeight: 600, marginBottom: '2rem',
             }}>
-              MBA · Builder · Creator
+              MBA · Creator · Storyteller · Builder
             </p>
 
-            {/* Giant name — display type */}
             <h1 style={{
               fontFamily: S.serif,
               fontSize: 'clamp(3.5rem, 9vw, 8rem)',
@@ -224,17 +214,17 @@ export default function HomePage() {
               color: S.text, marginBottom: '0.15em',
               letterSpacing: '-0.02em',
             }}>
-              Durvesh
+              Figure out the way.
             </h1>
             <h1 style={{
               fontFamily: S.serif,
               fontSize: 'clamp(3.5rem, 9vw, 8rem)',
               lineHeight: 0.95, fontWeight: 400,
-              color: S.text, marginBottom: '2.5rem',
+              color: S.gold, marginBottom: '2.5rem',
               letterSpacing: '-0.02em',
               fontStyle: 'italic',
             }}>
-              Patil<span style={{ color: S.gold }}>.</span>
+              Keep going.
             </h1>
             </div>
 
@@ -244,16 +234,16 @@ export default function HomePage() {
               fontSize: 'clamp(0.95rem, 1.5vw, 1.1rem)',
               lineHeight: 1.65, maxWidth: '420px', marginBottom: '3rem',
             }}>
-              Building AI systems, writing about FinTech, and documenting the MBA journey — for the internet.
+              From a kid editing videos on Filmora to 1 million views and a stage felicitation — figuring out the way is the only thing you need to do.
             </p>
 
             {/* Metrics row */}
             <div className="reveal" style={{ display: 'flex', gap: 0, marginBottom: '3rem', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
               {[
-                { value: '4M+', label: 'Total Views' },
-                { value: '2000+', label: 'Followers' },
-                { value: '2', label: 'AI Systems Built' },
-                { value: '₹13L+', label: 'AUM Handled' },
+                { value: '1M+', label: 'Views on one reel' },
+                { value: '4', label: 'Major events led' },
+                { value: '4M+', label: 'Total organic reach' },
+                { value: '2026', label: 'MBA Batch, SCIT' },
               ].map((m, i) => (
                 <div key={m.label} style={{
                   flex: 1, paddingTop: '1.25rem',
@@ -268,7 +258,7 @@ export default function HomePage() {
 
             {/* CTAs */}
             <div className="reveal" style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-              <Link to="/work" style={{
+              <Link to="/about" style={{
                 padding: '0.875rem 2rem', background: S.gold, color: '#060606',
                 borderRadius: '3rem', fontSize: '0.78rem', fontWeight: 600,
                 letterSpacing: '0.08em', textTransform: 'uppercase', textDecoration: 'none',
@@ -276,7 +266,7 @@ export default function HomePage() {
               }}
                 onMouseEnter={e => e.currentTarget.style.opacity = '0.88'}
                 onMouseLeave={e => e.currentTarget.style.opacity = '1'}>
-                View Work
+                Read my story
               </Link>
               <Link to="/writing" style={{
                 padding: '0.875rem 2rem', background: 'transparent',
@@ -287,7 +277,7 @@ export default function HomePage() {
               }}
                 onMouseEnter={e => e.currentTarget.style.borderColor = S.gold}
                 onMouseLeave={e => e.currentTarget.style.borderColor = 'rgba(255,255,255,0.12)'}>
-                Read Writing
+                See my writing →
               </Link>
             </div>
           </div>
@@ -319,7 +309,7 @@ export default function HomePage() {
               color: S.text, lineHeight: 1.35, fontWeight: 400,
               maxWidth: '860px',
             }}>
-              "I build systems, tell stories, and create at the intersection of technology, strategy, and the creator economy."
+              "I started editing videos as a kid with no plan. Now I have 4 million views, a stage felicitation, and an MBA. The plan is still being written."
             </p>
           </div>
 
@@ -332,9 +322,9 @@ export default function HomePage() {
             {/* Left: skill areas */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
               {[
-                { area: 'AI & NLP Engineering', desc: 'Building systems that translate data into strategy.' },
-                { area: 'FinTech Advisory', desc: '36+ clients. ₹13L+ AUM. AMFI registered.' },
-                { area: 'Content & Creator', desc: '4M+ organic views across two active brands.' },
+                { area: 'Content & Creator', desc: '4M+ organic views. Social media head for 4 major college events.' },
+                { area: 'MBA & Strategy', desc: 'SCIT Pune, Symbiosis International University. People, strategy, building.' },
+                { area: 'Writing & Speaking', desc: 'Ideas on mindset, careers, ambition, and the world changing around us.' },
               ].map(item => (
                 <div key={item.area} style={{ borderTop: '1px solid rgba(255,255,255,0.06)', paddingTop: '1.25rem' }}>
                   <div style={{ fontFamily: S.serif, fontSize: 'clamp(1.1rem, 2vw, 1.5rem)', color: S.text, marginBottom: '0.4rem' }}>{item.area}</div>
@@ -346,10 +336,10 @@ export default function HomePage() {
             {/* Right: bio paragraph */}
             <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: '1.5rem' }}>
               <p style={{ color: S.muted, fontSize: 'clamp(0.95rem,1.5vw,1.1rem)', lineHeight: 1.75, fontWeight: 300 }}>
-                Currently pursuing my MBA at Symbiosis Centre for Information Technology (SCIT), Pune. Before that — engineering, machine learning, and building products from scratch.
+                I grew up in Nashik, always drawn to two things: technology and storytelling. As a kid I was editing photos in Photoshop and cutting videos in Filmora before I fully understood what any of it meant. When the internet became easily accessible and people started posting content — I did too. Because I couldn't not.
               </p>
               <p style={{ color: S.muted, fontSize: 'clamp(0.95rem,1.5vw,1.1rem)', lineHeight: 1.75, fontWeight: 300 }}>
-                I run <span style={{ color: S.text, fontWeight: 500 }}>@_thedurvesh</span> and <span style={{ color: S.text, fontWeight: 500 }}>@cinesyncbydurvesh</span> on Instagram — personal brand and cinema, respectively. Writing, building, and creating in public.
+                Engineering at KBT College Nashik gave me the foundation. But somewhere between writing code and watching how people respond to a well-made reel, I realised what I actually wanted: to be in the room where problems get solved face to face. MBA at SCIT Pune is where that becomes a career.
               </p>
             </div>
           </div>
@@ -375,8 +365,9 @@ export default function HomePage() {
 
           {/* Work rows — editorial list */}
           {[
-            { num: '01', tag: 'AI Engineering', title: 'AI Strategy Generator Module', impact: 'Built backend APIs using Python, Redis, MySQL, and OpenAI for F&O markets' },
-            { num: '02', tag: 'FinTech', title: 'Family MFD Business Ops', impact: 'Onboarded 36+ clients (₹13L+ AUM), building AI SIP allocation mini-platform' },
+            { num: '01', tag: 'AI Engineering', title: 'Algorithmic Strategy Builder', impact: 'Live industry project · NLP pipeline for Indian financial markets · PPO received' },
+            { num: '02', tag: 'MF Distribution', title: 'Mutual Fund Advisory', impact: '36+ clients · ₹13L+ AUM via SIP & lumpsum · AMFI registered' },
+            { num: '03', tag: 'Content Strategy', title: 'Social Media Head — 4 Major Events', impact: 'Techfest 2k24 & 2k25 · Fusion 2k25 & 2k26 · 1M+ views on single reel' },
           ].map((project) => (
             <WorkRow key={project.num} project={project} />
           ))}
@@ -397,7 +388,7 @@ export default function HomePage() {
                 Organic views from cinema. Growing tech & MBA brand.
               </p>
               <p style={{ color: S.muted, fontWeight: 300, fontSize: 'clamp(0.9rem,1.5vw,1.05rem)', lineHeight: 1.7 }}>
-                Two active Instagram brands — one for cinema (where a hobby turned into 4M+ views), and @_thedurvesh, my main account for personal brand, tech, and MBA life.
+                Two active Instagram brands built from zero, reaching millions — on the same systems thinking I apply to everything else. Every post is intentional. Every campaign is a brief. @_thedurvesh for personal brand, tech, and MBA life. @cinesyncbydurvesh for cinema and visual storytelling.
               </p>
             </div>
           </div>
@@ -547,9 +538,12 @@ export default function HomePage() {
       <section id="contact" style={{ borderTop: '1px solid rgba(255,255,255,0.06)', padding: 'clamp(5rem,10vw,9rem) clamp(1.25rem,5vw,5rem)', textAlign: 'center' }}>
         <div style={{ maxWidth: '1320px', margin: '0 auto' }}>
           <p className="reveal" style={{ fontSize: '0.65rem', letterSpacing: '0.18em', textTransform: 'uppercase', color: S.gold, fontWeight: 600, marginBottom: '1.5rem' }}>Connect</p>
-          <h2 className="reveal" style={{ fontFamily: S.serif, fontSize: 'clamp(2.5rem,6vw,5rem)', color: S.text, fontWeight: 400, lineHeight: 1.05, marginBottom: '3rem', maxWidth: '700px', margin: '0 auto 3rem' }}>
-            Let's build something with intent.
+          <h2 className="reveal" style={{ fontFamily: S.serif, fontSize: 'clamp(2.5rem,6vw,5rem)', color: S.text, fontWeight: 400, lineHeight: 1.05, marginBottom: '1.5rem', maxWidth: '700px', margin: '0 auto' }}>
+            Let's make something happen.
           </h2>
+          <p className="reveal" style={{ color: S.muted, fontSize: 'clamp(0.9rem,1.5vw,1.1rem)', lineHeight: 1.6, maxWidth: '540px', margin: '1.5rem auto 3rem', fontWeight: 300 }}>
+            Whether you want to invite me to speak, collaborate on content, get mentoring on MBA or career decisions, or just say hi — I read every message.
+          </p>
 
           {/* Text links — no border buttons */}
           <div className="reveal" style={{ display: 'flex', justifyContent: 'center', gap: 'clamp(1.5rem,4vw,3rem)', flexWrap: 'wrap', marginBottom: '4rem' }}>

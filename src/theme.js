@@ -5,3 +5,4 @@ export const S = {
 };
 
 export const CONTAINER_CLASSES = "mx-auto w-full max-w-[1320px] px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 py-16 md:py-20 lg:py-24";
+export const TAGLINE = 'Figure out the way. Keep going.';
