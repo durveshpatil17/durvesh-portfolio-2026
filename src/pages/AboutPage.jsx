@@ -79,24 +79,28 @@ const REEL_PREVIEWS = [
     url: 'https://www.instagram.com/p/DU8kUGtiDTd/',
     type: 'POST',
     index: '01',
+    thumbnail: '/assets/images/reels/reel1.jpeg'
   },
   {
     id: 2,
     url: 'https://www.instagram.com/p/DWv9flGCNTL/',
     type: 'POST',
     index: '02',
+    thumbnail: '/assets/images/reels/reel2.jpeg'
   },
   {
     id: 3,
     url: 'https://www.instagram.com/p/DW6VSjaiHMJ/',
     type: 'POST',
     index: '03',
+    thumbnail: '/assets/images/reels/reel3.jpeg'
   },
   {
     id: 4,
     url: 'https://www.instagram.com/reel/DXHB_7cCCE2/',
     type: 'REEL',
     index: '04',
+    thumbnail: '/assets/images/reels/reel4.jpeg'
   },
 ];
 
@@ -210,47 +214,59 @@ function ReelCard({ item, tall = false }) {
         flexDirection: 'column',
         justifyContent: 'space-between',
         aspectRatio: tall ? '4/5' : '1/1',
-        background: hov ? '#1a1818' : '#141212',
+        background: item.thumbnail ? `#141212 url(${item.thumbnail}) center/cover no-repeat` : (hov ? '#1a1818' : '#141212'),
         border: `1px solid ${hov ? 'rgba(201,168,76,0.35)' : 'rgba(255,255,255,0.07)'}`,
         borderRadius: '1rem',
         overflow: 'hidden',
         textDecoration: 'none',
         padding: '1.25rem',
-        transition: 'border-color 0.25s, background 0.25s, transform 0.25s',
+        transition: 'border-color 0.25s, transform 0.25s',
         transform: hov ? 'translateY(-3px)' : 'translateY(0)',
         cursor: 'pointer',
         position: 'relative',
       }}
     >
+      {/* Dark overlay to ensure text legibility */}
+      {item.thumbnail && (
+        <div style={{
+          position: 'absolute', inset: 0,
+          background: hov ? 'rgba(6,6,6,0.6)' : 'rgba(6,6,6,0.75)',
+          transition: 'background 0.25s',
+          zIndex: 0
+        }} />
+      )}
+
       {/* Top row: IG icon + index */}
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" style={{ opacity: hov ? 0.7 : 0.3, transition: 'opacity 0.25s' }}>
+      <div style={{ position: 'relative', zIndex: 1, display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" style={{ opacity: hov ? 0.9 : 0.6, transition: 'opacity 0.25s' }}>
           <rect x="2" y="2" width="20" height="20" rx="6" stroke="#edebe6" strokeWidth="1.5"/>
           <circle cx="12" cy="12" r="4" stroke="#edebe6" strokeWidth="1.5"/>
           <circle cx="17.5" cy="6.5" r="1" fill="#edebe6"/>
         </svg>
         <span style={{
           fontFamily: 'Instrument Serif, Georgia, serif',
-          fontSize: '0.75rem', color: 'rgba(255,255,255,0.15)',
-          letterSpacing: '0.05em',
+          fontSize: '0.75rem', color: hov ? 'rgba(255,255,255,0.8)' : 'rgba(255,255,255,0.4)',
+          letterSpacing: '0.05em', transition: 'color 0.25s'
         }}>{item.index}</span>
       </div>
 
       {/* Center: large faint type tag */}
-      <div style={{ textAlign: 'center', flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+      <div style={{ position: 'relative', zIndex: 1, textAlign: 'center', flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
         {item.type === 'REEL' ? (
           <div style={{
             width: '44px', height: '44px', borderRadius: '50%',
-            border: `1px solid ${hov ? 'rgba(201,168,76,0.5)' : 'rgba(255,255,255,0.12)'}`,
+            border: `1px solid ${hov ? 'rgba(201,168,76,0.7)' : 'rgba(255,255,255,0.3)'}`,
+            background: hov ? 'rgba(6,6,6,0.4)' : 'transparent',
             display: 'flex', alignItems: 'center', justifyContent: 'center',
-            transition: 'border-color 0.25s',
+            transition: 'border-color 0.25s, background 0.25s, transform 0.25s',
+            transform: hov ? 'scale(1.05)' : 'scale(1)',
           }}>
             <svg width="14" height="16" viewBox="0 0 14 16" fill="none">
-              <path d="M1 1L13 8L1 15V1Z" fill={hov ? '#c9a84c' : 'rgba(255,255,255,0.4)'} style={{ transition: 'fill 0.25s' }}/>
+              <path d="M1 1L13 8L1 15V1Z" fill={hov ? '#c9a84c' : 'rgba(255,255,255,0.6)'} style={{ transition: 'fill 0.25s' }}/>
             </svg>
           </div>
         ) : (
-          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" style={{ opacity: hov ? 0.5 : 0.15, transition: 'opacity 0.25s' }}>
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" style={{ opacity: hov ? 0.7 : 0.3, transition: 'opacity 0.25s, transform 0.25s', transform: hov ? 'scale(1.05)' : 'scale(1)' }}>
             <rect x="3" y="3" width="18" height="18" rx="3" stroke="#edebe6" strokeWidth="1.2"/>
             <circle cx="8.5" cy="8.5" r="1.5" fill="#edebe6"/>
             <path d="M3 15l5-5 4 4 3-3 6 6" stroke="#edebe6" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -259,14 +275,14 @@ function ReelCard({ item, tall = false }) {
       </div>
 
       {/* Bottom: type label + external arrow */}
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>
+      <div style={{ position: 'relative', zIndex: 1, display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>
         <span style={{
           fontSize: '0.6rem', letterSpacing: '0.16em',
           textTransform: 'uppercase',
-          color: hov ? '#c9a84c' : 'rgba(255,255,255,0.25)',
+          color: hov ? '#c9a84c' : 'rgba(255,255,255,0.6)',
           fontWeight: 600, transition: 'color 0.25s',
         }}>{item.type}</span>
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" style={{ opacity: hov ? 0.8 : 0.2, transition: 'opacity 0.25s' }}>
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" style={{ opacity: hov ? 0.9 : 0.5, transition: 'opacity 0.25s' }}>
           <path d="M7 17L17 7M17 7H7M17 7V17" stroke="#edebe6" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
         </svg>
       </div>
