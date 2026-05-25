@@ -104,3 +104,13 @@ body::before {
   from { opacity: 0; transform: translateY(24px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
+/* About Page Gallery Responsive Rule */
+.gallery-wide {
+  grid-column: span 2;
+}
+@media (max-width: 600px) {
+  .gallery-wide { 
+    grid-column: span 1; 
+  }
+}
