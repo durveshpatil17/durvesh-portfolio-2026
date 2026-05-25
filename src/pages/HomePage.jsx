@@ -2,8 +2,6 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import Research from '../components/Research';
-import Recognition from '../components/Recognition';
 import { S } from '../theme';
 import { articles } from '../data/articles';
 import { reels } from '../data/reels';
@@ -11,9 +9,10 @@ import { reels } from '../data/reels';
 gsap.registerPlugin(ScrollTrigger);
 
 const HERO_PHOTOS = [
-  { src: '/assets/images/personal/Personal Photo 1.webp', position: 'center 15%' },
-  { src: '/assets/images/achievements/Special Achievers award- Most outstanding Content creator award.jpg', position: 'center 20%' },
-  { src: '/assets/images/achievements/Techfest 2k25 Candid 2.jpg', position: 'center 10%' },
+  { src: '/assets/images/personal/Personal photo 3.jpg',   position: 'center 15%' },
+  { src: '/assets/images/personal/Personal Photo 5.jpg',   position: 'center 10%' },
+  { src: '/assets/images/personal/Personal photo 4.jpg',   position: 'center 20%' },
+  { src: '/assets/images/personal/Personal photo 6.jpg',   position: 'center 12%' },
 ];
 
 function HeroSlideshow({ className = '', style = {} }) {
@@ -407,7 +406,7 @@ export default function HomePage() {
           <div className="reveal" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '1rem', marginBottom: '2rem' }}>
             {[
               { handle: '@cinesyncbydurvesh', sub: 'Cinema · Visual Storytelling · Editing', img: '/assets/images/personal/CineSync.jpg' },
-              { handle: '@_thedurvesh', sub: 'Personal Brand · Tech · MBA Life', img: '/assets/images/personal/Personal Photo 1.webp' },
+              { handle: '@_thedurvesh', sub: 'Personal Brand · Tech · MBA Life', img: '/assets/images/personal/Personal Photo 2.JPG' },
             ].map(acc => (
               <a key={acc.handle} href={`https://instagram.com/${acc.handle.replace('@','')}`} target="_blank" rel="noreferrer"
                 style={{ display: 'flex', alignItems: 'center', gap: '1rem', padding: '1.25rem 1.5rem', background: '#141414', border: '1px solid rgba(255,255,255,0.06)', borderRadius: '1rem', textDecoration: 'none', transition: 'border-color 0.2s' }}
@@ -542,14 +541,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── 7. CREDENTIALS ── */}
-      <section style={{ borderTop: '1px solid rgba(255,255,255,0.06)', padding: 'clamp(5rem,10vw,9rem) clamp(1.25rem,5vw,5rem)' }}>
-        <div style={{ maxWidth: '1320px', margin: '0 auto' }}>
-          <p className="reveal" style={{ fontSize: '0.65rem', letterSpacing: '0.18em', textTransform: 'uppercase', color: S.gold, fontWeight: 600, marginBottom: 'clamp(2.5rem,4vw,4rem)' }}>Credentials</p>
-          <Research />
-          <Recognition />
-        </div>
-      </section>
+
 
       {/* ── 8. CONTACT ── */}
       <section id="contact" style={{ borderTop: '1px solid rgba(255,255,255,0.06)', padding: 'clamp(5rem,10vw,9rem) clamp(1.25rem,5vw,5rem)', textAlign: 'center' }}>

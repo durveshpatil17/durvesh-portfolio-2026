@@ -67,42 +67,69 @@ const TIMELINE = [
 ];
 
 const GALLERY_PHOTOS = [
-  { src: '/assets/images/achievements/Social Media Head Techfest 2k24.jpg', caption: 'Social Media Head — Techfest 2024', year: '2024' },
-  { src: '/assets/images/achievements/Techfest 2k25 Candid 2.jpg', caption: 'Behind the scenes — Techfest 2025', year: '2025' },
-  { src: '/assets/images/achievements/Crossed 1 Million Views on Social Media event promotion reel of Fusion 2k25.jpg', caption: 'Fusion 2025 — 1M views reel', year: '2025' },
-  { src: '/assets/images/achievements/Special Achievers award- Most outstanding Content creator award.jpg', caption: 'Outstanding Content Creator Award', year: '2025' },
+  {
+    src: '/assets/images/achievements/Social Media Head Fusion 2k26.jpg',
+    caption: 'Social Media Head — Fusion 2026',
+    year: '2026',
+  },
+  {
+    src: '/assets/images/achievements/Social Media Head at Fusion 2k26.jpg',
+    caption: 'Behind the scenes — Fusion 2026',
+    year: '2026',
+  },
+  {
+    src: '/assets/images/achievements/Social Media Head Techfest 2k25.jpg',
+    caption: 'Social Media Head — Techfest 2025',
+    year: '2025',
+  },
+  {
+    src: '/assets/images/achievements/Techfest 2k25 Candid.jpg',
+    caption: 'Techfest 2025 — candid',
+    year: '2025',
+  },
+  {
+    src: '/assets/images/achievements/Techfest 2k25 Candid 2.jpg',
+    caption: 'Techfest 2025 — backstage',
+    year: '2025',
+  },
+  {
+    src: '/assets/images/achievements/Crossed 1 Million Views on Social Media event promotion reel of Fusion 2k25.jpg',
+    caption: 'Fusion 2025 — the 1M reel moment',
+    year: '2025',
+  },
+  {
+    src: '/assets/images/achievements/Felicitation By HOD.jpg',
+    caption: 'Felicitation by HOD',
+    year: '2025',
+  },
+  {
+    src: '/assets/images/achievements/Fusion 2k25 Cricket tournament winner.jpg',
+    caption: 'Cricket tournament winners — Fusion 2025',
+    year: '2025',
+  },
+  {
+    src: '/assets/images/achievements/Photo with college principal on matching outfits in college cultural fest.jpg',
+    caption: 'Cultural fest — with the principal',
+    year: '2024',
+  },
+  {
+    src: '/assets/images/achievements/NSS Camp Best Kitchen award.jpg',
+    caption: 'NSS Camp — Best Kitchen award',
+    year: '2024',
+  },
+  {
+    src: '/assets/images/achievements/ITSA.jpg',
+    caption: 'ITSA',
+    year: '2024',
+  },
+  {
+    src: '/assets/images/achievements/Social Media Head Techfest 2k24.jpg',
+    caption: 'Social Media Head — Techfest 2024',
+    year: '2024',
+  },
 ];
 
-const REEL_PREVIEWS = [
-  {
-    id: 1,
-    url: 'https://www.instagram.com/p/DU8kUGtiDTd/',
-    type: 'POST',
-    index: '01',
-    thumbnail: '/assets/images/reels/reel1.jpeg'
-  },
-  {
-    id: 2,
-    url: 'https://www.instagram.com/p/DWv9flGCNTL/',
-    type: 'POST',
-    index: '02',
-    thumbnail: '/assets/images/reels/reel2.jpeg'
-  },
-  {
-    id: 3,
-    url: 'https://www.instagram.com/p/DW6VSjaiHMJ/',
-    type: 'POST',
-    index: '03',
-    thumbnail: '/assets/images/reels/reel3.jpeg'
-  },
-  {
-    id: 4,
-    url: 'https://www.instagram.com/reel/DXHB_7cCCE2/',
-    type: 'REEL',
-    index: '04',
-    thumbnail: '/assets/images/reels/reel4.jpeg'
-  },
-];
+import { reels as REEL_PREVIEWS } from '../data/reels';
 
 function TimelineRow({ item }) {
   const [hovered, setHovered] = React.useState(false);
@@ -210,80 +237,66 @@ function ReelCard({ item, tall = false }) {
       onMouseEnter={() => setHov(true)}
       onMouseLeave={() => setHov(false)}
       style={{
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'space-between',
+        display: 'block',
         aspectRatio: tall ? '4/5' : '1/1',
-        background: item.thumbnail ? `#141212 url(${item.thumbnail}) center/cover no-repeat` : (hov ? '#1a1818' : '#141212'),
-        border: `1px solid ${hov ? 'rgba(201,168,76,0.35)' : 'rgba(255,255,255,0.07)'}`,
         borderRadius: '1rem',
         overflow: 'hidden',
+        border: `1px solid ${hov ? 'rgba(201,168,76,0.45)' : 'rgba(255,255,255,0.07)'}`,
         textDecoration: 'none',
-        padding: '1.25rem',
+        position: 'relative',
         transition: 'border-color 0.25s, transform 0.25s',
         transform: hov ? 'translateY(-3px)' : 'translateY(0)',
         cursor: 'pointer',
-        position: 'relative',
       }}
     >
-      {/* Dark overlay to ensure text legibility */}
-      {item.thumbnail && (
-        <div style={{
-          position: 'absolute', inset: 0,
-          background: hov ? 'rgba(6,6,6,0.6)' : 'rgba(6,6,6,0.75)',
-          transition: 'background 0.25s',
-          zIndex: 0
-        }} />
-      )}
-
-      {/* Top row: IG icon + index */}
-      <div style={{ position: 'relative', zIndex: 1, display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" style={{ opacity: hov ? 0.9 : 0.6, transition: 'opacity 0.25s' }}>
-          <rect x="2" y="2" width="20" height="20" rx="6" stroke="#edebe6" strokeWidth="1.5"/>
-          <circle cx="12" cy="12" r="4" stroke="#edebe6" strokeWidth="1.5"/>
-          <circle cx="17.5" cy="6.5" r="1" fill="#edebe6"/>
+      {/* Actual thumbnail */}
+      <img
+        src={item.thumbnail}
+        alt={item.caption}
+        style={{
+          width: '100%', height: '100%',
+          objectFit: 'cover', display: 'block',
+          transition: 'transform 0.5s ease',
+          transform: hov ? 'scale(1.04)' : 'scale(1)',
+        }}
+      />
+      {/* Dark overlay */}
+      <div style={{
+        position: 'absolute', inset: 0,
+        background: hov
+          ? 'linear-gradient(to top, rgba(6,6,6,0.75) 0%, rgba(6,6,6,0.1) 60%)'
+          : 'linear-gradient(to top, rgba(6,6,6,0.55) 0%, rgba(6,6,6,0.05) 60%)',
+        transition: 'background 0.3s',
+      }} />
+      {/* Top-left: IG icon */}
+      <div style={{ position: 'absolute', top: '10px', left: '10px' }}>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" style={{ opacity: 0.7 }}>
+          <rect x="2" y="2" width="20" height="20" rx="6" stroke="white" strokeWidth="1.5"/>
+          <circle cx="12" cy="12" r="4" stroke="white" strokeWidth="1.5"/>
+          <circle cx="17.5" cy="6.5" r="1" fill="white"/>
         </svg>
-        <span style={{
-          fontFamily: 'Instrument Serif, Georgia, serif',
-          fontSize: '0.75rem', color: hov ? 'rgba(255,255,255,0.8)' : 'rgba(255,255,255,0.4)',
-          letterSpacing: '0.05em', transition: 'color 0.25s'
-        }}>{item.index}</span>
       </div>
-
-      {/* Center: large faint type tag */}
-      <div style={{ position: 'relative', zIndex: 1, textAlign: 'center', flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-        {item.type === 'REEL' ? (
-          <div style={{
-            width: '44px', height: '44px', borderRadius: '50%',
-            border: `1px solid ${hov ? 'rgba(201,168,76,0.7)' : 'rgba(255,255,255,0.3)'}`,
-            background: hov ? 'rgba(6,6,6,0.4)' : 'transparent',
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-            transition: 'border-color 0.25s, background 0.25s, transform 0.25s',
-            transform: hov ? 'scale(1.05)' : 'scale(1)',
-          }}>
-            <svg width="14" height="16" viewBox="0 0 14 16" fill="none">
-              <path d="M1 1L13 8L1 15V1Z" fill={hov ? '#c9a84c' : 'rgba(255,255,255,0.6)'} style={{ transition: 'fill 0.25s' }}/>
-            </svg>
-          </div>
-        ) : (
-          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" style={{ opacity: hov ? 0.7 : 0.3, transition: 'opacity 0.25s, transform 0.25s', transform: hov ? 'scale(1.05)' : 'scale(1)' }}>
-            <rect x="3" y="3" width="18" height="18" rx="3" stroke="#edebe6" strokeWidth="1.2"/>
-            <circle cx="8.5" cy="8.5" r="1.5" fill="#edebe6"/>
-            <path d="M3 15l5-5 4 4 3-3 6 6" stroke="#edebe6" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+      {/* Center play icon for reels */}
+      {item.type === 'reel' && (
+        <div style={{
+          position: 'absolute', top: '50%', left: '50%',
+          transform: 'translate(-50%, -50%)',
+          width: '44px', height: '44px', borderRadius: '50%',
+          background: 'rgba(255,255,255,0.15)',
+          backdropFilter: 'blur(4px)',
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          opacity: hov ? 1 : 0.6, transition: 'opacity 0.25s',
+        }}>
+          <svg width="14" height="16" viewBox="0 0 14 16" fill="none">
+            <path d="M1 1L13 8L1 15V1Z" fill="white"/>
           </svg>
-        )}
-      </div>
-
-      {/* Bottom: type label + external arrow */}
-      <div style={{ position: 'relative', zIndex: 1, display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>
-        <span style={{
-          fontSize: '0.6rem', letterSpacing: '0.16em',
-          textTransform: 'uppercase',
-          color: hov ? '#c9a84c' : 'rgba(255,255,255,0.6)',
-          fontWeight: 600, transition: 'color 0.25s',
-        }}>{item.type}</span>
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" style={{ opacity: hov ? 0.9 : 0.5, transition: 'opacity 0.25s' }}>
-          <path d="M7 17L17 7M17 7H7M17 7V17" stroke="#edebe6" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        </div>
+      )}
+      {/* Bottom: type label */}
+      <div style={{ position: 'absolute', bottom: '10px', left: '12px', right: '12px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <span style={{ fontSize: '0.6rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.7)', fontWeight: 600 }}>{item.type}</span>
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" style={{ opacity: hov ? 0.9 : 0.4, transition: 'opacity 0.25s' }}>
+          <path d="M7 17L17 7M17 7H7M17 7V17" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
         </svg>
       </div>
     </a>
@@ -456,9 +469,9 @@ export default function AboutPage() {
         {/* Full-bleed background portrait */}
         <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
           <img
-            src="/assets/images/achievements/Special Achievers award- Most outstanding Content creator award.jpg"
+            src="/assets/images/personal/Profile photo.jpg"
             alt="Durvesh H. Patil"
-            style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 25%' }}
+            style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 20%' }}
           />
           {/* Dark overlay — heavier at bottom for text legibility */}
           <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(6,6,6,0.35) 0%, rgba(6,6,6,0.55) 45%, rgba(6,6,6,0.94) 80%, #060606 100%)' }} />
