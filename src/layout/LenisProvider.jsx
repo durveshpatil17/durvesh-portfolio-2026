@@ -10,7 +10,11 @@ export default function LenisProvider({ children }) {
   const location = useLocation();
 
   useEffect(() => {
-    const lenis = new Lenis({ duration: 1.2, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)) });
+    const lenis = new Lenis({ 
+      duration: 0.8, // faster, more app-like
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smoothWheel: true,
+    });
     window.__lenis = lenis;
     const raf = (time) => { lenis.raf(time); requestAnimationFrame(raf); };
     requestAnimationFrame(raf);
@@ -18,21 +22,6 @@ export default function LenisProvider({ children }) {
     lenis.scrollTo(0, {immediate: true});
     gsap.ticker.add((time) => { lenis.raf(time * 1000); });
     gsap.ticker.lagSmoothing(0);
-
-    const handleScroll = () => {
-      const nav = document.getElementById('navbar');
-      if (!nav) return;
-      if (window.scrollY > 50) {
-        nav.style.background = 'rgba(6,6,6,0.85)';
-        nav.style.borderBottom = '1px solid rgba(255,255,255,0.06)';
-        nav.style.backdropFilter = 'blur(16px)';
-      } else {
-        nav.style.background = 'transparent';
-        nav.style.borderBottom = 'none';
-        nav.style.backdropFilter = 'none';
-      }
-    };
-    window.addEventListener('scroll', handleScroll);
 
     // GSAP MatchMedia for safe mobile animations
     let mm = gsap.matchMedia();
@@ -57,7 +46,7 @@ export default function LenisProvider({ children }) {
       });
     });
 
-    return () => { window.removeEventListener('scroll', handleScroll); lenis.destroy(); mm.revert(); };
+    return () => { lenis.destroy(); mm.revert(); };
   }, [location.pathname]); // Re-init on route change
 
   return <>{children}</>;

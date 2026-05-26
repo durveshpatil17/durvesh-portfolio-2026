@@ -1,8 +1,33 @@
 export const S = {
-  bg: '#060606', surface: '#0e0e0e', border: 'rgba(255,255,255,0.06)',
-  gold: '#c9a84c', goldLight: '#e8c97a', text: '#edebe6', muted: '#7a7875',
-  serif: 'Instrument Serif, Georgia, serif', sans: 'Inter, system-ui, sans-serif',
+  // Backgrounds — 3 levels of depth
+  bg:      '#0A0A0F',
+  surface: '#13131A',
+  card:    '#1C1C26',
+
+  // Accent — purple system
+  accent:      '#7C6EFA',
+  accentLight: '#B8AEFF',
+  accentDim:   'rgba(124,110,250,0.15)',
+  accentBorder:'rgba(124,110,250,0.2)',
+
+  // Text
+  text:   '#F0EFF8',
+  muted:  '#6B6A7A',
+  subtle: '#3D3C4A',
+
+  // Borders
+  border: 'rgba(124,110,250,0.12)',
+  borderHover: 'rgba(124,110,250,0.35)',
+
+  // Typography
+  serif: 'Instrument Serif, Georgia, serif',
+  sans:  'Inter, system-ui, sans-serif',
+
+  // Spacing — app scale
+  navH: '56px',
+  sidebarW: '220px',
 };
 
-export const CONTAINER_CLASSES = "mx-auto w-full max-w-[1320px] px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 py-16 md:py-20 lg:py-24";
+export const CONTAINER_CLASSES = 'mx-auto w-full max-w-[1320px] px-4 sm:px-6 lg:px-8';
+export const SECTION_PAD = 'clamp(3rem, 6vw, 5rem)';
 export const TAGLINE = 'Figure out the way. Keep going.';

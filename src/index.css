@@ -1,116 +1,127 @@
-@import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&display=swap');
 
-/* Reset and Core Layout */
-* { margin: 0; padding: 0; box-sizing: border-box; overflow-wrap: break-word; }
-html, body { 
-    -webkit-font-smoothing: antialiased; 
-    overflow-x: hidden; 
-    scroll-behavior: auto;
-    width: 100%; 
-    max-width: 100vw;
-    background-color: #060606;
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  overflow-x: hidden;
+  background: #0A0A0F;
+  color: #F0EFF8;
+  font-family: Inter, system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: auto;
 }
 
-/* Texture Overlay */
-body::before {
-    content: "";
-    position: fixed;
-    top: 0; left: 0; width: 100vw; height: 100vh;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-    opacity: 0.025;
-    pointer-events: none;
-    z-index: 9999;
+/* App-scale typography — nothing oversized */
+h1 { font-size: clamp(2rem, 6vw, 4.5rem); font-weight: 400; font-family: 'Instrument Serif', Georgia, serif; line-height: 1.05; }
+h2 { font-size: clamp(1.4rem, 3vw, 2.5rem); font-weight: 400; font-family: 'Instrument Serif', Georgia, serif; line-height: 1.1; }
+h3 { font-size: clamp(1rem, 2vw, 1.4rem); font-weight: 400; font-family: 'Instrument Serif', Georgia, serif; }
+p  { font-size: 14px; line-height: 1.65; color: #6B6A7A; font-weight: 300; }
+
+/* Main content — sits above bottom nav on mobile, beside sidebar on desktop */
+#app-content {
+  padding-bottom: 72px; /* bottom nav height + safe area */
+  min-height: 100svh;
 }
 
-/* Custom Selection */
-::selection { background: rgba(201,168,76,0.3); color: white; }
-::-moz-selection { background: rgba(201,168,76,0.3); color: white; }
-
-/* Custom Scrollbar */
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: #c9a84c; border-radius: 3px; }
-
-/* GSAP Reveal States */
-.reveal, .cc-reveal, .rec-reveal, .res-reveal, .grid-reveal {
-    opacity: 0;
-    transform: translateY(40px);
-    will-change: transform, opacity;
-}
-
-/* Safe area padding for mobile footers */
-.pb-safe { padding-bottom: env(safe-area-inset-bottom); }
-
-/* Custom Cursor (hidden by default on mobile) */
-.custom-cursor {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 12px;
-    height: 12px;
-    background-color: #c9a84c;
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 10000;
-    opacity: 0;
-    will-change: transform;
-}
-@media (hover: none) and (pointer: coarse) {
-    .custom-cursor { display: none !important; }
-}
-
-/* Nav Link Animation */
-.nav-link { position: relative; }
-.nav-link::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: -4px;
-    left: 0;
-    background-color: #c9a84c;
-    transition: width 0.3s ease;
-}
-.nav-link:hover::after { width: 100%; }
-
-/* Bento Editorial Grid Classes */
-@media (min-width: 1280px) {
-    .bento-large { grid-column: span 2; grid-row: span 2; }
-    .bento-wide { grid-column: span 2; grid-row: span 1; }
-    .bento-tall { grid-column: span 1; grid-row: span 2; }
-    .bento-small { grid-column: span 1; grid-row: span 1; }
-}
-
-/* Link underline hover animation */
-.animated-underline { position: relative; display: inline-block; }
-.animated-underline::after {
-    content: ''; position: absolute; width: 0; height: 1px; bottom: 0; left: 0;
-    background-color: #c9a84c; transition: width 0.3s ease;
-}
-.animated-underline:hover::after { width: 100%; }
-
-@keyframes pulse-green {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.4; transform: scale(1.3); }
-}
-
-@keyframes pulse-dot {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.35; transform: scale(1.5); }
-}
-
-@keyframes fade-up {
-  from { opacity: 0; transform: translateY(24px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* About Page Gallery Responsive Rule */
-.gallery-wide {
-  grid-column: span 2;
-}
-@media (max-width: 600px) {
-  .gallery-wide { 
-    grid-column: span 1; 
+@media (min-width: 1024px) {
+  #app-content {
+    padding-bottom: 0;
+    padding-left: 220px; /* sidebar width */
   }
 }
+
+/* Safe area for iOS bottom nav */
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  .bottom-nav-wrap {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+
+/* Carousel animation */
+@keyframes carousel-slide {
+  0%       { transform: translateX(0); }
+  28%      { transform: translateX(0); }
+  33%      { transform: translateX(-33.333%); }
+  61%      { transform: translateX(-33.333%); }
+  66%      { transform: translateX(-66.666%); }
+  94%      { transform: translateX(-66.666%); }
+  99%, 100%{ transform: translateX(0); }
+}
+
+/* Dot pill animation — synced to carousel */
+@keyframes dot1 {
+  0%,28%{ width:16px; background:#7C6EFA; }
+  33%,94%{ width:5px; background:rgba(124,110,250,0.3); }
+  99%,100%{ width:16px; background:#7C6EFA; }
+}
+@keyframes dot2 {
+  0%,28%{ width:5px; background:rgba(124,110,250,0.3); }
+  33%,61%{ width:16px; background:#7C6EFA; }
+  66%,100%{ width:5px; background:rgba(124,110,250,0.3); }
+}
+@keyframes dot3 {
+  0%,61%{ width:5px; background:rgba(124,110,250,0.3); }
+  66%,94%{ width:16px; background:#7C6EFA; }
+  99%,100%{ width:5px; background:rgba(124,110,250,0.3); }
+}
+
+/* Card hover */
+.app-card {
+  background: #1C1C26;
+  border: 0.5px solid rgba(124,110,250,0.12);
+  border-radius: 14px;
+  transition: border-color 0.2s, transform 0.2s, background 0.2s;
+}
+.app-card:hover {
+  border-color: rgba(124,110,250,0.35);
+  background: #20202E;
+  transform: translateY(-1px);
+}
+
+/* Label style — reusable */
+.app-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #7C6EFA;
+}
+
+/* Pill tag */
+.app-pill {
+  display: inline-block;
+  font-size: 10px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  background: rgba(124,110,250,0.12);
+  color: #B8AEFF;
+  border: 0.5px solid rgba(124,110,250,0.25);
+  letter-spacing: 0.08em;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* Divider */
+.app-divider {
+  border: none;
+  border-top: 0.5px solid rgba(124,110,250,0.1);
+  margin: 0;
+}
+
+/* Reveal animation class */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+}
+
+/* Gallery wide card */
+.gallery-wide { grid-column: span 2; }
+@media (max-width: 600px) { .gallery-wide { grid-column: span 1; } }
+
+/* Scrollbar — thin, themed */
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: #13131A; }
+::-webkit-scrollbar-thumb { background: rgba(124,110,250,0.3); border-radius: 2px; }

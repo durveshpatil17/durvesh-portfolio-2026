@@ -7,17 +7,16 @@ import { reels } from '../data/reels';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const SECTION_PAD = 'clamp(5rem, 10vw, 9rem) clamp(1.25rem, 5vw, 5rem)';
+const SECTION_PAD = 'clamp(3rem, 6vw, 5rem) clamp(1.25rem, 4vw, 2rem)';
 const CONTAINER = { maxWidth: '1320px', margin: '0 auto' };
-const BORDER_TOP = { borderTop: '1px solid rgba(255,255,255,0.06)' };
+const BORDER_TOP = { borderTop: '1px solid S.border' };
 const LABEL_STYLE = {
-  fontSize: '0.65rem', letterSpacing: '0.18em', textTransform: 'uppercase',
-  color: S.gold, fontWeight: 600, marginBottom: '1rem', display: 'block',
+  marginBottom: '1rem', display: 'block',
 };
 
 const TIMELINE = [
   {
-    year: '2024–26',
+    year: '2026–28',
     title: 'MBA at SCIT Pune, Symbiosis International University',
     desc: 'Chose MBA deliberately — for people, strategy, and building. Not by default. Specialising in IT strategy and information management.',
     tag: 'Education',
@@ -148,7 +147,7 @@ function TimelineRow({ item }) {
 
   const TAG_COLORS = {
     'Current':        { bg: 'rgba(74,222,128,0.1)',   border: 'rgba(74,222,128,0.25)',  text: '#4ade80' },
-    'Recognition':    { bg: 'rgba(201,168,76,0.1)',   border: 'rgba(201,168,76,0.25)', text: '#c9a84c' },
+    'Recognition':    { bg: 'rgba(201,168,76,0.1)',   border: 'S.accentBorder', text: 'S.accent' },
     'Origin':         { bg: 'rgba(156,163,175,0.1)',  border: 'rgba(156,163,175,0.25)', text: '#9ca3af' },
     'MF Distribution':{ bg: 'rgba(55,138,221,0.1)',   border: 'rgba(55,138,221,0.25)', text: '#60a5fa' },
     'Education':      { bg: 'rgba(168,85,247,0.1)',   border: 'rgba(168,85,247,0.25)', text: '#c084fc' },
@@ -163,7 +162,7 @@ function TimelineRow({ item }) {
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       style={{
-        borderTop: '1px solid rgba(255,255,255,0.06)',
+        borderTop: '1px solid S.border',
         padding: hovered
           ? 'clamp(1.25rem,2vw,1.75rem) clamp(0.75rem,1.5vw,1.25rem)'
           : 'clamp(1.25rem,2vw,1.75rem) 0',
@@ -171,7 +170,7 @@ function TimelineRow({ item }) {
         gridTemplateColumns: '1fr auto',
         gap: 'clamp(1rem, 2.5vw, 2rem)',
         alignItems: 'center',
-        background: hovered ? '#141414' : 'transparent',
+        background: hovered ? '#1C1C26' : 'transparent',
         borderRadius: hovered ? '0.75rem' : 0,
         transition: 'all 0.3s ease',
         cursor: 'default',
@@ -191,9 +190,9 @@ function TimelineRow({ item }) {
       <div className="hidden sm:flex flex-col items-center flex-shrink-0">
         <div style={{
           width: '7px', height: '7px', borderRadius: '50%',
-          background: hovered ? S.gold : 'rgba(255,255,255,0.15)',
+          background: hovered ? S.accent : 'rgba(255,255,255,0.15)',
           transition: 'background 0.3s',
-          border: hovered ? `1px solid ${S.gold}` : '1px solid rgba(255,255,255,0.2)',
+          border: hovered ? `1px solid ${S.accent}` : '1px solid rgba(255,255,255,0.2)',
         }} />
       </div>
 
@@ -226,11 +225,9 @@ function TimelineRow({ item }) {
       </div>
 
       {/* Tag pill */}
-      <span style={{
-        fontSize: '0.6rem', letterSpacing: '0.12em', textTransform: 'uppercase',
-        padding: '0.3rem 0.85rem', borderRadius: '3rem', flexShrink: 0,
+      <span className="app-pill" style={{
+        flexShrink: 0,
         background: tagStyle.bg, border: `1px solid ${tagStyle.border}`, color: tagStyle.text,
-        whiteSpace: 'nowrap',
         alignSelf: 'start',
         marginTop: '0.25rem'
       }}>
@@ -249,17 +246,14 @@ function ReelCard({ item, tall = false }) {
       rel="noreferrer"
       onMouseEnter={() => setHov(true)}
       onMouseLeave={() => setHov(false)}
+      className="app-card"
       style={{
         display: 'block',
         aspectRatio: tall ? '4/5' : '1/1',
-        borderRadius: '1rem',
         overflow: 'hidden',
-        border: `1px solid ${hov ? 'rgba(201,168,76,0.45)' : 'rgba(255,255,255,0.07)'}`,
-        textDecoration: 'none',
         position: 'relative',
-        transition: 'border-color 0.25s, transform 0.25s',
-        transform: hov ? 'translateY(-3px)' : 'translateY(0)',
         cursor: 'pointer',
+        padding: 0,
       }}
     >
       {/* Actual thumbnail */}
@@ -364,7 +358,7 @@ function HorizontalGallery({ photos }) {
     <div
       ref={sectionRef}
       style={{
-        background: '#0c0c0c',
+        background: '#13131A',
         overflow: 'hidden',
         paddingBottom: 'clamp(5rem, 10vw, 9rem)',
       }}
@@ -391,7 +385,7 @@ function HorizontalGallery({ photos }) {
               position: 'relative',
               borderRadius: '1rem',
               overflow: 'hidden',
-              border: '1px solid rgba(255,255,255,0.07)',
+              border: '1px solid S.border',
               marginTop: i % 2 === 1 ? 'clamp(2rem, 4vw, 4rem)' : '0',
             }}
           >
@@ -426,7 +420,7 @@ function HorizontalGallery({ photos }) {
         padding: '1.5rem clamp(1.25rem, 5vw, 2rem)',
       }}>
         {photos.map((photo, i) => (
-          <div key={i} style={{ borderRadius: '0.75rem', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.07)', position: 'relative' }}>
+          <div key={i} style={{ borderRadius: '0.75rem', overflow: 'hidden', border: '1px solid S.border', position: 'relative' }}>
             <img src={photo.src} alt={photo.caption} style={{ width: '100%', aspectRatio: '4/3', objectFit: 'cover', display: 'block' }} />
             <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, background: 'linear-gradient(to top, rgba(6,6,6,0.85), transparent)', padding: '1.25rem 0.75rem 0.75rem' }}>
               <p style={{ fontSize: '0.6rem', color: 'rgba(237,235,230,0.6)', lineHeight: 1.4 }}>{photo.caption}</p>
@@ -491,9 +485,9 @@ export default function AboutPage() {
             }}
           />
           {/* Left fade — photo fades into dark background */}
-          <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right, #060606 0%, transparent 40%)', zIndex: 1 }} />
+          <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right, #0A0A0F 0%, transparent 40%)', zIndex: 1 }} />
           {/* Bottom fade */}
-          <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, #060606 0%, transparent 35%)', zIndex: 1 }} />
+          <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, #0A0A0F 0%, transparent 35%)', zIndex: 1 }} />
         </div>
 
         {/* Mobile: full bleed portrait — keeps the great mobile look */}
@@ -503,20 +497,20 @@ export default function AboutPage() {
             alt="Durvesh H. Patil"
             style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top' }}
           />
-          <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(6,6,6,0.2) 0%, rgba(6,6,6,0.5) 50%, #060606 100%)' }} />
+          <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(6,6,6,0.2) 0%, rgba(6,6,6,0.5) 50%, #0A0A0F 100%)' }} />
         </div>
 
         {/* Text — LEFT side on desktop (photo is right), below photo on mobile */}
         <div style={{ position: 'relative', zIndex: 1, width: '100%', maxWidth: '1320px', margin: '0 auto', padding: '0 clamp(1.25rem, 5vw, 5rem)' }}>
           <div className="about-reveal" style={{ maxWidth: '560px' }}>
-            <p style={{ fontSize: '0.65rem', letterSpacing: '0.18em', textTransform: 'uppercase', color: '#c9a84c', fontWeight: 600, marginBottom: '2rem', display: 'block' }}>About</p>
-            <h1 style={{ fontFamily: 'Instrument Serif, Georgia, serif', fontSize: 'clamp(3.5rem, 10vw, 9rem)', lineHeight: 0.92, fontWeight: 400, color: '#edebe6', letterSpacing: '-0.02em', marginBottom: '0.1em' }}>
+            <p style={{ fontSize: '0.65rem', letterSpacing: '0.18em', textTransform: 'uppercase', color: 'S.accent', fontWeight: 600, marginBottom: '2rem', display: 'block' }}>About</p>
+            <h1 style={{ fontFamily: 'Instrument Serif, Georgia, serif', fontSize: 'clamp(3.5rem, 10vw, 9rem)', lineHeight: 0.92, fontWeight: 400, color: 'S.text', letterSpacing: '-0.02em', marginBottom: '0.1em' }}>
               Durvesh
             </h1>
-            <h1 style={{ fontFamily: 'Instrument Serif, Georgia, serif', fontSize: 'clamp(3.5rem, 10vw, 9rem)', lineHeight: 0.92, fontWeight: 400, fontStyle: 'italic', color: '#edebe6', letterSpacing: '-0.02em', marginBottom: 'clamp(1.5rem, 3vw, 2.5rem)' }}>
-              Patil<span style={{ color: '#c9a84c' }}>.</span>
+            <h1 style={{ fontFamily: 'Instrument Serif, Georgia, serif', fontSize: 'clamp(3.5rem, 10vw, 9rem)', lineHeight: 0.92, fontWeight: 400, fontStyle: 'italic', color: 'S.text', letterSpacing: '-0.02em', marginBottom: 'clamp(1.5rem, 3vw, 2.5rem)' }}>
+              Patil<span style={{ color: 'S.accent' }}>.</span>
             </h1>
-            <p style={{ color: '#7a7875', fontWeight: 300, fontSize: 'clamp(1rem, 2vw, 1.2rem)', lineHeight: 1.6, maxWidth: '420px' }}>
+            <p style={{ color: 'S.muted', fontWeight: 300, fontSize: 'clamp(1rem, 2vw, 1.2rem)', lineHeight: 1.6, maxWidth: '420px' }}>
               From Filmora edits as a kid to 1 million views and a stage felicitation. Still figuring it out.
             </p>
           </div>
@@ -524,8 +518,8 @@ export default function AboutPage() {
 
         {/* Scroll cue */}
         <div style={{ position: 'absolute', bottom: '2.5rem', right: 'clamp(1.25rem, 5vw, 5rem)', zIndex: 2, display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '0.5rem' }}>
-          <div style={{ width: '1px', height: '40px', background: 'linear-gradient(to bottom, #7a7875, transparent)' }} />
-          <span style={{ fontSize: '0.6rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: '#7a7875' }}>Scroll</span>
+          <div style={{ width: '1px', height: '40px', background: 'linear-gradient(to bottom, S.muted, transparent)' }} />
+          <span style={{ fontSize: '0.6rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'S.muted' }}>Scroll</span>
         </div>
       </section>
 
@@ -534,10 +528,10 @@ export default function AboutPage() {
         <div style={CONTAINER}>
 
           <div className="about-reveal" style={{ marginBottom: 'clamp(3rem, 5vw, 5rem)' }}>
-            <span style={LABEL_STYLE}>The Story</span>
+            <span className="app-label" style={{ marginBottom: '1rem', display: 'block' }}>The Story</span>
             {/* Pull quote */}
             <div style={{ display: 'flex', gap: '2rem', alignItems: 'flex-start' }}>
-              <div style={{ width: '3px', flexShrink: 0, alignSelf: 'stretch', background: S.gold, borderRadius: '2px', minHeight: '80px' }} />
+              <div style={{ width: '3px', flexShrink: 0, alignSelf: 'stretch', background: S.accent, borderRadius: '2px', minHeight: '80px' }} />
               <p style={{
                 fontFamily: S.serif, fontStyle: 'italic',
                 fontSize: 'clamp(1.5rem, 3.5vw, 2.6rem)',
@@ -578,10 +572,10 @@ export default function AboutPage() {
       </section>
 
       {/* ── 03. TIMELINE ── */}
-      <section style={{ ...BORDER_TOP, background: '#0c0c0c', padding: SECTION_PAD }}>
+      <section style={{ ...BORDER_TOP, background: '#13131A', padding: SECTION_PAD }}>
         <div style={CONTAINER}>
           <div className="about-reveal" style={{ marginBottom: 'clamp(2.5rem, 4vw, 4rem)' }}>
-            <span style={LABEL_STYLE}>Journey</span>
+            <span className="app-label" style={{ marginBottom: '1rem', display: 'block' }}>Journey</span>
             <h2 style={{ fontFamily: S.serif, fontSize: 'clamp(1.8rem, 4vw, 3.5rem)', color: S.text, fontWeight: 400, lineHeight: 1.1 }}>
               How we got here.
             </h2>
@@ -599,14 +593,14 @@ export default function AboutPage() {
         <div style={CONTAINER}>
           <div className="about-reveal" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 'clamp(2.5rem, 4vw, 3.5rem)', flexWrap: 'wrap', gap: '1rem' }}>
             <div>
-              <span style={LABEL_STYLE}>On Instagram</span>
+              <span className="app-label" style={{ marginBottom: '1rem', display: 'block' }}>On Instagram</span>
               <h2 style={{ fontFamily: S.serif, fontSize: 'clamp(1.8rem, 4vw, 3.5rem)', color: S.text, fontWeight: 400, lineHeight: 1.1 }}>
                 The creator side.
               </h2>
             </div>
             <a href="https://www.instagram.com/_thedurvesh/" target="_blank" rel="noreferrer"
               style={{ color: S.muted, fontSize: '0.75rem', textDecoration: 'none', letterSpacing: '0.1em', textTransform: 'uppercase', transition: 'color 0.2s', marginBottom: '0.5rem' }}
-              onMouseEnter={e => e.target.style.color = S.gold}
+              onMouseEnter={e => e.target.style.color = S.accent}
               onMouseLeave={e => e.target.style.color = S.muted}>
               @_thedurvesh →
             </a>
@@ -633,10 +627,8 @@ export default function AboutPage() {
               { handle: '@_thedurvesh', sub: 'Personal Brand · Tech · MBA Life · FinTech', img: '/assets/images/personal/Personal Photo 1.webp', href: 'https://instagram.com/_thedurvesh' },
               { handle: '@cinesyncbydurvesh', sub: 'Cinema · Visual Storytelling · Editing', img: '/assets/images/personal/CineSync.jpg', href: 'https://instagram.com/cinesyncbydurvesh' },
             ].map(acc => (
-              <a key={acc.handle} href={acc.href} target="_blank" rel="noreferrer"
-                style={{ display: 'flex', alignItems: 'center', gap: '1rem', padding: '1.25rem 1.5rem', background: '#141414', border: '1px solid rgba(255,255,255,0.06)', borderRadius: '1rem', textDecoration: 'none', transition: 'border-color 0.2s' }}
-                onMouseEnter={e => e.currentTarget.style.borderColor = 'rgba(201,168,76,0.3)'}
-                onMouseLeave={e => e.currentTarget.style.borderColor = 'rgba(255,255,255,0.06)'}>
+              <a key={acc.handle} href={acc.href} target="_blank" rel="noreferrer" className="app-card"
+                style={{ display: 'flex', alignItems: 'center', gap: '1rem', textDecoration: 'none' }}>
                 <div style={{ width: '48px', height: '48px', borderRadius: '50%', overflow: 'hidden', flexShrink: 0, border: '1px solid rgba(255,255,255,0.1)' }}>
                   <img src={acc.img} alt={acc.handle} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 </div>
@@ -652,10 +644,10 @@ export default function AboutPage() {
       </section>
 
       {/* ── 05. GALLERY — Horizontal pin scroll ── */}
-      <section style={{ ...BORDER_TOP, background: '#0c0c0c', paddingTop: 'clamp(5rem, 10vw, 9rem)', paddingBottom: 0 }}>
+      <section style={{ ...BORDER_TOP, background: '#13131A', paddingTop: 'clamp(5rem, 10vw, 9rem)', paddingBottom: 0 }}>
         <div style={{ maxWidth: '1320px', margin: '0 auto', padding: '0 clamp(1.25rem, 5vw, 5rem)', marginBottom: 'clamp(2.5rem, 4vw, 3.5rem)' }}>
           <div className="about-reveal">
-            <span style={LABEL_STYLE}>Moments</span>
+            <span className="app-label" style={{ marginBottom: '1rem', display: 'block' }}>Moments</span>
             <h2 style={{ fontFamily: S.serif, fontSize: 'clamp(1.8rem, 4vw, 3.5rem)', color: S.text, fontWeight: 400, lineHeight: 1.1 }}>
               In the room.
             </h2>
@@ -670,7 +662,7 @@ export default function AboutPage() {
       <section style={{ ...BORDER_TOP, padding: SECTION_PAD }}>
         <div style={CONTAINER}>
           <div className="about-reveal" style={{ marginBottom: 'clamp(2.5rem, 4vw, 4rem)' }}>
-            <span style={LABEL_STYLE}>Recognition</span>
+            <span className="app-label" style={{ marginBottom: '1rem', display: 'block' }}>Recognition</span>
             <h2 style={{ fontFamily: S.serif, fontSize: 'clamp(1.8rem, 4vw, 3.5rem)', color: S.text, fontWeight: 400, lineHeight: 1.1 }}>
               The proof points.
             </h2>
@@ -684,7 +676,7 @@ export default function AboutPage() {
             alignItems: 'center',
             marginBottom: 'clamp(3rem, 5vw, 5rem)',
           }}>
-            <div style={{ aspectRatio: '4/3', position: 'relative', overflow: 'hidden', borderRadius: '1.25rem', border: '1px solid rgba(255,255,255,0.06)' }}>
+            <div style={{ aspectRatio: '4/3', position: 'relative', overflow: 'hidden', borderRadius: '1.25rem', border: '1px solid S.border' }}>
               <img
                 src="/assets/images/achievements/Special Achievers award- Most outstanding Content creator award.jpg"
                 alt="Outstanding Content Creator Award"
@@ -694,8 +686,8 @@ export default function AboutPage() {
             </div>
             <div>
               <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.6rem', marginBottom: '1.5rem', padding: '0.5rem 1.25rem', background: 'rgba(201,168,76,0.08)', border: '1px solid rgba(201,168,76,0.2)', borderRadius: '3rem' }}>
-                <span style={{ fontSize: '0.75rem', color: S.gold }}>★</span>
-                <span style={{ fontSize: '0.65rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: S.gold, fontWeight: 600 }}>KBTCOE 2025</span>
+                <span style={{ fontSize: '0.75rem', color: S.accent }}>★</span>
+                <span style={{ fontSize: '0.65rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: S.accent, fontWeight: 600 }}>KBTCOE 2025</span>
               </div>
               <h3 style={{ fontFamily: S.serif, fontSize: 'clamp(1.5rem, 3vw, 2.5rem)', color: S.text, fontWeight: 400, lineHeight: 1.2, marginBottom: '1.25rem' }}>
                 Most Outstanding Content Creator.
@@ -703,14 +695,14 @@ export default function AboutPage() {
               <p style={{ color: S.muted, fontSize: 'clamp(0.9rem, 1.5vw, 1.05rem)', lineHeight: 1.75, fontWeight: 300, marginBottom: '1.5rem' }}>
                 Recognized for consistency, execution, and measurable digital impact. This award came through reel scripting, strategic audience engagement, and event promotion campaigns that generated real visibility — not manufactured reach.
               </p>
-              <div style={{ borderTop: '1px solid rgba(255,255,255,0.06)', paddingTop: '1.5rem', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+              <div style={{ borderTop: '1px solid S.border', paddingTop: '1.5rem', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
                 {[
                   '4× Social Media Lead — Techfest 2k24, Fusion 2k25, Techfest 2k25, Fusion 2k26',
                   'Fusion 2k25 reel crossed 1M views organically — the inflection point',
                   '4M+ total organic reach across @_thedurvesh and @cinesyncbydurvesh',
                 ].map(point => (
                   <div key={point} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem' }}>
-                    <span style={{ width: '5px', height: '5px', borderRadius: '50%', background: S.gold, flexShrink: 0, marginTop: '0.5rem' }} />
+                    <span style={{ width: '5px', height: '5px', borderRadius: '50%', background: S.accent, flexShrink: 0, marginTop: '0.5rem' }} />
                     <span style={{ color: S.muted, fontSize: '0.9rem', fontWeight: 300, lineHeight: 1.6 }}>{point}</span>
                   </div>
                 ))}
@@ -721,10 +713,10 @@ export default function AboutPage() {
       </section>
 
       {/* ── 07. CLOSING NOTE ── */}
-      <section style={{ ...BORDER_TOP, background: '#0c0c0c', padding: SECTION_PAD, textAlign: 'center' }}>
+      <section style={{ ...BORDER_TOP, background: '#13131A', padding: SECTION_PAD, textAlign: 'center' }}>
         <div style={{ ...CONTAINER, maxWidth: '720px' }}>
           <div className="about-reveal">
-            <span style={{ ...LABEL_STYLE, display: 'block', textAlign: 'center' }}>A note</span>
+            <span className="app-label" style={{ marginBottom: '1rem', display: 'block', textAlign: 'center' }}>A note</span>
             <p style={{
               fontFamily: S.serif, fontStyle: 'italic',
               fontSize: 'clamp(1.4rem, 3vw, 2.2rem)',
@@ -735,7 +727,7 @@ export default function AboutPage() {
             </p>
             <div style={{ display: 'flex', justifyContent: 'center', gap: 'clamp(1rem, 3vw, 2.5rem)', flexWrap: 'wrap', flexDirection: 'row' }} className="flex-col sm:flex-row items-center">
               <Link to="/writing" style={{
-                padding: '0.875rem 2rem', background: S.gold, color: '#060606',
+                padding: '0.875rem 2rem', background: S.accent, color: '#0A0A0F',
                 borderRadius: '3rem', fontSize: '0.78rem', fontWeight: 600,
                 letterSpacing: '0.08em', textTransform: 'uppercase', textDecoration: 'none',
                 transition: 'opacity 0.2s', width: 'fit-content'
@@ -751,7 +743,7 @@ export default function AboutPage() {
                 letterSpacing: '0.08em', textTransform: 'uppercase', textDecoration: 'none',
                 transition: 'border-color 0.2s', width: 'fit-content'
               }}
-                onMouseEnter={e => e.currentTarget.style.borderColor = S.gold}
+                onMouseEnter={e => e.currentTarget.style.borderColor = S.accent}
                 onMouseLeave={e => e.currentTarget.style.borderColor = 'rgba(255,255,255,0.12)'}>
                 See the Work
               </Link>
