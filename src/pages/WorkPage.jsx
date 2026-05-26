@@ -91,7 +91,7 @@ export default function WorkPage() {
       {/* Header */}
       <section style={{ padding: 'clamp(3rem,6vw,5rem) clamp(1.25rem,4vw,2rem)' }}>
         <div style={{ maxWidth: '1320px', margin: '0 auto' }}>
-          <p className="app-label" style={{ marginBottom: '1rem' }}>Work</p>
+          <p className="sec-label" style={{ marginBottom: '1rem' }}>Work</p>
           <h1 style={{ fontFamily: S.serif, fontSize: 'clamp(2.8rem,7vw,6rem)', color: S.text, fontWeight: 400, lineHeight: 1.05, maxWidth: '700px' }}>
             Real systems.<br /><span style={{ fontStyle: 'italic' }}>Measurable outcomes.</span>
           </h1>
@@ -111,7 +111,7 @@ export default function WorkPage() {
             <div style={{ order: i % 2 === 0 ? 1 : 2 }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem' }}>
                 <span style={{ fontFamily: S.serif, fontSize: '0.9rem', color: S.muted, opacity: 0.5 }}>{item.num}</span>
-                <span className="app-pill">{item.tag}</span>
+                <span className="tag-pill">{item.tag}</span>
               </div>
               <h2 style={{ fontFamily: S.serif, fontSize: 'clamp(1.6rem,3vw,2.5rem)', color: S.text, fontWeight: 400, lineHeight: 1.15, marginBottom: '0.4rem' }}>{item.title}</h2>
               <p style={{ fontSize: '0.75rem', color: S.muted, letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '2rem', fontWeight: 500 }}>{item.subtitle}</p>
@@ -157,11 +157,11 @@ export default function WorkPage() {
       {/* Certificates grid */}
       <section style={{ borderTop: '1px solid S.border', padding: 'clamp(3rem,6vw,5rem) clamp(1.25rem,4vw,2rem)' }}>
         <div style={{ maxWidth: '1320px', margin: '0 auto' }}>
-          <p className="app-label" style={{ marginBottom: '1rem' }}>Certificates</p>
+          <p className="sec-label" style={{ marginBottom: '1rem' }}>Certificates</p>
           <h2 style={{ fontFamily: S.serif, fontSize: 'clamp(1.8rem,4vw,3rem)', color: S.text, fontWeight: 400, marginBottom: 'clamp(2.5rem,4vw,3.5rem)' }}>Credentials.</h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 'clamp(0.75rem,1.5vw,1.25rem)' }}>
             {CREDENTIALS.map(cert => (
-              <div key={cert.label} className="app-card" style={{ overflow: 'hidden', background: '#1C1C26' }}>
+              <div key={cert.label} className="l-card" style={{ overflow: 'hidden', background: '#1C1C26' }}>
                 <img src={cert.img} alt={cert.label} style={{ width: '100%', aspectRatio: '4/3', objectFit: 'cover', display: 'block' }} />
                 <p style={{ padding: '0.875rem 1rem', fontSize: '0.75rem', color: S.muted, fontWeight: 300, lineHeight: 1.5 }}>{cert.label}</p>
               </div>
@@ -173,7 +173,7 @@ export default function WorkPage() {
       {/* Research Publications */}
       <section style={{ borderTop: '1px solid S.border', background: '#13131A', padding: 'clamp(3rem,6vw,5rem) clamp(1.25rem,4vw,2rem)' }}>
         <div style={{ maxWidth: '1320px', margin: '0 auto' }}>
-          <p className="app-label" style={{ marginBottom: '1rem' }}>Research</p>
+          <p className="sec-label" style={{ marginBottom: '1rem' }}>Research</p>
           <h2 style={{ fontFamily: S.serif, fontSize: 'clamp(1.8rem,4vw,3rem)', color: S.text, fontWeight: 400, marginBottom: 'clamp(2.5rem,4vw,3.5rem)' }}>Published work.</h2>
 
           {[
@@ -200,7 +200,7 @@ export default function WorkPage() {
               <div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem' }}>
                   <span style={{ fontFamily: S.serif, fontSize: '0.9rem', color: S.muted, opacity: 0.5 }}>{paper.num}</span>
-                  <span className="app-pill">{paper.type}</span>
+                  <span className="tag-pill">{paper.type}</span>
                 </div>
                 <h3 style={{ fontFamily: S.serif, fontSize: 'clamp(1.2rem,2vw,1.8rem)', color: S.text, fontWeight: 400, lineHeight: 1.2, marginBottom: '0.5rem' }}>{paper.title}</h3>
                 <p style={{ fontSize: '0.78rem', color: S.muted, fontStyle: 'italic', marginBottom: '1rem', lineHeight: 1.5 }}>{paper.venue}</p>
@@ -223,11 +223,11 @@ export default function WorkPage() {
       {/* Recognition photos */}
       <section style={{ borderTop: '1px solid S.border', background: '#13131A', padding: 'clamp(3rem,6vw,5rem) clamp(1.25rem,4vw,2rem)' }}>
         <div style={{ maxWidth: '1320px', margin: '0 auto' }}>
-          <p className="app-label" style={{ marginBottom: '1rem' }}>Recognition</p>
+          <p className="sec-label" style={{ marginBottom: '1rem' }}>Recognition</p>
           <h2 style={{ fontFamily: S.serif, fontSize: 'clamp(1.8rem,4vw,3rem)', color: S.text, fontWeight: 400, marginBottom: 'clamp(2.5rem,4vw,3.5rem)' }}>Beyond the work.</h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 'clamp(0.75rem,1.5vw,1.25rem)' }}>
             {RECOGNITION_PHOTOS.map(r => (
-              <div key={r.label} className="app-card" style={{ overflow: 'hidden', position: 'relative' }}>
+              <div key={r.label} className="l-card" style={{ overflow: 'hidden', position: 'relative' }}>
                 <img src={r.img} alt={r.label} style={{ width: '100%', aspectRatio: '4/3', objectFit: 'cover', display: 'block' }} />
                 <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, background: 'linear-gradient(to top, rgba(6,6,6,0.8), transparent)', padding: '1.5rem 1rem 1rem' }}>
                   <p style={{ fontSize: '0.72rem', color: 'rgba(237,235,230,0.65)', lineHeight: 1.4, fontWeight: 300 }}>{r.label}</p>

@@ -225,7 +225,7 @@ function TimelineRow({ item }) {
       </div>
 
       {/* Tag pill */}
-      <span className="app-pill" style={{
+      <span className="tag-pill" style={{
         flexShrink: 0,
         background: tagStyle.bg, border: `1px solid ${tagStyle.border}`, color: tagStyle.text,
         alignSelf: 'start',
@@ -246,7 +246,7 @@ function ReelCard({ item, tall = false }) {
       rel="noreferrer"
       onMouseEnter={() => setHov(true)}
       onMouseLeave={() => setHov(false)}
-      className="app-card"
+      className="l-card"
       style={{
         display: 'block',
         aspectRatio: tall ? '4/5' : '1/1',
@@ -528,7 +528,7 @@ export default function AboutPage() {
         <div style={CONTAINER}>
 
           <div className="about-reveal" style={{ marginBottom: 'clamp(3rem, 5vw, 5rem)' }}>
-            <span className="app-label" style={{ marginBottom: '1rem', display: 'block' }}>The Story</span>
+            <span className="sec-label" style={{ marginBottom: '1rem', display: 'block' }}>The Story</span>
             {/* Pull quote */}
             <div style={{ display: 'flex', gap: '2rem', alignItems: 'flex-start' }}>
               <div style={{ width: '3px', flexShrink: 0, alignSelf: 'stretch', background: S.accent, borderRadius: '2px', minHeight: '80px' }} />
@@ -575,7 +575,7 @@ export default function AboutPage() {
       <section style={{ ...BORDER_TOP, background: '#13131A', padding: SECTION_PAD }}>
         <div style={CONTAINER}>
           <div className="about-reveal" style={{ marginBottom: 'clamp(2.5rem, 4vw, 4rem)' }}>
-            <span className="app-label" style={{ marginBottom: '1rem', display: 'block' }}>Journey</span>
+            <span className="sec-label" style={{ marginBottom: '1rem', display: 'block' }}>Journey</span>
             <h2 style={{ fontFamily: S.serif, fontSize: 'clamp(1.8rem, 4vw, 3.5rem)', color: S.text, fontWeight: 400, lineHeight: 1.1 }}>
               How we got here.
             </h2>
@@ -593,7 +593,7 @@ export default function AboutPage() {
         <div style={CONTAINER}>
           <div className="about-reveal" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 'clamp(2.5rem, 4vw, 3.5rem)', flexWrap: 'wrap', gap: '1rem' }}>
             <div>
-              <span className="app-label" style={{ marginBottom: '1rem', display: 'block' }}>On Instagram</span>
+              <span className="sec-label" style={{ marginBottom: '1rem', display: 'block' }}>On Instagram</span>
               <h2 style={{ fontFamily: S.serif, fontSize: 'clamp(1.8rem, 4vw, 3.5rem)', color: S.text, fontWeight: 400, lineHeight: 1.1 }}>
                 The creator side.
               </h2>
@@ -627,7 +627,7 @@ export default function AboutPage() {
               { handle: '@_thedurvesh', sub: 'Personal Brand · Tech · MBA Life · FinTech', img: '/assets/images/personal/Personal Photo 1.webp', href: 'https://instagram.com/_thedurvesh' },
               { handle: '@cinesyncbydurvesh', sub: 'Cinema · Visual Storytelling · Editing', img: '/assets/images/personal/CineSync.jpg', href: 'https://instagram.com/cinesyncbydurvesh' },
             ].map(acc => (
-              <a key={acc.handle} href={acc.href} target="_blank" rel="noreferrer" className="app-card"
+              <a key={acc.handle} href={acc.href} target="_blank" rel="noreferrer" className="l-card"
                 style={{ display: 'flex', alignItems: 'center', gap: '1rem', textDecoration: 'none' }}>
                 <div style={{ width: '48px', height: '48px', borderRadius: '50%', overflow: 'hidden', flexShrink: 0, border: '1px solid rgba(255,255,255,0.1)' }}>
                   <img src={acc.img} alt={acc.handle} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
@@ -647,7 +647,7 @@ export default function AboutPage() {
       <section style={{ ...BORDER_TOP, background: '#13131A', paddingTop: 'clamp(5rem, 10vw, 9rem)', paddingBottom: 0 }}>
         <div style={{ maxWidth: '1320px', margin: '0 auto', padding: '0 clamp(1.25rem, 5vw, 5rem)', marginBottom: 'clamp(2.5rem, 4vw, 3.5rem)' }}>
           <div className="about-reveal">
-            <span className="app-label" style={{ marginBottom: '1rem', display: 'block' }}>Moments</span>
+            <span className="sec-label" style={{ marginBottom: '1rem', display: 'block' }}>Moments</span>
             <h2 style={{ fontFamily: S.serif, fontSize: 'clamp(1.8rem, 4vw, 3.5rem)', color: S.text, fontWeight: 400, lineHeight: 1.1 }}>
               In the room.
             </h2>
@@ -662,7 +662,7 @@ export default function AboutPage() {
       <section style={{ ...BORDER_TOP, padding: SECTION_PAD }}>
         <div style={CONTAINER}>
           <div className="about-reveal" style={{ marginBottom: 'clamp(2.5rem, 4vw, 4rem)' }}>
-            <span className="app-label" style={{ marginBottom: '1rem', display: 'block' }}>Recognition</span>
+            <span className="sec-label" style={{ marginBottom: '1rem', display: 'block' }}>Recognition</span>
             <h2 style={{ fontFamily: S.serif, fontSize: 'clamp(1.8rem, 4vw, 3.5rem)', color: S.text, fontWeight: 400, lineHeight: 1.1 }}>
               The proof points.
             </h2>
@@ -716,7 +716,7 @@ export default function AboutPage() {
       <section style={{ ...BORDER_TOP, background: '#13131A', padding: SECTION_PAD, textAlign: 'center' }}>
         <div style={{ ...CONTAINER, maxWidth: '720px' }}>
           <div className="about-reveal">
-            <span className="app-label" style={{ marginBottom: '1rem', display: 'block', textAlign: 'center' }}>A note</span>
+            <span className="sec-label" style={{ marginBottom: '1rem', display: 'block', textAlign: 'center' }}>A note</span>
             <p style={{
               fontFamily: S.serif, fontStyle: 'italic',
               fontSize: 'clamp(1.4rem, 3vw, 2.2rem)',

@@ -14,7 +14,7 @@ export default function WritingPage() {
       {/* Header */}
       <section style={{ padding: 'clamp(3rem,6vw,5rem) clamp(1.25rem,4vw,2rem)' }}>
         <div style={{ maxWidth: '1320px', margin: '0 auto' }}>
-          <p className="app-label" style={{ marginBottom: '1rem' }}>Writing</p>
+          <p className="sec-label" style={{ marginBottom: '1rem' }}>Writing</p>
           <h1 style={{ fontFamily: S.serif, fontSize: 'clamp(2.8rem,7vw,6rem)', color: S.text, fontWeight: 400, lineHeight: 1.05, maxWidth: '700px', marginBottom: '1.5rem' }}>
             Ideas on mindset,<br /><span style={{ fontStyle: 'italic' }}>career, and ambition.</span>
           </h1>
@@ -58,10 +58,10 @@ export default function WritingPage() {
             }}>
               <div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.6rem', flexWrap: 'wrap' }}>
-                  <span className="app-pill">{article.category}</span>
+                  <span className="tag-pill">{article.category}</span>
                   <span style={{ fontSize: '0.6rem', color: S.muted, letterSpacing: '0.08em' }}>{article.readTime} read</span>
                   {article.status === 'coming-soon' && (
-                    <span className="app-pill" style={{ background: 'rgba(255,255,255,0.05)', color: S.muted, borderColor: 'rgba(255,255,255,0.08)' }}>Coming soon</span>
+                    <span className="tag-pill" style={{ background: 'rgba(255,255,255,0.05)', color: S.muted, borderColor: 'rgba(255,255,255,0.08)' }}>Coming soon</span>
                   )}
                 </div>
                 <h2 style={{ fontFamily: S.serif, fontSize: 'clamp(1.1rem,2.5vw,1.75rem)', color: S.text, fontWeight: 400, lineHeight: 1.25, marginBottom: '0.6rem' }}>{article.title}</h2>
@@ -84,7 +84,7 @@ export default function WritingPage() {
             <img src="/assets/images/personal/Personal photo 6.jpg" alt="Durvesh H. Patil" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
           </div>
           <div>
-            <p className="app-label" style={{ marginBottom: '1rem' }}>About the author</p>
+            <p className="sec-label" style={{ marginBottom: '1rem' }}>About the author</p>
             <h3 style={{ fontFamily: S.serif, fontSize: 'clamp(1.5rem,3vw,2.2rem)', color: S.text, fontWeight: 400, marginBottom: '1rem' }}>Durvesh H. Patil</h3>
             <p style={{ color: S.muted, fontSize: 'clamp(0.9rem,1.5vw,1.05rem)', lineHeight: 1.75, fontWeight: 300, marginBottom: '1.5rem' }}>
               Engineering grad from KBT College Nashik. MBA student at SCIT Pune, Symbiosis International University. Content creator with 4M+ organic views across @_thedurvesh and @cinesyncbydurvesh. I write about mindset, careers, and the world changing around us.
