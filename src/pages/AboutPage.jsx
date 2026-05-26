@@ -29,15 +29,15 @@ const TIMELINE = [
     tag: 'Current',
   },
   {
-    year: '2025',
-    title: 'Outstanding Content Creator Award',
-    desc: 'Felicitated in a ceremony in front of the whole college by Sarchitnis Adv. Nitin Baburao Thakare, Maratha Vidya Prasak Samaj. Recognition that came from four years of just showing up.',
+    year: '26 April 2026',
+    title: 'Special Achievers Award — Most Outstanding Content Creator',
+    desc: 'Awarded on farewell day by Principal Dr. Satish R. Devane, Maratha Vidya Prasarak Samaj\'s Karmaveer Adv. Baburao Ganpatrao Thakare College of Engineering, Nashik. Recognised in front of the entire graduating batch for four years of consistent content creation and social media leadership.',
     tag: 'Recognition',
   },
   {
-    year: '2025',
-    title: 'Fusion 2025 — Reel Crosses 1 Million Views',
-    desc: 'The Fusion 2025 event promotion reel crossed 1M views organically. The hardwork finally converted. Everything accelerated after this.',
+    year: 'January 2025',
+    title: 'Fusion 2025 — 1 Million Views & Stage Felicitation',
+    desc: 'The Fusion 2025 event promotion reel crossed 1M organic views. On the final award ceremony day of the event, felicitated on stage by Sarchitnis Adv. Nitin Baburao Thakare, Maratha Vidya Prasarak Samaj — in front of the entire college. The moment everything became real.',
     tag: 'Creator',
   },
   {
@@ -47,9 +47,9 @@ const TIMELINE = [
     tag: 'Recognition',
   },
   {
-    year: '2024',
+    year: '2025–26',
     title: 'Algorithmic Strategy Builder — Live Industry Project',
-    desc: 'Architected an NLP-to-strategy pipeline for Indian financial markets with TradeArth. End-to-end live industry project. Received PPO from the company.',
+    desc: 'Architected an NLP-to-strategy translation pipeline for Indian financial markets during final year of engineering (2025–26). Live industry project with Dematade Algo Technology Solutions — end-to-end: data ingestion, NLP analysis, signal output. Received PPO from the company.',
     tag: 'AI Engineering',
   },
   {
@@ -517,7 +517,7 @@ export default function AboutPage() {
               Patil<span style={{ color: '#c9a84c' }}>.</span>
             </h1>
             <p style={{ color: '#7a7875', fontWeight: 300, fontSize: 'clamp(1rem, 2vw, 1.2rem)', lineHeight: 1.6, maxWidth: '420px' }}>
-              From Nashik to Pune. From Filmora to 1 million views. Still figuring it out.
+              From Filmora edits as a kid to 1 million views and a stage felicitation. Still figuring it out.
             </p>
           </div>
         </div>
@@ -555,22 +555,22 @@ export default function AboutPage() {
             gap: 'clamp(2.5rem, 6vw, 6rem)',
           }}>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.75rem' }}>
-              <p style={{ color: S.muted, fontSize: 'clamp(0.95rem,1.5vw,1.1rem)', lineHeight: 1.75, fontWeight: 300 }}>
-                I grew up in Nashik, always drawn to two things: technology and storytelling. As a kid I was editing photos in Photoshop and cutting videos in Filmora before I fully understood what any of it meant. When the internet became easily accessible and people started sharing content, I did too — because I couldn't not.
+              <p style={{ color: S.muted, fontSize: 'clamp(0.95rem, 1.5vw, 1.1rem)', lineHeight: 1.8, fontWeight: 300 }}>
+                It started with Photoshop and Filmora. As a kid, before anyone called it content creation, I was editing photos and cutting videos — just because I loved making things. When the internet became easily accessible and people started posting content, I did too. Not for followers. Because I couldn't not.
               </p>
-              <p style={{ color: S.muted, fontSize: 'clamp(0.95rem,1.5vw,1.1rem)', lineHeight: 1.75, fontWeight: 300 }}>
-                Engineering at KBT College of Engineering, Nashik gave me the technical foundation. But somewhere between writing code and watching how a well-made reel makes a crowd go silent — I realised what I actually wanted: to be in the room where problems get solved face to face.
+              <p style={{ color: S.muted, fontSize: 'clamp(0.95rem, 1.5vw, 1.1rem)', lineHeight: 1.8, fontWeight: 300 }}>
+                Engineering at Maratha Vidya Prasarak Samaj's KBT College of Engineering, Nashik gave me the technical foundation. But somewhere between writing code and watching how a well-made reel makes a crowd go silent — I realised what I actually wanted: to be in the room where problems get solved face to face.
               </p>
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.75rem' }}>
               <p style={{ color: S.muted, fontSize: 'clamp(0.95rem, 1.5vw, 1.1rem)', lineHeight: 1.8, fontWeight: 300 }}>
-                That realisation led me to MBA at SCIT Pune, Symbiosis International University. Not as a fallback from engineering — but deliberately, because I love people, strategy, and building solutions that actually fit the human using them.
+                That realisation led me to MBA at SCIT Pune, Symbiosis International University. Not as a fallback — but deliberately. I love people, strategy, and building things that actually fit the human using them. MBA is where that becomes a career.
               </p>
               <p style={{ color: S.muted, fontSize: 'clamp(0.95rem, 1.5vw, 1.1rem)', lineHeight: 1.8, fontWeight: 300 }}>
-                The content kept growing alongside it. Four consecutive events. Social media head. Fusion 2025 hit 1 million views. And I got felicitated on stage in front of the entire college by Sarchitnis Adv. Nitin Baburao Thakare, Maratha Vidya Prasak Samaj. That moment made it real.
+                The content kept growing alongside everything else. Four events. Social media head. Fusion 2025 hit 1 million views. I got felicitated on stage by Sarchitnis Adv. Nitin Baburao Thakare. Then on farewell day — Principal Dr. Satish R. Devane handed me the Special Achievers Award in front of the whole graduating batch. I didn't plan any of it. I just kept showing up.
               </p>
               <p style={{ color: S.muted, fontSize: 'clamp(0.95rem, 1.5vw, 1.1rem)', lineHeight: 1.8, fontWeight: 300 }}>
-                I also sing. I listen to podcasts at 2x speed. And I believe deeply in two things: Virat Kohli's '1% chance is enough to go all in' — and Sunil Chhetri's 'always set bigger goals, never limit yourself.'
+                I also sing. I listen to podcasts. And I believe in two things deeply — Virat Kohli's "even a 1% chance is good enough to go all in" and Sunil Chhetri's "never set small goals for yourself."
               </p>
             </div>
           </div>
