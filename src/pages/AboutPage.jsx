@@ -9,7 +9,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const SECTION_PAD = 'clamp(3rem, 6vw, 5rem) clamp(1.25rem, 4vw, 2rem)';
 const CONTAINER = { maxWidth: '1320px', margin: '0 auto' };
-const BORDER_TOP = { borderTop: '1px solid S.border' };
+const BORDER_TOP = { borderTop: '0.5px solid #E5E4E0' };
 const LABEL_STYLE = {
   marginBottom: '1rem', display: 'block',
 };
@@ -146,13 +146,13 @@ function TimelineRow({ item }) {
   const [hovered, setHovered] = React.useState(false);
 
   const TAG_COLORS = {
-    'Current':        { bg: 'rgba(74,222,128,0.1)',   border: 'rgba(74,222,128,0.25)',  text: '#4ade80' },
-    'Recognition':    { bg: 'rgba(201,168,76,0.1)',   border: 'S.accentBorder', text: 'S.accent' },
-    'Origin':         { bg: 'rgba(156,163,175,0.1)',  border: 'rgba(156,163,175,0.25)', text: '#9ca3af' },
-    'MF Distribution':{ bg: 'rgba(55,138,221,0.1)',   border: 'rgba(55,138,221,0.25)', text: '#60a5fa' },
-    'Education':      { bg: 'rgba(168,85,247,0.1)',   border: 'rgba(168,85,247,0.25)', text: '#c084fc' },
-    'AI Engineering': { bg: 'rgba(251,146,60,0.1)',   border: 'rgba(251,146,60,0.25)', text: '#fb923c' },
-    'Creator':        { bg: 'rgba(244,114,182,0.1)',  border: 'rgba(244,114,182,0.25)', text: '#f472b6' },
+    'Current':        { bg: 'rgba(74,222,128,0.08)',  border: 'rgba(74,222,128,0.2)',   text: '#22a44e' },
+    'Recognition':    { bg: 'rgba(83,74,183,0.08)',   border: 'rgba(83,74,183,0.2)',    text: '#534AB7' },
+    'Origin':         { bg: 'rgba(156,163,175,0.1)',  border: 'rgba(156,163,175,0.2)',  text: '#666' },
+    'MF Distribution':{ bg: 'rgba(55,138,221,0.08)',  border: 'rgba(55,138,221,0.2)',   text: '#2a7bd4' },
+    'Education':      { bg: 'rgba(168,85,247,0.08)',  border: 'rgba(168,85,247,0.2)',   text: '#8b5cf6' },
+    'AI Engineering': { bg: 'rgba(251,146,60,0.08)',  border: 'rgba(251,146,60,0.2)',   text: '#c2600a' },
+    'Creator':        { bg: 'rgba(236,72,153,0.08)',  border: 'rgba(236,72,153,0.2)',   text: '#be185d' },
   };
 
   const tagStyle = TAG_COLORS[item.tag] || TAG_COLORS['Creator'];
@@ -162,7 +162,7 @@ function TimelineRow({ item }) {
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       style={{
-        borderTop: '1px solid S.border',
+        borderTop: '0.5px solid #E5E4E0',
         padding: hovered
           ? 'clamp(1.25rem,2vw,1.75rem) clamp(0.75rem,1.5vw,1.25rem)'
           : 'clamp(1.25rem,2vw,1.75rem) 0',
@@ -190,9 +190,9 @@ function TimelineRow({ item }) {
       <div className="hidden sm:flex flex-col items-center flex-shrink-0">
         <div style={{
           width: '7px', height: '7px', borderRadius: '50%',
-          background: hovered ? S.accent : 'rgba(255,255,255,0.15)',
+          background: hovered ? '#534AB7' : '#E5E4E0',
           transition: 'background 0.3s',
-          border: hovered ? `1px solid ${S.accent}` : '1px solid rgba(255,255,255,0.2)',
+          border: hovered ? '1px solid #534AB7' : '1px solid #E5E4E0',
         }} />
       </div>
 
@@ -358,7 +358,7 @@ function HorizontalGallery({ photos }) {
     <div
       ref={sectionRef}
       style={{
-        background: '#13131A',
+        background: '#F5F4F0',
         overflow: 'hidden',
         paddingBottom: 'clamp(5rem, 10vw, 9rem)',
       }}
@@ -385,7 +385,7 @@ function HorizontalGallery({ photos }) {
               position: 'relative',
               borderRadius: '1rem',
               overflow: 'hidden',
-              border: '1px solid S.border',
+              border: '0.5px solid #E5E4E0',
               marginTop: i % 2 === 1 ? 'clamp(2rem, 4vw, 4rem)' : '0',
             }}
           >
@@ -420,7 +420,7 @@ function HorizontalGallery({ photos }) {
         padding: '1.5rem clamp(1.25rem, 5vw, 2rem)',
       }}>
         {photos.map((photo, i) => (
-          <div key={i} style={{ borderRadius: '0.75rem', overflow: 'hidden', border: '1px solid S.border', position: 'relative' }}>
+          <div key={i} style={{ borderRadius: '0.75rem', overflow: 'hidden', border: '0.5px solid #E5E4E0', position: 'relative' }}>
             <img src={photo.src} alt={photo.caption} style={{ width: '100%', aspectRatio: '4/3', objectFit: 'cover', display: 'block' }} />
             <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, background: 'linear-gradient(to top, rgba(6,6,6,0.85), transparent)', padding: '1.25rem 0.75rem 0.75rem' }}>
               <p style={{ fontSize: '0.6rem', color: 'rgba(237,235,230,0.6)', lineHeight: 1.4 }}>{photo.caption}</p>
@@ -471,10 +471,10 @@ export default function AboutPage() {
     <div ref={pageRef}>
 
       {/* ── 01. HERO ── */}
-      <section style={{ minHeight: '100svh', position: 'relative', display: 'flex', alignItems: 'flex-end', overflow: 'hidden', paddingBottom: 'clamp(4rem, 8vw, 7rem)' }}>
+      <section style={{ minHeight: '100svh', position: 'relative', display: 'flex', alignItems: 'flex-end', overflow: 'hidden', background: '#0C0C0F', paddingBottom: 'clamp(4rem, 8vw, 7rem)' }}>
 
-        {/* Desktop: photo RIGHT side only — no crop, no zoom */}
-        <div style={{ position: 'absolute', right: 0, top: 0, bottom: 0, width: '48%', zIndex: 0 }} className="hidden lg:block">
+        {/* Desktop: photo RIGHT side only */}
+        <div style={{ position: 'absolute', right: 0, top: 0, bottom: 0, width: '48%', zIndex: 0 }} className="hero-desktop">
           <img
             src="/assets/images/personal/Profile photo.jpg"
             alt="Durvesh H. Patil"
@@ -484,42 +484,42 @@ export default function AboutPage() {
               display: 'block',
             }}
           />
-          {/* Left fade — photo fades into dark background */}
-          <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right, #0A0A0F 0%, transparent 40%)', zIndex: 1 }} />
+          {/* Left fade — photo into dark */}
+          <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right, #0C0C0F 0%, rgba(12,12,15,0.5) 35%, transparent 70%)', zIndex: 1 }} />
           {/* Bottom fade */}
-          <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, #0A0A0F 0%, transparent 35%)', zIndex: 1 }} />
+          <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, #0C0C0F 0%, transparent 40%)', zIndex: 1 }} />
         </div>
 
-        {/* Mobile: full bleed portrait — keeps the great mobile look */}
-        <div className="lg:hidden w-full" style={{ height: '65vh', position: 'relative', overflow: 'hidden' }}>
+        {/* Mobile: full bleed portrait */}
+        <div className="hero-mobile" style={{ height: '60vh', width: '100%', position: 'relative', overflow: 'hidden' }}>
           <img
             src="/assets/images/personal/Profile photo.jpg"
             alt="Durvesh H. Patil"
-            style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top' }}
+            style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top', display: 'block' }}
           />
-          <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(6,6,6,0.2) 0%, rgba(6,6,6,0.5) 50%, #0A0A0F 100%)' }} />
+          <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(12,12,15,0.1) 40%, #0C0C0F 100%)' }} />
         </div>
 
-        {/* Text — LEFT side on desktop (photo is right), below photo on mobile */}
-        <div style={{ position: 'relative', zIndex: 1, width: '100%', maxWidth: '1320px', margin: '0 auto', padding: '0 clamp(1.25rem, 5vw, 5rem)' }}>
-          <div className="about-reveal" style={{ maxWidth: '560px' }}>
-            <p style={{ fontSize: '0.65rem', letterSpacing: '0.18em', textTransform: 'uppercase', color: 'S.accent', fontWeight: 600, marginBottom: '2rem', display: 'block' }}>About</p>
-            <h1 style={{ fontFamily: 'Instrument Serif, Georgia, serif', fontSize: 'clamp(3.5rem, 10vw, 9rem)', lineHeight: 0.92, fontWeight: 400, color: 'S.text', letterSpacing: '-0.02em', marginBottom: '0.1em' }}>
+        {/* Text — left side on desktop */}
+        <div style={{ position: 'relative', zIndex: 2, width: '100%', maxWidth: '1160px', margin: '0 auto', padding: '0 clamp(1.25rem, 5vw, 4rem)' }}>
+          <div className="about-reveal" style={{ maxWidth: '520px' }}>
+            <p style={{ fontSize: '10px', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.4)', fontWeight: 500, marginBottom: '2rem', display: 'block' }}>About</p>
+            <h1 style={{ fontFamily: 'Instrument Serif, Georgia, serif', fontSize: 'clamp(3.5rem, 10vw, 8rem)', lineHeight: 0.9, fontWeight: 400, color: '#FFFFFF', letterSpacing: '-0.02em', marginBottom: '0.08em' }}>
               Durvesh
             </h1>
-            <h1 style={{ fontFamily: 'Instrument Serif, Georgia, serif', fontSize: 'clamp(3.5rem, 10vw, 9rem)', lineHeight: 0.92, fontWeight: 400, fontStyle: 'italic', color: 'S.text', letterSpacing: '-0.02em', marginBottom: 'clamp(1.5rem, 3vw, 2.5rem)' }}>
-              Patil<span style={{ color: 'S.accent' }}>.</span>
+            <h1 style={{ fontFamily: 'Instrument Serif, Georgia, serif', fontSize: 'clamp(3.5rem, 10vw, 8rem)', lineHeight: 0.9, fontWeight: 400, fontStyle: 'italic', color: 'rgba(255,255,255,0.75)', letterSpacing: '-0.02em', marginBottom: 'clamp(1.5rem, 3vw, 2rem)' }}>
+              Patil<span style={{ color: '#AFA9EC' }}>.</span>
             </h1>
-            <p style={{ color: 'S.muted', fontWeight: 300, fontSize: 'clamp(1rem, 2vw, 1.2rem)', lineHeight: 1.6, maxWidth: '420px' }}>
+            <p style={{ color: 'rgba(255,255,255,0.45)', fontWeight: 300, fontSize: 'clamp(0.95rem, 1.8vw, 1.1rem)', lineHeight: 1.65, maxWidth: '380px' }}>
               From Filmora edits as a kid to 1 million views and a stage felicitation. Still figuring it out.
             </p>
           </div>
         </div>
 
         {/* Scroll cue */}
-        <div style={{ position: 'absolute', bottom: '2.5rem', right: 'clamp(1.25rem, 5vw, 5rem)', zIndex: 2, display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '0.5rem' }}>
-          <div style={{ width: '1px', height: '40px', background: 'linear-gradient(to bottom, S.muted, transparent)' }} />
-          <span style={{ fontSize: '0.6rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'S.muted' }}>Scroll</span>
+        <div style={{ position: 'absolute', bottom: '2.5rem', right: 'clamp(1.25rem, 5vw, 4rem)', zIndex: 3, display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '0.5rem' }}>
+          <div style={{ width: '1px', height: '36px', background: 'linear-gradient(to bottom, rgba(255,255,255,0.3), transparent)' }} />
+          <span style={{ fontSize: '9px', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)' }}>Scroll</span>
         </div>
       </section>
 
@@ -572,7 +572,7 @@ export default function AboutPage() {
       </section>
 
       {/* ── 03. TIMELINE ── */}
-      <section style={{ ...BORDER_TOP, background: '#13131A', padding: SECTION_PAD }}>
+      <section style={{ ...BORDER_TOP, background: '#F5F4F0', padding: SECTION_PAD }}>
         <div style={CONTAINER}>
           <div className="about-reveal" style={{ marginBottom: 'clamp(2.5rem, 4vw, 4rem)' }}>
             <span className="sec-label" style={{ marginBottom: '1rem', display: 'block' }}>Journey</span>
@@ -600,8 +600,8 @@ export default function AboutPage() {
             </div>
             <a href="https://www.instagram.com/_thedurvesh/" target="_blank" rel="noreferrer"
               style={{ color: S.muted, fontSize: '0.75rem', textDecoration: 'none', letterSpacing: '0.1em', textTransform: 'uppercase', transition: 'color 0.2s', marginBottom: '0.5rem' }}
-              onMouseEnter={e => e.target.style.color = S.accent}
-              onMouseLeave={e => e.target.style.color = S.muted}>
+              onMouseEnter={e => e.target.style.color = '#534AB7'}
+              onMouseLeave={e => e.target.style.color = '#666666'}>
               @_thedurvesh →
             </a>
           </div>
@@ -644,7 +644,7 @@ export default function AboutPage() {
       </section>
 
       {/* ── 05. GALLERY — Horizontal pin scroll ── */}
-      <section style={{ ...BORDER_TOP, background: '#13131A', paddingTop: 'clamp(5rem, 10vw, 9rem)', paddingBottom: 0 }}>
+      <section style={{ ...BORDER_TOP, background: '#F5F4F0', paddingTop: 'clamp(5rem, 10vw, 9rem)', paddingBottom: 0 }}>
         <div style={{ maxWidth: '1320px', margin: '0 auto', padding: '0 clamp(1.25rem, 5vw, 5rem)', marginBottom: 'clamp(2.5rem, 4vw, 3.5rem)' }}>
           <div className="about-reveal">
             <span className="sec-label" style={{ marginBottom: '1rem', display: 'block' }}>Moments</span>
@@ -676,7 +676,7 @@ export default function AboutPage() {
             alignItems: 'center',
             marginBottom: 'clamp(3rem, 5vw, 5rem)',
           }}>
-            <div style={{ aspectRatio: '4/3', position: 'relative', overflow: 'hidden', borderRadius: '1.25rem', border: '1px solid S.border' }}>
+            <div style={{ aspectRatio: '4/3', position: 'relative', overflow: 'hidden', borderRadius: '1.25rem', border: '0.5px solid #E5E4E0' }}>
               <img
                 src="/assets/images/achievements/Special Achievers award- Most outstanding Content creator award.jpg"
                 alt="Outstanding Content Creator Award"
@@ -695,7 +695,7 @@ export default function AboutPage() {
               <p style={{ color: S.muted, fontSize: 'clamp(0.9rem, 1.5vw, 1.05rem)', lineHeight: 1.75, fontWeight: 300, marginBottom: '1.5rem' }}>
                 Recognized for consistency, execution, and measurable digital impact. This award came through reel scripting, strategic audience engagement, and event promotion campaigns that generated real visibility — not manufactured reach.
               </p>
-              <div style={{ borderTop: '1px solid S.border', paddingTop: '1.5rem', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+              <div style={{ borderTop: '0.5px solid #E5E4E0', paddingTop: '1.5rem', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
                 {[
                   '4× Social Media Lead — Techfest 2k24, Fusion 2k25, Techfest 2k25, Fusion 2k26',
                   'Fusion 2k25 reel crossed 1M views organically — the inflection point',
@@ -713,7 +713,7 @@ export default function AboutPage() {
       </section>
 
       {/* ── 07. CLOSING NOTE ── */}
-      <section style={{ ...BORDER_TOP, background: '#13131A', padding: SECTION_PAD, textAlign: 'center' }}>
+      <section style={{ ...BORDER_TOP, background: '#F5F4F0', padding: SECTION_PAD, textAlign: 'center' }}>
         <div style={{ ...CONTAINER, maxWidth: '720px' }}>
           <div className="about-reveal">
             <span className="sec-label" style={{ marginBottom: '1rem', display: 'block', textAlign: 'center' }}>A note</span>

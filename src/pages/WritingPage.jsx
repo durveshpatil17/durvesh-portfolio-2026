@@ -9,31 +9,31 @@ export default function WritingPage() {
   const filtered = active === 'All' ? articles : articles.filter(a => a.category === active);
 
   return (
-    <main style={{ minHeight: '100vh', paddingTop: '6rem' }}>
+    <main style={{ minHeight: '100vh', background: '#FAFAF8', paddingTop: '60px' }}>
 
-      {/* Header */}
-      <section style={{ padding: 'clamp(3rem,6vw,5rem) clamp(1.25rem,4vw,2rem)' }}>
-        <div style={{ maxWidth: '1320px', margin: '0 auto' }}>
-          <p className="sec-label" style={{ marginBottom: '1rem' }}>Writing</p>
-          <h1 style={{ fontFamily: S.serif, fontSize: 'clamp(2.8rem,7vw,6rem)', color: S.text, fontWeight: 400, lineHeight: 1.05, maxWidth: '700px', marginBottom: '1.5rem' }}>
+      {/* ── Page header ── */}
+      <section style={{ padding: 'clamp(3rem,6vw,5rem) clamp(1.25rem,5vw,4rem)', background: '#FAFAF8', borderBottom: '0.5px solid #E5E4E0' }}>
+        <div style={{ maxWidth: '1160px', margin: '0 auto' }}>
+          <span className="sec-label">Writing</span>
+          <h1 style={{ fontFamily: S.serif, fontSize: 'clamp(2.4rem,6vw,5rem)', color: '#111111', fontWeight: 400, lineHeight: 1.05, maxWidth: '680px', marginBottom: '1.25rem' }}>
             Ideas on mindset,<br /><span style={{ fontStyle: 'italic' }}>career, and ambition.</span>
           </h1>
-          <p style={{ color: S.muted, fontSize: 'clamp(0.95rem,1.5vw,1.1rem)', fontWeight: 300, lineHeight: 1.7, maxWidth: '520px' }}>
+          <p style={{ color: '#666', fontSize: 'clamp(0.95rem,1.5vw,1.05rem)', fontWeight: 300, lineHeight: 1.7, maxWidth: '500px' }}>
             I write when I have something real to say. These are articles on the things I think about — mindset, careers, technology, and the world changing around us.
           </p>
         </div>
       </section>
 
-      {/* Category filters */}
-      <div style={{ borderTop: '1px solid S.border', borderBottom: '1px solid S.border', padding: '0 clamp(1.25rem,5vw,5rem)', overflowX: 'auto' }}>
-        <div style={{ maxWidth: '1320px', margin: '0 auto', display: 'flex', gap: '0', minWidth: 'max-content' }}>
+      {/* ── Category filters ── */}
+      <div style={{ borderBottom: '0.5px solid #E5E4E0', background: '#FAFAF8', padding: '0 clamp(1.25rem,5vw,4rem)', overflowX: 'auto' }}>
+        <div style={{ maxWidth: '1160px', margin: '0 auto', display: 'flex', gap: 0, minWidth: 'max-content' }}>
           {CATEGORIES.map(cat => (
             <button key={cat} onClick={() => setActive(cat)}
               style={{
                 background: 'none', border: 'none', cursor: 'pointer',
-                padding: '1rem 1.25rem',
-                fontSize: '0.7rem', letterSpacing: '0.12em', textTransform: 'uppercase', fontWeight: 500,
-                color: active === cat ? S.accent : S.muted,
+                padding: '1rem 1.1rem',
+                fontSize: '10px', letterSpacing: '0.14em', textTransform: 'uppercase', fontWeight: 500,
+                color: active === cat ? S.accent : '#999',
                 borderBottom: active === cat ? `2px solid ${S.accent}` : '2px solid transparent',
                 transition: 'color 0.2s, border-color 0.2s',
                 whiteSpace: 'nowrap',
@@ -44,53 +44,57 @@ export default function WritingPage() {
         </div>
       </div>
 
-      {/* Articles list */}
-      <section style={{ padding: 'clamp(3rem,6vw,5rem) clamp(1.25rem,4vw,2rem)' }}>
-        <div style={{ maxWidth: '1320px', margin: '0 auto' }}>
+      {/* ── Articles list ── */}
+      <section style={{ padding: 'clamp(2rem,4vw,4rem) clamp(1.25rem,5vw,4rem)', background: '#FAFAF8' }}>
+        <div style={{ maxWidth: '1160px', margin: '0 auto' }}>
           {filtered.map((article, i) => (
             <div key={article.id} style={{
-              borderTop: '1px solid S.border',
-              display: 'grid', gridTemplateColumns: '1fr auto',
-              gap: '2rem', alignItems: 'center',
-              padding: 'clamp(1.5rem,2.5vw,2.25rem) 0',
+              borderTop: '0.5px solid #E5E4E0',
+              display: 'grid', gridTemplateColumns: '1fr 3.5rem',
+              gap: '1.5rem', alignItems: 'center',
+              padding: 'clamp(1.25rem,2.5vw,2rem) 0',
               cursor: article.status === 'coming-soon' ? 'default' : 'pointer',
-              transition: 'background 0.2s',
+              transition: 'opacity 0.2s',
             }}>
               <div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.6rem', flexWrap: 'wrap' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '0.5rem', flexWrap: 'wrap' }}>
                   <span className="tag-pill">{article.category}</span>
-                  <span style={{ fontSize: '0.6rem', color: S.muted, letterSpacing: '0.08em' }}>{article.readTime} read</span>
+                  <span style={{ fontSize: '10px', color: '#BBB', letterSpacing: '0.06em' }}>{article.readTime} read</span>
                   {article.status === 'coming-soon' && (
-                    <span className="tag-pill" style={{ background: 'rgba(255,255,255,0.05)', color: S.muted, borderColor: 'rgba(255,255,255,0.08)' }}>Coming soon</span>
+                    <span className="tag-pill" style={{ background: '#F0EFF0', color: '#999', borderColor: '#E5E4E0' }}>Coming soon</span>
                   )}
                 </div>
-                <h2 style={{ fontFamily: S.serif, fontSize: 'clamp(1.1rem,2.5vw,1.75rem)', color: S.text, fontWeight: 400, lineHeight: 1.25, marginBottom: '0.6rem' }}>{article.title}</h2>
-                <p style={{ color: S.muted, fontSize: '0.88rem', fontWeight: 300, lineHeight: 1.6, display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>{article.excerpt}</p>
+                <h2 style={{ fontFamily: S.serif, fontSize: 'clamp(1.05rem,2.5vw,1.7rem)', color: '#111111', fontWeight: 400, lineHeight: 1.25, marginBottom: '0.5rem' }}>{article.title}</h2>
+                <p style={{ color: '#888', fontSize: '0.875rem', fontWeight: 300, lineHeight: 1.6, display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>{article.excerpt}</p>
               </div>
               <div style={{ flexShrink: 0, textAlign: 'right' }}>
-                <div style={{ fontFamily: S.serif, fontSize: 'clamp(2.5rem,5vw,4rem)', color: S.accent, opacity: 0.12, lineHeight: 1, fontWeight: 400 }}>
+                <div style={{ fontFamily: S.serif, fontSize: 'clamp(2rem,5vw,3.5rem)', color: S.accent, opacity: 0.1, lineHeight: 1, fontWeight: 400 }}>
                   {String(i + 1).padStart(2, '0')}
                 </div>
               </div>
             </div>
           ))}
+          {/* Last border */}
+          <div style={{ borderTop: '0.5px solid #E5E4E0' }} />
         </div>
       </section>
 
-      {/* Author card */}
-      <section style={{ borderTop: '1px solid S.border', background: '#13131A', padding: 'clamp(3rem,6vw,5rem) clamp(1.25rem,4vw,2rem)' }}>
-        <div style={{ maxWidth: '1320px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px,1fr))', gap: 'clamp(2rem,4vw,4rem)', alignItems: 'center' }}>
-          <div style={{ aspectRatio: '4/3', maxWidth: '320px', borderRadius: '1.25rem', overflow: 'hidden', border: '1px solid S.border' }}>
+      {/* ── Author card ── */}
+      <section style={{ padding: 'clamp(3rem,6vw,5rem) clamp(1.25rem,5vw,4rem)', background: '#F5F4F0', borderTop: '0.5px solid #E5E4E0' }}>
+        <div style={{ maxWidth: '1160px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px,1fr))', gap: 'clamp(2rem,4vw,4rem)', alignItems: 'center' }}>
+          <div style={{ aspectRatio: '4/3', maxWidth: '320px', borderRadius: '16px', overflow: 'hidden', border: '0.5px solid #E5E4E0', boxShadow: '0 4px 24px rgba(0,0,0,0.06)' }}>
             <img src="/assets/images/personal/Personal photo 6.jpg" alt="Durvesh H. Patil" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
           </div>
           <div>
-            <p className="sec-label" style={{ marginBottom: '1rem' }}>About the author</p>
-            <h3 style={{ fontFamily: S.serif, fontSize: 'clamp(1.5rem,3vw,2.2rem)', color: S.text, fontWeight: 400, marginBottom: '1rem' }}>Durvesh H. Patil</h3>
-            <p style={{ color: S.muted, fontSize: 'clamp(0.9rem,1.5vw,1.05rem)', lineHeight: 1.75, fontWeight: 300, marginBottom: '1.5rem' }}>
+            <span className="sec-label">About the author</span>
+            <h3 style={{ fontFamily: S.serif, fontSize: 'clamp(1.5rem,3vw,2.2rem)', color: '#111111', fontWeight: 400, marginBottom: '1rem' }}>Durvesh H. Patil</h3>
+            <p style={{ color: '#666', fontSize: 'clamp(0.9rem,1.5vw,1rem)', lineHeight: 1.8, fontWeight: 300, marginBottom: '1.5rem' }}>
               Engineering grad from KBT College Nashik. MBA student at SCIT Pune, Symbiosis International University. Content creator with 4M+ organic views across @_thedurvesh and @cinesyncbydurvesh. I write about mindset, careers, and the world changing around us.
             </p>
             <a href="https://www.instagram.com/_thedurvesh/" target="_blank" rel="noreferrer"
-              style={{ color: S.accent, fontSize: '0.8rem', textDecoration: 'none', letterSpacing: '0.06em' }}>
+              style={{ color: S.accent, fontSize: '0.8rem', textDecoration: 'none', letterSpacing: '0.06em', transition: 'opacity 0.2s' }}
+              onMouseEnter={e => e.currentTarget.style.opacity = '0.7'}
+              onMouseLeave={e => e.currentTarget.style.opacity = '1'}>
               Follow on Instagram →
             </a>
           </div>

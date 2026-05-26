@@ -44,109 +44,91 @@ const WORK_ITEMS = [
     subtitle: "Central India's First National MF Knowledge Summit · Indore",
     problem: "Nivesh Mantrana — Central India's first national knowledge summit for mutual fund distributors — needed digital promotion to drive awareness and registrations.",
     approach: 'Managed social media promotion and digital outreach for the event. Handled content, reach strategy, and audience engagement across platforms.',
-    impact: "Event hosted 800 MFDs from 45 cities across 6 states. Keynote by Madhya Pradesh CM Mohan Yadav. Felicitated at the event for digital promotion contribution.",
+    impact: 'Event hosted 800 MFDs from 45 cities across 6 states. Keynote by Madhya Pradesh CM Mohan Yadav. Felicitated at the event for digital promotion contribution.',
     photo: '/assets/images/achievements/Felicitated at Nivesh Mantrana event in indore for Social Media Promotion.jpg',
     photoCaption: 'Felicitated at Nivesh Mantrana 2024, Indore',
-  }
+  },
 ];
 
 const CREDENTIALS = [
-  {
-    img: '/assets/images/certificates/Techfest 2k25 Social Media head Participation certificate.jpeg',
-    label: 'Techfest 2025 — Social Media Head',
-  },
-  {
-    img: '/assets/images/certificates/Internation Journal of science paper publication certificate.jpeg',
-    label: 'International Journal Publication',
-  },
-  {
-    img: '/assets/images/certificates/second-research-certificate.jpg',
-    label: 'Research Certificate',
-  },
-  {
-    img: '/assets/images/certificates/Cricket tournament winner certificate.jpeg',
-    label: 'Cricket Tournament Winners',
-  },
+  { img: '/assets/images/certificates/Techfest 2k25 Social Media head Participation certificate.jpeg', label: 'Techfest 2025 — Social Media Head' },
+  { img: '/assets/images/certificates/Internation Journal of science paper publication certificate.jpeg', label: 'International Journal Publication' },
+  { img: '/assets/images/certificates/second-research-certificate.jpg', label: 'Research Certificate' },
+  { img: '/assets/images/certificates/Cricket tournament winner certificate.jpeg', label: 'Cricket Tournament Winners' },
 ];
 
 const RECOGNITION_PHOTOS = [
-  {
-    img: '/assets/images/achievements/Most Enthusiastic Personality Felicitation.JPG',
-    label: 'Most Enthusiastic Personality',
-  },
-  {
-    img: '/assets/images/achievements/Felicitation at Nivesh Mantrana 2k24 for Event Volunteering.jpg',
-    label: 'Nivesh Mantrana 2024 — Event Volunteering',
-  },
-  {
-    img: '/assets/images/achievements/award receiving candid photo at nivesh mantrana 2k24.jpg',
-    label: 'Award — Nivesh Mantrana 2024',
-  },
+  { img: '/assets/images/achievements/Most Enthusiastic Personality Felicitation.JPG', label: 'Most Enthusiastic Personality' },
+  { img: '/assets/images/achievements/Felicitation at Nivesh Mantrana 2k24 for Event Volunteering.jpg', label: 'Nivesh Mantrana 2024 — Event Volunteering' },
+  { img: '/assets/images/achievements/award receiving candid photo at nivesh mantrana 2k24.jpg', label: 'Award — Nivesh Mantrana 2024' },
 ];
+
+const BG_ALT = ['#FAFAF8', '#F5F4F0', '#FAFAF8', '#F5F4F0'];
 
 export default function WorkPage() {
   return (
-    <main style={{ minHeight: '100vh', paddingTop: '6rem' }}>
+    <main style={{ minHeight: '100vh', background: '#FAFAF8', paddingTop: '60px' }}>
 
-      {/* Header */}
-      <section style={{ padding: 'clamp(3rem,6vw,5rem) clamp(1.25rem,4vw,2rem)' }}>
-        <div style={{ maxWidth: '1320px', margin: '0 auto' }}>
-          <p className="sec-label" style={{ marginBottom: '1rem' }}>Work</p>
-          <h1 style={{ fontFamily: S.serif, fontSize: 'clamp(2.8rem,7vw,6rem)', color: S.text, fontWeight: 400, lineHeight: 1.05, maxWidth: '700px' }}>
+      {/* ── Page header ── */}
+      <section style={{ padding: 'clamp(3rem,6vw,5rem) clamp(1.25rem,5vw,4rem)', background: '#FAFAF8', borderBottom: `0.5px solid #E5E4E0` }}>
+        <div style={{ maxWidth: '1160px', margin: '0 auto' }}>
+          <span className="sec-label">Work</span>
+          <h1 style={{ fontFamily: S.serif, fontSize: 'clamp(2.4rem,6vw,5rem)', color: '#111111', fontWeight: 400, lineHeight: 1.05, maxWidth: '680px' }}>
             Real systems.<br /><span style={{ fontStyle: 'italic' }}>Measurable outcomes.</span>
           </h1>
         </div>
       </section>
 
-      {/* Work items */}
+      {/* ── Work items ── */}
       {WORK_ITEMS.map((item, i) => (
         <section key={item.num} style={{
-          borderTop: '1px solid S.border',
-          background: i % 2 === 1 ? '#13131A' : '#0A0A0F',
-          padding: 'clamp(3rem,6vw,5rem) clamp(1.25rem,4vw,2rem)',
+          background: BG_ALT[i],
+          padding: 'clamp(3rem,6vw,5rem) clamp(1.25rem,5vw,4rem)',
+          borderBottom: '0.5px solid #E5E4E0',
         }}>
-          <div style={{ maxWidth: '1320px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 'clamp(2.5rem,5vw,5rem)', alignItems: 'center' }}>
-
+          <div style={{
+            maxWidth: '1160px', margin: '0 auto',
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+            gap: 'clamp(2.5rem,5vw,5rem)',
+            alignItems: 'center',
+          }}>
             {/* Text — left on even, right on odd */}
             <div style={{ order: i % 2 === 0 ? 1 : 2 }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem' }}>
-                <span style={{ fontFamily: S.serif, fontSize: '0.9rem', color: S.muted, opacity: 0.5 }}>{item.num}</span>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.25rem' }}>
+                <span style={{ fontFamily: S.serif, fontSize: '0.85rem', color: '#CCC', fontStyle: 'italic' }}>{item.num}</span>
                 <span className="tag-pill">{item.tag}</span>
               </div>
-              <h2 style={{ fontFamily: S.serif, fontSize: 'clamp(1.6rem,3vw,2.5rem)', color: S.text, fontWeight: 400, lineHeight: 1.15, marginBottom: '0.4rem' }}>{item.title}</h2>
-              <p style={{ fontSize: '0.75rem', color: S.muted, letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '2rem', fontWeight: 500 }}>{item.subtitle}</p>
+              <h2 style={{ fontFamily: S.serif, fontSize: 'clamp(1.5rem,3vw,2.4rem)', color: '#111111', fontWeight: 400, lineHeight: 1.15, marginBottom: '0.35rem' }}>{item.title}</h2>
+              <p style={{ fontSize: '11px', color: '#999', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '2rem', fontWeight: 500 }}>{item.subtitle}</p>
 
               {[
-                { label: 'Problem', value: item.problem },
+                { label: 'Problem',  value: item.problem  },
                 { label: 'Approach', value: item.approach },
-                { label: 'Impact', value: item.impact },
+                { label: 'Impact',   value: item.impact   },
               ].map(row => (
-                <div key={row.label} style={{ borderTop: '1px solid S.border', paddingTop: '1rem', marginBottom: '1rem' }}>
-                  <p style={{ fontSize: '0.6rem', textTransform: 'uppercase', letterSpacing: '0.14em', color: S.accent, fontWeight: 600, marginBottom: '0.4rem' }}>{row.label}</p>
-                  <p style={{ color: S.muted, fontSize: 'clamp(0.9rem,1.5vw,1rem)', lineHeight: 1.7, fontWeight: 300 }}>{row.value}</p>
+                <div key={row.label} style={{ borderTop: '0.5px solid #E5E4E0', paddingTop: '1rem', marginBottom: '1rem' }}>
+                  <p style={{ fontSize: '10px', textTransform: 'uppercase', letterSpacing: '0.14em', color: S.accent, fontWeight: 600, marginBottom: '0.4rem' }}>{row.label}</p>
+                  <p style={{ color: '#555', fontSize: 'clamp(0.88rem,1.4vw,0.97rem)', lineHeight: 1.75, fontWeight: 300 }}>{row.value}</p>
                 </div>
               ))}
 
               {item.doc && (
                 <a href={item.doc} target="_blank" rel="noreferrer"
-                  style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', marginTop: '1rem', color: S.muted, fontSize: '0.78rem', textDecoration: 'none', transition: 'color 0.2s' }}
+                  style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', marginTop: '0.75rem', color: '#999', fontSize: '0.78rem', textDecoration: 'none', transition: 'color 0.2s' }}
                   onMouseEnter={e => e.currentTarget.style.color = S.accent}
-                  onMouseLeave={e => e.currentTarget.style.color = S.muted}>
+                  onMouseLeave={e => e.currentTarget.style.color = '#999'}>
                   ↗ {item.docLabel}
                 </a>
               )}
             </div>
 
-            {/* Photo — alternating side */}
+            {/* Photo */}
             <div style={{ order: i % 2 === 0 ? 2 : 1 }}>
-              <div style={{ borderRadius: '1.25rem', overflow: 'hidden', border: '1px solid S.border', position: 'relative' }}>
-                <img
-                  src={item.photo}
-                  alt={item.photoCaption}
-                  style={{ width: '100%', aspectRatio: '4/3', objectFit: 'cover', display: 'block' }}
-                />
-                <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, background: 'linear-gradient(to top, rgba(6,6,6,0.75), transparent)', padding: '1.5rem 1.25rem 1rem' }}>
-                  <p style={{ fontSize: '0.7rem', color: 'rgba(237,235,230,0.6)', lineHeight: 1.4, fontWeight: 300 }}>{item.photoCaption}</p>
+              <div style={{ borderRadius: '16px', overflow: 'hidden', border: '0.5px solid #E5E4E0', position: 'relative', boxShadow: '0 4px 32px rgba(0,0,0,0.07)' }}>
+                <img src={item.photo} alt={item.photoCaption} style={{ width: '100%', aspectRatio: '4/3', objectFit: 'cover', display: 'block' }} />
+                <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.55), transparent)', padding: '1.5rem 1.25rem 1rem' }}>
+                  <p style={{ fontSize: '0.7rem', color: 'rgba(255,255,255,0.75)', lineHeight: 1.4, fontWeight: 300 }}>{item.photoCaption}</p>
                 </div>
               </div>
             </div>
@@ -154,27 +136,27 @@ export default function WorkPage() {
         </section>
       ))}
 
-      {/* Certificates grid */}
-      <section style={{ borderTop: '1px solid S.border', padding: 'clamp(3rem,6vw,5rem) clamp(1.25rem,4vw,2rem)' }}>
-        <div style={{ maxWidth: '1320px', margin: '0 auto' }}>
-          <p className="sec-label" style={{ marginBottom: '1rem' }}>Certificates</p>
-          <h2 style={{ fontFamily: S.serif, fontSize: 'clamp(1.8rem,4vw,3rem)', color: S.text, fontWeight: 400, marginBottom: 'clamp(2.5rem,4vw,3.5rem)' }}>Credentials.</h2>
+      {/* ── Certificates ── */}
+      <section style={{ padding: 'clamp(3rem,6vw,5rem) clamp(1.25rem,5vw,4rem)', background: '#FAFAF8', borderBottom: '0.5px solid #E5E4E0' }}>
+        <div style={{ maxWidth: '1160px', margin: '0 auto' }}>
+          <span className="sec-label">Certificates</span>
+          <h2 style={{ fontFamily: S.serif, fontSize: 'clamp(1.7rem,4vw,3rem)', color: '#111111', fontWeight: 400, marginBottom: 'clamp(2.5rem,4vw,3.5rem)' }}>Credentials.</h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 'clamp(0.75rem,1.5vw,1.25rem)' }}>
             {CREDENTIALS.map(cert => (
-              <div key={cert.label} className="l-card" style={{ overflow: 'hidden', background: '#1C1C26' }}>
+              <div key={cert.label} className="l-card" style={{ overflow: 'hidden' }}>
                 <img src={cert.img} alt={cert.label} style={{ width: '100%', aspectRatio: '4/3', objectFit: 'cover', display: 'block' }} />
-                <p style={{ padding: '0.875rem 1rem', fontSize: '0.75rem', color: S.muted, fontWeight: 300, lineHeight: 1.5 }}>{cert.label}</p>
+                <p style={{ padding: '0.875rem 1rem', fontSize: '0.75rem', color: '#555', fontWeight: 300, lineHeight: 1.5 }}>{cert.label}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Research Publications */}
-      <section style={{ borderTop: '1px solid S.border', background: '#13131A', padding: 'clamp(3rem,6vw,5rem) clamp(1.25rem,4vw,2rem)' }}>
-        <div style={{ maxWidth: '1320px', margin: '0 auto' }}>
-          <p className="sec-label" style={{ marginBottom: '1rem' }}>Research</p>
-          <h2 style={{ fontFamily: S.serif, fontSize: 'clamp(1.8rem,4vw,3rem)', color: S.text, fontWeight: 400, marginBottom: 'clamp(2.5rem,4vw,3.5rem)' }}>Published work.</h2>
+      {/* ── Research Publications ── */}
+      <section style={{ padding: 'clamp(3rem,6vw,5rem) clamp(1.25rem,5vw,4rem)', background: '#F5F4F0', borderBottom: '0.5px solid #E5E4E0' }}>
+        <div style={{ maxWidth: '1160px', margin: '0 auto' }}>
+          <span className="sec-label">Research</span>
+          <h2 style={{ fontFamily: S.serif, fontSize: 'clamp(1.7rem,4vw,3rem)', color: '#111111', fontWeight: 400, marginBottom: 'clamp(2.5rem,4vw,3.5rem)' }}>Published work.</h2>
 
           {[
             {
@@ -196,23 +178,23 @@ export default function WorkPage() {
               certImg: '/assets/images/certificates/second-research-certificate.jpg',
             },
           ].map(paper => (
-            <div key={paper.num} style={{ borderTop: '1px solid S.border', padding: 'clamp(1.5rem,2.5vw,2.5rem) 0', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px,1fr))', gap: 'clamp(2rem,4vw,4rem)', alignItems: 'center' }}>
+            <div key={paper.num} style={{ borderTop: '0.5px solid #E5E4E0', padding: 'clamp(1.5rem,2.5vw,2.5rem) 0', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px,1fr))', gap: 'clamp(2rem,4vw,4rem)', alignItems: 'center' }}>
               <div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem' }}>
-                  <span style={{ fontFamily: S.serif, fontSize: '0.9rem', color: S.muted, opacity: 0.5 }}>{paper.num}</span>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
+                  <span style={{ fontFamily: S.serif, fontSize: '0.85rem', color: '#CCC', fontStyle: 'italic' }}>{paper.num}</span>
                   <span className="tag-pill">{paper.type}</span>
                 </div>
-                <h3 style={{ fontFamily: S.serif, fontSize: 'clamp(1.2rem,2vw,1.8rem)', color: S.text, fontWeight: 400, lineHeight: 1.2, marginBottom: '0.5rem' }}>{paper.title}</h3>
-                <p style={{ fontSize: '0.78rem', color: S.muted, fontStyle: 'italic', marginBottom: '1rem', lineHeight: 1.5 }}>{paper.venue}</p>
-                <p style={{ color: S.muted, fontSize: '0.9rem', lineHeight: 1.7, fontWeight: 300, marginBottom: '1.25rem' }}>{paper.desc}</p>
+                <h3 style={{ fontFamily: S.serif, fontSize: 'clamp(1.2rem,2vw,1.75rem)', color: '#111111', fontWeight: 400, lineHeight: 1.2, marginBottom: '0.5rem' }}>{paper.title}</h3>
+                <p style={{ fontSize: '0.78rem', color: '#999', fontStyle: 'italic', marginBottom: '1rem', lineHeight: 1.5 }}>{paper.venue}</p>
+                <p style={{ color: '#555', fontSize: '0.9rem', lineHeight: 1.75, fontWeight: 300, marginBottom: '1.25rem' }}>{paper.desc}</p>
                 <a href={paper.cert} target="_blank" rel="noreferrer"
-                  style={{ color: S.muted, fontSize: '0.78rem', textDecoration: 'none', transition: 'color 0.2s' }}
+                  style={{ color: '#999', fontSize: '0.78rem', textDecoration: 'none', transition: 'color 0.2s' }}
                   onMouseEnter={e => e.currentTarget.style.color = S.accent}
-                  onMouseLeave={e => e.currentTarget.style.color = S.muted}>
+                  onMouseLeave={e => e.currentTarget.style.color = '#999'}>
                   View Certificate ↗
                 </a>
               </div>
-              <div style={{ borderRadius: '1rem', overflow: 'hidden', border: '1px solid S.border' }}>
+              <div style={{ borderRadius: '14px', overflow: 'hidden', border: '0.5px solid #E5E4E0' }}>
                 <img src={paper.certImg} alt={paper.title} style={{ width: '100%', aspectRatio: '4/3', objectFit: 'cover', display: 'block' }} />
               </div>
             </div>
@@ -220,17 +202,17 @@ export default function WorkPage() {
         </div>
       </section>
 
-      {/* Recognition photos */}
-      <section style={{ borderTop: '1px solid S.border', background: '#13131A', padding: 'clamp(3rem,6vw,5rem) clamp(1.25rem,4vw,2rem)' }}>
-        <div style={{ maxWidth: '1320px', margin: '0 auto' }}>
-          <p className="sec-label" style={{ marginBottom: '1rem' }}>Recognition</p>
-          <h2 style={{ fontFamily: S.serif, fontSize: 'clamp(1.8rem,4vw,3rem)', color: S.text, fontWeight: 400, marginBottom: 'clamp(2.5rem,4vw,3.5rem)' }}>Beyond the work.</h2>
+      {/* ── Recognition photos ── */}
+      <section style={{ padding: 'clamp(3rem,6vw,5rem) clamp(1.25rem,5vw,4rem)', background: '#FAFAF8' }}>
+        <div style={{ maxWidth: '1160px', margin: '0 auto' }}>
+          <span className="sec-label">Recognition</span>
+          <h2 style={{ fontFamily: S.serif, fontSize: 'clamp(1.7rem,4vw,3rem)', color: '#111111', fontWeight: 400, marginBottom: 'clamp(2.5rem,4vw,3.5rem)' }}>Beyond the work.</h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 'clamp(0.75rem,1.5vw,1.25rem)' }}>
             {RECOGNITION_PHOTOS.map(r => (
               <div key={r.label} className="l-card" style={{ overflow: 'hidden', position: 'relative' }}>
                 <img src={r.img} alt={r.label} style={{ width: '100%', aspectRatio: '4/3', objectFit: 'cover', display: 'block' }} />
-                <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, background: 'linear-gradient(to top, rgba(6,6,6,0.8), transparent)', padding: '1.5rem 1rem 1rem' }}>
-                  <p style={{ fontSize: '0.72rem', color: 'rgba(237,235,230,0.65)', lineHeight: 1.4, fontWeight: 300 }}>{r.label}</p>
+                <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.55), transparent)', padding: '1.5rem 1rem 1rem' }}>
+                  <p style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.8)', lineHeight: 1.4, fontWeight: 300 }}>{r.label}</p>
                 </div>
               </div>
             ))}
