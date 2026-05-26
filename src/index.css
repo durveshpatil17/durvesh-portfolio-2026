@@ -32,11 +32,11 @@ html, body {
   overflow: hidden;
   z-index: 0;
 }
-/* Desktop: photo only on right 52%, leave left for text */
+/* Desktop: photo only on left 52%, leave right for text */
 @media (min-width: 1024px) {
   .hero-photo-wrap {
-    left: auto;
-    right: 0;
+    left: 0;
+    right: auto;
     width: 52%;
   }
 }
@@ -47,9 +47,10 @@ html, body {
   background: linear-gradient(
     to top,
     #0C0C0F 0%,
-    rgba(12,12,15,0.88) 28%,
-    rgba(12,12,15,0.35) 55%,
-    transparent 80%
+    #0C0C0F 20%,
+    rgba(12,12,15,0.88) 40%,
+    rgba(12,12,15,0.35) 60%,
+    transparent 85%
   );
   pointer-events: none;
   z-index: 1;
@@ -69,6 +70,19 @@ html, body {
 @media (min-width: 1024px) {
   .hero-desktop { display: block; }
   .hero-mobile  { display: none; }
+}
+
+.hero-text-container {
+  display: flex;
+  justify-content: flex-start;
+}
+.hero-text-container > div {
+  width: 100%;
+}
+@media (min-width: 1024px) {
+  .hero-text-container {
+    justify-content: flex-end;
+  }
 }
 
 /* Typography scale */

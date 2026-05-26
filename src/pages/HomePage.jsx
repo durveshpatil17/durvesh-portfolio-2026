@@ -99,14 +99,14 @@ export default function HomePage() {
           {/* Mobile gradient — rises from bottom, face stays clear */}
           <div className="hero-mobile-grad" />
 
-          {/* Desktop gradients — left edge + bottom edge only */}
+          {/* Desktop gradients — right edge + bottom edge only */}
           <div className="hero-desktop-grads" style={{
             position: 'absolute', inset: 0, zIndex: 1, pointerEvents: 'none',
           }}>
-            {/* Left: dark text area bleeds into photo */}
+            {/* Right: dark text area bleeds into photo */}
             <div style={{
               position: 'absolute', inset: 0,
-              background: 'linear-gradient(to right, #0C0C0F 0%, rgba(12,12,15,0.6) 35%, transparent 70%)',
+              background: 'linear-gradient(to left, #0C0C0F 0%, rgba(12,12,15,0.6) 35%, transparent 70%)',
             }} />
             {/* Bottom */}
             <div style={{
@@ -119,7 +119,7 @@ export default function HomePage() {
         {/* ── Dot indicators ── */}
         <div style={{
           position: 'absolute', bottom: '2rem',
-          right: 'clamp(1.25rem, 5vw, 4rem)',
+          left: 'clamp(1.25rem, 5vw, 4rem)',
           zIndex: 5, display: 'flex', gap: '5px', alignItems: 'center',
         }}>
           {HERO_PHOTOS.map((_, i) => (
@@ -134,7 +134,7 @@ export default function HomePage() {
         </div>
 
         {/* ── Text block — bottom of screen, full-width on mobile, max 540px on desktop ── */}
-        <div style={{
+        <div className="hero-text-container" style={{
           position: 'relative', zIndex: 2,
           width: '100%', maxWidth: '1160px',
           margin: '0 auto',
