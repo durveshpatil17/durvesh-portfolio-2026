@@ -10,12 +10,12 @@ import { reels } from '../data/reels';
 gsap.registerPlugin(ScrollTrigger);
 
 const HERO_PHOTOS = [
-  { src: '/assets/images/personal/Personal Photo 2.JPG',  pos: 'center 15%', mPos: 'center 20%' },
-  { src: '/assets/images/personal/personal photo 3.jpeg',  pos: 'center 15%', mPos: 'center 20%' },
-  { src: '/assets/images/personal/Personal photo 4.jpg',  pos: 'center 20%', mPos: 'center 25%' },
-  { src: '/assets/images/personal/Personal photo 6.jpg',  pos: 'center 10%', mPos: 'center 15%' },
-  { src: '/assets/images/personal/personal photo 7.webp',  pos: 'center 15%', mPos: 'center 20%' },
-  { src: '/assets/images/personal/personal photo 8.jpg',  pos: 'center 15%', mPos: 'center 20%' },
+  { src: '/assets/images/personal/Personal Photo 2.JPG',  pos: 'center 30%', mPos: 'center 35%' },
+  { src: '/assets/images/personal/personal photo 3.jpeg',  pos: 'center 25%', mPos: 'center 30%' },
+  { src: '/assets/images/personal/Personal photo 4.jpg',  pos: 'center 35%', mPos: 'center 40%' },
+  { src: '/assets/images/personal/Personal photo 6.jpg',  pos: 'center 20%', mPos: 'center 25%' },
+  { src: '/assets/images/personal/personal photo 7.webp',  pos: 'center 25%', mPos: 'center 30%' },
+  { src: '/assets/images/personal/personal photo 8.jpg',  pos: 'center 30%', mPos: 'center 35%' },
 ];
 
 const HERO_STATS = [
@@ -68,7 +68,7 @@ export default function HomePage() {
           position: 'absolute', top: 0, right: 0, bottom: 0,
           width: '52%',
           zIndex: 0,
-        }} className="hidden lg:block">
+        }} className="hero-desktop">
           <div style={{
             display: 'flex',
             width: `${HERO_PHOTOS.length * 100}%`,
@@ -88,7 +88,7 @@ export default function HomePage() {
         </div>
 
         {/* Mobile photo — full bleed top half */}
-        <div className="lg:hidden" style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '55vh', overflow: 'hidden' }}>
+        <div className="hero-mobile" style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '55vh', overflow: 'hidden' }}>
           <div style={{
             display: 'flex',
             width: `${HERO_PHOTOS.length * 100}%`,

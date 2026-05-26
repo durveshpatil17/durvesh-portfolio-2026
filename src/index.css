@@ -14,6 +14,25 @@ html, body {
   color: #111111;
 }
 
+/* Responsive visibility */
+.nav-links-desktop { display: none; }
+.nav-cta-desktop { display: none; }
+.nav-menu-btn { display: flex; }
+
+@media (min-width: 768px) {
+  .nav-links-desktop { display: flex; }
+  .nav-cta-desktop { display: block; }
+  .nav-menu-btn { display: none; }
+}
+
+.hero-desktop { display: none; }
+.hero-mobile { display: block; }
+
+@media (min-width: 1024px) {
+  .hero-desktop { display: block; }
+  .hero-mobile { display: none; }
+}
+
 /* Typography scale */
 h1 { font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; line-height: 1.0; }
 h2 { font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; line-height: 1.1; }

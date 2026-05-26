@@ -13,44 +13,50 @@ export default function Navbar() {
   const [scrolled, setScrolled]   = useState(false);
   const [menuOpen, setMenuOpen]   = useState(false);
   const [onDark,   setOnDark]     = useState(true);
+  const [hovered,  setHovered]    = useState(false);
   const location = useLocation();
 
-  // Detect if we're in the dark hero zone
+  const isHomePage = location.pathname === '/';
+
+  // Detect if we're in the dark hero zone (only on HomePage)
   useEffect(() => {
     const handler = () => {
       const heroHeight = window.innerHeight;
       setScrolled(window.scrollY > 60);
-      setOnDark(window.scrollY < heroHeight * 0.8);
+      setOnDark(isHomePage && window.scrollY < heroHeight * 0.8);
     };
     window.addEventListener('scroll', handler, { passive: true });
-    handler();
+    handler(); // run once on mount or route change
     return () => window.removeEventListener('scroll', handler);
-  }, []);
+  }, [isHomePage]);
 
   useEffect(() => { setMenuOpen(false); }, [location]);
   useEffect(() => { document.body.style.overflow = menuOpen ? 'hidden' : ''; }, [menuOpen]);
 
   const isActive = (to) => to === '/' ? location.pathname === '/' : location.pathname.startsWith(to);
 
-  const textColor = scrolled
+  const textColor = scrolled || hovered
     ? '#111111'
     : onDark ? 'rgba(255,255,255,0.75)' : '#111111';
-  const activeColor = scrolled ? '#534AB7' : onDark ? '#FFFFFF' : '#534AB7';
-  const logoColor   = scrolled ? '#111111' : onDark ? '#FFFFFF' : '#111111';
+  const activeColor = scrolled || hovered ? '#534AB7' : onDark ? '#FFFFFF' : '#534AB7';
+  const logoColor   = scrolled || hovered ? '#111111' : onDark ? '#FFFFFF' : '#111111';
 
   return (
     <>
-      <nav style={{
+      <nav 
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+        style={{
         position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50,
         height: '60px',
         display: 'flex', alignItems: 'center',
         justifyContent: 'space-between',
         padding: '0 clamp(1.25rem, 5vw, 4rem)',
         transition: 'background 0.4s, border-color 0.4s, backdrop-filter 0.4s',
-        background: scrolled ? 'rgba(250,250,248,0.94)' : 'transparent',
-        borderBottom: scrolled ? '0.5px solid #E5E4E0' : '0.5px solid transparent',
-        backdropFilter: scrolled ? 'blur(20px)' : 'none',
-        WebkitBackdropFilter: scrolled ? 'blur(20px)' : 'none',
+        background: scrolled || hovered ? 'rgba(250,250,248,0.94)' : 'transparent',
+        borderBottom: scrolled || hovered ? '0.5px solid #E5E4E0' : '0.5px solid transparent',
+        backdropFilter: scrolled || hovered ? 'blur(20px)' : 'none',
+        WebkitBackdropFilter: scrolled || hovered ? 'blur(20px)' : 'none',
       }}>
         {/* Logo */}
         <Link to="/" style={{
@@ -63,7 +69,7 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop links */}
-        <div className="hidden md:flex" style={{ gap: '2.5rem', position: 'absolute', left: '50%', transform: 'translateX(-50%)' }}>
+        <div className="nav-links-desktop" style={{ gap: '2.5rem', position: 'absolute', left: '50%', transform: 'translateX(-50%)' }}>
           {LINKS.map(({ to, label }) => {
             const active = isActive(to);
             return (
@@ -82,7 +88,7 @@ export default function Navbar() {
                   <span style={{
                     position: 'absolute', bottom: '-4px', left: 0, right: 0,
                     height: '1px',
-                    background: scrolled ? '#534AB7' : onDark ? 'rgba(255,255,255,0.6)' : '#534AB7',
+                    background: scrolled || hovered ? '#534AB7' : onDark ? 'rgba(255,255,255,0.6)' : '#534AB7',
                   }} />
                 )}
               </Link>
@@ -91,11 +97,11 @@ export default function Navbar() {
         </div>
 
         {/* Connect CTA — desktop */}
-        <a href="#contact" className="hidden md:block" style={{
+        <a href="#contact" className="nav-cta-desktop" style={{
           padding: '0.5rem 1.25rem',
-          background: scrolled ? '#111111' : onDark ? 'rgba(255,255,255,0.12)' : '#111111',
-          border: scrolled ? '0.5px solid #111111' : onDark ? '0.5px solid rgba(255,255,255,0.3)' : '0.5px solid #111111',
-          color: scrolled ? '#FFFFFF' : onDark ? '#FFFFFF' : '#FFFFFF',
+          background: scrolled || hovered ? '#111111' : onDark ? 'rgba(255,255,255,0.12)' : '#111111',
+          border: scrolled || hovered ? '0.5px solid #111111' : onDark ? '0.5px solid rgba(255,255,255,0.3)' : '0.5px solid #111111',
+          color: scrolled || hovered ? '#FFFFFF' : onDark ? '#FFFFFF' : '#FFFFFF',
           borderRadius: '30px',
           fontSize: '11px', letterSpacing: '0.1em', textTransform: 'uppercase',
           textDecoration: 'none', fontWeight: 500,
@@ -107,13 +113,13 @@ export default function Navbar() {
         </a>
 
         {/* Mobile hamburger */}
-        <button className="md:hidden" onClick={() => setMenuOpen(!menuOpen)}
+        <button className="nav-menu-btn" onClick={() => setMenuOpen(!menuOpen)}
           style={{ background: 'none', border: 'none', cursor: 'pointer', padding: '10px', display: 'flex', flexDirection: 'column', gap: '5px', minWidth: '44px', minHeight: '44px', alignItems: 'center', justifyContent: 'center' }}
           aria-label="Toggle menu">
           {[0,1,2].map(i => (
             <span key={i} style={{
               display: 'block', width: '22px', height: '1.5px',
-              background: onDark && !scrolled ? '#FFFFFF' : '#111111',
+              background: (onDark && !scrolled && !hovered) ? '#FFFFFF' : '#111111',
               transition: 'all 0.3s',
               transform: menuOpen
                 ? i === 0 ? 'rotate(45deg) translate(4.5px,4.5px)'
