@@ -25,12 +25,50 @@ html, body {
   .nav-menu-btn { display: none; }
 }
 
-.hero-desktop { display: none; }
-.hero-mobile { display: block; }
+/* Hero — desktop: photo strip on right; mobile: photo fills whole screen */
+.hero-photo-wrap {
+  position: absolute;
+  inset: 0;           /* full bleed on mobile */
+  overflow: hidden;
+  z-index: 0;
+}
+/* Desktop: photo only on right 52%, leave left for text */
+@media (min-width: 1024px) {
+  .hero-photo-wrap {
+    left: auto;
+    right: 0;
+    width: 52%;
+  }
+}
+/* Mobile gradient: strong rise from bottom so face stays clear */
+.hero-mobile-grad {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    #0C0C0F 0%,
+    rgba(12,12,15,0.88) 28%,
+    rgba(12,12,15,0.35) 55%,
+    transparent 80%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+/* Desktop gradient: fade left edge + bottom edge */
+@media (min-width: 1024px) {
+  .hero-mobile-grad { display: none; }
+}
+.hero-desktop-grads { display: none; }
+@media (min-width: 1024px) {
+  .hero-desktop-grads { display: block; }
+}
 
+/* About / legacy page hero visibility classes */
+.hero-desktop { display: none; }
+.hero-mobile  { display: block; }
 @media (min-width: 1024px) {
   .hero-desktop { display: block; }
-  .hero-mobile { display: none; }
+  .hero-mobile  { display: none; }
 }
 
 /* Typography scale */

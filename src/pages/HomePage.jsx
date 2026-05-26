@@ -10,13 +10,15 @@ import { reels } from '../data/reels';
 gsap.registerPlugin(ScrollTrigger);
 
 const N = 6;
+
+// objectPosition: face centred in the frame
 const HERO_PHOTOS = [
-  { src: '/assets/images/personal/Personal Photo 2.JPG',  pos: '50% 30%', mPos: '50% 30%' },
-  { src: '/assets/images/personal/personal photo 3.jpeg', pos: '50% 25%', mPos: '50% 25%' },
-  { src: '/assets/images/personal/Personal photo 4.jpg',  pos: '50% 35%', mPos: '50% 35%' },
-  { src: '/assets/images/personal/Personal photo 6.jpg',  pos: '50% 20%', mPos: '50% 20%' },
-  { src: '/assets/images/personal/personal photo 7.webp', pos: '50% 25%', mPos: '50% 25%' },
-  { src: '/assets/images/personal/personal photo 8.jpg',  pos: '50% 30%', mPos: '50% 30%' },
+  { src: '/assets/images/personal/Personal Photo 2.JPG',  pos: '50% 28%' },
+  { src: '/assets/images/personal/personal photo 3.jpeg', pos: '50% 22%' },
+  { src: '/assets/images/personal/Personal photo 4.jpg',  pos: '50% 32%' },
+  { src: '/assets/images/personal/Personal photo 6.jpg',  pos: '50% 18%' },
+  { src: '/assets/images/personal/personal photo 7.webp', pos: '50% 22%' },
+  { src: '/assets/images/personal/personal photo 8.jpg',  pos: '50% 28%' },
 ];
 
 const HERO_STATS = [
@@ -26,7 +28,7 @@ const HERO_STATS = [
   { value: '2026', label: 'MBA · SCIT Pune'        },
 ];
 
-// Section colour system: alternate light ↔ dark
+// Light / Dark section palette
 const L = { bg: '#FAFAF8', border: '#E5E4E0', text: '#111111', muted: '#666', sub: '#999' };
 const D = { bg: '#111118', border: 'rgba(255,255,255,0.08)', text: '#FFFFFF', muted: 'rgba(255,255,255,0.55)', sub: 'rgba(255,255,255,0.32)' };
 
@@ -48,41 +50,76 @@ export default function HomePage() {
   return (
     <div ref={pageRef}>
 
-      {/* ══════════════════════════════════════════ HERO ══ */}
-
-      {/* ── DESKTOP HERO (single full-screen section) ── */}
-      <section className="hero-desktop" style={{
+      {/* ════════════════════════════════════════ HERO
+          One section, one carousel.
+          Desktop: photos on right 52% | text on left.
+          Mobile:  photos fill full screen | text pinned bottom over gradient.
+      ═══════════════════════════════════════════════════ */}
+      <section style={{
         position: 'relative',
         height: '100svh',
-        minHeight: '640px',
+        minHeight: '600px',
         background: '#0C0C0F',
         overflow: 'hidden',
         display: 'flex',
-        alignItems: 'flex-end',
+        alignItems: 'flex-end',   /* text always bottom-aligned */
       }}>
-        {/* Photo strip — right 52% */}
-        <div style={{
-          position: 'absolute', top: 0, right: 0, bottom: 0,
-          width: '52%', overflow: 'hidden', zIndex: 0,
-        }}>
+
+        {/* ── Photo carousel: full-bleed mobile, right-strip desktop ── */}
+        <div className="hero-photo-wrap">
+          {/* Sliding strip: 600% wide, each slot = 1/6 */}
           <div style={{
-            display: 'flex', width: `${N * 100}%`, height: '100%',
+            display: 'flex',
+            width: `${N * 100}%`,
+            height: '100%',
             animation: `carousel-slide ${N * 3.5}s ease-in-out infinite`,
           }}>
             {HERO_PHOTOS.map((p, i) => (
-              <div key={i} style={{ width: `${100 / N}%`, height: '100%', flexShrink: 0, position: 'relative', overflow: 'hidden' }}>
-                <img src={p.src} alt="" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: p.pos }} />
+              <div key={i} style={{
+                width: `${100 / N}%`,
+                height: '100%',
+                flexShrink: 0,
+                position: 'relative',
+                overflow: 'hidden',
+              }}>
+                <img
+                  src={p.src}
+                  alt=""
+                  style={{
+                    position: 'absolute', inset: 0,
+                    width: '100%', height: '100%',
+                    objectFit: 'cover',
+                    objectPosition: p.pos,
+                  }}
+                />
               </div>
             ))}
           </div>
-          {/* Gradients */}
-          <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right, #0C0C0F 0%, rgba(12,12,15,0.55) 35%, transparent 70%)', zIndex: 1, pointerEvents: 'none' }} />
-          <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, #0C0C0F 0%, transparent 40%)', zIndex: 1, pointerEvents: 'none' }} />
+
+          {/* Mobile gradient — rises from bottom, face stays clear */}
+          <div className="hero-mobile-grad" />
+
+          {/* Desktop gradients — left edge + bottom edge only */}
+          <div className="hero-desktop-grads" style={{
+            position: 'absolute', inset: 0, zIndex: 1, pointerEvents: 'none',
+          }}>
+            {/* Left: dark text area bleeds into photo */}
+            <div style={{
+              position: 'absolute', inset: 0,
+              background: 'linear-gradient(to right, #0C0C0F 0%, rgba(12,12,15,0.6) 35%, transparent 70%)',
+            }} />
+            {/* Bottom */}
+            <div style={{
+              position: 'absolute', inset: 0,
+              background: 'linear-gradient(to top, #0C0C0F 0%, transparent 40%)',
+            }} />
+          </div>
         </div>
 
-        {/* Dot indicators */}
+        {/* ── Dot indicators ── */}
         <div style={{
-          position: 'absolute', bottom: '2.25rem', right: 'clamp(1.25rem, 5vw, 4rem)',
+          position: 'absolute', bottom: '2rem',
+          right: 'clamp(1.25rem, 5vw, 4rem)',
           zIndex: 5, display: 'flex', gap: '5px', alignItems: 'center',
         }}>
           {HERO_PHOTOS.map((_, i) => (
@@ -96,54 +133,75 @@ export default function HomePage() {
           ))}
         </div>
 
-        {/* Text */}
+        {/* ── Text block — bottom of screen, full-width on mobile, max 540px on desktop ── */}
         <div style={{
           position: 'relative', zIndex: 2,
-          width: '100%', maxWidth: '1160px', margin: '0 auto',
+          width: '100%', maxWidth: '1160px',
+          margin: '0 auto',
           padding: 'clamp(1.25rem, 5vw, 4rem)',
-          paddingBottom: 'clamp(3.5rem, 6vw, 5.5rem)',
+          paddingBottom: 'clamp(3rem, 6vw, 5rem)',
         }}>
-          <HeroText />
+          <motion.div
+            initial={{ opacity: 0, y: 22 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            style={{ maxWidth: '540px' }}
+          >
+            {/* Eyebrow */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '1.1rem' }}>
+              <div style={{ width: '22px', height: '1px', background: 'rgba(255,255,255,0.3)', flexShrink: 0 }} />
+              <span style={{ fontSize: '10px', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.38)', fontWeight: 500 }}>
+                Builder · Writer · MBA @ SCIT Pune
+              </span>
+            </div>
+
+            {/* Headline */}
+            <h1 style={{ fontFamily: S.serif, fontSize: 'clamp(2.2rem, 6vw, 5rem)', lineHeight: 1.0, color: '#FFFFFF', marginBottom: '0.06em', letterSpacing: '-0.02em' }}>
+              Think bigger than
+            </h1>
+            <h1 style={{ fontFamily: S.serif, fontSize: 'clamp(2.2rem, 6vw, 5rem)', lineHeight: 1.0, color: 'rgba(255,255,255,0.68)', fontStyle: 'italic', letterSpacing: '-0.02em', marginBottom: '1.25rem' }}>
+              you think is allowed.
+            </h1>
+
+            {/* Subheading */}
+            <p style={{ fontSize: 'clamp(13px, 1.5vw, 15px)', color: 'rgba(255,255,255,0.45)', lineHeight: 1.65, maxWidth: '400px', marginBottom: '1.75rem', fontWeight: 300 }}>
+              MBA student at SCIT Pune. I've done real things, learned hard lessons, and I write about what nobody tells you — so you can make better decisions than I did.
+            </p>
+
+            {/* Stats — desktop only via inline media logic */}
+            <HeroStats />
+
+            {/* CTAs */}
+            <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
+              <Link to="/writing" style={{
+                padding: '0.75rem 1.5rem', background: '#FFFFFF', color: '#0C0C0F',
+                borderRadius: '30px', fontSize: '11px', fontWeight: 700,
+                letterSpacing: '0.1em', textTransform: 'uppercase', textDecoration: 'none',
+                display: 'inline-flex', alignItems: 'center', minHeight: '44px',
+                transition: 'opacity 0.2s',
+              }}
+                onMouseEnter={e => e.currentTarget.style.opacity = '0.85'}
+                onMouseLeave={e => e.currentTarget.style.opacity = '1'}>
+                Read the Writing
+              </Link>
+              <Link to="/work" style={{
+                padding: '0.75rem 1.5rem', background: 'transparent',
+                border: '0.5px solid rgba(255,255,255,0.28)', color: 'rgba(255,255,255,0.75)',
+                borderRadius: '30px', fontSize: '11px', fontWeight: 400,
+                letterSpacing: '0.1em', textTransform: 'uppercase', textDecoration: 'none',
+                display: 'inline-flex', alignItems: 'center', minHeight: '44px',
+                transition: 'border-color 0.2s, color 0.2s',
+              }}
+                onMouseEnter={e => { e.currentTarget.style.borderColor = 'rgba(255,255,255,0.65)'; e.currentTarget.style.color = '#fff'; }}
+                onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(255,255,255,0.28)'; e.currentTarget.style.color = 'rgba(255,255,255,0.75)'; }}>
+                See the Work
+              </Link>
+            </div>
+          </motion.div>
         </div>
       </section>
 
-      {/* ── MOBILE HERO (stacked: photo top, text below) ── */}
-      <div className="hero-mobile" style={{ background: '#0C0C0F' }}>
-        {/* Photo — 56vh tall, no overflow, text is BELOW it */}
-        <div style={{ position: 'relative', height: '56vh', overflow: 'hidden' }}>
-          <div style={{
-            display: 'flex', width: `${N * 100}%`, height: '100%',
-            animation: `carousel-slide ${N * 3.5}s ease-in-out infinite`,
-          }}>
-            {HERO_PHOTOS.map((p, i) => (
-              <div key={i} style={{ width: `${100 / N}%`, height: '100%', flexShrink: 0, position: 'relative', overflow: 'hidden' }}>
-                <img src={p.src} alt="" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: p.mPos }} />
-              </div>
-            ))}
-          </div>
-          {/* Bottom fade into dark */}
-          <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '40%', background: 'linear-gradient(to top, #0C0C0F, transparent)', pointerEvents: 'none' }} />
-          {/* Dots */}
-          <div style={{ position: 'absolute', bottom: '1rem', right: '1.25rem', display: 'flex', gap: '5px', alignItems: 'center' }}>
-            {HERO_PHOTOS.map((_, i) => (
-              <div key={i} style={{
-                height: '4px', borderRadius: '2px',
-                animationName: `dot-${i + 1}`,
-                animationDuration: `${N * 3.5}s`,
-                animationTimingFunction: 'ease-in-out',
-                animationIterationCount: 'infinite',
-              }} />
-            ))}
-          </div>
-        </div>
-
-        {/* Text — sits cleanly BELOW the photo */}
-        <div style={{ padding: '2.5rem 1.5rem 4rem' }}>
-          <HeroText mobile />
-        </div>
-      </div>
-
-      {/* ══════════════════════════════════════════ IDENTITY (Light) */}
+      {/* ════════════════════════════════════════ IDENTITY (Light) */}
       <section style={{ padding: 'clamp(4rem,8vw,7rem) clamp(1.25rem,5vw,4rem)', background: L.bg, borderTop: `0.5px solid ${L.border}` }}>
         <div style={{ maxWidth: '1160px', margin: '0 auto' }}>
           <div className="reveal" style={{ display: 'flex', gap: '2rem', alignItems: 'flex-start', marginBottom: 'clamp(2.5rem,5vw,4rem)' }}>
@@ -154,9 +212,9 @@ export default function HomePage() {
           </div>
           <div className="reveal" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1rem' }}>
             {[
-              { tag: 'Builder',   title: 'Engineering → MBA',        body: 'B.E. IT from KBT College Nashik. Now MBA at SCIT Pune, Symbiosis International University. Building the technical + strategic foundation.' },
-              { tag: 'Writer',    title: 'Perspective, not advice',   body: "I write about things people don't talk about honestly. Career, self-doubt, ambition. The kind of thing I wished I'd read at 18." },
-              { tag: 'In public', title: 'Documenting the journey',   body: "Live industry project. Research publications. Real clients. Real outcomes. Shared in real time so others can see what's possible." },
+              { tag: 'Builder',   title: 'Engineering → MBA',       body: 'B.E. IT from KBT College Nashik. Now MBA at SCIT Pune, Symbiosis International University. Building the technical + strategic foundation.' },
+              { tag: 'Writer',    title: 'Perspective, not advice',  body: "I write about things people don't talk about honestly. Career, self-doubt, ambition. The kind of thing I wished I'd read at 18." },
+              { tag: 'In public', title: 'Documenting the journey',  body: "Live industry project. Research publications. Real clients. Real outcomes. Shared in real time so others can see what's possible." },
             ].map(item => (
               <div key={item.tag} className="l-card" style={{ padding: 'clamp(1.25rem, 2vw, 1.75rem)' }}>
                 <span className="tag-pill" style={{ marginBottom: '1rem', display: 'inline-block' }}>{item.tag}</span>
@@ -168,7 +226,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ══════════════════════════════════════════ WORK PREVIEW (Dark) */}
+      {/* ════════════════════════════════════════ WORK PREVIEW (Dark) */}
       <section style={{ padding: 'clamp(4rem,8vw,7rem) clamp(1.25rem,5vw,4rem)', background: D.bg }}>
         <div style={{ maxWidth: '1160px', margin: '0 auto' }}>
           <div className="reveal" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 'clamp(2rem,4vw,3rem)', flexWrap: 'wrap', gap: '1rem' }}>
@@ -186,11 +244,11 @@ export default function HomePage() {
           </div>
           <div className="reveal" style={{ borderTop: `0.5px solid ${D.border}` }}>
             {[
-              { num: '01', tag: 'Public Speaking', title: 'Live Industry Project — IT Dept Presentation', outcome: 'PPO received · Dematade Algo Technology Solutions' },
-              { num: '02', tag: 'MF Distribution',  title: 'Mutual Fund Distribution & Advisory',          outcome: '36+ clients · ₹13L+ AUM · AMFI registered'      },
-              { num: '03', tag: 'Content Strategy', title: 'Social Media Head — 4 Major Events',           outcome: 'Fusion 2025 · Techfest 2024 & 2025 · Fusion 2026' },
-              { num: '04', tag: 'Digital Promotion',title: 'Nivesh Mantrana 2024 — National MF Summit',    outcome: 'Felicitated · 800 MFDs · 6 states · Indore'       },
-            ].map((p, i) => (
+              { num: '01', tag: 'Public Speaking',  title: 'Live Industry Project — IT Dept Presentation', outcome: 'PPO received · Dematade Algo Technology Solutions' },
+              { num: '02', tag: 'MF Distribution',  title: 'Mutual Fund Distribution & Advisory',           outcome: '36+ clients · ₹13L+ AUM · AMFI registered'      },
+              { num: '03', tag: 'Content Strategy',  title: 'Social Media Head — 4 Major Events',            outcome: 'Fusion 2025 · Techfest 2024 & 2025 · Fusion 2026'},
+              { num: '04', tag: 'Digital Promotion', title: 'Nivesh Mantrana 2024 — National MF Summit',     outcome: 'Felicitated · 800 MFDs · 6 states · Indore'      },
+            ].map(p => (
               <Link to="/work" key={p.num} style={{ textDecoration: 'none', display: 'block' }}>
                 <div style={{
                   display: 'grid', gridTemplateColumns: '2rem 1fr auto',
@@ -214,7 +272,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ══════════════════════════════════════════ WRITING PREVIEW (Light) */}
+      {/* ════════════════════════════════════════ WRITING PREVIEW (Light) */}
       <section style={{ padding: 'clamp(4rem,8vw,7rem) clamp(1.25rem,5vw,4rem)', background: L.bg, borderTop: `0.5px solid ${L.border}` }}>
         <div style={{ maxWidth: '1160px', margin: '0 auto' }}>
           <div className="reveal" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 'clamp(2rem,4vw,3rem)', flexWrap: 'wrap', gap: '1rem' }}>
@@ -251,7 +309,7 @@ export default function HomePage() {
                     <div style={{ fontFamily: S.serif, fontSize: 'clamp(1.8rem, 3.5vw, 2.75rem)', color: '#534AB7', opacity: 0.1, lineHeight: 1, fontStyle: 'italic' }}>
                       {String(i + 1).padStart(2, '0')}
                     </div>
-                    <span style={{ fontSize: '10px', color: '#CCC', letterSpacing: '0.04em' }}>{a.readTime}</span>
+                    <span style={{ fontSize: '10px', color: '#CCC' }}>{a.readTime}</span>
                   </div>
                 </div>
               </Link>
@@ -260,7 +318,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ══════════════════════════════════════════ MEDIA (Dark) */}
+      {/* ════════════════════════════════════════ MEDIA (Dark) */}
       <section style={{ padding: 'clamp(4rem,8vw,7rem) clamp(1.25rem,5vw,4rem)', background: D.bg }}>
         <div style={{ maxWidth: '1160px', margin: '0 auto' }}>
           <div className="reveal" style={{ marginBottom: 'clamp(2rem,4vw,3rem)' }}>
@@ -270,13 +328,9 @@ export default function HomePage() {
           <div className="reveal" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem', alignItems: 'start' }}>
             <div>
               <div style={{ borderRadius: '14px', overflow: 'hidden', border: `0.5px solid ${D.border}`, aspectRatio: '16/9', background: '#1A1A22' }}>
-                <iframe
-                  src="https://www.youtube.com/embed/eIYjcYqhaOE"
-                  title="Durvesh Patil"
+                <iframe src="https://www.youtube.com/embed/eIYjcYqhaOE" title="Durvesh Patil"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  style={{ width: '100%', height: '100%', border: 'none', display: 'block' }}
-                />
+                  allowFullScreen style={{ width: '100%', height: '100%', border: 'none', display: 'block' }} />
               </div>
               <a href="https://youtube.com/watch?v=eIYjcYqhaOE" target="_blank" rel="noreferrer"
                 style={{ display: 'block', marginTop: '0.6rem', fontSize: '11px', color: D.sub, textDecoration: 'none', transition: 'color 0.2s', letterSpacing: '0.04em' }}
@@ -314,7 +368,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ══════════════════════════════════════════ CONTACT (Darkest) */}
+      {/* ════════════════════════════════════════ CONTACT (Darkest) */}
       <section id="contact" style={{ padding: 'clamp(5rem,10vw,8rem) clamp(1.25rem,5vw,4rem)', background: '#0C0C0F', textAlign: 'center', borderTop: '0.5px solid rgba(255,255,255,0.06)' }}>
         <div style={{ maxWidth: '580px', margin: '0 auto' }}>
           <div className="reveal">
@@ -348,79 +402,25 @@ export default function HomePage() {
   );
 }
 
-/* ─── Extracted hero text so it renders in both desktop & mobile layouts ─── */
-function HeroText({ mobile = false }) {
+/* Stats bar — hidden on mobile via CSS trick (too cramped) */
+function HeroStats() {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: mobile ? 16 : 24 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1], delay: mobile ? 0.1 : 0 }}
-      style={{ maxWidth: mobile ? '100%' : '540px' }}
-    >
-      {/* Eyebrow */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '1.25rem' }}>
-        <div style={{ width: '24px', height: '1px', background: 'rgba(255,255,255,0.3)', flexShrink: 0 }} />
-        <span style={{ fontSize: '10px', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.38)', fontWeight: 500 }}>
-          Builder · Writer · MBA @ SCIT Pune
-        </span>
-      </div>
-
-      {/* Headline */}
-      <h1 style={{ fontFamily: S.serif, fontSize: mobile ? 'clamp(2.2rem, 9vw, 3rem)' : 'clamp(2.6rem, 6.5vw, 5rem)', lineHeight: 1.0, color: '#FFFFFF', marginBottom: '0.08em', letterSpacing: '-0.02em' }}>
-        Think bigger than
-      </h1>
-      <h1 style={{ fontFamily: S.serif, fontSize: mobile ? 'clamp(2.2rem, 9vw, 3rem)' : 'clamp(2.6rem, 6.5vw, 5rem)', lineHeight: 1.0, color: 'rgba(255,255,255,0.68)', fontStyle: 'italic', letterSpacing: '-0.02em', marginBottom: '1.5rem' }}>
-        you think is allowed.
-      </h1>
-
-      {/* Sub */}
-      <p style={{ fontSize: mobile ? '14px' : '15px', color: 'rgba(255,255,255,0.45)', lineHeight: 1.7, maxWidth: '400px', marginBottom: '2rem', fontWeight: 300 }}>
-        MBA student at SCIT Pune. I've done real things, learned hard lessons, and I write about what nobody tells you — so you can make better decisions than I did.
-      </p>
-
-      {/* Stats */}
-      {!mobile && (
-        <div style={{ display: 'flex', marginBottom: '2rem', borderTop: '0.5px solid rgba(255,255,255,0.1)' }}>
-          {HERO_STATS.map((s, i) => (
-            <div key={s.label} style={{
-              flex: 1, paddingTop: '1rem',
-              paddingRight: i < 3 ? 'clamp(0.5rem, 1.5vw, 1.25rem)' : 0,
-              paddingLeft: i > 0 ? 'clamp(0.5rem, 1.5vw, 1.25rem)' : 0,
-              borderRight: i < 3 ? '0.5px solid rgba(255,255,255,0.08)' : 'none',
-            }}>
-              <div style={{ fontFamily: S.serif, fontSize: 'clamp(0.95rem, 2vw, 1.35rem)', color: '#FFFFFF', lineHeight: 1, marginBottom: '4px' }}>{s.value}</div>
-              <div style={{ fontSize: '9px', textTransform: 'uppercase', letterSpacing: '0.1em', color: 'rgba(255,255,255,0.28)', lineHeight: 1.3 }}>{s.label}</div>
-            </div>
-          ))}
+    <div style={{
+      display: 'flex',
+      marginBottom: '1.75rem',
+      borderTop: '0.5px solid rgba(255,255,255,0.1)',
+    }}>
+      {HERO_STATS.map((s, i) => (
+        <div key={s.label} style={{
+          flex: 1, paddingTop: '0.9rem',
+          paddingRight: i < 3 ? 'clamp(0.4rem, 1.2vw, 1rem)' : 0,
+          paddingLeft: i > 0 ? 'clamp(0.4rem, 1.2vw, 1rem)' : 0,
+          borderRight: i < 3 ? '0.5px solid rgba(255,255,255,0.08)' : 'none',
+        }}>
+          <div style={{ fontFamily: 'Instrument Serif, Georgia, serif', fontSize: 'clamp(0.9rem, 1.8vw, 1.3rem)', color: '#FFFFFF', lineHeight: 1, marginBottom: '3px' }}>{s.value}</div>
+          <div style={{ fontSize: '8px', textTransform: 'uppercase', letterSpacing: '0.1em', color: 'rgba(255,255,255,0.28)', lineHeight: 1.3 }}>{s.label}</div>
         </div>
-      )}
-
-      {/* CTAs */}
-      <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
-        <Link to="/writing" style={{
-          padding: '0.75rem 1.6rem', background: '#FFFFFF', color: '#0C0C0F',
-          borderRadius: '30px', fontSize: '11px', fontWeight: 700,
-          letterSpacing: '0.1em', textTransform: 'uppercase', textDecoration: 'none',
-          display: 'inline-flex', alignItems: 'center', minHeight: '44px',
-          transition: 'opacity 0.2s',
-        }}
-          onMouseEnter={e => e.currentTarget.style.opacity = '0.85'}
-          onMouseLeave={e => e.currentTarget.style.opacity = '1'}>
-          Read the Writing
-        </Link>
-        <Link to="/work" style={{
-          padding: '0.75rem 1.6rem', background: 'transparent',
-          border: '0.5px solid rgba(255,255,255,0.28)', color: 'rgba(255,255,255,0.75)',
-          borderRadius: '30px', fontSize: '11px', fontWeight: 400,
-          letterSpacing: '0.1em', textTransform: 'uppercase', textDecoration: 'none',
-          display: 'inline-flex', alignItems: 'center', minHeight: '44px',
-          transition: 'border-color 0.2s, color 0.2s',
-        }}
-          onMouseEnter={e => { e.currentTarget.style.borderColor = 'rgba(255,255,255,0.65)'; e.currentTarget.style.color = '#fff'; }}
-          onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(255,255,255,0.28)'; e.currentTarget.style.color = 'rgba(255,255,255,0.75)'; }}>
-          See the Work
-        </Link>
-      </div>
-    </motion.div>
+      ))}
+    </div>
   );
 }
