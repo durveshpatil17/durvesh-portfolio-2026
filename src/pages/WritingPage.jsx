@@ -80,19 +80,19 @@ export default function WritingPage() {
       </section>
 
       {/* ── Author card ── */}
-      <section style={{ padding: 'clamp(3rem,6vw,5rem) clamp(1.25rem,5vw,4rem)', background: '#F5F4F0', borderTop: '0.5px solid #E5E4E0' }}>
+      <section style={{ padding: 'clamp(3rem,6vw,5rem) clamp(1.25rem,5vw,4rem)', background: '#111118', borderTop: '0.5px solid rgba(255,255,255,0.08)' }}>
         <div style={{ maxWidth: '1160px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px,1fr))', gap: 'clamp(2rem,4vw,4rem)', alignItems: 'center' }}>
-          <div style={{ aspectRatio: '4/3', maxWidth: '320px', borderRadius: '16px', overflow: 'hidden', border: '0.5px solid #E5E4E0', boxShadow: '0 4px 24px rgba(0,0,0,0.06)' }}>
+          <div style={{ aspectRatio: '4/3', maxWidth: '320px', borderRadius: '16px', overflow: 'hidden', border: '0.5px solid rgba(255,255,255,0.12)', boxShadow: '0 4px 32px rgba(0,0,0,0.3)' }}>
             <img src="/assets/images/personal/Personal photo 6.jpg" alt="Durvesh H. Patil" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
           </div>
           <div>
-            <span className="sec-label">About the author</span>
-            <h3 style={{ fontFamily: S.serif, fontSize: 'clamp(1.5rem,3vw,2.2rem)', color: '#111111', fontWeight: 400, marginBottom: '1rem' }}>Durvesh H. Patil</h3>
-            <p style={{ color: '#666', fontSize: 'clamp(0.9rem,1.5vw,1rem)', lineHeight: 1.8, fontWeight: 300, marginBottom: '1.5rem' }}>
+            <span className="sec-label" style={{ color: 'rgba(255,255,255,0.38)' }}>About the author</span>
+            <h3 style={{ fontFamily: S.serif, fontSize: 'clamp(1.5rem,3vw,2.2rem)', color: '#FFFFFF', fontWeight: 400, marginBottom: '1rem' }}>Durvesh H. Patil</h3>
+            <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: 'clamp(0.9rem,1.5vw,1rem)', lineHeight: 1.8, fontWeight: 300, marginBottom: '1.5rem' }}>
               Engineering grad from KBT College Nashik. MBA student at SCIT Pune, Symbiosis International University. Content creator with 4M+ organic views across @_thedurvesh and @cinesyncbydurvesh. I write about mindset, careers, and the world changing around us.
             </p>
             <a href="https://www.instagram.com/_thedurvesh/" target="_blank" rel="noreferrer"
-              style={{ color: S.accent, fontSize: '0.8rem', textDecoration: 'none', letterSpacing: '0.06em', transition: 'opacity 0.2s' }}
+              style={{ color: '#AFA9EC', fontSize: '0.8rem', textDecoration: 'none', letterSpacing: '0.06em', transition: 'opacity 0.2s' }}
               onMouseEnter={e => e.currentTarget.style.opacity = '0.7'}
               onMouseLeave={e => e.currentTarget.style.opacity = '1'}>
               Follow on Instagram →

@@ -63,14 +63,17 @@ const RECOGNITION_PHOTOS = [
   { img: '/assets/images/achievements/award receiving candid photo at nivesh mantrana 2k24.jpg', label: 'Award — Nivesh Mantrana 2024' },
 ];
 
-const BG_ALT = ['#FAFAF8', '#F5F4F0', '#FAFAF8', '#F5F4F0'];
+const BG_ALT = ['#FAFAF8', '#111118', '#FAFAF8', '#111118'];
+const TEXT_ALT = ['#111111', '#FFFFFF', '#111111', '#FFFFFF'];
+const MUTED_ALT = ['#555', 'rgba(255,255,255,0.5)', '#555', 'rgba(255,255,255,0.5)'];
+const BORDER_ALT = ['#E5E4E0', 'rgba(255,255,255,0.08)', '#E5E4E0', 'rgba(255,255,255,0.08)'];
 
 export default function WorkPage() {
   return (
     <main style={{ minHeight: '100vh', background: '#FAFAF8', paddingTop: '60px' }}>
 
       {/* ── Page header ── */}
-      <section style={{ padding: 'clamp(3rem,6vw,5rem) clamp(1.25rem,5vw,4rem)', background: '#FAFAF8', borderBottom: `0.5px solid #E5E4E0` }}>
+      <section style={{ padding: 'clamp(3rem,6vw,5rem) clamp(1.25rem,5vw,4rem)', background: '#FAFAF8', borderBottom: '0.5px solid #E5E4E0' }}>
         <div style={{ maxWidth: '1160px', margin: '0 auto' }}>
           <span className="sec-label">Work</span>
           <h1 style={{ fontFamily: S.serif, fontSize: 'clamp(2.4rem,6vw,5rem)', color: '#111111', fontWeight: 400, lineHeight: 1.05, maxWidth: '680px' }}>
@@ -84,7 +87,7 @@ export default function WorkPage() {
         <section key={item.num} style={{
           background: BG_ALT[i],
           padding: 'clamp(3rem,6vw,5rem) clamp(1.25rem,5vw,4rem)',
-          borderBottom: '0.5px solid #E5E4E0',
+          borderBottom: `0.5px solid ${BORDER_ALT[i]}`,
         }}>
           <div style={{
             maxWidth: '1160px', margin: '0 auto',
@@ -96,28 +99,28 @@ export default function WorkPage() {
             {/* Text — left on even, right on odd */}
             <div style={{ order: i % 2 === 0 ? 1 : 2 }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.25rem' }}>
-                <span style={{ fontFamily: S.serif, fontSize: '0.85rem', color: '#CCC', fontStyle: 'italic' }}>{item.num}</span>
+                <span style={{ fontFamily: S.serif, fontSize: '0.85rem', color: i % 2 === 1 ? 'rgba(255,255,255,0.3)' : '#CCC', fontStyle: 'italic' }}>{item.num}</span>
                 <span className="tag-pill">{item.tag}</span>
               </div>
-              <h2 style={{ fontFamily: S.serif, fontSize: 'clamp(1.5rem,3vw,2.4rem)', color: '#111111', fontWeight: 400, lineHeight: 1.15, marginBottom: '0.35rem' }}>{item.title}</h2>
-              <p style={{ fontSize: '11px', color: '#999', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '2rem', fontWeight: 500 }}>{item.subtitle}</p>
+              <h2 style={{ fontFamily: S.serif, fontSize: 'clamp(1.5rem,3vw,2.4rem)', color: TEXT_ALT[i], fontWeight: 400, lineHeight: 1.15, marginBottom: '0.35rem' }}>{item.title}</h2>
+              <p style={{ fontSize: '11px', color: MUTED_ALT[i], letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '2rem', fontWeight: 500 }}>{item.subtitle}</p>
 
               {[
                 { label: 'Problem',  value: item.problem  },
                 { label: 'Approach', value: item.approach },
                 { label: 'Impact',   value: item.impact   },
               ].map(row => (
-                <div key={row.label} style={{ borderTop: '0.5px solid #E5E4E0', paddingTop: '1rem', marginBottom: '1rem' }}>
+                <div key={row.label} style={{ borderTop: `0.5px solid ${BORDER_ALT[i]}`, paddingTop: '1rem', marginBottom: '1rem' }}>
                   <p style={{ fontSize: '10px', textTransform: 'uppercase', letterSpacing: '0.14em', color: S.accent, fontWeight: 600, marginBottom: '0.4rem' }}>{row.label}</p>
-                  <p style={{ color: '#555', fontSize: 'clamp(0.88rem,1.4vw,0.97rem)', lineHeight: 1.75, fontWeight: 300 }}>{row.value}</p>
+                  <p style={{ color: MUTED_ALT[i], fontSize: 'clamp(0.88rem,1.4vw,0.97rem)', lineHeight: 1.75, fontWeight: 300 }}>{row.value}</p>
                 </div>
               ))}
 
               {item.doc && (
                 <a href={item.doc} target="_blank" rel="noreferrer"
-                  style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', marginTop: '0.75rem', color: '#999', fontSize: '0.78rem', textDecoration: 'none', transition: 'color 0.2s' }}
+                  style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', marginTop: '0.75rem', color: MUTED_ALT[i], fontSize: '0.78rem', textDecoration: 'none', transition: 'color 0.2s' }}
                   onMouseEnter={e => e.currentTarget.style.color = S.accent}
-                  onMouseLeave={e => e.currentTarget.style.color = '#999'}>
+                  onMouseLeave={e => e.currentTarget.style.color = MUTED_ALT[i]}>
                   ↗ {item.docLabel}
                 </a>
               )}
@@ -137,10 +140,10 @@ export default function WorkPage() {
       ))}
 
       {/* ── Certificates ── */}
-      <section style={{ padding: 'clamp(3rem,6vw,5rem) clamp(1.25rem,5vw,4rem)', background: '#FAFAF8', borderBottom: '0.5px solid #E5E4E0' }}>
+      <section style={{ padding: 'clamp(3rem,6vw,5rem) clamp(1.25rem,5vw,4rem)', background: '#111118', borderBottom: '0.5px solid rgba(255,255,255,0.08)' }}>
         <div style={{ maxWidth: '1160px', margin: '0 auto' }}>
-          <span className="sec-label">Certificates</span>
-          <h2 style={{ fontFamily: S.serif, fontSize: 'clamp(1.7rem,4vw,3rem)', color: '#111111', fontWeight: 400, marginBottom: 'clamp(2.5rem,4vw,3.5rem)' }}>Credentials.</h2>
+          <span className="sec-label" style={{ color: 'rgba(255,255,255,0.38)' }}>Certificates</span>
+          <h2 style={{ fontFamily: S.serif, fontSize: 'clamp(1.7rem,4vw,3rem)', color: '#FFFFFF', fontWeight: 400, marginBottom: 'clamp(2.5rem,4vw,3.5rem)' }}>Credentials.</h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 'clamp(0.75rem,1.5vw,1.25rem)' }}>
             {CREDENTIALS.map(cert => (
               <div key={cert.label} className="l-card" style={{ overflow: 'hidden' }}>
@@ -153,7 +156,7 @@ export default function WorkPage() {
       </section>
 
       {/* ── Research Publications ── */}
-      <section style={{ padding: 'clamp(3rem,6vw,5rem) clamp(1.25rem,5vw,4rem)', background: '#F5F4F0', borderBottom: '0.5px solid #E5E4E0' }}>
+      <section style={{ padding: 'clamp(3rem,6vw,5rem) clamp(1.25rem,5vw,4rem)', background: '#FAFAF8', borderBottom: '0.5px solid #E5E4E0' }}>
         <div style={{ maxWidth: '1160px', margin: '0 auto' }}>
           <span className="sec-label">Research</span>
           <h2 style={{ fontFamily: S.serif, fontSize: 'clamp(1.7rem,4vw,3rem)', color: '#111111', fontWeight: 400, marginBottom: 'clamp(2.5rem,4vw,3.5rem)' }}>Published work.</h2>
@@ -203,10 +206,10 @@ export default function WorkPage() {
       </section>
 
       {/* ── Recognition photos ── */}
-      <section style={{ padding: 'clamp(3rem,6vw,5rem) clamp(1.25rem,5vw,4rem)', background: '#FAFAF8' }}>
+      <section style={{ padding: 'clamp(3rem,6vw,5rem) clamp(1.25rem,5vw,4rem)', background: '#111118' }}>
         <div style={{ maxWidth: '1160px', margin: '0 auto' }}>
-          <span className="sec-label">Recognition</span>
-          <h2 style={{ fontFamily: S.serif, fontSize: 'clamp(1.7rem,4vw,3rem)', color: '#111111', fontWeight: 400, marginBottom: 'clamp(2.5rem,4vw,3.5rem)' }}>Beyond the work.</h2>
+          <span className="sec-label" style={{ color: 'rgba(255,255,255,0.38)' }}>Recognition</span>
+          <h2 style={{ fontFamily: S.serif, fontSize: 'clamp(1.7rem,4vw,3rem)', color: '#FFFFFF', fontWeight: 400, marginBottom: 'clamp(2.5rem,4vw,3.5rem)' }}>Beyond the work.</h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 'clamp(0.75rem,1.5vw,1.25rem)' }}>
             {RECOGNITION_PHOTOS.map(r => (
               <div key={r.label} className="l-card" style={{ overflow: 'hidden', position: 'relative' }}>
