@@ -156,16 +156,16 @@ export default function HomePage() {
             </div>
 
             {/* Headline */}
-            <h1 style={{ fontFamily: S.serif, fontSize: 'clamp(2.2rem, 6vw, 5rem)', lineHeight: 1.0, color: '#FFFFFF', marginBottom: '0.06em', letterSpacing: '-0.02em' }}>
-              Think bigger than
+            <h1 style={{ fontFamily: S.serif, fontSize: 'clamp(2.8rem, 7vw, 5.5rem)', lineHeight: 1.0, color: '#FFFFFF', marginBottom: '0.05em', letterSpacing: '-0.02em' }}>
+              Where AI meets
             </h1>
-            <h1 style={{ fontFamily: S.serif, fontSize: 'clamp(2.2rem, 6vw, 5rem)', lineHeight: 1.0, color: 'rgba(255,255,255,0.68)', fontStyle: 'italic', letterSpacing: '-0.02em', marginBottom: '1.25rem' }}>
-              you think is allowed.
+            <h1 style={{ fontFamily: S.serif, fontSize: 'clamp(2.8rem, 7vw, 5.5rem)', lineHeight: 1.0, color: 'rgba(255,255,255,0.75)', fontStyle: 'italic', letterSpacing: '-0.02em', marginBottom: '2rem' }}>
+              the real world.
             </h1>
 
             {/* Subheading */}
             <p style={{ fontSize: 'clamp(13px, 1.5vw, 15px)', color: 'rgba(255,255,255,0.45)', lineHeight: 1.65, maxWidth: '400px', marginBottom: '1.75rem', fontWeight: 300 }}>
-              MBA student at SCIT Pune. I've done real things, learned hard lessons, and I write about what nobody tells you — so you can make better decisions than I did.
+              MBA student at SCIT Pune studying how AI actually gets adopted in organisations — the gap between the promise and the reality. I also write for people navigating careers and decisions without a roadmap.
             </p>
 
             {/* Stats — desktop only via inline media logic */}
@@ -207,14 +207,26 @@ export default function HomePage() {
           <div className="reveal" style={{ display: 'flex', gap: '2rem', alignItems: 'flex-start', marginBottom: 'clamp(2.5rem,5vw,4rem)' }}>
             <div style={{ width: '2px', flexShrink: 0, alignSelf: 'stretch', background: '#534AB7', opacity: 0.35, minHeight: '60px', borderRadius: '1px' }} />
             <p style={{ fontFamily: S.serif, fontStyle: 'italic', fontSize: 'clamp(1.2rem, 2.5vw, 1.9rem)', color: L.text, lineHeight: 1.4, fontWeight: 400, maxWidth: '780px' }}>
-              "I don't think most people are operating anywhere near their actual capacity. Not because they can't — but because nobody showed them it was possible, and they stopped before finding out."
+              "Most organisations don't fail at AI because the technology doesn't work. They fail because the humans using it weren't part of the plan."
             </p>
           </div>
           <div className="reveal" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1rem' }}>
             {[
-              { tag: 'Builder',   title: 'Engineering → MBA',       body: 'B.E. IT from KBT College Nashik. Now MBA at SCIT Pune, Symbiosis International University. Building the technical + strategic foundation.' },
-              { tag: 'Writer',    title: 'Perspective, not advice',  body: "I write about things people don't talk about honestly. Career, self-doubt, ambition. The kind of thing I wished I'd read at 18." },
-              { tag: 'In public', title: 'Documenting the journey',  body: "Live industry project. Research publications. Real clients. Real outcomes. Shared in real time so others can see what's possible." },
+              {
+                tag: 'AI & Strategy',
+                title: 'The adoption gap',
+                body: 'I study the space between what AI can do and what organisations actually manage to do with it. MBA at SCIT Pune, Symbiosis International University. Engineering background.',
+              },
+              {
+                tag: 'Writing',
+                title: 'Proof of thinking',
+                body: 'I write about technology, careers, and decisions — for people who are figuring out where they fit in a world moving faster than expected. Not advice. Perspective.',
+              },
+              {
+                tag: 'Execution',
+                title: 'Real work done',
+                body: 'Live industry project with PPO. Published research. Led digital strategy across 4 major events. These are not claims — they are outcomes with evidence.',
+              },
             ].map(item => (
               <div key={item.tag} className="l-card" style={{ padding: 'clamp(1.25rem, 2vw, 1.75rem)' }}>
                 <span className="tag-pill" style={{ marginBottom: '1rem', display: 'inline-block' }}>{item.tag}</span>
@@ -272,14 +284,65 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ── POINT OF VIEW ── */}
+      <section style={{ padding: 'clamp(4rem,8vw,7rem) clamp(1.25rem,5vw,4rem)', background: '#0C0C0F' }}>
+        <div style={{ maxWidth: '1160px', margin: '0 auto' }}>
+
+          <div className="reveal" style={{ marginBottom: 'clamp(2.5rem,5vw,4rem)' }}>
+            <span style={{ fontSize: '11px', fontWeight: 500, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.25)', display: 'block', marginBottom: '0.875rem' }}>
+              A point of view
+            </span>
+            <h2 style={{ fontFamily: S.serif, fontSize: 'clamp(1.5rem,3vw,2.5rem)', color: '#FFFFFF', fontWeight: 400, maxWidth: '640px', lineHeight: 1.15 }}>
+              AI is not a technology problem.<br />
+              <em>It's a people problem.</em>
+            </h2>
+          </div>
+
+          <div className="reveal" style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px,1fr))',
+            gap: 'clamp(2rem,4vw,4rem)',
+          }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+              <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.45)', lineHeight: 1.8, fontWeight: 300 }}>
+                Every week, another headline about AI transforming an industry. Every month, another report about implementation falling short. The gap between the two is not a technical gap — it's an organisational one. People resist what they don't understand. Systems reject what they weren't designed for. Incentives don't align with adoption.
+              </p>
+              <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.45)', lineHeight: 1.8, fontWeight: 300 }}>
+                That gap is what I find genuinely interesting. Not AI as a capability — but AI as an organisational change problem. How does a business actually move from "we should use AI" to "AI is embedded in how we work"? What breaks along the way? Who resists and why?
+              </p>
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+              <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.45)', lineHeight: 1.8, fontWeight: 300 }}>
+                My MBA at SCIT Pune is focused on exactly this intersection — IT strategy, information management, and how technology decisions get made inside organisations. My engineering background means I understand what the technology actually does. My content work taught me that how you communicate something determines whether people adopt it.
+              </p>
+              <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.45)', lineHeight: 1.8, fontWeight: 300 }}>
+                That combination — technical literacy, strategic framing, and communication — is what I'm building toward. And what I write about when I have something worth saying.
+              </p>
+              <Link to="/writing" style={{
+                display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
+                fontSize: '12px', color: 'rgba(255,255,255,0.4)',
+                textDecoration: 'none', letterSpacing: '0.08em',
+                textTransform: 'uppercase', transition: 'color 0.2s',
+                marginTop: '0.5rem',
+              }}
+                onMouseEnter={e => e.currentTarget.style.color = '#FFFFFF'}
+                onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.4)'}>
+                Read the writing →
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ════════════════════════════════════════ WRITING PREVIEW (Light) */}
       <section style={{ padding: 'clamp(4rem,8vw,7rem) clamp(1.25rem,5vw,4rem)', background: L.bg, borderTop: `0.5px solid ${L.border}` }}>
         <div style={{ maxWidth: '1160px', margin: '0 auto' }}>
           <div className="reveal" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 'clamp(2rem,4vw,3rem)', flexWrap: 'wrap', gap: '1rem' }}>
             <div>
               <span style={{ fontSize: '10px', fontWeight: 500, letterSpacing: '0.18em', textTransform: 'uppercase', color: L.sub, display: 'block', marginBottom: '0.6rem' }}>Latest Thinking</span>
-              <h2 style={{ fontFamily: S.serif, fontSize: 'clamp(1.5rem, 3vw, 2.4rem)', color: L.text }}>
-                Things people don't<br /><em>talk about honestly.</em>
+              <h2 style={{ fontSize: 'clamp(1.5rem, 3vw, 2.5rem)', color: '#111111', fontWeight: 400 }}>
+                Thinking in public.<br />
+                <em>On things that matter.</em>
               </h2>
             </div>
             <Link to="/writing" style={{ fontSize: '11px', color: L.sub, textDecoration: 'none', letterSpacing: '0.1em', textTransform: 'uppercase', transition: 'color 0.2s' }}
@@ -319,11 +382,13 @@ export default function HomePage() {
       </section>
 
       {/* ════════════════════════════════════════ MEDIA (Dark) */}
-      <section style={{ padding: 'clamp(4rem,8vw,7rem) clamp(1.25rem,5vw,4rem)', background: D.bg }}>
+      <section style={{ padding: 'clamp(2.5rem,5vw,4rem) clamp(1.25rem,5vw,4rem)', background: '#FAFAF8' }}>
         <div style={{ maxWidth: '1160px', margin: '0 auto' }}>
           <div className="reveal" style={{ marginBottom: 'clamp(2rem,4vw,3rem)' }}>
-            <span style={{ fontSize: '10px', fontWeight: 500, letterSpacing: '0.18em', textTransform: 'uppercase', color: D.sub, display: 'block', marginBottom: '0.6rem' }}>On the Internet</span>
-            <h2 style={{ fontFamily: S.serif, fontSize: 'clamp(1.5rem, 3vw, 2.4rem)', color: D.text }}>Watch. Follow.</h2>
+            <span style={{ fontSize: '11px', fontWeight: 500, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#999999', display: 'block', marginBottom: '0.875rem' }}>On the internet</span>
+            <h2 style={{ fontSize: 'clamp(1.3rem, 2.5vw, 2rem)', color: '#111111', fontWeight: 400 }}>
+              Where else to find me.
+            </h2>
           </div>
           <div className="reveal" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem', alignItems: 'start' }}>
             <div>
@@ -374,10 +439,10 @@ export default function HomePage() {
           <div className="reveal">
             <span style={{ fontSize: '10px', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.28)', fontWeight: 500, display: 'block', marginBottom: '1.25rem' }}>Connect</span>
             <h2 style={{ fontFamily: S.serif, fontSize: 'clamp(2rem, 5vw, 3.5rem)', color: '#FFFFFF', marginBottom: '1rem', fontStyle: 'italic', fontWeight: 400 }}>
-              Let's make something happen.
+              Let's talk.
             </h2>
             <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.35)', lineHeight: 1.7, marginBottom: '2.5rem', fontWeight: 300 }}>
-              Whether you want to collaborate on content, discuss ideas, or just say hi — I read every message.
+              Whether you're a recruiter, a collaborator, or someone navigating decisions without a roadmap — I read everything.
             </p>
             <div style={{ display: 'flex', justifyContent: 'center', gap: 'clamp(1rem, 3vw, 2.25rem)', flexWrap: 'wrap' }}>
               {[

@@ -1,5 +1,25 @@
 export const articles = [
   {
+    id: 10,
+    title: 'Why Organisations Resist AI Even When It Works',
+    category: 'AI & Strategy',
+    date: '2026',
+    readTime: '7 min',
+    excerpt: 'The technology is rarely the problem. The people, the incentives, and the systems around it almost always are. A look at why AI adoption fails at the human layer — and what that means for anyone trying to implement it.',
+    slug: 'why-organisations-resist-ai',
+    status: 'coming-soon',
+  },
+  {
+    id: 11,
+    title: 'What Content Creation Taught Me About How People Absorb New Ideas',
+    category: 'AI & Strategy',
+    date: '2026',
+    readTime: '5 min',
+    excerpt: 'Four years of making content that people actually watch taught me something about how humans engage with unfamiliar ideas. It turns out it applies directly to how organisations should think about AI adoption.',
+    slug: 'content-creation-and-idea-absorption',
+    status: 'coming-soon',
+  },
+  {
     id: 1,
     title: 'Mindset of an Elite',
     category: 'Mindset',

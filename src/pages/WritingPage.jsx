@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { S } from '../theme';
 import { articles } from '../data/articles';
 
-const CATEGORIES = ['All', 'Mindset', 'Goals', 'Career', 'Reflection', 'Future', 'Technology'];
+const CATEGORIES = ['All', 'AI & Strategy', 'Career', 'Mindset', 'Reflection', 'Future', 'Technology'];
 
 export default function WritingPage() {
   const [active, setActive] = useState('All');
@@ -15,11 +15,15 @@ export default function WritingPage() {
       <section style={{ padding: 'clamp(3rem,6vw,5rem) clamp(1.25rem,5vw,4rem)', background: '#FAFAF8', borderBottom: '0.5px solid #E5E4E0' }}>
         <div style={{ maxWidth: '1160px', margin: '0 auto' }}>
           <span className="sec-label">Writing</span>
-          <h1 style={{ fontFamily: S.serif, fontSize: 'clamp(2.4rem,6vw,5rem)', color: '#111111', fontWeight: 400, lineHeight: 1.05, maxWidth: '680px', marginBottom: '1.25rem' }}>
-            Ideas on mindset,<br /><span style={{ fontStyle: 'italic' }}>career, and ambition.</span>
+          <h1 style={{ fontFamily: S.serif, fontSize: 'clamp(2.8rem,7vw,6rem)', color: '#111111', fontWeight: 400, lineHeight: 1.05, maxWidth: '700px', marginBottom: '1.5rem' }}>
+            Writing that earns<br />
+            <em>your attention.</em>
           </h1>
           <p style={{ color: '#666', fontSize: 'clamp(0.95rem,1.5vw,1.05rem)', fontWeight: 300, lineHeight: 1.7, maxWidth: '500px' }}>
-            I write when I have something real to say. These are articles on the things I think about — mindset, careers, technology, and the world changing around us.
+            I write when I have something real to say. Two kinds of pieces live here: analytical writing on AI, technology, and how organisations actually change — and honest writing on careers, decisions, and the things nobody tells you. Both are for people who think carefully about where they're going.
+          </p>
+          <p style={{ fontSize: '13px', color: '#999999', lineHeight: 1.6, marginTop: '1rem', fontStyle: 'italic', maxWidth: '480px' }}>
+            Articles are in progress. The first pieces will be published before this site goes public.
           </p>
         </div>
       </section>
