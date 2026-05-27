@@ -189,3 +189,17 @@ p  { font-size: 15px; line-height: 1.7; color: #666666; font-weight: 300; }
 ::-webkit-scrollbar { width: 4px; height: 4px; }
 ::-webkit-scrollbar-track { background: #F5F4F0; }
 ::-webkit-scrollbar-thumb { background: #E5E4E0; border-radius: 2px; }
+
+/* Basic responsive utilities for AboutPage */
+.hidden { display: none; }
+@media (min-width: 640px) {
+  .sm\:inline-block { display: inline-block; }
+}
+@media (min-width: 768px) {
+  .md\:block { display: block; }
+  .md\:hidden { display: none; }
+}
+@media (min-width: 1024px) {
+  .lg\:block { display: block; }
+  .lg\:hidden { display: none; }
+}
