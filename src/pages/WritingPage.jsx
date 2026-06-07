@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { S } from '../theme';
 import { articles } from '../data/articles';
 
-const CATEGORIES = ['All', 'AI & Strategy', 'Career', 'Mindset', 'Reflection', 'Future', 'Technology'];
+const CATEGORIES = ['All', 'The Governor', 'The System'];
 
 export default function WritingPage() {
   const [active, setActive] = useState('All');
@@ -15,18 +15,85 @@ export default function WritingPage() {
       <section style={{ padding: 'clamp(3rem,6vw,5rem) clamp(1.25rem,5vw,4rem)', background: '#FAFAF8', borderBottom: '0.5px solid #E5E4E0' }}>
         <div style={{ maxWidth: '1160px', margin: '0 auto' }}>
           <span className="sec-label">Writing</span>
-          <h1 style={{ fontFamily: S.serif, fontSize: 'clamp(2.8rem,7vw,6rem)', color: '#111111', fontWeight: 400, lineHeight: 1.05, maxWidth: '700px', marginBottom: '1.5rem' }}>
-            Writing that earns<br />
-            <em>your attention.</em>
+          <h1 style={{ fontFamily: 'Instrument Serif, Georgia, serif', fontSize: 'clamp(2.8rem,7vw,6rem)', color: '#111111', fontWeight: 400, lineHeight: 1.05, maxWidth: '700px', marginBottom: '1.5rem' }}>
+            Writing that challenges<br />
+            <em>what you believe.</em>
           </h1>
           <p style={{ color: '#666', fontSize: 'clamp(0.95rem,1.5vw,1.05rem)', fontWeight: 300, lineHeight: 1.7, maxWidth: '500px' }}>
-            I write when I have something real to say. Two kinds of pieces live here: analytical writing on AI, technology, and how organisations actually change — and honest writing on careers, decisions, and the things nobody tells you. Both are for people who think carefully about where they're going.
-          </p>
-          <p style={{ fontSize: '13px', color: '#999999', lineHeight: 1.6, marginTop: '1rem', fontStyle: 'italic', maxWidth: '480px' }}>
-            Articles are in progress. The first pieces will be published before this site goes public.
+            I write to challenge something you believe — then prove why the challenge is worth taking seriously. Two pieces a month: one short provocation you can read in five minutes, one long essay that earns an hour of your time. Start with the piece marked below.
           </p>
         </div>
       </section>
+
+      {/* Start Here — featured article */}
+      {(() => {
+        const featured = articles.find(a => a.featured);
+        if (!featured) return null;
+        return (
+          <div className="reveal" style={{ marginBottom: 'clamp(2.5rem,5vw,4rem)' }}>
+            <div style={{
+              background: '#FFFFFF',
+              border: '0.5px solid #E5E4E0',
+              borderRadius: '20px',
+              padding: 'clamp(1.75rem,3vw,2.75rem)',
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(280px,1fr))',
+              gap: 'clamp(1.5rem,3vw,3rem)',
+              alignItems: 'center',
+            }}>
+              <div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.25rem' }}>
+                  <span style={{
+                    fontSize: '10px', fontWeight: 600,
+                    letterSpacing: '0.16em', textTransform: 'uppercase',
+                    padding: '4px 12px', borderRadius: '30px',
+                    background: '#111111', color: '#FFFFFF',
+                  }}>
+                    Start here
+                  </span>
+                  <span style={{
+                    fontSize: '10px', letterSpacing: '0.1em',
+                    textTransform: 'uppercase', color: '#999999',
+                  }}>
+                    {featured.readTime} read
+                  </span>
+                </div>
+                <h2 style={{
+                  fontFamily: 'Instrument Serif, Georgia, serif',
+                  fontSize: 'clamp(1.3rem,2.5vw,2rem)',
+                  color: '#111111', fontWeight: 400,
+                  lineHeight: 1.2, marginBottom: '1rem',
+                }}>
+                  {featured.title}
+                </h2>
+                <p style={{
+                  fontSize: '15px', color: '#666666',
+                  lineHeight: 1.7, fontWeight: 300,
+                  marginBottom: '1.5rem',
+                }}>
+                  {featured.excerpt}
+                </p>
+                <span style={{
+                  fontSize: '12px', color: '#999999',
+                  letterSpacing: '0.08em', textTransform: 'uppercase',
+                }}>
+                  Coming soon
+                </span>
+              </div>
+              <div style={{
+                fontFamily: 'Instrument Serif, Georgia, serif',
+                fontSize: 'clamp(5rem,12vw,9rem)',
+                color: '#111111', opacity: 0.04,
+                lineHeight: 1, fontStyle: 'italic',
+                textAlign: 'right',
+                userSelect: 'none',
+              }}>
+                01
+              </div>
+            </div>
+          </div>
+        );
+      })()}
 
       {/* ── Category filters ── */}
       <div style={{ borderBottom: '0.5px solid #E5E4E0', background: '#FAFAF8', padding: '0 clamp(1.25rem,5vw,4rem)', overflowX: 'auto' }}>
@@ -62,7 +129,21 @@ export default function WritingPage() {
             }}>
               <div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '0.5rem', flexWrap: 'wrap' }}>
-                  <span className="tag-pill">{article.category}</span>
+                  <span className="tag-pill" style={{
+                    marginBottom: '0.4rem',
+                    display: 'inline-block',
+                    background: article.category === 'The Governor'
+                      ? 'rgba(83,74,183,0.08)'
+                      : 'rgba(0,0,0,0.05)',
+                    color: article.category === 'The Governor'
+                      ? '#534AB7'
+                      : '#555555',
+                    border: article.category === 'The Governor'
+                      ? '0.5px solid rgba(83,74,183,0.2)'
+                      : '0.5px solid rgba(0,0,0,0.1)',
+                  }}>
+                    {article.category}
+                  </span>
                   <span style={{ fontSize: '10px', color: '#BBB', letterSpacing: '0.06em' }}>{article.readTime} read</span>
                   {article.status === 'coming-soon' && (
                     <span className="tag-pill" style={{ background: '#F0EFF0', color: '#999', borderColor: '#E5E4E0' }}>Coming soon</span>
@@ -93,7 +174,7 @@ export default function WritingPage() {
             <span className="sec-label" style={{ color: 'rgba(255,255,255,0.38)' }}>About the author</span>
             <h3 style={{ fontFamily: S.serif, fontSize: 'clamp(1.5rem,3vw,2.2rem)', color: '#FFFFFF', fontWeight: 400, marginBottom: '1rem' }}>Durvesh H. Patil</h3>
             <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: 'clamp(0.9rem,1.5vw,1rem)', lineHeight: 1.8, fontWeight: 300, marginBottom: '1.5rem' }}>
-              Engineering grad from KBT College Nashik. MBA student at SCIT Pune, Symbiosis International University. Content creator with 4M+ organic views across @_thedurvesh and @cinesyncbydurvesh. I write about mindset, careers, and the world changing around us.
+              Engineering graduate from KBT College Nashik. MBA student at SCIT Pune, Symbiosis International University. I write about the system — how it was designed, what it optimises for, and how to build capability that doesn't depend on it choosing you. Twice a month.
             </p>
             <a href="https://www.instagram.com/_thedurvesh/" target="_blank" rel="noreferrer"
               style={{ color: '#AFA9EC', fontSize: '0.8rem', textDecoration: 'none', letterSpacing: '0.06em', transition: 'opacity 0.2s' }}
