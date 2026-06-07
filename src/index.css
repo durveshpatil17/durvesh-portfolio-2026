@@ -38,19 +38,29 @@ html, body {
     left: 0;
     right: auto;
     width: 52%;
+    bottom: 0;
+    height: 100%;
   }
 }
-/* Mobile gradient: strong rise from bottom so face stays clear */
+
+/* Mobile: photo on top half to avoid overlapping with tall text */
+@media (max-width: 1023px) {
+  .hero-photo-wrap {
+    height: 65vh;
+    bottom: auto;
+  }
+}
+
+/* Mobile gradient: blend photo into the dark background below */
 .hero-mobile-grad {
   position: absolute;
   inset: 0;
   background: linear-gradient(
     to top,
     #0C0C0F 0%,
-    #0C0C0F 20%,
-    rgba(12,12,15,0.88) 40%,
-    rgba(12,12,15,0.35) 60%,
-    transparent 85%
+    rgba(12,12,15,0.9) 15%,
+    rgba(12,12,15,0.4) 40%,
+    transparent 100%
   );
   pointer-events: none;
   z-index: 1;
