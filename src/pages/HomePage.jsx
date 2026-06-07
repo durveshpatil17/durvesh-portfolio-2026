@@ -148,12 +148,27 @@ export default function HomePage() {
             style={{ maxWidth: '540px' }}
           >
             {/* Eyebrow */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '1.1rem' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '1.5rem' }}>
               <div style={{ width: '22px', height: '1px', background: 'rgba(255,255,255,0.3)', flexShrink: 0 }} />
               <span style={{ fontSize: '10px', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.38)', fontWeight: 500 }}>
                 Builder · Writer · MBA @ SCIT Pune
               </span>
             </div>
+
+            {/* Pinned Article Banner */}
+            <Link to="/writing/the-5-skills-nobody-teaches-you" style={{ 
+              display: 'inline-flex', alignItems: 'center', gap: '10px', 
+              padding: '6px 14px 6px 6px', background: 'rgba(255,255,255,0.06)', 
+              borderRadius: '30px', border: '0.5px solid rgba(255,255,255,0.12)', 
+              textDecoration: 'none', marginBottom: '1.5rem', transition: 'all 0.2s',
+              backdropFilter: 'blur(10px)'
+            }} 
+            onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.1)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.2)'; }} 
+            onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.06)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.12)'; }}>
+              <span style={{ background: '#FFFFFF', color: '#0C0C0F', fontSize: '9px', fontWeight: 700, padding: '3px 8px', borderRadius: '20px', textTransform: 'uppercase', letterSpacing: '0.1em' }}>New</span>
+              <span style={{ fontSize: '12px', color: 'rgba(255,255,255,0.9)', fontWeight: 300 }}>Read: The 5 Skills Nobody Teaches You</span>
+              <span style={{ color: 'rgba(255,255,255,0.4)', fontSize: '12px' }}>→</span>
+            </Link>
 
             {/* Headline */}
             <h1 style={{ fontFamily: S.serif, fontSize: 'clamp(2.8rem, 7vw, 5.5rem)', lineHeight: 1.0, color: '#FFFFFF', marginBottom: '0.05em', letterSpacing: '-0.02em' }}>
