@@ -25,50 +25,88 @@ html, body {
   .nav-menu-btn { display: none; }
 }
 
-/* Hero — desktop: photo strip on right; mobile: photo fills whole screen */
+/* ═══════════════════ HERO — Mobile stacked, Desktop side-by-side ═══════════════════ */
+
+/* Photo wrap defaults (desktop uses absolute positioning) */
 .hero-photo-wrap {
   position: absolute;
-  inset: 0;           /* full bleed on mobile */
+  inset: 0;
   overflow: hidden;
   z-index: 0;
 }
-/* Desktop: photo only on left 52%, leave right for text */
+
+/* Desktop: photo only on left 52% */
 @media (min-width: 1024px) {
   .hero-photo-wrap {
     left: 0;
     right: auto;
     width: 52%;
-    bottom: 0;
     height: 100%;
   }
 }
 
-/* Mobile: photo on top half to avoid overlapping with tall text */
+/* ─── MOBILE HERO OVERRIDES ─────────────────────────────────────────────────
+   Force the hero section to stack vertically: photo block on top,
+   then solid dark text block below — zero overlap, clean design.
+────────────────────────────────────────────────────────────────────────── */
 @media (max-width: 1023px) {
+
+  /* Section: become a flex column, auto height */
+  .hero-section {
+    height: auto !important;
+    min-height: 0 !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+
+  /* Photo block: in normal document flow, square-ish portrait crop */
   .hero-photo-wrap {
-    height: 65vh;
-    bottom: auto;
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    inset: auto !important;
+    width: 100% !important;
+    height: 105vw !important; /* portrait crop so face fills frame */
+    max-height: 520px !important;
+    min-height: 280px !important;
+    flex-shrink: 0 !important;
+  }
+
+  /* Text block: solid dark, zero overlap */
+  .hero-text-container {
+    position: static !important;
+    background: #0C0C0F !important;
+    padding: 2rem 1.25rem 3.5rem !important;
+    z-index: 2 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+  }
+
+  /* Hide carousel dots on mobile (cramped) */
+  .hero-dots {
+    display: none !important;
   }
 }
 
-/* Mobile gradient: blend photo into the dark background below */
+/* Mobile gradient: gentle fade at bottom of photo into dark text area */
 .hero-mobile-grad {
   position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to top,
-    #0C0C0F 0%,
-    rgba(12,12,15,0.9) 15%,
-    rgba(12,12,15,0.4) 40%,
-    transparent 100%
-  );
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40%;
+  background: linear-gradient(to top, #0C0C0F 0%, rgba(12,12,15,0.5) 60%, transparent 100%);
   pointer-events: none;
   z-index: 1;
 }
-/* Desktop gradient: fade left edge + bottom edge */
 @media (min-width: 1024px) {
   .hero-mobile-grad { display: none; }
 }
+
+/* Desktop gradients */
 .hero-desktop-grads { display: none; }
 @media (min-width: 1024px) {
   .hero-desktop-grads { display: block; }

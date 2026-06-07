@@ -13,12 +13,14 @@ const N = 6;
 
 // objectPosition: face centred in the frame
 const HERO_PHOTOS = [
-  { src: '/assets/images/personal/Personal Photo 2.JPG',  pos: '50% 28%' },
-  { src: '/assets/images/personal/personal photo 3.jpeg', pos: '50% 22%' },
-  { src: '/assets/images/personal/Personal photo 4.jpg',  pos: '50% 32%' },
-  { src: '/assets/images/personal/Personal photo 6.jpg',  pos: '50% 18%' },
-  { src: '/assets/images/personal/personal photo 7.webp', pos: '50% 22%' },
-  { src: '/assets/images/personal/personal photo 8.jpg',  pos: '50% 28%' },
+  // objectPosition: x% from left, y% from top
+  // Lower Y value = shows more of the top (face/head area)
+  { src: '/assets/images/personal/Personal Photo 2.JPG',  pos: '50% 20%' }, // sitting, face upper-center
+  { src: '/assets/images/personal/personal photo 3.jpeg', pos: '50% 30%' }, // standing with medal, upper-body focus
+  { src: '/assets/images/personal/Personal photo 4.jpg',  pos: '50% 25%' }, // face centered
+  { src: '/assets/images/personal/Personal photo 6.jpg',  pos: '50% 15%' }, // face near top
+  { src: '/assets/images/personal/personal photo 7.webp', pos: '50% 20%' }, // face upper-center
+  { src: '/assets/images/personal/personal photo 8.jpg',  pos: '50% 22%' }, // face upper-center
 ];
 
 const HERO_STATS = [
@@ -55,14 +57,14 @@ export default function HomePage() {
           Desktop: photos on right 52% | text on left.
           Mobile:  photos fill full screen | text pinned bottom over gradient.
       ═══════════════════════════════════════════════════ */}
-      <section style={{
+      <section className="hero-section" style={{
         position: 'relative',
         height: '100svh',
         minHeight: '600px',
         background: '#0C0C0F',
         overflow: 'hidden',
         display: 'flex',
-        alignItems: 'flex-end',   /* text always bottom-aligned */
+        alignItems: 'flex-end',
       }}>
 
         {/* ── Photo carousel: full-bleed mobile, right-strip desktop ── */}
@@ -117,7 +119,7 @@ export default function HomePage() {
         </div>
 
         {/* ── Dot indicators ── */}
-        <div style={{
+        <div className="hero-dots" style={{
           position: 'absolute', bottom: '2rem',
           left: 'clamp(1.25rem, 5vw, 4rem)',
           zIndex: 5, display: 'flex', gap: '5px', alignItems: 'center',
