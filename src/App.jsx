@@ -8,6 +8,7 @@ import HomePage from './pages/HomePage';
 import WorkPage from './pages/WorkPage';
 import WritingPage from './pages/WritingPage';
 import AboutPage from './pages/AboutPage';
+import ArticlePage from './pages/ArticlePage';
 
 const variants = {
   initial: { opacity: 0 },
@@ -25,6 +26,7 @@ function AnimatedRoutes() {
           <Route path="/work"    element={<WorkPage />} />
           <Route path="/writing" element={<WritingPage />} />
           <Route path="/about"   element={<AboutPage />} />
+          <Route path="/writing/:slug" element={<ArticlePage />} />
         </Routes>
         <Footer />
       </motion.div>

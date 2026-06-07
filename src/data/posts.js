@@ -1,0 +1,56 @@
+export const posts = {
+  'the-5-skills-nobody-teaches-you': [
+    { type: 'paragraph', content: 'Every college teaches you a subject.' },
+    { type: 'paragraph', content: 'Nobody teaches you how to think clearly under pressure. Nobody teaches you how to make a decision and not second-guess it for weeks. Nobody teaches you how to walk into a room and be heard. Nobody teaches you how to lead people who don\'t report to you. Nobody teaches you how to ask for what you deserve without feeling like you\'re asking for too much.' },
+    { type: 'paragraph', content: 'And then the world expects you to have all of it.' },
+    { type: 'paragraph', content: 'These five skills are not personality traits. You are not born with them or without them. They are disciplines — built through practice, refined through repetition. The people who have them did not get lucky. They got deliberate.' },
+    { type: 'paragraph', content: 'Here is what each one actually is — and how to start building it today.' },
+    
+    { type: 'heading', content: '01 — Clarity' },
+    { type: 'bold', content: 'What most people think it is: Knowing what you want.' },
+    { type: 'bold', content: 'What it actually is: The ability to see the whole system before you touch any part of it.' },
+    { type: 'paragraph', content: 'Confusion is not a lack of intelligence. It is what happens when you engage with a problem before you understand its structure. You start answering before you know what the question actually is. You make decisions about parts without seeing how the parts connect.' },
+    { type: 'paragraph', content: 'Clarity is the practice of zooming out first. Before you respond to an email, before you choose a career path, before you have a difficult conversation — pause and ask: what is the whole system here? What are all the moving parts? What is actually being asked of me?' },
+    { type: 'paragraph', content: 'The clearest person in any room has the most power. Not because they know more — but because they see more before they act.' },
+    { type: 'paragraph', content: 'How to build it: Before engaging with any problem, write down three things: what you know, what you don\'t know, and what you\'re assuming. That one habit alone will separate your thinking from 90% of the people around you.' },
+    
+    { type: 'heading', content: '02 — Decision Making' },
+    { type: 'bold', content: 'What most people think it is: Choosing the right option.' },
+    { type: 'bold', content: 'What it actually is: Making a choice and committing to it fully — then making it right through execution.' },
+    { type: 'paragraph', content: 'Most people treat decisions as reversible. They keep the loop open. They decide and then continue to entertain the other options. This is not wisdom — it is expensive. Every open loop costs mental energy. Every revisited decision delays the execution that would have given you real information.' },
+    { type: 'paragraph', content: 'The framework: Gather → Filter → Simulate → Decide → Close.' },
+    { type: 'paragraph', content: 'Gather the relevant information — not all information, relevant information. Filter by what actually matters to your specific situation. Simulate the outcome in your head — run it forward six months. Decide. Then close the loop. Stop entertaining alternatives. The decision is made. Now make it work.' },
+    { type: 'paragraph', content: 'A good decision committed to fully beats a perfect decision made too late — every time.' },
+    { type: 'paragraph', content: 'How to build it: Give yourself a time limit for every decision proportional to its reversibility. Small decisions: two minutes. Medium decisions: 48 hours. Large decisions: one week. When the time is up, decide. Then move.' },
+    
+    { type: 'heading', content: '03 — Communication' },
+    { type: 'bold', content: 'What most people think it is: Expressing yourself clearly.' },
+    { type: 'bold', content: 'What it actually is: Making the other person feel understood before you say anything.' },
+    { type: 'paragraph', content: 'You can be completely correct and completely unheard at the same time. This happens every day. The message was right. The timing was wrong. The language didn\'t match how the listener thinks. The relationship wasn\'t there to carry the weight of what was being said.' },
+    { type: 'paragraph', content: 'Communication does not begin when you speak. It begins when you understand where the other person is standing. What do they already believe? What are they afraid of? What do they need to hear before they can receive what you want to tell them?' },
+    { type: 'paragraph', content: 'Step into their position first. Speak from there. This is not manipulation — it is the highest form of communication. It is the difference between being understood and making someone feel understood. Trust comes before teaching.' },
+    { type: 'paragraph', content: 'How to build it: Before any important conversation, ask yourself: what does this person care about most right now? What is their biggest concern? Start there — not with your point, but with their reality. Then build to yours.' },
+    
+    { type: 'heading', content: '04 — Negotiation' },
+    { type: 'bold', content: 'What most people think it is: Asking for more and hoping they say yes.' },
+    { type: 'bold', content: 'What it actually is: A positioning exercise that begins long before the conversation starts.' },
+    { type: 'paragraph', content: 'Most people negotiate from desperation. They need the job, the deal, the approval — and the other person can feel it. Desperation is the most expensive position you can negotiate from because it hands all the leverage to the other side before you\'ve said a word.' },
+    { type: 'paragraph', content: 'Real negotiation starts months earlier. It starts when you build skills that are genuinely scarce. When you do work that creates real outcomes. When you develop relationships that exist independently of any single transaction. By the time you sit down to negotiate, the leverage should already exist — you are just making it visible.' },
+    { type: 'paragraph', content: 'You cannot negotiate without desperation unless you are genuinely not desperate. Which means the work of negotiation is not the conversation. It is everything you build before the conversation.' },
+    { type: 'paragraph', content: 'How to build it: Stop negotiating for things you haven\'t earned leverage for yet. Instead, spend that energy building the thing that creates leverage — a skill, a result, a relationship, a proof of work. Then negotiate from that position.' },
+    
+    { type: 'heading', content: '05 — Leadership' },
+    { type: 'bold', content: 'What most people think it is: Having a title and directing people.' },
+    { type: 'bold', content: 'What it actually is: Making other people\'s work better and changing what gets asked — not just answering what is asked.' },
+    { type: 'paragraph', content: 'The people who are never at risk of being cut do not have the most impressive resumes. They are the people whose absence would create the most problems. They make others better. They solve problems nobody assigned. They surface risks before they become crises. They build relationships across functions, not just vertically. They never complain without a solution attached.' },
+    { type: 'paragraph', content: 'Leadership is not a position. It is a practice — available to anyone, regardless of title, from day one. The intern who built the tool nobody asked for. The analyst who connected two teams who weren\'t talking. The student who took responsibility for an outcome without being asked.' },
+    { type: 'paragraph', content: 'Visibility is not arrogance. It is insurance. People cannot advocate for you if they do not know what you are doing and why it matters.' },
+    { type: 'paragraph', content: 'How to build it: This week, solve one problem that nobody assigned you. Make someone else\'s work easier without being asked. Then do it again next week. Repeat until it becomes how you operate.' },
+    
+    { type: 'heading', content: 'The real reason these five matter' },
+    { type: 'paragraph', content: 'These are not soft skills. That framing has done enormous damage — it makes them sound optional, supplementary, the kind of thing you develop after you\'ve built the "real" skills.' },
+    { type: 'paragraph', content: 'They are the real skills. Every person who has built something meaningful — a career, a company, a reputation — has these five running underneath everything they do. The technical skills change. The domain changes. The industry changes. These five do not change.' },
+    { type: 'paragraph', content: 'You were not taught them because the system that educated you was not optimised for your success. It was optimised for your placement. Those are not the same thing.' },
+    { type: 'paragraph', content: 'Start building them now. Not because someone told you to. Because the person you are trying to become will need all five — and the earlier you start, the more compounded the return.' },
+  ]
+};

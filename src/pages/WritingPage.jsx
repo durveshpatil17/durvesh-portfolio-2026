@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { S } from '../theme';
 import { articles } from '../data/articles';
 
@@ -29,18 +30,26 @@ export default function WritingPage() {
       {(() => {
         const featured = articles.find(a => a.featured);
         if (!featured) return null;
+        const CardComponent = featured.status === 'published' ? Link : 'div';
+        const cardProps = featured.status === 'published' ? { to: `/writing/${featured.slug}`, style: { textDecoration: 'none', display: 'block' } } : {};
+        
         return (
           <div className="reveal" style={{ marginBottom: 'clamp(2.5rem,5vw,4rem)' }}>
-            <div style={{
-              background: '#FFFFFF',
-              border: '0.5px solid #E5E4E0',
-              borderRadius: '20px',
-              padding: 'clamp(1.75rem,3vw,2.75rem)',
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(280px,1fr))',
-              gap: 'clamp(1.5rem,3vw,3rem)',
-              alignItems: 'center',
-            }}>
+            <CardComponent {...cardProps}>
+              <div style={{
+                background: '#FFFFFF',
+                border: '0.5px solid #E5E4E0',
+                borderRadius: '20px',
+                padding: 'clamp(1.75rem,3vw,2.75rem)',
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(280px,1fr))',
+                gap: 'clamp(1.5rem,3vw,3rem)',
+                alignItems: 'center',
+                transition: 'transform 0.2s, box-shadow 0.2s',
+                ...(featured.status === 'published' ? { cursor: 'pointer' } : {})
+              }}
+              onMouseEnter={e => { if(featured.status==='published') { e.currentTarget.style.transform='translateY(-2px)'; e.currentTarget.style.boxShadow='0 8px 30px rgba(0,0,0,0.04)'; } }}
+              onMouseLeave={e => { if(featured.status==='published') { e.currentTarget.style.transform='translateY(0)'; e.currentTarget.style.boxShadow='none'; } }}>
               <div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.25rem' }}>
                   <span style={{
@@ -74,10 +83,10 @@ export default function WritingPage() {
                   {featured.excerpt}
                 </p>
                 <span style={{
-                  fontSize: '12px', color: '#999999',
-                  letterSpacing: '0.08em', textTransform: 'uppercase',
+                  fontSize: '12px', color: featured.status === 'published' ? S.accent : '#999999',
+                  letterSpacing: '0.08em', textTransform: 'uppercase', fontWeight: 500
                 }}>
-                  Coming soon
+                  {featured.status === 'published' ? 'Read Article →' : 'Coming soon'}
                 </span>
               </div>
               <div style={{
@@ -91,7 +100,8 @@ export default function WritingPage() {
                 01
               </div>
             </div>
-          </div>
+          </CardComponent>
+        </div>
         );
       })()}
 
@@ -118,15 +128,22 @@ export default function WritingPage() {
       {/* ── Articles list ── */}
       <section style={{ padding: 'clamp(2rem,4vw,4rem) clamp(1.25rem,5vw,4rem)', background: '#FAFAF8' }}>
         <div style={{ maxWidth: '1160px', margin: '0 auto' }}>
-          {filtered.map((article, i) => (
-            <div key={article.id} style={{
-              borderTop: '0.5px solid #E5E4E0',
-              display: 'grid', gridTemplateColumns: '1fr 3.5rem',
-              gap: '1.5rem', alignItems: 'center',
-              padding: 'clamp(1.25rem,2.5vw,2rem) 0',
-              cursor: article.status === 'coming-soon' ? 'default' : 'pointer',
-              transition: 'opacity 0.2s',
-            }}>
+          {filtered.map((article, i) => {
+            const ItemComponent = article.status === 'published' ? Link : 'div';
+            const itemProps = article.status === 'published' ? { to: `/writing/${article.slug}`, style: { textDecoration: 'none', display: 'block' } } : {};
+            
+            return (
+              <ItemComponent key={article.id} {...itemProps}>
+                <div style={{
+                  borderTop: '0.5px solid #E5E4E0',
+                  display: 'grid', gridTemplateColumns: '1fr 3.5rem',
+                  gap: '1.5rem', alignItems: 'center',
+                  padding: 'clamp(1.25rem,2.5vw,2rem) 0',
+                  cursor: article.status === 'coming-soon' ? 'default' : 'pointer',
+                  transition: 'background 0.2s, padding-left 0.2s',
+                }}
+                onMouseEnter={e => { if(article.status==='published') { e.currentTarget.style.paddingLeft='1rem'; e.currentTarget.style.background='rgba(0,0,0,0.01)'; } }}
+                onMouseLeave={e => { if(article.status==='published') { e.currentTarget.style.paddingLeft='0'; e.currentTarget.style.background='transparent'; } }}>
               <div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '0.5rem', flexWrap: 'wrap' }}>
                   <span className="tag-pill" style={{
@@ -158,7 +175,9 @@ export default function WritingPage() {
                 </div>
               </div>
             </div>
-          ))}
+          </ItemComponent>
+            );
+          })}
           {/* Last border */}
           <div style={{ borderTop: '0.5px solid #E5E4E0' }} />
         </div>

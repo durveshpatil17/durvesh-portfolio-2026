@@ -1,4 +1,15 @@
 export const articles = [
+  {
+    id: 9,
+    title: 'The 5 Skills Nobody Teaches You — But Every Successful Person Has Mastered',
+    category: 'The Governor',
+    date: '2026',
+    readTime: '8 min',
+    excerpt: 'Every college teaches you a subject. Nobody teaches you how to think clearly under pressure. Nobody teaches you how to walk into a room and be heard. These are the five skills running underneath every successful career — and how to build them.',
+    slug: 'the-5-skills-nobody-teaches-you',
+    status: 'published',
+    featured: true,
+  },
   // ── THE GOVERNOR — Long essays, framework pieces ──────────────
   {
     id: 1,
@@ -55,7 +66,7 @@ export const articles = [
     excerpt: 'You did everything they told you to. You studied when they said study. You chose the branch with placement numbers behind it. And somewhere between the offer letter and right now, a feeling arrived that you haven\'t been able to name.',
     slug: 'the-map-they-gave-you',
     status: 'coming-soon',
-    featured: true,
+    featured: false,
   },
   {
     id: 6,
