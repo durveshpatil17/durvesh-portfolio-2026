@@ -50,17 +50,13 @@ const WORK_ITEMS = [
   },
 ];
 
-const CREDENTIALS = [
-  { img: '/assets/images/certificates/Techfest 2k25 Social Media head Participation certificate.jpeg', label: 'Techfest 2025 — Social Media Head' },
-  { img: '/assets/images/certificates/Internation Journal of science paper publication certificate.jpeg', label: 'International Journal Publication' },
-  { img: '/assets/images/certificates/second-research-certificate.jpg', label: 'Research Certificate' },
-  { img: '/assets/images/certificates/Cricket tournament winner certificate.jpeg', label: 'Cricket Tournament Winners' },
-];
-
 const RECOGNITION_PHOTOS = [
-  { img: '/assets/images/achievements/Most Enthusiastic Personality Felicitation.JPG', label: 'Most Enthusiastic Personality' },
-  { img: '/assets/images/achievements/Felicitation at Nivesh Mantrana 2k24 for Event Volunteering.jpg', label: 'Nivesh Mantrana 2024 — Event Volunteering' },
-  { img: '/assets/images/achievements/award receiving candid photo at nivesh mantrana 2k24.jpg', label: 'Award — Nivesh Mantrana 2024' },
+  { img: '/assets/images/achievements/Techfest 2k25 Candid.jpg',              label: 'Techfest 2025 — on stage' },
+  { img: '/assets/images/achievements/Social Media Head Techfest 2k25.jpg',   label: 'Social Media Head — Techfest 2025' },
+  { img: '/assets/images/achievements/Social Media Head at Fusion 2k26.jpg',  label: 'Social Media Head — Fusion 2026' },
+  { img: '/assets/images/achievements/NSS Camp Best Kitchen award.jpg',        label: 'NSS Camp — Best Kitchen Award' },
+  { img: '/assets/images/achievements/Participation in Smart India Hackathon.jpg', label: 'Smart India Hackathon' },
+  { img: '/assets/images/achievements/Felicitation By HOD.jpg',               label: 'Felicitation by HOD' },
 ];
 
 const BG_ALT = ['#FAFAF8', '#111118', '#FAFAF8', '#111118'];
@@ -142,22 +138,6 @@ export default function WorkPage() {
         </section>
       ))}
 
-      {/* ── Certificates ── */}
-      <section style={{ padding: 'clamp(3rem,6vw,5rem) clamp(1.25rem,5vw,4rem)', background: '#111118', borderBottom: '0.5px solid rgba(255,255,255,0.08)' }}>
-        <div style={{ maxWidth: '1160px', margin: '0 auto' }}>
-          <span className="sec-label" style={{ color: 'rgba(255,255,255,0.38)' }}>Certificates</span>
-          <h2 style={{ fontFamily: S.serif, fontSize: 'clamp(1.7rem,4vw,3rem)', color: '#FFFFFF', fontWeight: 400, marginBottom: 'clamp(2.5rem,4vw,3.5rem)' }}>Credentials.</h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 'clamp(0.75rem,1.5vw,1.25rem)' }}>
-            {CREDENTIALS.map(cert => (
-              <div key={cert.label} className="l-card" style={{ overflow: 'hidden' }}>
-                <img src={cert.img} alt={cert.label} style={{ width: '100%', aspectRatio: '4/3', objectFit: 'cover', display: 'block' }} />
-                <p style={{ padding: '0.875rem 1rem', fontSize: '0.75rem', color: '#555', fontWeight: 300, lineHeight: 1.5 }}>{cert.label}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ── Research Publications ── */}
       <section style={{ padding: 'clamp(3rem,6vw,5rem) clamp(1.25rem,5vw,4rem)', background: '#FAFAF8', borderBottom: '0.5px solid #E5E4E0' }}>
         <div style={{ maxWidth: '1160px', margin: '0 auto' }}>
@@ -212,7 +192,7 @@ export default function WorkPage() {
       <section style={{ padding: 'clamp(3rem,6vw,5rem) clamp(1.25rem,5vw,4rem)', background: '#111118' }}>
         <div style={{ maxWidth: '1160px', margin: '0 auto' }}>
           <span className="sec-label" style={{ color: 'rgba(255,255,255,0.38)' }}>Recognition</span>
-          <h2 style={{ fontFamily: S.serif, fontSize: 'clamp(1.7rem,4vw,3rem)', color: '#FFFFFF', fontWeight: 400, marginBottom: 'clamp(2.5rem,4vw,3.5rem)' }}>Beyond the work.</h2>
+          <h2 style={{ fontFamily: S.serif, fontSize: 'clamp(1.7rem,4vw,3rem)', color: '#FFFFFF', fontWeight: 400, marginBottom: 'clamp(2.5rem,4vw,3.5rem)' }}>Moments from the work.</h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 'clamp(0.75rem,1.5vw,1.25rem)' }}>
             {RECOGNITION_PHOTOS.map(r => (
               <div key={r.label} className="l-card" style={{ overflow: 'hidden', position: 'relative' }}>

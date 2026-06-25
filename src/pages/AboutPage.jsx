@@ -530,64 +530,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-          05. BEYOND THE WORK — The person, 3 lines
-      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-      <section style={{ ...SECTION_ALT, ...LIGHT_BORDER }}>
-        <div style={{ ...CONTAINER, maxWidth: '720px' }}>
-          <div className="reveal">
-            <span style={SECTION_LABEL}>Beyond the work</span>
-
-            <p style={{
-              fontFamily: S.serif, fontStyle: 'italic',
-              fontSize: 'clamp(1.2rem, 2.5vw, 1.75rem)',
-              color: '#111111', lineHeight: 1.5,
-              fontWeight: 400,
-              marginBottom: '1.75rem',
-            }}>
-              "I'm interested in how technology shapes the way organizations think, decide, and operate — and I'm building toward being useful at that intersection."
-            </p>
-
-            <p style={{
-              fontSize: '15px', color: '#666666',
-              lineHeight: 1.8, fontWeight: 300,
-              marginBottom: '1.5rem',
-            }}>
-              Outside of academics and projects, I write — on technology, business, IT risk, AI use cases, and the decisions that shape careers. I also run two Instagram accounts: one for thoughts on tech, MBA life, and careers; one for cinema and editing. I sing, listen to podcasts at 2x, and believe that the clearest person in any room has the most power.
-            </p>
-
-            {/* Text links — no cards, no avatars */}
-            <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}>
-              <a
-                href="https://www.instagram.com/_thedurvesh/"
-                target="_blank" rel="noreferrer"
-                style={{
-                  fontSize: '13px', color: '#999999',
-                  textDecoration: 'none', letterSpacing: '0.04em',
-                  transition: 'color 0.2s',
-                }}
-                onMouseEnter={e => e.target.style.color = '#534AB7'}
-                onMouseLeave={e => e.target.style.color = '#999999'}
-              >
-                @_thedurvesh ↗
-              </a>
-              <a
-                href="https://www.instagram.com/cinesyncbydurvesh/"
-                target="_blank" rel="noreferrer"
-                style={{
-                  fontSize: '13px', color: '#999999',
-                  textDecoration: 'none', letterSpacing: '0.04em',
-                  transition: 'color 0.2s',
-                }}
-                onMouseEnter={e => e.target.style.color = '#534AB7'}
-                onMouseLeave={e => e.target.style.color = '#999999'}
-              >
-                @cinesyncbydurvesh ↗
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
           06. CONTACT — Dark, minimal, one action
@@ -636,7 +578,7 @@ export default function AboutPage() {
             }}>
               {[
                 { label: 'Email',              href: 'mailto:durveshpatilit@gmail.com' },
-                { label: 'LinkedIn',           href: 'https://www.linkedin.com/in/durvesh-patil-628069214/' },
+                { label: 'LinkedIn',           href: 'https://www.linkedin.com/in/durveshpatil9212/' },
                 { label: '@_thedurvesh',       href: 'https://www.instagram.com/_thedurvesh/' },
                 { label: '@cinesyncbydurvesh', href: 'https://www.instagram.com/cinesyncbydurvesh/' },
               ].map(link => (

@@ -540,7 +540,7 @@ export default function HomePage() {
             <div style={{ display: 'flex', justifyContent: 'center', gap: 'clamp(1rem, 3vw, 2.25rem)', flexWrap: 'wrap' }}>
               {[
                 { label: 'Email',              href: 'mailto:durveshpatilit@gmail.com' },
-                { label: 'LinkedIn',           href: 'https://www.linkedin.com/in/durvesh-patil-628069214/' },
+                { label: 'LinkedIn',           href: 'https://www.linkedin.com/in/durveshpatil9212/' },
                 { label: '@_thedurvesh',       href: 'https://www.instagram.com/_thedurvesh/' },
                 { label: '@cinesyncbydurvesh', href: 'https://www.instagram.com/cinesyncbydurvesh/' },
               ].map(link => (
