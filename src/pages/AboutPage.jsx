@@ -178,8 +178,7 @@ export default function AboutPage() {
               maxWidth: '400px',
               fontWeight: 300,
             }}>
-              MBA student studying how AI meets the real world.
-              Writer for people who weren't handed the roadmap.
+              MBA-ITBM student at SCIT Pune. Interested in how organizations adopt, govern, secure, and scale technology — across IT risk, enterprise systems, information security, AI use cases, and business strategy.
             </p>
           </div>
         </div>
@@ -232,7 +231,7 @@ export default function AboutPage() {
               color: '#111111', lineHeight: 1.4,
               fontWeight: 400, maxWidth: '800px',
             }}>
-              "I didn't come from a family of consultants or a school that had a roadmap for this. I figured it out as I went — and I still am."
+              "My interest in technology moved beyond building systems. I became more interested in the larger business questions — how organizations adopt it, where it creates value, how it is governed, and what risks and controls are needed to make it work reliably at scale."
             </p>
           </div>
 
@@ -246,21 +245,19 @@ export default function AboutPage() {
               fontSize: '15px', color: '#666666',
               lineHeight: 1.8, fontWeight: 300,
             }}>
-              I'm an MBA student at SCIT Pune, Symbiosis International University,
-              with an engineering background from KBT College of Engineering, Nashik.
-              I study the space where AI as a technology meets what organisations
-              actually manage to do with it — the adoption gap, the human resistance,
-              the implementation reality that rarely matches the promise.
+              I come from an Information Technology background and am currently pursuing an MBA in Information Technology &amp; Business Management at SCIT, Pune. Over time, my interest in technology moved beyond just building systems or understanding tools in isolation. I became more interested in the larger business questions around technology — how organizations adopt it, where it creates value, how it changes operations, and what risks, controls, and governance are needed to make it work reliably at scale.
             </p>
             <p style={{
               fontSize: '15px', color: '#666666',
               lineHeight: 1.8, fontWeight: 300,
             }}>
-              Alongside that, I write — for people who are trying to figure out where
-              they fit in a world changing faster than expected. Not advice. Perspective.
-              The kind I wish existed when I was making decisions without a roadmap.
-              I built that writing habit the same way I built everything else: by starting
-              before I felt ready, and staying consistent until it meant something.
+              That is what now drives my work and learning. I am interested in the intersection of enterprise technology, IT risk, information security, AI use cases, product thinking, and business strategy. Through projects, writing, and practical exploration, I am building a profile that combines technical understanding with business thinking and consulting-oriented problem solving.
+            </p>
+            <p style={{
+              fontSize: '15px', color: '#666666',
+              lineHeight: 1.8, fontWeight: 300, marginTop: '1.5rem',
+            }}>
+              I use this website to document ideas, projects, and insights across technology, business, risk, systems, and the evolving role of AI in organizations.
             </p>
           </div>
         </div>
@@ -278,7 +275,7 @@ export default function AboutPage() {
               fontSize: 'clamp(1.5rem, 3vw, 2.2rem)',
               color: '#111111', fontWeight: 400,
             }}>
-              How I got here.
+              Background &amp; direction.
             </h2>
           </div>
 
@@ -295,22 +292,22 @@ export default function AboutPage() {
               {
                 label: 'Education',
                 title: 'B.E. IT → MBA',
-                body: 'KBT College of Engineering, Nashik — engineering foundation. Now MBA at SCIT Pune, Symbiosis International University, 2024–26. Specialising in IT strategy and information management.',
+                body: 'B.E. Information Technology from KBT College of Engineering, Nashik. Now MBA-ITBM at SCIT Pune, Symbiosis International University, 2024–26. Building at the intersection of IT, business management, risk, and consulting.',
               },
               {
                 label: 'Live Industry Work',
                 title: 'NLP Strategy Pipeline',
-                body: 'Built an end-to-end NLP-to-strategy system for Indian financial markets with Dematade Algo Technology Solutions during final year of engineering. Live industry project. Pre-Placement Offer received.',
+                body: 'Built an end-to-end NLP-to-strategy system for Indian financial markets with Dematade Algo Technology Solutions during final year of engineering. Framed not just as a technical build — but as an exploration of AI-assisted decision support, system adoption, and business-usable output. Pre-Placement Offer received.',
               },
               {
                 label: 'Published Research',
                 title: '2 Research Papers',
-                body: 'Presented and published at an international conference on AI for Innovation and Sustainability. Second paper published in an international science journal. Academic rigour alongside execution.',
+                body: 'Presented and published at an international conference on AI for Innovation and Sustainability. Second paper published in an international science journal. Academic output alongside practical execution.',
               },
               {
                 label: 'Leadership',
-                title: 'Social Media Head — 4 Events',
-                body: 'Led digital strategy and content execution for Techfest 2024 & 2025 and Fusion 2025 & 2026 at KBT College Nashik. Built the system from zero in 2024 and scaled it three consecutive years.',
+                title: 'Digital Strategy Execution',
+                body: 'Led digital strategy and content execution for Techfest 2024 &amp; 2025 and Fusion 2025 &amp; 2026. Built and scaled the system from zero across three consecutive years — framed as campaign architecture, team coordination, and operational execution, not just content creation.',
               },
             ].map((card, i) => (
               <div key={card.label} style={{
@@ -548,8 +545,7 @@ export default function AboutPage() {
               fontWeight: 400,
               marginBottom: '1.75rem',
             }}>
-              "The best version of yourself isn't found — it's built, incrementally,
-              through decisions most people are too comfortable to make."
+              "I'm interested in how technology shapes the way organizations think, decide, and operate — and I'm building toward being useful at that intersection."
             </p>
 
             <p style={{
@@ -557,11 +553,7 @@ export default function AboutPage() {
               lineHeight: 1.8, fontWeight: 300,
               marginBottom: '1.5rem',
             }}>
-              I sing. I listen to podcasts at 2x. I believe Virat Kohli was right —
-              even a 1% chance is enough to go all in. Outside of work and study,
-              I run two Instagram accounts: one for thoughts on tech, MBA life, and
-              careers; one for cinema and editing craft. Neither is what I do.
-              Both are part of who I am.
+              Outside of academics and projects, I write — on technology, business, IT risk, AI use cases, and the decisions that shape careers. I also run two Instagram accounts: one for thoughts on tech, MBA life, and careers; one for cinema and editing. I sing, listen to podcasts at 2x, and believe that the clearest person in any room has the most power.
             </p>
 
             {/* Text links — no cards, no avatars */}

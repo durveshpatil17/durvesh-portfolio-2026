@@ -6,10 +6,10 @@ const WORK_ITEMS = [
     num: '01',
     tag: 'Public Speaking',
     title: 'Live Industry Project — Presented to IT Department',
-    subtitle: 'KBT College of Engineering, Nashik',
+    subtitle: 'Live Industry Project · Dematade Algo Technology Solutions · Final Year B.E. IT',
     problem: 'Students needed exposure to how live industry projects are secured and what real-world engineering engagement looks like beyond academics.',
-    approach: 'Presented the Dematade Algo Technology Solutions Algorithmic Strategy Builder project to the entire IT department student body. Shared the process of securing a live industry project, the challenges faced, technical decisions made, and the impact it had on our team.',
-    impact: 'Inspired peers to pursue industry projects. Demonstrated how engineering work translates to real business impact. Received PPO from Dematade Algo Technology Solutions following the engagement.',
+    approach: 'Architected an NLP-to-strategy translation pipeline for Indian financial markets — framed not just as a technical build but as an exploration of AI-assisted decision support, financial system workflows, and business-usable output. Presented to the entire IT department at KBT College, sharing how the project was secured, the approach taken, and its industry relevance.',
+    impact: 'Pre-Placement Offer received from Dematade Algo Technology Solutions. Project demonstrated how AI capability can be translated into business-relevant, adoption-ready output — not just a technical proof of concept.',
     photo: '/assets/images/achievements/Photo of me presenting Project in front of whole IT department students.jpg',
     photoCaption: 'Presenting the Dematade Algo Technology Solutions project to IT department students',
     doc: '/assets/documents/Certificate of Presentation and Publication ar international conference on Artificial Intelligence for Innovation, sustainability and global development.pdf',
@@ -21,19 +21,19 @@ const WORK_ITEMS = [
     title: 'Mutual Fund Distribution & Advisory',
     subtitle: 'Family Business · AMFI Registered',
     problem: 'Retail investors in the family network lacked structured guidance for SIP and mutual fund allocation.',
-    approach: 'Contributed to the family MF distribution business — onboarded clients, managed KYC and MF suitability assessments, assisted in portfolio tracking and basic performance reporting. Currently building an AI-based SIP allocation and onboarding mini-platform to automate key workflows.',
-    impact: 'Onboarded 36+ clients contributing ₹13L+ AUM through SIP and lumpsum investments.',
+    approach: 'Contributed to family AMFI-registered MF distribution business on the technology and operations side — client onboarding, KYC coordination, MF suitability assessments, portfolio tracking, and basic performance reporting. Currently designing an AI-based SIP allocation and onboarding platform to digitise and automate key workflows.',
+    impact: '36+ clients onboarded contributing ₹13L+ AUM through SIP and lumpsum investments. Practical exposure to financial services operations, client relationship management, and the challenge of digitising traditional advisory workflows.',
     photo: '/assets/images/achievements/Nivesh mantrana event attending photo.jpg',
     photoCaption: 'Nivesh Mantrana 2024 — National MF industry summit, Indore',
   },
   {
     num: '03',
-    tag: 'Content Strategy',
+    tag: 'Digital Strategy & Execution',
     title: 'Social Media Head — 4 Major College Events',
-    subtitle: 'KBT College Nashik · Techfest 2k24, 2k25 · Fusion 2k25, 2k26',
+    subtitle: 'KBT College Nashik · Techfest 2024 & 2025 · Fusion 2025 & 2026',
     problem: 'College events needed consistent digital branding, reel strategy, and audience engagement across 3 years.',
-    approach: 'Developed and executed digital strategy for four consecutive major college events — content planning, campaign architecture, audience targeting, and cross-team coordination. Built the system from zero in 2024 and refined it through three iterations.',
-    impact: 'Organic reach scaled each year. Recognised with the Special Achievers Award — Most Outstanding Content Creator — by Dr. Satish R. Devane, Director, KBT College of Engineering, 25 April 2026.',
+    approach: 'Designed and executed digital strategy for four consecutive major college events — campaign architecture, content planning, audience targeting, team coordination, and cross-functional execution. Built the operational system from zero in 2024 and refined it through three iterations over three years.',
+    impact: 'Organic reach scaled each year. Recognised with the Special Achievers Award — Most Outstanding Content Creator — by Dr. Satish R. Devane, Director, KBT College of Engineering, 25 April 2026. Demonstrated that digital strategy and execution, done with structure and consistency, creates compounding results.',
     photo: '/assets/images/achievements/Social Media Head Techfest 2k24.jpg',
     photoCaption: 'Social Media Head — Techfest 2024',
   },
@@ -43,7 +43,7 @@ const WORK_ITEMS = [
     title: 'Nivesh Mantrana 2024 — Digital Promotion',
     subtitle: "Central India's First National MF Knowledge Summit · Indore",
     problem: "Nivesh Mantrana — Central India's first national knowledge summit for mutual fund distributors — needed digital promotion to drive awareness and registrations.",
-    approach: 'Managed social media promotion and digital outreach for the event. Handled content, reach strategy, and audience engagement across platforms.',
+    approach: 'Managed digital promotion and social media outreach for Nivesh Mantrana — Central India\'s first national knowledge summit for mutual fund distributors. Handled content strategy, audience targeting, and engagement campaigns across platforms to drive event awareness and registrations.',
     impact: 'Event hosted 800 MFDs from 45 cities across 6 states. Keynote by Madhya Pradesh CM Mohan Yadav. Felicitated at the event for digital promotion contribution.',
     photo: '/assets/images/achievements/Felicitated at Nivesh Mantrana event in indore for Social Media Promotion.jpg',
     photoCaption: 'Felicitated at Nivesh Mantrana 2024, Indore',
@@ -77,8 +77,11 @@ export default function WorkPage() {
         <div style={{ maxWidth: '1160px', margin: '0 auto' }}>
           <span className="sec-label">Work</span>
           <h1 style={{ fontFamily: S.serif, fontSize: 'clamp(2.4rem,6vw,5rem)', color: '#111111', fontWeight: 400, lineHeight: 1.05, maxWidth: '680px' }}>
-            Real systems.<br /><span style={{ fontStyle: 'italic' }}>Measurable outcomes.</span>
+            Real problems.<br /><span style={{ fontStyle: 'italic' }}>Business relevance.</span>
           </h1>
+          <p style={{ color: '#666666', fontSize: '15px', lineHeight: 1.7, fontWeight: 300, maxWidth: '600px', marginTop: '1.25rem' }}>
+            I use projects to explore how technology can solve real business problems — whether through product thinking, automation, AI-assisted systems, or the design of more usable and scalable digital solutions. My interest is not only in what gets built, but in how it gets adopted, governed, and made useful in real-world environments.
+          </p>
         </div>
       </section>
 

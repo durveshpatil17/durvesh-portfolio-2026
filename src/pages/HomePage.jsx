@@ -24,10 +24,10 @@ const HERO_PHOTOS = [
 ];
 
 const HERO_STATS = [
-  { value: '2',    label: 'Research Publications' },
-  { value: '1',    label: 'Live Industry Project'  },
-  { value: 'PPO',  label: 'Offer Received'         },
-  { value: '2026', label: 'MBA · SCIT Pune'        },
+  { value: '2',      label: 'Research Publications' },
+  { value: '1',      label: 'Live Industry Project' },
+  { value: 'PPO',    label: 'Offer Received' },
+  { value: 'SCIT',   label: 'Symbiosis, Pune' },
 ];
 
 // Light / Dark section palette
@@ -153,7 +153,7 @@ export default function HomePage() {
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '1.5rem' }}>
               <div style={{ width: '22px', height: '1px', background: 'rgba(255,255,255,0.3)', flexShrink: 0 }} />
               <span style={{ fontSize: '10px', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.38)', fontWeight: 500 }}>
-                Builder · Writer · MBA @ SCIT Pune
+                MBA-ITBM Candidate | Technology, Risk &amp; Business Strategy
               </span>
             </div>
 
@@ -174,15 +174,15 @@ export default function HomePage() {
 
             {/* Headline */}
             <h1 style={{ fontFamily: S.serif, fontSize: 'clamp(2.8rem, 7vw, 5.5rem)', lineHeight: 1.0, color: '#FFFFFF', marginBottom: '0.05em', letterSpacing: '-0.02em' }}>
-              Where AI meets
+              Technology. Risk.
             </h1>
             <h1 style={{ fontFamily: S.serif, fontSize: 'clamp(2.8rem, 7vw, 5.5rem)', lineHeight: 1.0, color: 'rgba(255,255,255,0.75)', fontStyle: 'italic', letterSpacing: '-0.02em', marginBottom: '2rem' }}>
-              the real world.
+              Business Strategy.
             </h1>
 
             {/* Subheading */}
             <p style={{ fontSize: 'clamp(13px, 1.5vw, 15px)', color: 'rgba(255,255,255,0.45)', lineHeight: 1.65, maxWidth: '400px', marginBottom: '1.75rem', fontWeight: 300 }}>
-              MBA student at SCIT Pune studying how AI actually gets adopted in organisations — the gap between the promise and the reality. I also write for people navigating careers and decisions without a roadmap.
+              I'm Durvesh Patil, an MBA-ITBM student at SCIT with a background in Information Technology. I'm interested in how organizations use, govern, secure, and scale technology — across IT risk, enterprise systems, information security, AI use cases, product thinking, and business strategy. Through projects, writing, and practical exploration, I'm building at the intersection of technology, business, risk, and consulting.
             </p>
 
             {/* Stats — desktop only via inline media logic */}
@@ -218,31 +218,88 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ── DOMAIN TAGS ── */}
+      <section style={{
+        padding: 'clamp(2rem,4vw,3rem) clamp(1.25rem,5vw,4rem)',
+        background: '#F5F4F0',
+        borderTop: '0.5px solid #E5E4E0',
+        borderBottom: '0.5px solid #E5E4E0',
+      }}>
+        <div style={{ maxWidth: '1160px', margin: '0 auto' }}>
+          <div style={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            gap: '0.625rem',
+            alignItems: 'center',
+          }}>
+            <span style={{
+              fontSize: '11px', fontWeight: 500,
+              letterSpacing: '0.14em', textTransform: 'uppercase',
+              color: '#999999', marginRight: '0.5rem',
+              flexShrink: 0,
+            }}>
+              Focus areas
+            </span>
+            {[
+              'IT Risk & IT Audit',
+              'Information Security & IAM',
+              'Enterprise Technology',
+              'AI in Business',
+              'Product & User Adoption',
+              'Technology Consulting',
+            ].map(tag => (
+              <span key={tag} style={{
+                fontSize: '12px',
+                padding: '0.4rem 1rem',
+                borderRadius: '30px',
+                background: '#FFFFFF',
+                border: '0.5px solid #E5E4E0',
+                color: '#555555',
+                fontWeight: 400,
+                letterSpacing: '0.02em',
+                transition: 'border-color 0.2s, color 0.2s',
+                cursor: 'default',
+              }}
+                onMouseEnter={e => {
+                  e.target.style.borderColor = '#534AB7';
+                  e.target.style.color = '#534AB7';
+                }}
+                onMouseLeave={e => {
+                  e.target.style.borderColor = '#E5E4E0';
+                  e.target.style.color = '#555555';
+                }}>
+                {tag}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ════════════════════════════════════════ IDENTITY (Light) */}
       <section style={{ padding: 'clamp(4rem,8vw,7rem) clamp(1.25rem,5vw,4rem)', background: L.bg, borderTop: `0.5px solid ${L.border}` }}>
         <div style={{ maxWidth: '1160px', margin: '0 auto' }}>
           <div className="reveal" style={{ display: 'flex', gap: '2rem', alignItems: 'flex-start', marginBottom: 'clamp(2.5rem,5vw,4rem)' }}>
             <div style={{ width: '2px', flexShrink: 0, alignSelf: 'stretch', background: '#534AB7', opacity: 0.35, minHeight: '60px', borderRadius: '1px' }} />
             <p style={{ fontFamily: S.serif, fontStyle: 'italic', fontSize: 'clamp(1.2rem, 2.5vw, 1.9rem)', color: L.text, lineHeight: 1.4, fontWeight: 400, maxWidth: '780px' }}>
-              "Most organisations don't fail at AI because the technology doesn't work. They fail because the humans using it weren't part of the plan."
+              "Technology creates value when it is understood, governed, and adopted well — not just when it is built."
             </p>
           </div>
           <div className="reveal" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1rem' }}>
             {[
               {
-                tag: 'AI & Strategy',
-                title: 'The adoption gap',
-                body: 'I study the space between what AI can do and what organisations actually manage to do with it. MBA at SCIT Pune, Symbiosis International University. Engineering background.',
+                tag: 'Technology & Risk',
+                title: 'Where systems meet business reality',
+                body: 'I am interested in how technology is governed, secured, and controlled inside real organizations — IT risk, IT audit, information security, IAM, enterprise systems, and the business decisions that sit around them.',
               },
               {
                 tag: 'Writing',
-                title: 'Proof of thinking',
-                body: 'I write about technology, careers, and decisions — for people who are figuring out where they fit in a world moving faster than expected. Not advice. Perspective.',
+                title: 'Technology through a business lens',
+                body: 'I write about enterprise technology, IT risk, information security, AI use cases, and the broader shifts shaping how organizations operate — for people who want to understand these topics seriously.',
               },
               {
                 tag: 'Execution',
-                title: 'Real work done',
-                body: 'Live industry project with PPO. Published research. Led digital strategy across 4 major events. These are not claims — they are outcomes with evidence.',
+                title: 'Projects with real-world framing',
+                body: 'Live industry project with PPO. Published research. Digital strategy execution across four major events. Each project framed not just by what was built — but by what problem it solved and how it was made useful.',
               },
             ].map(item => (
               <div key={item.tag} className="l-card" style={{ padding: 'clamp(1.25rem, 2vw, 1.75rem)' }}>
@@ -301,17 +358,30 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── POINT OF VIEW ── */}
-      <section style={{ padding: 'clamp(4rem,8vw,7rem) clamp(1.25rem,5vw,4rem)', background: '#0C0C0F' }}>
+      {/* ── CURRENT FOCUS ── */}
+      <section style={{
+        padding: 'clamp(4rem,8vw,7rem) clamp(1.25rem,5vw,4rem)',
+        background: '#0C0C0F',
+        borderTop: '0.5px solid rgba(255,255,255,0.07)',
+      }}>
         <div style={{ maxWidth: '1160px', margin: '0 auto' }}>
 
           <div className="reveal" style={{ marginBottom: 'clamp(2.5rem,5vw,4rem)' }}>
-            <span style={{ fontSize: '11px', fontWeight: 500, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.25)', display: 'block', marginBottom: '0.875rem' }}>
-              A point of view
+            <span style={{
+              fontSize: '11px', fontWeight: 500, letterSpacing: '0.18em',
+              textTransform: 'uppercase', color: 'rgba(255,255,255,0.25)',
+              display: 'block', marginBottom: '0.875rem',
+            }}>
+              Current Focus
             </span>
-            <h2 style={{ fontFamily: S.serif, fontSize: 'clamp(1.5rem,3vw,2.5rem)', color: '#FFFFFF', fontWeight: 400, maxWidth: '640px', lineHeight: 1.15 }}>
-              AI is not a technology problem.<br />
-              <em>It's a people problem.</em>
+            <h2 style={{
+              fontFamily: S.serif,
+              fontSize: 'clamp(1.5rem,3vw,2.5rem)',
+              color: '#FFFFFF', fontWeight: 400,
+              lineHeight: 1.15, maxWidth: '640px',
+            }}>
+              Building at the intersection of technology,
+              business, risk, and consulting.
             </h2>
           </div>
 
@@ -321,30 +391,36 @@ export default function HomePage() {
             gap: 'clamp(2rem,4vw,4rem)',
           }}>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-              <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.45)', lineHeight: 1.8, fontWeight: 300 }}>
-                Every week, another headline about AI transforming an industry. Every month, another report about implementation falling short. The gap between the two is not a technical gap — it's an organisational one. People resist what they don't understand. Systems reject what they weren't designed for. Incentives don't align with adoption.
+              <p style={{
+                fontSize: '15px', color: 'rgba(255,255,255,0.45)',
+                lineHeight: 1.8, fontWeight: 300,
+              }}>
+                I'm currently building depth in areas that sit at the intersection of technology and business decision-making — especially IT risk, information security governance, enterprise systems, AI use cases in business, and technology-led problem solving.
               </p>
-              <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.45)', lineHeight: 1.8, fontWeight: 300 }}>
-                That gap is what I find genuinely interesting. Not AI as a capability — but AI as an organisational change problem. How does a business actually move from "we should use AI" to "AI is embedded in how we work"? What breaks along the way? Who resists and why?
+              <p style={{
+                fontSize: '15px', color: 'rgba(255,255,255,0.45)',
+                lineHeight: 1.8, fontWeight: 300,
+              }}>
+                My goal is to understand not just how technology is built, but how it is adopted, controlled, secured, and made valuable inside organizations.
               </p>
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-              <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.45)', lineHeight: 1.8, fontWeight: 300 }}>
-                My MBA at SCIT Pune is focused on exactly this intersection — IT strategy, information management, and how technology decisions get made inside organisations. My engineering background means I understand what the technology actually does. My content work taught me that how you communicate something determines whether people adopt it.
+              <p style={{
+                fontSize: '15px', color: 'rgba(255,255,255,0.45)',
+                lineHeight: 1.8, fontWeight: 300,
+              }}>
+                I'm interested in how organizations adopt, govern, secure, and scale technology — whether through enterprise systems, IT risk controls, AI use cases, or business process change. That theme connects everything on this site.
               </p>
-              <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.45)', lineHeight: 1.8, fontWeight: 300 }}>
-                That combination — technical literacy, strategic framing, and communication — is what I'm building toward. And what I write about when I have something worth saying.
-              </p>
-              <Link to="/writing" style={{
+              <Link to="/about" style={{
                 display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
-                fontSize: '12px', color: 'rgba(255,255,255,0.4)',
+                fontSize: '12px', color: 'rgba(255,255,255,0.35)',
                 textDecoration: 'none', letterSpacing: '0.08em',
                 textTransform: 'uppercase', transition: 'color 0.2s',
                 marginTop: '0.5rem',
               }}
                 onMouseEnter={e => e.currentTarget.style.color = '#FFFFFF'}
-                onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.4)'}>
-                Read the writing →
+                onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.35)'}>
+                More about me →
               </Link>
             </div>
           </div>
@@ -358,8 +434,8 @@ export default function HomePage() {
             <div>
               <span style={{ fontSize: '10px', fontWeight: 500, letterSpacing: '0.18em', textTransform: 'uppercase', color: L.sub, display: 'block', marginBottom: '0.6rem' }}>Latest Thinking</span>
               <h2 style={{ fontSize: 'clamp(1.5rem, 3vw, 2.5rem)', color: '#111111', fontWeight: 400 }}>
-                Thinking in public.<br />
-                <em>On things that matter.</em>
+                Technology inside<br />
+                <em>business environments.</em>
               </h2>
             </div>
             <Link to="/writing" style={{ fontSize: '11px', color: L.sub, textDecoration: 'none', letterSpacing: '0.1em', textTransform: 'uppercase', transition: 'color 0.2s' }}
@@ -459,7 +535,7 @@ export default function HomePage() {
               Let's talk.
             </h2>
             <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.35)', lineHeight: 1.7, marginBottom: '2.5rem', fontWeight: 300 }}>
-              Whether you're a recruiter, a collaborator, or someone navigating decisions without a roadmap — I read everything.
+              Whether you're a recruiter hiring for technology risk or consulting roles, a collaborator, or someone navigating decisions without a roadmap — I read everything.
             </p>
             <div style={{ display: 'flex', justifyContent: 'center', gap: 'clamp(1rem, 3vw, 2.25rem)', flexWrap: 'wrap' }}>
               {[

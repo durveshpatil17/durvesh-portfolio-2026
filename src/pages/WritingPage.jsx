@@ -3,7 +3,14 @@ import { Link } from 'react-router-dom';
 import { S } from '../theme';
 import { articles } from '../data/articles';
 
-const CATEGORIES = ['All', 'The Governor', 'The System'];
+const CATEGORIES = [
+  'All',
+  'Technology & Business',
+  'IT Risk, Security & Governance',
+  'AI & Emerging Technology',
+  'Enterprise Systems & Digital Operations',
+  'Projects, Experiments & Case Notes',
+];
 
 export default function WritingPage() {
   const [active, setActive] = useState('All');
@@ -17,11 +24,11 @@ export default function WritingPage() {
         <div style={{ maxWidth: '1160px', margin: '0 auto' }}>
           <span className="sec-label">Writing</span>
           <h1 style={{ fontFamily: 'Instrument Serif, Georgia, serif', fontSize: 'clamp(2.8rem,7vw,6rem)', color: '#111111', fontWeight: 400, lineHeight: 1.05, maxWidth: '700px', marginBottom: '1.5rem' }}>
-            Writing that challenges<br />
-            <em>what you believe.</em>
+            Technology inside<br />
+            <em>business environments.</em>
           </h1>
           <p style={{ color: '#666', fontSize: 'clamp(0.95rem,1.5vw,1.05rem)', fontWeight: 300, lineHeight: 1.7, maxWidth: '500px' }}>
-            I write to challenge something you believe — then prove why the challenge is worth taking seriously. Two pieces a month: one short provocation you can read in five minutes, one long essay that earns an hour of your time. Start with the piece marked below.
+            I write about technology from a business-first lens — covering enterprise systems, IT risk, information security, AI in business, product adoption, and the broader shifts shaping how organizations operate and make decisions.
           </p>
         </div>
       </section>
@@ -149,15 +156,6 @@ export default function WritingPage() {
                   <span className="tag-pill" style={{
                     marginBottom: '0.4rem',
                     display: 'inline-block',
-                    background: article.category === 'The Governor'
-                      ? 'rgba(83,74,183,0.08)'
-                      : 'rgba(0,0,0,0.05)',
-                    color: article.category === 'The Governor'
-                      ? '#534AB7'
-                      : '#555555',
-                    border: article.category === 'The Governor'
-                      ? '0.5px solid rgba(83,74,183,0.2)'
-                      : '0.5px solid rgba(0,0,0,0.1)',
                   }}>
                     {article.category}
                   </span>
@@ -193,7 +191,7 @@ export default function WritingPage() {
             <span className="sec-label" style={{ color: 'rgba(255,255,255,0.38)' }}>About the author</span>
             <h3 style={{ fontFamily: S.serif, fontSize: 'clamp(1.5rem,3vw,2.2rem)', color: '#FFFFFF', fontWeight: 400, marginBottom: '1rem' }}>Durvesh H. Patil</h3>
             <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: 'clamp(0.9rem,1.5vw,1rem)', lineHeight: 1.8, fontWeight: 300, marginBottom: '1.5rem' }}>
-              Engineering graduate from KBT College Nashik. MBA student at SCIT Pune, Symbiosis International University. I write about the system — how it was designed, what it optimises for, and how to build capability that doesn't depend on it choosing you. Twice a month.
+              MBA-ITBM student at SCIT Pune, Symbiosis International University. Engineering background from KBT College Nashik. I write about technology from a business-first lens — enterprise systems, IT risk, information security, AI in business, and the decisions that shape how organizations operate. Twice a month.
             </p>
             <a href="https://www.instagram.com/_thedurvesh/" target="_blank" rel="noreferrer"
               style={{ color: '#AFA9EC', fontSize: '0.8rem', textDecoration: 'none', letterSpacing: '0.06em', transition: 'opacity 0.2s' }}
