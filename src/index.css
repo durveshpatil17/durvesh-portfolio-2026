@@ -54,7 +54,6 @@ html, body {
   /* Section: become a flex column, auto height */
   .hero-section {
     height: auto !important;
-    min-height: 0 !important;
     flex-direction: column !important;
     align-items: stretch !important;
   }
@@ -74,13 +73,13 @@ html, body {
     flex-shrink: 0 !important;
   }
 
-  /* Text block: solid dark, zero overlap */
+  /* Text block: solid dark, zero overlap.
+     On mobile the navbar sits above the photo block, so the text block
+     doesn't need navbar clearance — just comfortable breathing room. */
   .hero-text-container {
     position: static !important;
     background: #0C0C0F !important;
-    /* top padding ensures animated content never clips above the fixed navbar */
-    padding: 1.5rem 1.25rem 3.5rem !important;
-    padding-top: 1.5rem !important;
+    padding: 2rem 1.25rem 3.5rem !important;
     z-index: 2 !important;
     width: 100% !important;
     max-width: 100% !important;
@@ -131,6 +130,7 @@ html, body {
 }
 @media (min-width: 1024px) {
   .hero-text-container {
+    /* flex-end pushes the inner motion.div to the right half (photo is left 52%) */
     justify-content: flex-end;
   }
 }

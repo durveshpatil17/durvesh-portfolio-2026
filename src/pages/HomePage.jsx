@@ -59,14 +59,11 @@ export default function HomePage() {
       ═══════════════════════════════════════════════════ */}
       <section className="hero-section" style={{
         position: 'relative',
-        height: '100svh',
-        minHeight: '600px',
+        minHeight: '100svh',
         background: '#0C0C0F',
         overflow: 'hidden',
         display: 'flex',
-        alignItems: 'flex-end',
-        /* clip any y-offset entrance animations so they never paint above the viewport edge */
-        clipPath: 'inset(0)',
+        alignItems: 'flex-start',
       }}>
 
         {/* ── Photo carousel: full-bleed mobile, right-strip desktop ── */}
@@ -137,14 +134,21 @@ export default function HomePage() {
           ))}
         </div>
 
-        {/* ── Text block — bottom of screen, full-width on mobile, max 540px on desktop ── */}
+        {/* ── Text block — top-anchored with safe navbar clearance ── */}
         <div className="hero-text-container" style={{
           position: 'relative', zIndex: 2,
           width: '100%', maxWidth: '1160px',
           margin: '0 auto',
-          /* top padding: matches fixed navbar height so y-animated content can't clip above it */
+          /*
+           * paddingTop: max(80px, 8svh)
+           * — 80px hard floor covers the 60px navbar + a comfortable gap.
+           * — 8svh shifts the content down proportionally on tall screens
+           *   so it looks vertically centred rather than cramped at the top.
+           * — On short laptop screens (≈900–980px) 8svh ≈ 72–78px, so the
+           *   80px floor kicks in and keeps the eyebrow safely below the navbar.
+           */
           padding: 'clamp(1.25rem, 5vw, 4rem)',
-          paddingTop: '80px',
+          paddingTop: 'max(80px, 8svh)',
           paddingBottom: 'clamp(3rem, 6vw, 5rem)',
         }}>
           <motion.div
