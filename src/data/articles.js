@@ -2,7 +2,7 @@ export const articles = [
   {
     id: 1,
     title: 'Why Organisations Resist Technology Even When It Works',
-    category: 'Technology & Business',
+    category: 'Strategy & Technology',
     date: 'Coming',
     readTime: '7 min',
     excerpt: 'The technology is rarely the problem. The people, the incentives, and the systems around it almost always are. A look at why technology adoption fails at the human and organisational layer — and what that means for anyone trying to implement it.',
@@ -13,7 +13,7 @@ export const articles = [
   {
     id: 2,
     title: 'What IT Risk Actually Means Inside an Organisation',
-    category: 'IT Risk, Security & Governance',
+    category: 'Enterprise Systems & IT Risk',
     date: 'Coming',
     readTime: '6 min',
     excerpt: 'IT risk is not just about cyberattacks or system failures. It is about the gap between what technology is supposed to do and what it actually does inside real business environments. A framework for understanding it seriously.',
@@ -24,7 +24,7 @@ export const articles = [
   {
     id: 3,
     title: 'AI in Business: What Is Actually Useful vs What Is Noise',
-    category: 'AI & Emerging Technology',
+    category: 'AI in Business',
     date: 'Coming',
     readTime: '7 min',
     excerpt: 'Not every AI use case creates business value. Most don\'t. The question is not whether to use AI — it is which problems it actually solves better than existing approaches, and how you know the difference.',
@@ -35,7 +35,7 @@ export const articles = [
   {
     id: 4,
     title: 'The 5 Skills Nobody Teaches You — But Every Successful Person Has Mastered',
-    category: 'Technology & Business',
+    category: 'Career & Future of Work',
     date: '2026',
     readTime: '8 min',
     excerpt: 'Clarity. Decision Making. Communication. Negotiation. Leadership. Not personality traits — disciplines. Built through practice, refined through repetition. Here is what each one actually is and how to start building it.',
@@ -46,7 +46,7 @@ export const articles = [
   {
     id: 5,
     title: 'Information Security Governance: Why Controls Fail in Practice',
-    category: 'IT Risk, Security & Governance',
+    category: 'Enterprise Systems & IT Risk',
     date: 'Coming',
     readTime: '7 min',
     excerpt: 'Most information security failures are not technical failures. They are governance failures — controls that existed on paper but were not embedded in how people actually worked. A look at why this happens and what changes it.',
@@ -57,7 +57,7 @@ export const articles = [
   {
     id: 6,
     title: 'Enterprise Systems: Why Implementation Is Harder Than the Build',
-    category: 'Enterprise Systems & Digital Operations',
+    category: 'Enterprise Systems & IT Risk',
     date: 'Coming',
     readTime: '6 min',
     excerpt: 'Building an enterprise system is the easy part. Getting an organisation to actually use it — consistently, correctly, at scale — is where most implementations struggle. A look at the adoption and change management problem.',
@@ -68,7 +68,7 @@ export const articles = [
   {
     id: 7,
     title: 'The Map They Gave You Was Accurate. It Just Wasn\'t a Map of Anywhere You Wanted to Go.',
-    category: 'Technology & Business',
+    category: 'Career & Future of Work',
     date: '2026',
     readTime: '5 min',
     excerpt: 'You did everything they told you to. You studied when they said study. You chose the branch with placement numbers behind it. And somewhere between the offer letter and right now, a feeling arrived that you haven\'t been able to name.',
@@ -79,7 +79,7 @@ export const articles = [
   {
     id: 8,
     title: 'NLP-to-Strategy: What Building an AI System Taught Me About Business Systems',
-    category: 'Projects, Experiments & Case Notes',
+    category: 'Projects & Case Notes',
     date: '2026',
     readTime: '8 min',
     excerpt: 'A breakdown of the live industry project with Dematade Algo Technology Solutions — not just what was built technically, but what it revealed about AI-assisted decision support, system adoption, and the gap between capability and usability.',
@@ -90,7 +90,7 @@ export const articles = [
   {
     id: 9,
     title: 'The AI Layoff Trap: Why the Companies Winning with AI Aren\'t Cutting Jobs — They\'re Reinventing Them',
-    category: 'Technology & Business',
+    category: 'Strategy & Technology',
     date: '2026',
     readTime: '6 min',
     excerpt: 'IKEA automated 8,500 roles and turned them into a $1.3B revenue stream. Why the smartest companies aren\'t cutting workforce for AI — they\'re redesigning what human judgment is for.',
@@ -98,5 +98,26 @@ export const articles = [
     status: 'published',
     featured: true,
   },
+  {
+    id: 10,
+    title: 'What Building Financial Literacy Content for First-Time Investors Actually Requires',
+    category: 'Fintech & Financial Literacy',
+    date: 'Coming',
+    readTime: '6 min',
+    excerpt: 'Financial jargon creates friction before a client ever makes an investment. A breakdown of how we design financial literacy content that builds trust, simplifies SIP onboarding, and converts first-time retail investors.',
+    slug: 'building-financial-literacy-content-first-time-investors',
+    status: 'coming-soon',
+    featured: false,
+  },
+  {
+    id: 11,
+    title: 'Lessons From Running Digital Growth Funnels for a Family Financial Services Business',
+    category: 'Fintech & Financial Literacy',
+    date: 'Coming',
+    readTime: '6 min',
+    excerpt: 'Scaling a traditional AMFI-registered mutual fund advisory isn\'t about vanity metrics or generic ads. What managing digital growth, client KYC workflows, and investor education taught me about scaling trust in financial services.',
+    slug: 'lessons-from-running-digital-growth-funnels-family-fintech',
+    status: 'coming-soon',
+    featured: false,
+  },
 ];
-

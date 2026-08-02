@@ -153,7 +153,7 @@ export default function HomePage() {
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '1.5rem' }}>
               <div style={{ width: '22px', height: '1px', background: 'rgba(255,255,255,0.3)', flexShrink: 0 }} />
               <span style={{ fontSize: '10px', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.38)', fontWeight: 500 }}>
-                MBA-ITBM Candidate | Technology, Risk &amp; Business Strategy
+                MBA-ITBM Candidate | Strategy, Technology &amp; Digital Systems
               </span>
             </div>
 
@@ -174,15 +174,15 @@ export default function HomePage() {
 
             {/* Headline */}
             <h1 style={{ fontFamily: S.serif, fontSize: 'clamp(2.8rem, 7vw, 5.5rem)', lineHeight: 1.0, color: '#FFFFFF', marginBottom: '0.05em', letterSpacing: '-0.02em' }}>
-              Technology. Risk.
+              Strategy. Technology.
             </h1>
             <h1 style={{ fontFamily: S.serif, fontSize: 'clamp(2.8rem, 7vw, 5.5rem)', lineHeight: 1.0, color: 'rgba(255,255,255,0.75)', fontStyle: 'italic', letterSpacing: '-0.02em', marginBottom: '2rem' }}>
-              Business Strategy.
+              &amp; the Future of Work.
             </h1>
 
             {/* Subheading */}
-            <p style={{ fontSize: 'clamp(13px, 1.5vw, 15px)', color: 'rgba(255,255,255,0.45)', lineHeight: 1.65, maxWidth: '400px', marginBottom: '1.75rem', fontWeight: 300 }}>
-              I'm Durvesh Patil, an MBA-ITBM student at SCIT with a background in Information Technology. I'm interested in how organizations use, govern, secure, and scale technology — across IT risk, enterprise systems, information security, AI use cases, product thinking, and business strategy. Through projects, writing, and practical exploration, I'm building at the intersection of technology, business, risk, and consulting.
+            <p style={{ fontSize: 'clamp(13px, 1.5vw, 15px)', color: 'rgba(255,255,255,0.45)', lineHeight: 1.65, maxWidth: '440px', marginBottom: '1.75rem', fontWeight: 300 }}>
+              I'm Durvesh Patil, an MBA-ITBM student at SCIT Pune working at the intersection of strategy, technology, and communication. I bring together analytical thinking, digital systems, fintech, and clear storytelling to solve practical business problems — spanning digital strategy, AI in business, enterprise technology, IT risk, and governance.
             </p>
 
             {/* Stats — desktop only via inline media logic */}
@@ -241,12 +241,11 @@ export default function HomePage() {
               Focus areas
             </span>
             {[
-              'IT Risk & IT Audit',
-              'Information Security & IAM',
-              'Enterprise Technology',
+              'Digital Strategy',
+              'Fintech & Financial Literacy',
               'AI in Business',
-              'Product & User Adoption',
-              'Technology Consulting',
+              'Enterprise Technology & IT Risk',
+              'Writing & Content',
             ].map(tag => (
               <span key={tag} style={{
                 fontSize: '12px',
@@ -287,9 +286,9 @@ export default function HomePage() {
           <div className="reveal" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1rem' }}>
             {[
               {
-                tag: 'Technology & Risk',
+                tag: 'Strategy & Technology',
                 title: 'Where systems meet business reality',
-                body: 'I am interested in how technology is governed, secured, and controlled inside real organizations — IT risk, IT audit, information security, IAM, enterprise systems, and the business decisions that sit around them.',
+                body: 'I am interested in how technology drives business strategy and digital transformation — spanning digital strategy, fintech systems, AI in business, and how enterprise technology and IT risk are governed in real organizations.',
               },
               {
                 tag: 'Writing',
@@ -299,7 +298,7 @@ export default function HomePage() {
               {
                 tag: 'Execution',
                 title: 'Projects with real-world framing',
-                body: 'Live industry project with PPO. Published research. Digital strategy execution across four major events. Each project framed not just by what was built — but by what problem it solved and how it was made useful.',
+                body: 'Digital strategy & growth execution across fintech and four major campus events, alongside published research and a live industry project. Each project framed not just by what was built — but by what problem it solved and how it was made useful.',
               },
             ].map(item => (
               <div key={item.tag} className="l-card" style={{ padding: 'clamp(1.25rem, 2vw, 1.75rem)' }}>
@@ -330,9 +329,9 @@ export default function HomePage() {
           </div>
           <div className="reveal" style={{ borderTop: `0.5px solid ${D.border}` }}>
             {[
-              { num: '01', tag: 'Public Speaking',  title: 'Live Industry Project — IT Dept Presentation', outcome: 'PPO received · Dematade Algo Technology Solutions' },
-              { num: '02', tag: 'MF Distribution',  title: 'Mutual Fund Distribution & Advisory',           outcome: '36+ clients · ₹13L+ AUM · AMFI registered'      },
-              { num: '03', tag: 'Content Strategy',  title: 'Social Media Head — 4 Major Events',            outcome: 'Fusion 2025 · Techfest 2024 & 2025 · Fusion 2026'},
+              { num: '01', tag: 'MF Distribution',  title: 'Mutual Fund Distribution & Advisory',           outcome: '36+ clients · ₹13L+ AUM · AMFI registered'      },
+              { num: '02', tag: 'Content Strategy',  title: 'Social Media Head — 4 Major Events',            outcome: 'Fusion 2025 · Techfest 2024 & 2025 · Fusion 2026'},
+              { num: '03', tag: 'Public Speaking',  title: 'Live Industry Project — IT Dept Presentation', outcome: 'PPO received · Dematade Algo Technology Solutions' },
               { num: '04', tag: 'Digital Promotion', title: 'Nivesh Mantrana 2024 — National MF Summit',     outcome: 'Felicitated · 800 MFDs · 6 states · Indore'      },
             ].map(p => (
               <Link to="/work" key={p.num} style={{ textDecoration: 'none', display: 'block' }}>
@@ -380,8 +379,8 @@ export default function HomePage() {
               color: '#FFFFFF', fontWeight: 400,
               lineHeight: 1.15, maxWidth: '640px',
             }}>
-              Building at the intersection of technology,
-              business, risk, and consulting.
+              Building at the intersection of strategy,
+              technology, fintech, and digital growth.
             </h2>
           </div>
 
@@ -395,13 +394,13 @@ export default function HomePage() {
                 fontSize: '15px', color: 'rgba(255,255,255,0.45)',
                 lineHeight: 1.8, fontWeight: 300,
               }}>
-                I'm currently building depth in areas that sit at the intersection of technology and business decision-making — especially IT risk, information security governance, enterprise systems, AI use cases in business, and technology-led problem solving.
+                I'm currently building depth in areas that sit at the intersection of technology and business strategy — digital growth funnels, fintech operations, AI applications in business, enterprise technology, IT risk, and governance.
               </p>
               <p style={{
                 fontSize: '15px', color: 'rgba(255,255,255,0.45)',
                 lineHeight: 1.8, fontWeight: 300,
               }}>
-                My goal is to understand not just how technology is built, but how it is adopted, controlled, secured, and made valuable inside organizations.
+                My goal is to understand how technology creates value, scales trust, and drives decision-making inside real business environments.
               </p>
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
@@ -409,7 +408,7 @@ export default function HomePage() {
                 fontSize: '15px', color: 'rgba(255,255,255,0.45)',
                 lineHeight: 1.8, fontWeight: 300,
               }}>
-                I'm interested in how organizations adopt, govern, secure, and scale technology — whether through enterprise systems, IT risk controls, AI use cases, or business process change. That theme connects everything on this site.
+                I'm interested in how organizations adopt, govern, and scale technology — whether through digital strategy, financial services workflows, AI integration, or business process change. That theme connects everything on this site.
               </p>
               <Link to="/about" style={{
                 display: 'inline-flex', alignItems: 'center', gap: '0.5rem',

@@ -175,10 +175,10 @@ export default function AboutPage() {
               fontSize: 'clamp(14px, 1.6vw, 17px)',
               color: 'rgba(255,255,255,0.42)',
               lineHeight: 1.7,
-              maxWidth: '400px',
+              maxWidth: '440px',
               fontWeight: 300,
             }}>
-              MBA-ITBM student at SCIT Pune. Interested in how organizations adopt, govern, secure, and scale technology — across IT risk, enterprise systems, information security, AI use cases, and business strategy.
+              MBA-ITBM student at SCIT Pune working at the intersection of strategy, technology, and communication. Interested in digital systems, fintech, AI in business, writing, enterprise technology, and IT risk &amp; governance.
             </p>
           </div>
         </div>
@@ -231,7 +231,7 @@ export default function AboutPage() {
               color: '#111111', lineHeight: 1.4,
               fontWeight: 400, maxWidth: '800px',
             }}>
-              "My interest in technology moved beyond building systems. I became more interested in the larger business questions — how organizations adopt it, where it creates value, how it is governed, and what risks and controls are needed to make it work reliably at scale."
+              "My work sits at the intersection of strategy, technology, and communication — bringing together analytical thinking, digital systems, financial services, published research on AI, and clear writing to solve practical business problems."
             </p>
           </div>
 
@@ -245,19 +245,19 @@ export default function AboutPage() {
               fontSize: '15px', color: '#666666',
               lineHeight: 1.8, fontWeight: 300,
             }}>
-              I come from an Information Technology background and am currently pursuing an MBA in Information Technology &amp; Business Management at SCIT, Pune. Over time, my interest in technology moved beyond just building systems or understanding tools in isolation. I became more interested in the larger business questions around technology — how organizations adopt it, where it creates value, how it changes operations, and what risks, controls, and governance are needed to make it work reliably at scale.
+              I come from an Information Technology background and am currently pursuing an MBA in Information Technology &amp; Business Management at SCIT, Pune. Over time, my focus expanded beyond building systems or understanding technical tools in isolation. Today, I work across digital strategy, fintech infrastructure at i-Need Fin-Essential Services, AI in business, enterprise technology, and IT risk — bridging technical capability with clear execution.
             </p>
             <p style={{
               fontSize: '15px', color: '#666666',
               lineHeight: 1.8, fontWeight: 300,
             }}>
-              That is what now drives my work and learning. I am interested in the intersection of enterprise technology, IT risk, information security, AI use cases, product thinking, and business strategy. Through projects, writing, and practical exploration, I am building a profile that combines technical understanding with business thinking and consulting-oriented problem solving.
+              That mindset shapes how I approach strategy and digital transformation. Beyond my academic pursuits at SCIT, I actively build and publish — whether through published research on AI-driven algorithmic trading, financial literacy content for retail investors, digital campaign execution, or writing on how organizations adopt and govern technology.
             </p>
             <p style={{
               fontSize: '15px', color: '#666666',
               lineHeight: 1.8, fontWeight: 300, marginTop: '1.5rem',
             }}>
-              I use this website to document ideas, projects, and insights across technology, business, risk, systems, and the evolving role of AI in organizations.
+              I use this website to document ideas, projects, and insights across strategy, fintech, AI, enterprise systems, IT risk, and the evolving future of work.
             </p>
           </div>
         </div>

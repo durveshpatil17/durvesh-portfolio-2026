@@ -5,11 +5,12 @@ import { articles } from '../data/articles';
 
 const CATEGORIES = [
   'All',
-  'Technology & Business',
-  'IT Risk, Security & Governance',
-  'AI & Emerging Technology',
-  'Enterprise Systems & Digital Operations',
-  'Projects, Experiments & Case Notes',
+  'Strategy & Technology',
+  'Fintech & Financial Literacy',
+  'AI in Business',
+  'Enterprise Systems & IT Risk',
+  'Career & Future of Work',
+  'Projects & Case Notes',
 ];
 
 export default function WritingPage() {

@@ -4,19 +4,6 @@ import { S } from '../theme';
 const WORK_ITEMS = [
   {
     num: '01',
-    tag: 'Public Speaking',
-    title: 'Live Industry Project — Presented to IT Department',
-    subtitle: 'Live Industry Project · Dematade Algo Technology Solutions · Final Year B.E. IT',
-    problem: 'Students needed exposure to how live industry projects are secured and what real-world engineering engagement looks like beyond academics.',
-    approach: 'Architected an NLP-to-strategy translation pipeline for Indian financial markets — framed not just as a technical build but as an exploration of AI-assisted decision support, financial system workflows, and business-usable output. Presented to the entire IT department at KBT College, sharing how the project was secured, the approach taken, and its industry relevance.',
-    impact: 'Pre-Placement Offer received from Dematade Algo Technology Solutions. Project demonstrated how AI capability can be translated into business-relevant, adoption-ready output — not just a technical proof of concept.',
-    photo: '/assets/images/achievements/Photo of me presenting Project in front of whole IT department students.jpg',
-    photoCaption: 'Presenting the Dematade Algo Technology Solutions project to IT department students',
-    doc: '/assets/documents/Certificate of Presentation and Publication ar international conference on Artificial Intelligence for Innovation, sustainability and global development.pdf',
-    docLabel: 'Conference Certificate ↗',
-  },
-  {
-    num: '02',
     tag: 'MF Distribution',
     title: 'Mutual Fund Distribution & Advisory',
     subtitle: 'Family Business · AMFI Registered',
@@ -27,7 +14,7 @@ const WORK_ITEMS = [
     photoCaption: 'Nivesh Mantrana 2024 — National MF industry summit, Indore',
   },
   {
-    num: '03',
+    num: '02',
     tag: 'Digital Strategy & Execution',
     title: 'Social Media Head — 4 Major College Events',
     subtitle: 'KBT College Nashik · Techfest 2024 & 2025 · Fusion 2025 & 2026',
@@ -36,6 +23,19 @@ const WORK_ITEMS = [
     impact: 'Organic reach scaled each year. Recognised with the Special Achievers Award — Most Outstanding Content Creator — by Dr. Satish R. Devane, Director, KBT College of Engineering, 25 April 2026. Demonstrated that digital strategy and execution, done with structure and consistency, creates compounding results.',
     photo: '/assets/images/achievements/Social Media Head Techfest 2k24.jpg',
     photoCaption: 'Social Media Head — Techfest 2024',
+  },
+  {
+    num: '03',
+    tag: 'Public Speaking',
+    title: 'Live Industry Project — Presented to IT Department',
+    subtitle: 'Live Industry Project · Dematade Algo Technology Solutions · Final Year B.E. IT',
+    problem: 'Students needed exposure to how live industry projects are secured and what real-world engineering engagement looks like beyond academics.',
+    approach: 'Architected an NLP-to-strategy translation pipeline for Indian financial markets — framed not just as a technical build but as an exploration of AI-assisted decision support, financial system workflows, and business-usable output. Presented to the entire IT department at KBT College, sharing how the project was secured, the approach taken, and its industry relevance.',
+    impact: 'Pre-Placement Offer received from Dematade Algo Technology Solutions. Project demonstrated how AI capability can be translated into business-relevant, adoption-ready output — not just a technical proof of concept.',
+    photo: '/assets/images/achievements/Photo of me presenting Project in front of whole IT department students.jpg',
+    photoCaption: 'Presenting the Dematade Algo Technology Solutions project to IT department students',
+    doc: '/assets/documents/Certificate of Presentation and Publication ar international conference on Artificial Intelligence for Innovation, sustainability and global development.pdf',
+    docLabel: 'Conference Certificate ↗',
   },
   {
     num: '04',
