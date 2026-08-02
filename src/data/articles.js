@@ -37,7 +37,7 @@ export const articles = [
     title: 'The 5 Skills Nobody Teaches You — But Every Successful Person Has Mastered',
     category: 'Career & Future of Work',
     date: '2026',
-    readTime: '8 min',
+    readTime: '10 min',
     excerpt: 'Clarity. Decision Making. Communication. Negotiation. Leadership. Not personality traits — disciplines. Built through practice, refined through repetition. Here is what each one actually is and how to start building it.',
     slug: 'the-5-skills-nobody-teaches-you',
     status: 'published',
