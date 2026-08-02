@@ -31,53 +31,50 @@ export function IkeaTransformationInfographic() {
         CASE STUDY — THE IKEA VALUE LOOP
       </div>
 
-      <div style={{
-        display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
-        gap: '1rem',
-        alignItems: 'center'
-      }}>
-        {/* Step 1 */}
-        <div style={{
-          background: '#1E1E24',
+      <div className="ikea-flow-container">
+        {/* Step 1: Muted Card */}
+        <div className="ikea-card" style={{
+          background: '#18181D',
           borderRadius: '12px',
           padding: '1.25rem',
-          border: '0.5px solid rgba(255,255,255,0.06)',
-          height: '100%',
+          border: '0.5px solid rgba(255,255,255,0.05)',
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center'
         }}>
-          <div style={{ fontFamily: S_SERIF, fontSize: 'clamp(2rem, 4vw, 2.75rem)', color: '#FFFFFF', lineHeight: 1, marginBottom: '0.5rem' }}>
+          <div style={{ fontFamily: S_SERIF, fontSize: 'clamp(2rem, 3.5vw, 2.75rem)', color: '#FFFFFF', lineHeight: 1, marginBottom: '0.5rem' }}>
             8,500
           </div>
-          <div style={{ fontSize: '11px', fontWeight: 600, letterSpacing: '0.05em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.9)', marginBottom: '0.35rem' }}>
+          <div style={{ fontSize: '11px', fontWeight: 600, letterSpacing: '0.05em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.85)', marginBottom: '0.35rem' }}>
             Roles Automated
           </div>
-          <div style={{ fontSize: '12px', color: 'rgba(255,255,255,0.5)', lineHeight: 1.4, fontWeight: 300 }}>
+          <div style={{ fontSize: '12px', color: 'rgba(255,255,255,0.45)', lineHeight: 1.4, fontWeight: 300 }}>
             Routine customer service tasks delegated to AI chatbot.
           </div>
         </div>
 
-        {/* Connector 1 */}
-        <div style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          color: S_ACCENT,
-          fontSize: '1.5rem',
-          fontWeight: 300
-        }}>
-          →
+        {/* Desktop Connector 1 */}
+        <div className="ikea-connector-desktop">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={S_ACCENT} strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+            <line x1="4" y1="12" x2="20" y2="12" />
+            <polyline points="14 6 20 12 14 18" />
+          </svg>
         </div>
 
-        {/* Step 2 */}
-        <div style={{
+        {/* Mobile Connector 1 */}
+        <div className="ikea-connector-mobile">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={S_ACCENT} strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+            <line x1="12" y1="4" x2="12" y2="20" />
+            <polyline points="6 14 12 20 18 14" />
+          </svg>
+        </div>
+
+        {/* Step 2: Highlighted Pivot Card */}
+        <div className="ikea-card" style={{
           background: '#1E1E24',
           borderRadius: '12px',
           padding: '1.25rem',
           border: `0.5px solid ${S_ACCENT}`,
-          height: '100%',
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center'
@@ -91,7 +88,7 @@ export function IkeaTransformationInfographic() {
             textTransform: 'uppercase',
             background: S_ACCENT,
             color: '#FFFFFF',
-            padding: '2px 8px',
+            padding: '3px 9px',
             borderRadius: '12px',
             marginBottom: '0.75rem'
           }}>
@@ -100,41 +97,44 @@ export function IkeaTransformationInfographic() {
           <div style={{ fontSize: '13px', fontWeight: 600, color: '#FFFFFF', marginBottom: '0.35rem' }}>
             Design Advisors
           </div>
-          <div style={{ fontSize: '12px', color: 'rgba(255,255,255,0.5)', lineHeight: 1.4, fontWeight: 300 }}>
+          <div style={{ fontSize: '12px', color: 'rgba(255,255,255,0.65)', lineHeight: 1.4, fontWeight: 300 }}>
             Employees upskilled into remote room planning & consultation.
           </div>
         </div>
 
-        {/* Connector 2 */}
-        <div style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          color: S_ACCENT,
-          fontSize: '1.5rem',
-          fontWeight: 300
-        }}>
-          →
+        {/* Desktop Connector 2 */}
+        <div className="ikea-connector-desktop">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={S_ACCENT} strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+            <line x1="4" y1="12" x2="20" y2="12" />
+            <polyline points="14 6 20 12 14 18" />
+          </svg>
         </div>
 
-        {/* Step 3 */}
-        <div style={{
-          background: '#1E1E24',
+        {/* Mobile Connector 2 */}
+        <div className="ikea-connector-mobile">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={S_ACCENT} strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+            <line x1="12" y1="4" x2="12" y2="20" />
+            <polyline points="6 14 12 20 18 14" />
+          </svg>
+        </div>
+
+        {/* Step 3: Muted Card */}
+        <div className="ikea-card" style={{
+          background: '#18181D',
           borderRadius: '12px',
           padding: '1.25rem',
-          border: '0.5px solid rgba(255,255,255,0.06)',
-          height: '100%',
+          border: '0.5px solid rgba(255,255,255,0.05)',
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center'
         }}>
-          <div style={{ fontFamily: S_SERIF, fontSize: 'clamp(2rem, 4vw, 2.75rem)', color: S_ACCENT, lineHeight: 1, marginBottom: '0.5rem' }}>
+          <div style={{ fontFamily: S_SERIF, fontSize: 'clamp(2rem, 3.5vw, 2.75rem)', color: S_ACCENT, lineHeight: 1, marginBottom: '0.5rem' }}>
             $1.3B
           </div>
-          <div style={{ fontSize: '11px', fontWeight: 600, letterSpacing: '0.05em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.9)', marginBottom: '0.35rem' }}>
+          <div style={{ fontSize: '11px', fontWeight: 600, letterSpacing: '0.05em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.85)', marginBottom: '0.35rem' }}>
             New Revenue Stream
           </div>
-          <div style={{ fontSize: '12px', color: 'rgba(255,255,255,0.5)', lineHeight: 1.4, fontWeight: 300 }}>
+          <div style={{ fontSize: '12px', color: 'rgba(255,255,255,0.45)', lineHeight: 1.4, fontWeight: 300 }}>
             Direct revenue unlocked by redirecting human effort into sales.
           </div>
         </div>
