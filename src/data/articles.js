@@ -41,7 +41,7 @@ export const articles = [
     excerpt: 'Clarity. Decision Making. Communication. Negotiation. Leadership. Not personality traits — disciplines. Built through practice, refined through repetition. Here is what each one actually is and how to start building it.',
     slug: 'the-5-skills-nobody-teaches-you',
     status: 'published',
-    featured: true,
+    featured: false,
   },
   {
     id: 5,
@@ -87,4 +87,16 @@ export const articles = [
     status: 'coming-soon',
     featured: false,
   },
+  {
+    id: 9,
+    title: 'The AI Layoff Trap: Why the Companies Winning with AI Aren\'t Cutting Jobs — They\'re Reinventing Them',
+    category: 'Technology & Business',
+    date: '2026',
+    readTime: '6 min',
+    excerpt: 'IKEA automated 8,500 roles and turned them into a $1.3B revenue stream. Why the smartest companies aren\'t cutting workforce for AI — they\'re redesigning what human judgment is for.',
+    slug: 'the-ai-layoff-trap-why-companies-winning-arent-cutting-jobs',
+    status: 'published',
+    featured: true,
+  },
 ];
+

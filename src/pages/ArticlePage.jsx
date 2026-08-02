@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import { S } from '../theme';
 import { articles } from '../data/articles';
 import { posts } from '../data/posts';
@@ -40,7 +41,12 @@ export default function ArticlePage() {
           ← Back
         </Link>
 
-        <header style={{ marginBottom: '4rem' }}>
+        <motion.header 
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          style={{ marginBottom: '4rem' }}
+        >
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.5rem', flexWrap: 'wrap' }}>
             <span style={{
               fontSize: '10px', fontWeight: 600, letterSpacing: '0.16em', textTransform: 'uppercase',
@@ -66,37 +72,84 @@ export default function ArticlePage() {
           <p style={{ fontSize: '16px', color: '#666', lineHeight: 1.7, fontWeight: 300, fontStyle: 'italic' }}>
             {article.excerpt}
           </p>
-        </header>
+        </motion.header>
 
         <div className="article-body" style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
           {content.map((block, index) => {
+            if (block.type === 'component') {
+              return <React.Fragment key={index}>{block.component}</React.Fragment>;
+            }
+            if (block.type === 'references') {
+              return (
+                <motion.div 
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5 }}
+                  style={{ marginTop: '3rem', paddingTop: '2rem', borderTop: '0.5px solid #E5E4E0' }}
+                >
+                  <h3 style={{ fontSize: '11px', fontWeight: 600, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#999999', marginBottom: '1.25rem' }}>
+                    References & Sources
+                  </h3>
+                  <ol style={{ paddingLeft: '1.25rem', display: 'flex', flexDirection: 'column', gap: '0.6rem', margin: 0 }}>
+                    {block.items.map((refItem, rIdx) => (
+                      <li key={rIdx} style={{ fontSize: '13px', color: '#666666', lineHeight: 1.6, fontWeight: 300 }}>
+                        {refItem}
+                      </li>
+                    ))}
+                  </ol>
+                </motion.div>
+              );
+            }
             if (block.type === 'heading') {
               return (
-                <h2 key={index} style={{ 
-                  fontFamily: 'Instrument Serif, Georgia, serif', 
-                  fontSize: 'clamp(1.5rem, 3vw, 2rem)', 
-                  color: '#111111', fontWeight: 400, 
-                  marginTop: '2rem', marginBottom: '0.5rem' 
-                }}>
+                <motion.h2 
+                  key={index} 
+                  initial={{ opacity: 0, y: 15 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4 }}
+                  style={{ 
+                    fontFamily: 'Instrument Serif, Georgia, serif', 
+                    fontSize: 'clamp(1.5rem, 3vw, 2rem)', 
+                    color: '#111111', fontWeight: 400, 
+                    marginTop: '2rem', marginBottom: '0.5rem' 
+                  }}
+                >
                   {block.content}
-                </h2>
+                </motion.h2>
               );
             }
             if (block.type === 'bold') {
               return (
-                <p key={index} style={{ 
-                  fontSize: '16px', color: '#111', lineHeight: 1.8, fontWeight: 500 
-                }}>
+                <motion.p 
+                  key={index} 
+                  initial={{ opacity: 0, y: 15 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4 }}
+                  style={{ 
+                    fontSize: '16px', color: '#111', lineHeight: 1.8, fontWeight: 500 
+                  }}
+                >
                   {block.content}
-                </p>
+                </motion.p>
               );
             }
             return (
-              <p key={index} style={{ 
-                fontSize: '16px', color: '#444', lineHeight: 1.8, fontWeight: 300 
-              }}>
+              <motion.p 
+                key={index} 
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4 }}
+                style={{ 
+                  fontSize: '16px', color: '#444', lineHeight: 1.8, fontWeight: 300 
+                }}
+              >
                 {block.content}
-              </p>
+              </motion.p>
             );
           })}
         </div>
@@ -104,3 +157,4 @@ export default function ArticlePage() {
     </main>
   );
 }
+

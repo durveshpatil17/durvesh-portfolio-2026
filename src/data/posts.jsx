@@ -1,3 +1,10 @@
+import React from 'react';
+import {
+  IkeaTransformationInfographic,
+  AlphabetCapexInfographic,
+  GenAiRoiMismatchInfographic
+} from '../components/blog/AiLayoffTrapInfographics';
+
 export const posts = {
   'the-5-skills-nobody-teaches-you': [
     { type: 'paragraph', content: 'Most people build a resume. They list what they studied, where they interned, what tools they know. Then they send it out and wait to be chosen.' },
@@ -49,5 +56,59 @@ export const posts = {
     { type: 'paragraph', content: 'Build them in sequence. Start with clarity — because without it, everything else is just movement without direction. Add decision making — because clarity without action is just observation. Layer in communication — because decisions that don\'t reach people don\'t change anything. Develop leadership — because the greatest multiplier of individual capability is the ability to move other people. And underneath all of it, build the negotiating mindset — because the world will test your resolve constantly, and the person who negotiates from strength survives every test.' },
     { type: 'paragraph', content: 'Your resume is not a list of what you have done. It is a pitch deck backed by proof of work. And the proof that matters most is not the certificates or the grades. It is the evidence that you think clearly, decide well, communicate effectively, lead without being asked, and never — not once — negotiate from neediness.' },
     { type: 'paragraph', content: 'That person is not a candidate. That person is a solution. And solutions don\'t wait to be chosen. They get called.' }
+  ],
+
+  'the-ai-layoff-trap-why-companies-winning-arent-cutting-jobs': [
+    { type: 'paragraph', content: 'IKEA automated the work of nearly 8,500 customer service employees with a single chatbot. Most companies would have booked that as a payroll win and stopped there.' },
+    { type: 'paragraph', content: 'IKEA didn\'t stop there. It retrained those employees into interior design advisors, guiding customers through room planning and furniture selection over phone and video. The result was a richer customer experience, higher-value work for the employees who stayed, and a reported $1.3 billion new revenue stream.' },
+    { type: 'paragraph', content: 'That one decision — automate the task, reinvest in the person — is turning out to be the clearest dividing line between companies that will actually win with AI and companies that will just spend on it.' },
+
+    { type: 'component', component: <IkeaTransformationInfographic /> },
+
+    { type: 'heading', content: 'The layoff instinct is a costly shortcut' },
+    { type: 'paragraph', content: 'Walk into most boardrooms right now and you\'ll hear a version of the same logic: AI is automating tasks, so headcount should shrink. It sounds like straightforward cost optimization. In practice, it\'s often the opposite.' },
+    { type: 'paragraph', content: 'The real risk isn\'t that AI outperforms your employees. It\'s that eliminating the people who built up institutional knowledge — the ones who understand the edge cases, the exceptions, the messy realities that never make it into a training set — quietly erodes the capability that gave the company its edge in the first place.' },
+    { type: 'paragraph', content: 'What replaces that workforce isn\'t a smarter version of them. It\'s a model trained on historical data, without the judgment, adaptability, or contextual reasoning that real business problems demand. Downsizing on the assumption that AI is a like-for-like substitute for experienced people means trading a flexible, accountable workforce for a system that only performs well within the limits of what it\'s already seen.' },
+    { type: 'paragraph', content: 'The resulting division of labor is fairly simple, even if most organizations struggle to act on it. AI absorbs the repetitive, high-volume, pattern-based work. Strategic decisions and judgment calls stay with people. Street smarts, business acumen, the ability to read a situation that doesn\'t match any historical pattern — none of that gets trained into a model. It gets built through experience, context, and accountability. The companies getting this right aren\'t choosing between AI and people. They\'re drawing a clear line for each: AI handles the volume, people handle the judgment.' },
+
+    { type: 'heading', content: 'Role transformation is the lever most companies skip' },
+    { type: 'paragraph', content: 'The mistake isn\'t adopting AI. It\'s stopping at adoption. The real value shows up in the step most organizations never take: deliberately redesigning what people do once AI has taken over the repetitive parts of their job.' },
+    { type: 'paragraph', content: 'IKEA\'s case makes the point well. Done properly, role transformation doesn\'t just protect jobs — it can directly improve profitability and open entirely new lines of business. Companies that treat AI purely as a cost-cutting tool capture a fraction of what it can actually deliver. Companies that treat it as a growth lever, by freeing people up for judgment-driven, customer-facing, higher-value work, tend to see returns that are out of proportion to the initial investment.' },
+    { type: 'paragraph', content: 'The organizations that win with AI over the next decade won\'t be the ones that eliminate the most jobs. They\'ll be the ones that eliminate the most repetitive work, freeing their people to do what machines still can\'t.' },
+
+    { type: 'heading', content: 'Spend isn\'t the metric — ROI is' },
+    { type: 'paragraph', content: 'There\'s a sharper lesson buried in the IKEA story: how much a company spends on AI infrastructure matters far less than what it gets back for that spend.' },
+    { type: 'paragraph', content: 'Even Alphabet proves the point, and Alphabet is one of the most profitable companies on the planet. In Q2 2026, Google spent $44.9 billion on AI infrastructure — chips, servers, data centers — but generated only $39.1 billion in operating cash flow over the same period. That\'s the company\'s first-ever quarter of negative free cash flow since its 2004 IPO, and this from a business still posting record revenue, still growing double digits, still expanding cloud at pace. If a balance sheet like Alphabet\'s can see AI capex outpace cash generation in a single quarter, no organization should assume that spending alone guarantees a return.' },
+
+    { type: 'component', component: <AlphabetCapexInfographic /> },
+
+    { type: 'paragraph', content: 'Infrastructure is the entry ticket, not the scoreboard. The organizations that actually benefit from AI are the ones treating ROI, not capital deployed, as the metric that defines success.' },
+    { type: 'paragraph', content: 'And the ROI data holds a genuine surprise. A 2025 MIT study analyzing 300 enterprise AI deployments found that 95% of corporate generative AI pilots fail to deliver any measurable financial return. The revealing part isn\'t the failure rate — it\'s where the money goes versus where the returns actually show up. Companies are pouring the bulk of their AI budgets into sales and marketing, which turns out to be consistently the weakest area for ROI. The strongest, most measurable returns are showing up instead in back-office functions: customer service automation and HR operations, where cost reduction and efficiency gains are far easier to track and prove.' },
+
+    { type: 'component', component: <GenAiRoiMismatchInfographic /> },
+
+    { type: 'paragraph', content: 'This is exactly the disconnect IKEA avoided. Its transformation worked because it targeted a function — customer service — where AI\'s effectiveness was already proven, and it paired the automation with an actual plan for the people it displaced. Most companies skip that second half. They fund AI where the hype is loudest rather than where the integration is strongest, and then wonder why the returns don\'t show up.' },
+    { type: 'paragraph', content: 'The sequencing lesson follows from this directly: lead with the functions where AI\'s ROI is already demonstrated, rather than spreading spend evenly and hoping for the best, and use those early, provable wins to fund and de-risk transformation elsewhere in the business.' },
+
+    { type: 'heading', content: 'Change management is the missing discipline' },
+    { type: 'paragraph', content: 'This is where change management stops being a soft skill and starts being a strategic capability.' },
+    { type: 'paragraph', content: 'Consulting firms can bring frameworks, benchmarks, and technical expertise to AI readiness and digital transformation. But the actual work of managing the change inside the organization — retraining people, redesigning workflows, communicating a new vision for what roles look like — sits with leadership, not with external advisors.' },
+    { type: 'paragraph', content: 'Which means change management can\'t stay an HR afterthought bolted on at the end of a transformation program. It has to be built into the strategy from day one, with the same rigor applied to technology selection or process redesign.' },
+
+    { type: 'heading', content: 'The leadership skill for this decade' },
+    { type: 'paragraph', content: 'AI adoption is becoming table stakes fast. What separates the organizations that thrive from the ones that stagnate is what happens after the technology is in place — whether leadership actually has the discipline to reinvest in its people instead of simply reducing their headcount.' },
+    { type: 'paragraph', content: 'AI doesn\'t have to replace human potential. Done right, it unlocks it. The companies internalizing that — and building the change management muscle to act on it — aren\'t just adopting AI. They\'re the ones that will actually grow because of it.' },
+
+    {
+      type: 'references',
+      items: [
+        'IKEA AI chatbot and workforce retraining into interior design advisors — widely reported case, including coverage of the retraining program and associated revenue impact.',
+        'Alphabet Q2 2026 earnings — Yahoo Finance, "Even Google\'s $120 billion earnings couldn\'t out-pace its AI spend" (July 2026)',
+        'Alphabet Q2 2026 capex and free cash flow — Moneywise, "Google hits negative free cash flow for the first time since its 2004 IPO..." (July 2026)',
+        'MIT NANDA Initiative, "The GenAI Divide: State of AI in Business 2025" — as reported by National CIO Review',
+        'MIT GenAI Divide findings on sales/marketing spend vs. back-office ROI — Trullion',
+        'MIT GenAI Divide report coverage — Fortune/Yahoo Finance, "MIT report: 95% of generative AI pilots at companies are failing"'
+      ]
+    }
   ]
 };
