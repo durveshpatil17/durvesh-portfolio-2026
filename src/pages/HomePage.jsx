@@ -65,6 +65,8 @@ export default function HomePage() {
         overflow: 'hidden',
         display: 'flex',
         alignItems: 'flex-end',
+        /* clip any y-offset entrance animations so they never paint above the viewport edge */
+        clipPath: 'inset(0)',
       }}>
 
         {/* ── Photo carousel: full-bleed mobile, right-strip desktop ── */}
@@ -140,7 +142,9 @@ export default function HomePage() {
           position: 'relative', zIndex: 2,
           width: '100%', maxWidth: '1160px',
           margin: '0 auto',
+          /* top padding: matches fixed navbar height so y-animated content can't clip above it */
           padding: 'clamp(1.25rem, 5vw, 4rem)',
+          paddingTop: '80px',
           paddingBottom: 'clamp(3rem, 6vw, 5rem)',
         }}>
           <motion.div
@@ -182,7 +186,7 @@ export default function HomePage() {
 
             {/* Subheading */}
             <p style={{ fontSize: 'clamp(13px, 1.5vw, 15px)', color: 'rgba(255,255,255,0.45)', lineHeight: 1.65, maxWidth: '440px', marginBottom: '1.75rem', fontWeight: 300 }}>
-              I'm Durvesh Patil, an MBA-ITBM student at SCIT Pune working at the intersection of strategy, technology, and communication. I bring together analytical thinking, digital systems, fintech, and clear storytelling to solve practical business problems — spanning digital strategy, AI in business, enterprise technology, IT risk, and governance.
+              Strategy, digital systems, and the future of work — where technology meets the business decisions that actually matter. Spanning digital strategy, fintech, AI in business, enterprise technology, IT risk, and writing.
             </p>
 
             {/* Stats — desktop only via inline media logic */}
@@ -288,17 +292,17 @@ export default function HomePage() {
               {
                 tag: 'Strategy & Technology',
                 title: 'Where systems meet business reality',
-                body: 'I am interested in how technology drives business strategy and digital transformation — spanning digital strategy, fintech systems, AI in business, and how enterprise technology and IT risk are governed in real organizations.',
+                body: 'Work sits at the intersection of digital strategy, fintech systems, AI in business, enterprise technology, and IT risk — connecting how systems are built with how organizations actually use and govern them.',
               },
               {
                 tag: 'Writing',
                 title: 'Technology through a business lens',
-                body: 'I write about enterprise technology, IT risk, information security, AI use cases, and the broader shifts shaping how organizations operate — for people who want to understand these topics seriously.',
+                body: 'Published writing on enterprise technology, AI in business, digital strategy, and how organizations make decisions at the edge of capability and governance — for people who want to understand, not just follow.',
               },
               {
                 tag: 'Execution',
                 title: 'Projects with real-world framing',
-                body: 'Digital strategy & growth execution across fintech and four major campus events, alongside published research and a live industry project. Each project framed not just by what was built — but by what problem it solved and how it was made useful.',
+                body: 'Digital strategy and growth execution across fintech and four major campus events, alongside published research and a live industry project — framed not just by what was built, but by what problem it solved.',
               },
             ].map(item => (
               <div key={item.tag} className="l-card" style={{ padding: 'clamp(1.25rem, 2vw, 1.75rem)' }}>
@@ -379,8 +383,8 @@ export default function HomePage() {
               color: '#FFFFFF', fontWeight: 400,
               lineHeight: 1.15, maxWidth: '640px',
             }}>
-              Building at the intersection of strategy,
-              technology, fintech, and digital growth.
+              Fintech operations, digital strategy,
+              AI in business — and the governance layer underneath.
             </h2>
           </div>
 
@@ -394,13 +398,13 @@ export default function HomePage() {
                 fontSize: '15px', color: 'rgba(255,255,255,0.45)',
                 lineHeight: 1.8, fontWeight: 300,
               }}>
-                I'm currently building depth in areas that sit at the intersection of technology and business strategy — digital growth funnels, fintech operations, AI applications in business, enterprise technology, IT risk, and governance.
+                Active work spans digital growth funnels for fintech, MF distribution operations, AI applications in business, enterprise technology, and IT risk — each one a real environment where the gap between capability and adoption has consequences.
               </p>
               <p style={{
                 fontSize: '15px', color: 'rgba(255,255,255,0.45)',
                 lineHeight: 1.8, fontWeight: 300,
               }}>
-                My goal is to understand how technology creates value, scales trust, and drives decision-making inside real business environments.
+                Published research on AI-driven trading systems. Two years running digital strategy for major college events. Writing that documents how organizations adopt and govern technology — not as theory, but as something that gets decided in rooms.
               </p>
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
@@ -408,7 +412,7 @@ export default function HomePage() {
                 fontSize: '15px', color: 'rgba(255,255,255,0.45)',
                 lineHeight: 1.8, fontWeight: 300,
               }}>
-                I'm interested in how organizations adopt, govern, and scale technology — whether through digital strategy, financial services workflows, AI integration, or business process change. That theme connects everything on this site.
+                The question that connects everything on this site: how does technology actually create value inside organizations — and what gets in the way?
               </p>
               <Link to="/about" style={{
                 display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
@@ -433,8 +437,8 @@ export default function HomePage() {
             <div>
               <span style={{ fontSize: '10px', fontWeight: 500, letterSpacing: '0.18em', textTransform: 'uppercase', color: L.sub, display: 'block', marginBottom: '0.6rem' }}>Latest Thinking</span>
               <h2 style={{ fontSize: 'clamp(1.5rem, 3vw, 2.5rem)', color: '#111111', fontWeight: 400 }}>
-                Technology inside<br />
-                <em>business environments.</em>
+                Strategy, systems,<br />
+                <em>and how work changes.</em>
               </h2>
             </div>
             <Link to="/writing" style={{ fontSize: '11px', color: L.sub, textDecoration: 'none', letterSpacing: '0.1em', textTransform: 'uppercase', transition: 'color 0.2s' }}

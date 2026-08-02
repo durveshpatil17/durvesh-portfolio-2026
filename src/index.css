@@ -78,7 +78,9 @@ html, body {
   .hero-text-container {
     position: static !important;
     background: #0C0C0F !important;
-    padding: 2rem 1.25rem 3.5rem !important;
+    /* top padding ensures animated content never clips above the fixed navbar */
+    padding: 1.5rem 1.25rem 3.5rem !important;
+    padding-top: 1.5rem !important;
     z-index: 2 !important;
     width: 100% !important;
     max-width: 100% !important;

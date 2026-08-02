@@ -178,7 +178,7 @@ export default function AboutPage() {
               maxWidth: '440px',
               fontWeight: 300,
             }}>
-              MBA-ITBM student at SCIT Pune working at the intersection of strategy, technology, and communication. Interested in digital systems, fintech, AI in business, writing, enterprise technology, and IT risk &amp; governance.
+              Digital strategy, fintech, enterprise technology, AI in business, IT risk — and writing that connects them. Deployed, not just studied.
             </p>
           </div>
         </div>
@@ -231,7 +231,7 @@ export default function AboutPage() {
               color: '#111111', lineHeight: 1.4,
               fontWeight: 400, maxWidth: '800px',
             }}>
-              "My work sits at the intersection of strategy, technology, and communication — bringing together analytical thinking, digital systems, financial services, published research on AI, and clear writing to solve practical business problems."
+              "The gap between building technology and deploying it well is where most organizations lose — and where strategy, governance, and communication actually earn their place."
             </p>
           </div>
 
@@ -245,19 +245,19 @@ export default function AboutPage() {
               fontSize: '15px', color: '#666666',
               lineHeight: 1.8, fontWeight: 300,
             }}>
-              I come from an Information Technology background and am currently pursuing an MBA in Information Technology &amp; Business Management at SCIT, Pune. Over time, my focus expanded beyond building systems or understanding technical tools in isolation. Today, I work across digital strategy, fintech infrastructure at i-Need Fin-Essential Services, AI in business, enterprise technology, and IT risk — bridging technical capability with clear execution.
+              Engineering background from KBT College Nashik. MBA in IT &amp; Business Management at SCIT, Pune. Work spans digital strategy at a fintech infrastructure company, MF distribution operations, published research on AI-driven trading systems, and digital campaign execution across four consecutive major events. Each one a real environment with real consequences.
             </p>
             <p style={{
               fontSize: '15px', color: '#666666',
               lineHeight: 1.8, fontWeight: 300,
             }}>
-              That mindset shapes how I approach strategy and digital transformation. Beyond my academic pursuits at SCIT, I actively build and publish — whether through published research on AI-driven algorithmic trading, financial literacy content for retail investors, digital campaign execution, or writing on how organizations adopt and govern technology.
+              The writing on this site documents what gets learned in those environments — on enterprise technology, IT risk, AI in business, financial systems, and how organizations make decisions at the edge of their own capability. Specific things, not trend summaries.
             </p>
             <p style={{
               fontSize: '15px', color: '#666666',
               lineHeight: 1.8, fontWeight: 300, marginTop: '1.5rem',
             }}>
-              I use this website to document ideas, projects, and insights across strategy, fintech, AI, enterprise systems, IT risk, and the evolving future of work.
+              Strategy, fintech, AI, enterprise systems, IT risk, and the future of work — that is the frame. Everything on this site fits inside it.
             </p>
           </div>
         </div>
