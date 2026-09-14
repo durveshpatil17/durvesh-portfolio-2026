@@ -137,6 +137,87 @@ export default function ArticlePage() {
                 </motion.p>
               );
             }
+            if (block.type === 'quote') {
+              return (
+                <motion.blockquote 
+                  key={index} 
+                  initial={{ opacity: 0, y: 15 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4 }}
+                  style={{ 
+                    fontSize: '18px', color: '#111', lineHeight: 1.6, fontWeight: 400, fontStyle: 'italic',
+                    borderLeft: `2px solid ${S.accent}`, paddingLeft: '1.5rem', margin: '1rem 0'
+                  }}
+                >
+                  {block.content}
+                </motion.blockquote>
+              );
+            }
+            if (block.type === 'hr') {
+              return (
+                <motion.hr
+                  key={index}
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  style={{ border: 'none', borderTop: '0.5px solid #E5E4E0', margin: '2rem 0' }}
+                />
+              );
+            }
+            if (block.type === 'image') {
+              return (
+                <motion.figure 
+                  key={index}
+                  initial={{ opacity: 0, y: 15 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5 }}
+                  style={{ margin: '2rem 0', width: '100%' }}
+                >
+                  <img 
+                    src={block.src} 
+                    alt={block.alt || ''} 
+                    style={{ width: '100%', height: 'auto', borderRadius: '8px', border: '1px solid #E5E4E0' }} 
+                  />
+                  {block.caption && (
+                    <figcaption style={{ fontSize: '12px', color: '#888', textAlign: 'center', marginTop: '0.75rem', fontStyle: 'italic' }}>
+                      {block.caption}
+                    </figcaption>
+                  )}
+                </motion.figure>
+              );
+            }
+            if (block.type === 'byline_title') {
+              return (
+                <motion.p 
+                  key={index} 
+                  initial={{ opacity: 0, y: 15 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  style={{ 
+                    fontSize: '15px', color: '#111', lineHeight: 1.6, fontWeight: 600, marginTop: '2rem' 
+                  }}
+                >
+                  {block.content}
+                </motion.p>
+              );
+            }
+            if (block.type === 'byline_author') {
+              return (
+                <motion.p 
+                  key={index} 
+                  initial={{ opacity: 0, y: 15 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  style={{ 
+                    fontSize: '14px', color: '#666', lineHeight: 1.6, fontWeight: 300, fontStyle: 'italic'
+                  }}
+                >
+                  {block.content}
+                </motion.p>
+              );
+            }
             return (
               <motion.p 
                 key={index} 

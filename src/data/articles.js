@@ -1,5 +1,27 @@
 export const articles = [
   {
+    id: 13,
+    title: "The Breadth–Depth Complementarity Framework",
+    category: 'Career & Future of Work',
+    date: '2026',
+    readTime: '13 min',
+    excerpt: 'An original framework on how "Integrators" (breadth) and "Specialists" (depth) create value differently — and why the Translation Layer between them is where strategy actually becomes execution.',
+    slug: 'the-breadth-depth-complementarity-framework',
+    status: 'published',
+    featured: false,
+  },
+  {
+    id: 12,
+    title: "From Land to Capital: How India's Economic Engine Transformed",
+    category: 'Strategy & Technology',
+    date: '2026',
+    readTime: '12 min',
+    excerpt: 'India has repeatedly changed what it uses to create economic value — from land and craftsmanship, to industry, to IT exports, to the finance-and-technology flywheel now taking shape.',
+    slug: 'from-land-to-capital-how-indias-economic-engine-transformed',
+    status: 'published',
+    featured: false,
+  },
+  {
     id: 1,
     title: 'Why Organisations Resist Technology Even When It Works',
     category: 'Strategy & Technology',
