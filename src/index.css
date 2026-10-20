@@ -14,15 +14,15 @@ html, body {
   color: #111111;
 }
 
-/* Responsive visibility */
+/* Responsive visibility for Header */
 .nav-links-desktop { display: none; }
 .nav-cta-desktop { display: none; }
 .nav-menu-btn { display: flex; }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .nav-links-desktop { display: flex; }
-  .nav-cta-desktop { display: block; }
-  .nav-menu-btn { display: none; }
+  .nav-cta-desktop { display: inline-flex; }
+  .nav-menu-btn { display: none !important; }
 }
 
 /* ═══════════════════ HERO — Mobile stacked, Desktop side-by-side ═══════════════════ */

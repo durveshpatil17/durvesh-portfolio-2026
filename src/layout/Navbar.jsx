@@ -63,10 +63,12 @@ export default function Navbar() {
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
         style={{
-          position: 'fixed', top: 0, left: 0, right: 0, zIndex: 100,
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          zIndex: 100,
           height: '60px',
-          display: 'flex', alignItems: 'center',
-          padding: '0 clamp(1.25rem, 4vw, 3.5rem)',
           transition: 'background 0.35s ease, border-color 0.35s ease, backdrop-filter 0.35s ease',
           background: navBg,
           borderBottom: navBorder,
@@ -74,104 +76,153 @@ export default function Navbar() {
           WebkitBackdropFilter: blurVal,
         }}
       >
-        {/* Logo — always left */}
-        <Link to="/" style={{
-          fontFamily: S.serif, fontSize: '1.3rem',
-          color: logoCol, textDecoration: 'none',
-          letterSpacing: '0.03em', fontStyle: 'italic',
-          transition: 'color 0.3s', flexShrink: 0, marginRight: 'auto',
-        }}>
-          Durvesh Patil.
-        </Link>
-
-        {/* Desktop nav links — centred absolutely within the bar */}
-        <div className="nav-links-desktop" style={{
-          gap: '1.75rem',
-          position: 'absolute',
-          left: '50%',
-          transform: 'translateX(-50%)',
-          maxWidth: 'calc(100% - 380px)',
-          overflow: 'hidden',
-        }}>
-          {LINKS.map(({ to, label }) => {
-            const active = isActive(to);
-            return (
-              <Link key={to} to={to} style={{
-                color: active ? activeCol : textCol,
+        <div
+          style={{
+            maxWidth: '1320px',
+            height: '100%',
+            margin: '0 auto',
+            padding: '0 clamp(1.25rem, 3.5vw, 2.5rem)',
+            display: 'grid',
+            gridTemplateColumns: '1fr auto 1fr',
+            alignItems: 'center',
+            gap: '1rem',
+          }}
+        >
+          {/* 1. Left: Wordmark */}
+          <div style={{ gridColumn: 1, justifySelf: 'start', display: 'flex', alignItems: 'center', minWidth: 0 }}>
+            <Link
+              to="/"
+              style={{
+                fontFamily: S.serif,
+                fontSize: '1.3rem',
+                color: logoCol,
                 textDecoration: 'none',
-                fontSize: '11px',
-                letterSpacing: '0.14em',
-                textTransform: 'uppercase',
-                fontWeight: active ? 600 : 400,
-                transition: 'color 0.2s',
-                position: 'relative',
+                letterSpacing: '0.03em',
+                fontStyle: 'italic',
+                transition: 'color 0.3s',
                 whiteSpace: 'nowrap',
               }}
-                onMouseEnter={e => e.currentTarget.style.color = active ? activeCol : (onHero ? '#FFFFFF' : '#534AB7')}
-                onMouseLeave={e => e.currentTarget.style.color = active ? activeCol : textCol}
-              >
-                {label}
-                {active && (
-                  <span style={{
-                    position: 'absolute', bottom: '-5px', left: 0, right: 0,
-                    height: '1.5px', borderRadius: '1px',
-                    background: onHero ? 'rgba(255,255,255,0.55)' : '#534AB7',
-                  }} />
-                )}
-              </Link>
-            );
-          })}
+            >
+              Durvesh Patil.
+            </Link>
+          </div>
+
+          {/* 2. Center: Desktop navigation links (strictly in its own center grid column) */}
+          <div
+            className="nav-links-desktop"
+            style={{
+              gridColumn: 2,
+              justifySelf: 'center',
+              alignItems: 'center',
+              gap: 'clamp(1rem, 1.8vw, 1.75rem)',
+              minWidth: 0,
+            }}
+          >
+            {LINKS.map(({ to, label }) => {
+              const active = isActive(to);
+              return (
+                <Link
+                  key={to}
+                  to={to}
+                  style={{
+                    color: active ? activeCol : textCol,
+                    textDecoration: 'none',
+                    fontSize: '11px',
+                    letterSpacing: '0.14em',
+                    textTransform: 'uppercase',
+                    fontWeight: active ? 600 : 400,
+                    transition: 'color 0.2s',
+                    position: 'relative',
+                    whiteSpace: 'nowrap',
+                  }}
+                  onMouseEnter={(e) => (e.currentTarget.style.color = active ? activeCol : onHero ? '#FFFFFF' : '#534AB7')}
+                  onMouseLeave={(e) => (e.currentTarget.style.color = active ? activeCol : textCol)}
+                >
+                  {label}
+                  {active && (
+                    <span
+                      style={{
+                        position: 'absolute',
+                        bottom: '-5px',
+                        left: 0,
+                        right: 0,
+                        height: '1.5px',
+                        borderRadius: '1px',
+                        background: onHero ? 'rgba(255,255,255,0.55)' : '#534AB7',
+                      }}
+                    />
+                  )}
+                </Link>
+              );
+            })}
+          </div>
+
+          {/* 3. Right: Desktop CTA or Mobile Hamburger */}
+          <div style={{ gridColumn: 3, justifySelf: 'end', display: 'flex', alignItems: 'center', gap: '0.75rem', minWidth: 0 }}>
+            <Link
+              to="/contact"
+              className="nav-cta-desktop"
+              style={{
+                padding: '0.45rem 1.25rem',
+                background: ctaBg,
+                border: `0.5px solid ${ctaBorder}`,
+                color: ctaColor,
+                borderRadius: '30px',
+                fontSize: '11px',
+                letterSpacing: '0.1em',
+                textTransform: 'uppercase',
+                textDecoration: 'none',
+                fontWeight: 500,
+                transition: 'background 0.25s, border-color 0.25s, opacity 0.2s',
+                whiteSpace: 'nowrap',
+                alignItems: 'center',
+              }}
+              onMouseEnter={(e) => (e.currentTarget.style.opacity = '0.75')}
+              onMouseLeave={(e) => (e.currentTarget.style.opacity = '1')}
+            >
+              Discuss a Project
+            </Link>
+
+            <button
+              className="nav-menu-btn"
+              onClick={() => setMenuOpen((v) => !v)}
+              aria-label="Toggle menu"
+              style={{
+                background: 'none',
+                border: 'none',
+                cursor: 'pointer',
+                padding: '8px',
+                flexDirection: 'column',
+                gap: '5px',
+                alignItems: 'center',
+                justifyContent: 'center',
+                minWidth: '44px',
+                minHeight: '44px',
+              }}
+            >
+              {[0, 1, 2].map((i) => (
+                <span
+                  key={i}
+                  style={{
+                    display: 'block',
+                    width: '22px',
+                    height: '1.5px',
+                    background: burgerCol,
+                    transition: 'all 0.3s',
+                    transform: menuOpen
+                      ? i === 0
+                        ? 'rotate(45deg) translate(4.5px, 4.5px)'
+                        : i === 2
+                        ? 'rotate(-45deg) translate(4.5px, -4.5px)'
+                        : 'none'
+                      : 'none',
+                    opacity: menuOpen && i === 1 ? 0 : 1,
+                  }}
+                />
+              ))}
+            </button>
+          </div>
         </div>
-
-        {/* Restrained CTA — Discuss a Project */}
-        <Link
-          to="/contact"
-          className="nav-cta-desktop"
-          style={{
-            marginLeft: 'auto',
-            flexShrink: 0,
-            padding: '0.45rem 1.25rem',
-            background: ctaBg,
-            border: `0.5px solid ${ctaBorder}`,
-            color: ctaColor,
-            borderRadius: '30px',
-            fontSize: '11px', letterSpacing: '0.1em', textTransform: 'uppercase',
-            textDecoration: 'none', fontWeight: 500,
-            transition: 'background 0.25s, border-color 0.25s, opacity 0.2s',
-            whiteSpace: 'nowrap',
-          }}
-          onMouseEnter={e => e.currentTarget.style.opacity = '0.75'}
-          onMouseLeave={e => e.currentTarget.style.opacity = '1'}
-        >
-          Discuss a Project
-        </Link>
-
-        {/* Hamburger — mobile only */}
-        <button
-          className="nav-menu-btn"
-          onClick={() => setMenuOpen(v => !v)}
-          aria-label="Toggle menu"
-          style={{
-            background: 'none', border: 'none', cursor: 'pointer',
-            padding: '10px', marginLeft: 'auto',
-            display: 'flex', flexDirection: 'column', gap: '5px',
-            alignItems: 'center', justifyContent: 'center',
-            minWidth: '44px', minHeight: '44px',
-          }}
-        >
-          {[0, 1, 2].map(i => (
-            <span key={i} style={{
-              display: 'block', width: '22px', height: '1.5px',
-              background: burgerCol,
-              transition: 'all 0.3s',
-              transform: menuOpen
-                ? i === 0 ? 'rotate(45deg) translate(4.5px, 4.5px)'
-                  : i === 2 ? 'rotate(-45deg) translate(4.5px, -4.5px)' : 'none'
-                : 'none',
-              opacity: menuOpen && i === 1 ? 0 : 1,
-            }} />
-          ))}
-        </button>
       </nav>
 
       {/* Full-screen mobile menu */}
