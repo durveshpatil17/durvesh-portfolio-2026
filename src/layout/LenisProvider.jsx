@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import Lenis from '@studio-freight/lenis';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -16,14 +16,22 @@ export default function LenisProvider({ children }) {
       smoothWheel: true,
     });
     window.__lenis = lenis;
-    const raf = (time) => { lenis.raf(time); requestAnimationFrame(raf); };
-    requestAnimationFrame(raf);
+
     lenis.on('scroll', ScrollTrigger.update);
-    gsap.ticker.add((time) => { lenis.raf(time * 1000); });
+
+    const updateLenis = (time) => {
+      lenis.raf(time * 1000);
+    };
+
+    gsap.ticker.add(updateLenis);
     gsap.ticker.lagSmoothing(0);
 
-    return () => { lenis.destroy(); };
-  }, []); // Init only once
+    return () => {
+      gsap.ticker.remove(updateLenis);
+      lenis.destroy();
+      window.__lenis = null;
+    };
+  }, []);
 
   useEffect(() => {
     if (window.__lenis) {
@@ -33,3 +41,4 @@ export default function LenisProvider({ children }) {
 
   return <>{children}</>;
 }
+

@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 
 const S_SERIF = 'Instrument Serif, Georgia, serif';

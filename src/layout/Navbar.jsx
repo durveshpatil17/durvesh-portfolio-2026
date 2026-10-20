@@ -1,12 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { S } from '../theme';
 
 const LINKS = [
-  { to: '/',        label: 'Home'    },
-  { to: '/work',    label: 'Work'    },
-  { to: '/writing', label: 'Writing' },
-  { to: '/about',   label: 'About'   },
+  { to: '/work',     label: 'Work'     },
+  { to: '/services', label: 'Services' },
+  { to: '/ventures', label: 'Ventures' },
+  { to: '/writing',  label: 'Writing'  },
+  { to: '/about',    label: 'About'    },
+  { to: '/contact',  label: 'Contact'  },
 ];
 
 export default function Navbar() {
@@ -28,30 +30,32 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handler);
   }, [isHomePage]);
 
-  useEffect(() => { setMenuOpen(false); }, [location]);
-  useEffect(() => { document.body.style.overflow = menuOpen ? 'hidden' : ''; }, [menuOpen]);
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? 'hidden' : '';
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [menuOpen]);
 
   const isActive = (to) => to === '/' ? location.pathname === '/' : location.pathname.startsWith(to);
 
-  // Colour logic: on dark hero → white; scrolled / hovered / other pages → dark
-  const isDark = (onDark && !scrolled) || (onDark && !hovered);
-  const navBg      = scrolled || hovered || !isHomePage
+  const navBg = scrolled || hovered || !isHomePage
     ? 'rgba(250,250,248,0.96)'
     : 'transparent';
-  const navBorder  = scrolled || hovered || !isHomePage
+  const navBorder = scrolled || hovered || !isHomePage
     ? '0.5px solid #E5E4E0'
     : '0.5px solid transparent';
-  const blurVal    = scrolled || hovered || !isHomePage ? 'blur(20px)' : 'none';
+  const blurVal = scrolled || hovered || !isHomePage ? 'blur(20px)' : 'none';
 
   // On dark hero: white text. Anywhere else: dark ink.
-  const onHero     = isHomePage && !scrolled && !hovered;
-  const textCol    = onHero ? 'rgba(255,255,255,0.72)' : '#111111';
-  const activeCol  = onHero ? '#FFFFFF' : '#534AB7';
-  const logoCol    = onHero ? '#FFFFFF' : '#111111';
-  const ctaBg      = onHero ? 'rgba(255,255,255,0.1)'  : '#111111';
-  const ctaBorder  = onHero ? 'rgba(255,255,255,0.28)' : '#111111';
-  const ctaColor   = '#FFFFFF';
-  const burgerCol  = onHero ? '#FFFFFF' : '#111111';
+  const onHero = isHomePage && onDark && !scrolled && !hovered;
+  const textCol = onHero ? 'rgba(255,255,255,0.72)' : '#111111';
+  const activeCol = onHero ? '#FFFFFF' : '#534AB7';
+  const logoCol = onHero ? '#FFFFFF' : '#111111';
+  const ctaBg = onHero ? 'rgba(255,255,255,0.1)' : '#111111';
+  const ctaBorder = onHero ? 'rgba(255,255,255,0.28)' : '#111111';
+  const ctaColor = '#FFFFFF';
+  const burgerCol = onHero ? '#FFFFFF' : '#111111';
 
   return (
     <>
@@ -82,12 +86,11 @@ export default function Navbar() {
 
         {/* Desktop nav links — centred absolutely within the bar */}
         <div className="nav-links-desktop" style={{
-          gap: '2rem',
+          gap: '1.75rem',
           position: 'absolute',
           left: '50%',
           transform: 'translateX(-50%)',
-          // Prevent links from ever touching the logo or CTA
-          maxWidth: 'calc(100% - 420px)',
+          maxWidth: 'calc(100% - 380px)',
           overflow: 'hidden',
         }}>
           {LINKS.map(({ to, label }) => {
@@ -120,14 +123,14 @@ export default function Navbar() {
           })}
         </div>
 
-        {/* Connect pill — always right, fixed width so it never overlaps links */}
-        <a
-          href="#contact"
+        {/* Restrained CTA — Discuss a Project */}
+        <Link
+          to="/contact"
           className="nav-cta-desktop"
           style={{
             marginLeft: 'auto',
             flexShrink: 0,
-            padding: '0.45rem 1.2rem',
+            padding: '0.45rem 1.25rem',
             background: ctaBg,
             border: `0.5px solid ${ctaBorder}`,
             color: ctaColor,
@@ -140,8 +143,8 @@ export default function Navbar() {
           onMouseEnter={e => e.currentTarget.style.opacity = '0.75'}
           onMouseLeave={e => e.currentTarget.style.opacity = '1'}
         >
-          Connect
-        </a>
+          Discuss a Project
+        </Link>
 
         {/* Hamburger — mobile only */}
         <button
@@ -180,28 +183,51 @@ export default function Navbar() {
           WebkitBackdropFilter: 'blur(16px)',
           display: 'flex', flexDirection: 'column',
           alignItems: 'center', justifyContent: 'center',
-          gap: '2.5rem',
+          gap: '2.25rem',
         }}>
-          {LINKS.map(({ to, label }) => (
-            <Link key={to} to={to} onClick={() => setMenuOpen(false)} style={{
-              fontFamily: S.serif, fontSize: 'clamp(2rem, 8vw, 3.5rem)',
-              color: isActive(to) ? '#FFFFFF' : 'rgba(255,255,255,0.4)',
+          <Link
+            to="/"
+            onClick={() => setMenuOpen(false)}
+            style={{
+              fontFamily: S.serif, fontSize: 'clamp(1.75rem, 7vw, 3rem)',
+              color: isActive('/') ? '#FFFFFF' : 'rgba(255,255,255,0.45)',
               textDecoration: 'none', fontStyle: 'italic',
               transition: 'color 0.2s',
-            }}>
+            }}
+          >
+            Home
+          </Link>
+          {LINKS.map(({ to, label }) => (
+            <Link
+              key={to}
+              to={to}
+              onClick={() => setMenuOpen(false)}
+              style={{
+                fontFamily: S.serif, fontSize: 'clamp(1.75rem, 7vw, 3rem)',
+                color: isActive(to) ? '#FFFFFF' : 'rgba(255,255,255,0.45)',
+                textDecoration: 'none', fontStyle: 'italic',
+                transition: 'color 0.2s',
+              }}
+            >
               {label}
             </Link>
           ))}
-          <a href="#contact" onClick={() => setMenuOpen(false)} style={{
-            marginTop: '0.5rem', padding: '0.75rem 2rem',
-            background: '#FFFFFF', color: '#111', borderRadius: '30px',
-            fontSize: '11px', letterSpacing: '0.12em', textTransform: 'uppercase',
-            textDecoration: 'none', fontWeight: 600,
-          }}>
-            Connect
-          </a>
+          <Link
+            to="/contact"
+            onClick={() => setMenuOpen(false)}
+            style={{
+              marginTop: '0.5rem', padding: '0.75rem 2rem',
+              background: '#FFFFFF', color: '#111', borderRadius: '30px',
+              fontSize: '11px', letterSpacing: '0.12em', textTransform: 'uppercase',
+              textDecoration: 'none', fontWeight: 600,
+            }}
+          >
+            Discuss a Project
+          </Link>
         </div>
       )}
     </>
   );
 }
+
+

@@ -1,9 +1,11 @@
-import React, { useEffect } from 'react';
+import { useEffect, Fragment } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { S } from '../theme';
 import { articles } from '../data/articles';
 import { posts } from '../data/posts';
+import { renderFormattedText } from '../utils/markdown';
+import { usePageMeta } from '../utils/usePageMeta';
 
 export default function ArticlePage() {
   const { slug } = useParams();
@@ -11,6 +13,11 @@ export default function ArticlePage() {
   // Find article metadata
   const article = articles.find(a => a.slug === slug);
   const content = posts[slug];
+
+  usePageMeta(
+    article ? `${article.title}` : 'Article Not Found',
+    article ? article.excerpt : 'Article not found.'
+  );
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -38,7 +45,7 @@ export default function ArticlePage() {
         }}
         onMouseEnter={e => e.currentTarget.style.color = '#111'}
         onMouseLeave={e => e.currentTarget.style.color = '#999'}>
-          ← Back
+          ← Back to Writing
         </Link>
 
         <motion.header 
@@ -70,14 +77,14 @@ export default function ArticlePage() {
           </h1>
 
           <p style={{ fontSize: '16px', color: '#666', lineHeight: 1.7, fontWeight: 300, fontStyle: 'italic' }}>
-            {article.excerpt}
+            {renderFormattedText(article.excerpt)}
           </p>
         </motion.header>
 
         <div className="article-body" style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
           {content.map((block, index) => {
             if (block.type === 'component') {
-              return <React.Fragment key={index}>{block.component}</React.Fragment>;
+              return <Fragment key={index}>{block.component}</Fragment>;
             }
             if (block.type === 'references') {
               return (
@@ -90,12 +97,12 @@ export default function ArticlePage() {
                   style={{ marginTop: '3rem', paddingTop: '2rem', borderTop: '0.5px solid #E5E4E0' }}
                 >
                   <h3 style={{ fontSize: '11px', fontWeight: 600, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#999999', marginBottom: '1.25rem' }}>
-                    References & Sources
+                    References &amp; Sources
                   </h3>
                   <ol style={{ paddingLeft: '1.25rem', display: 'flex', flexDirection: 'column', gap: '0.6rem', margin: 0 }}>
                     {block.items.map((refItem, rIdx) => (
                       <li key={rIdx} style={{ fontSize: '13px', color: '#666666', lineHeight: 1.6, fontWeight: 300 }}>
-                        {refItem}
+                        {renderFormattedText(refItem)}
                       </li>
                     ))}
                   </ol>
@@ -117,7 +124,7 @@ export default function ArticlePage() {
                     marginTop: '2rem', marginBottom: '0.5rem' 
                   }}
                 >
-                  {block.content}
+                  {renderFormattedText(block.content)}
                 </motion.h2>
               );
             }
@@ -133,7 +140,7 @@ export default function ArticlePage() {
                     fontSize: '16px', color: '#111', lineHeight: 1.8, fontWeight: 500 
                   }}
                 >
-                  {block.content}
+                  {renderFormattedText(block.content)}
                 </motion.p>
               );
             }
@@ -150,7 +157,7 @@ export default function ArticlePage() {
                     borderLeft: `2px solid ${S.accent}`, paddingLeft: '1.5rem', margin: '1rem 0'
                   }}
                 >
-                  {block.content}
+                  {renderFormattedText(block.content)}
                 </motion.blockquote>
               );
             }
@@ -182,7 +189,7 @@ export default function ArticlePage() {
                   />
                   {block.caption && (
                     <figcaption style={{ fontSize: '12px', color: '#888', textAlign: 'center', marginTop: '0.75rem', fontStyle: 'italic' }}>
-                      {block.caption}
+                      {renderFormattedText(block.caption)}
                     </figcaption>
                   )}
                 </motion.figure>
@@ -199,7 +206,7 @@ export default function ArticlePage() {
                     fontSize: '15px', color: '#111', lineHeight: 1.6, fontWeight: 600, marginTop: '2rem' 
                   }}
                 >
-                  {block.content}
+                  {renderFormattedText(block.content)}
                 </motion.p>
               );
             }
@@ -214,7 +221,7 @@ export default function ArticlePage() {
                     fontSize: '14px', color: '#666', lineHeight: 1.6, fontWeight: 300, fontStyle: 'italic'
                   }}
                 >
-                  {block.content}
+                  {renderFormattedText(block.content)}
                 </motion.p>
               );
             }
@@ -229,13 +236,40 @@ export default function ArticlePage() {
                   fontSize: '16px', color: '#444', lineHeight: 1.8, fontWeight: 300 
                 }}
               >
-                {block.content}
+                {renderFormattedText(block.content)}
               </motion.p>
             );
           })}
+        </div>
+
+        {/* Bottom footer for article */}
+        <div style={{ marginTop: '4rem', paddingTop: '2.5rem', borderTop: '0.5px solid #E5E4E0', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1.5rem' }}>
+          <div>
+            <p style={{ fontSize: '14px', fontWeight: 500, color: '#111111', marginBottom: '4px' }}>Questions, discussion, or related advisory enquiries?</p>
+            <p style={{ fontSize: '13px', color: '#777', fontWeight: 300 }}>Discuss technology strategy, systems architecture, or operational implementation.</p>
+          </div>
+          <Link to="/contact" style={{
+            padding: '0.65rem 1.4rem',
+            background: '#111111',
+            color: '#FFFFFF',
+            borderRadius: '30px',
+            fontSize: '11px',
+            fontWeight: 600,
+            letterSpacing: '0.1em',
+            textTransform: 'uppercase',
+            textDecoration: 'none',
+            display: 'inline-flex',
+            alignItems: 'center',
+            transition: 'opacity 0.2s',
+          }}
+          onMouseEnter={e => e.currentTarget.style.opacity = '0.85'}
+          onMouseLeave={e => e.currentTarget.style.opacity = '1'}>
+            Start a Conversation →
+          </Link>
         </div>
       </article>
     </main>
   );
 }
+
 

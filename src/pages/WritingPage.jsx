@@ -1,9 +1,10 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { S } from '../theme';
 import { articles } from '../data/articles';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { usePageMeta } from '../utils/usePageMeta';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -22,19 +23,21 @@ export default function WritingPage() {
   const pageRef = useRef(null);
   const featured = articles.find(a => a.featured);
 
+  usePageMeta(
+    'Writing & Research · Ideas about technology, business, and systems',
+    'Essays and analysis on technology strategy, systems architecture, practical AI in business, enterprise IT risk, and the future of work by Durvesh Patil.'
+  );
+
   const filtered = active === 'All' ? articles : articles.filter(a => a.category === active);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Use a small delay so the element is painted before GSAP measures it
       const timer = setTimeout(() => {
         gsap.utils.toArray('.reveal').forEach(el => {
-          // Check if already visible (in viewport on mount)
           const rect = el.getBoundingClientRect();
           const inView = rect.top < window.innerHeight * 0.95;
 
           if (inView) {
-            // Animate in immediately for above-fold elements
             gsap.fromTo(el,
               { y: 14, opacity: 0 },
               { y: 0, opacity: 1, duration: 0.55, ease: 'power2.out', delay: 0.1 }
@@ -63,16 +66,15 @@ export default function WritingPage() {
   return (
     <main ref={pageRef} style={{ minHeight: '100vh', background: '#FAFAF8', paddingTop: '60px' }}>
 
-      {/* ── Page header ── */}
-      <section style={{ padding: 'clamp(3rem,6vw,5rem) clamp(1.25rem,5vw,4rem)', background: '#FAFAF8', borderBottom: '0.5px solid #E5E4E0' }}>
+      {/* ── Section 1 — Page Header ── */}
+      <section style={{ padding: 'clamp(3.5rem,6vw,5.5rem) clamp(1.25rem,5vw,4rem)', background: '#FAFAF8', borderBottom: '0.5px solid #E5E4E0' }}>
         <div style={{ maxWidth: '1160px', margin: '0 auto' }}>
-          <span className="sec-label">Writing</span>
-          <h1 style={{ fontFamily: 'Instrument Serif, Georgia, serif', fontSize: 'clamp(2.8rem,7vw,6rem)', color: '#111111', fontWeight: 400, lineHeight: 1.05, maxWidth: '700px', marginBottom: '1.5rem' }}>
-            Strategy, systems,<br />
-            <em>and how work changes.</em>
+          <span className="sec-label">WRITING &amp; RESEARCH</span>
+          <h1 style={{ fontFamily: S.serif, fontSize: 'clamp(2.4rem,6vw,4.5rem)', color: '#111111', fontWeight: 400, lineHeight: 1.08, maxWidth: '820px', marginTop: '0.5rem', marginBottom: '1.25rem' }}>
+            Ideas about technology, business, and the systems around us.
           </h1>
-          <p style={{ color: '#666', fontSize: 'clamp(0.95rem,1.5vw,1.05rem)', fontWeight: 300, lineHeight: 1.7, maxWidth: '500px' }}>
-            Writing on digital strategy, enterprise technology, fintech, AI in business, and the decisions that shape how organizations actually operate — for people who want to understand these topics seriously, not just follow the trend.
+          <p style={{ color: '#555555', fontSize: 'clamp(1rem,1.5vw,1.1rem)', fontWeight: 300, lineHeight: 1.8, maxWidth: '680px' }}>
+            I write to examine the ideas and forces shaping technology, work, business, and personal finance. The aim is not simply to explain what is happening, but to understand why it matters and how to think about it more clearly.
           </p>
         </div>
       </section>
@@ -116,17 +118,17 @@ export default function WritingPage() {
                         padding: '4px 12px', borderRadius: '30px',
                         background: '#FFFFFF', color: '#111111',
                       }}>
-                        Start here
+                        Featured
                       </span>
                       <span style={{
                         fontSize: '10px', letterSpacing: '0.1em',
-                        textTransform: 'uppercase', color: 'rgba(255,255,255,0.35)',
+                        textTransform: 'uppercase', color: 'rgba(255,255,255,0.4)',
                       }}>
                         {featured.readTime} read
                       </span>
                     </div>
                     <h2 style={{
-                      fontFamily: 'Instrument Serif, Georgia, serif',
+                      fontFamily: S.serif,
                       fontSize: 'clamp(1.3rem,2.5vw,2rem)',
                       color: '#FFFFFF', fontWeight: 400,
                       lineHeight: 1.2, marginBottom: '1rem',
@@ -134,7 +136,7 @@ export default function WritingPage() {
                       {featured.title}
                     </h2>
                     <p style={{
-                      fontSize: '15px', color: 'rgba(255,255,255,0.5)',
+                      fontSize: '15px', color: 'rgba(255,255,255,0.6)',
                       lineHeight: 1.7, fontWeight: 300,
                       marginBottom: '1.5rem',
                     }}>
@@ -158,7 +160,7 @@ export default function WritingPage() {
                   }}>
                     <div>
                       <div style={{
-                        fontFamily: 'Instrument Serif, Georgia, serif',
+                        fontFamily: S.serif,
                         fontSize: 'clamp(2.5rem,6vw,4rem)',
                         color: '#AFA9EC', lineHeight: 1,
                         fontStyle: 'italic', marginBottom: '0.4rem',
@@ -166,7 +168,7 @@ export default function WritingPage() {
                         $1.3B
                       </div>
                       <p style={{
-                        fontSize: '13px', color: 'rgba(255,255,255,0.45)',
+                        fontSize: '13px', color: 'rgba(255,255,255,0.55)',
                         lineHeight: 1.5, fontWeight: 300,
                       }}>
                         New revenue stream IKEA generated by retraining — not cutting — 8,500 automated roles into design advisors.
@@ -174,15 +176,15 @@ export default function WritingPage() {
                     </div>
                     <div style={{ borderTop: '0.5px solid rgba(255,255,255,0.08)', paddingTop: '1.25rem' }}>
                       <div style={{
-                        fontFamily: 'Instrument Serif, Georgia, serif',
+                        fontFamily: S.serif,
                         fontSize: 'clamp(2rem,4vw,3rem)',
-                        color: 'rgba(255,255,255,0.3)', lineHeight: 1,
+                        color: 'rgba(255,255,255,0.35)', lineHeight: 1,
                         fontStyle: 'italic', marginBottom: '0.4rem',
                       }}>
                         95%
                       </div>
                       <p style={{
-                        fontSize: '13px', color: 'rgba(255,255,255,0.35)',
+                        fontSize: '13px', color: 'rgba(255,255,255,0.45)',
                         lineHeight: 1.5, fontWeight: 300,
                       }}>
                         Of GenAI projects that generated positive ROI increased headcount — not reduced it.
@@ -247,11 +249,11 @@ export default function WritingPage() {
                     </span>
                     <span style={{ fontSize: '10px', color: '#BBB', letterSpacing: '0.06em' }}>{article.readTime} read</span>
                     {article.status === 'coming-soon' && (
-                      <span className="tag-pill" style={{ background: '#F0EFF0', color: '#999', borderColor: '#E5E4E0' }}>Coming soon</span>
+                      <span className="tag-pill" style={{ background: '#F0EFF0', color: '#999', borderColor: '#E5E4E0' }}>Forthcoming</span>
                     )}
                   </div>
                   <h2 style={{ fontFamily: S.serif, fontSize: 'clamp(1.05rem,2.5vw,1.7rem)', color: '#111111', fontWeight: 400, lineHeight: 1.25, marginBottom: '0.5rem' }}>{article.title}</h2>
-                  <p style={{ color: '#888', fontSize: '0.875rem', fontWeight: 300, lineHeight: 1.6, display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>{article.excerpt}</p>
+                  <p style={{ color: '#666', fontSize: '0.875rem', fontWeight: 300, lineHeight: 1.6, display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>{article.excerpt}</p>
                 </div>
                 <div style={{ flexShrink: 0, textAlign: 'right' }}>
                   <div style={{ fontFamily: S.serif, fontSize: 'clamp(2rem,5vw,3.5rem)', color: S.accent, opacity: 0.1, lineHeight: 1, fontWeight: 400 }}>
@@ -267,24 +269,24 @@ export default function WritingPage() {
         </div>
       </section>
 
-      {/* ── Author card ── */}
+      {/* ── Author section ── */}
       <section style={{ padding: 'clamp(3rem,6vw,5rem) clamp(1.25rem,5vw,4rem)', background: '#111118', borderTop: '0.5px solid rgba(255,255,255,0.08)' }}>
         <div style={{ maxWidth: '1160px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px,1fr))', gap: 'clamp(2rem,4vw,4rem)', alignItems: 'center' }}>
           <div style={{ aspectRatio: '4/3', maxWidth: '320px', borderRadius: '16px', overflow: 'hidden', border: '0.5px solid rgba(255,255,255,0.12)', boxShadow: '0 4px 32px rgba(0,0,0,0.3)' }}>
-            <img src="/assets/images/personal/Personal photo 6.jpg" alt="Durvesh H. Patil" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+            <img src="/assets/images/personal/Personal photo 6.jpg" alt="Durvesh Patil" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
           </div>
           <div>
-            <span className="sec-label" style={{ color: 'rgba(255,255,255,0.38)' }}>About the author</span>
-            <h3 style={{ fontFamily: S.serif, fontSize: 'clamp(1.5rem,3vw,2.2rem)', color: '#FFFFFF', fontWeight: 400, marginBottom: '1rem' }}>Durvesh H. Patil</h3>
-            <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: 'clamp(0.9rem,1.5vw,1rem)', lineHeight: 1.8, fontWeight: 300, marginBottom: '1.5rem' }}>
-              Working at the intersection of digital strategy, enterprise technology, fintech, and AI in business. Published research on algorithmic trading. Building financial literacy content for retail investors. Twice a month on this site.
+            <span className="sec-label" style={{ color: 'rgba(255,255,255,0.38)' }}>ABOUT THE AUTHOR</span>
+            <h3 style={{ fontFamily: S.serif, fontSize: 'clamp(1.5rem,3vw,2.2rem)', color: '#FFFFFF', fontWeight: 400, marginBottom: '1rem' }}>Durvesh Patil</h3>
+            <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: 'clamp(0.9rem,1.5vw,1rem)', lineHeight: 1.8, fontWeight: 300, marginBottom: '1.5rem' }}>
+              Technology Consultant &amp; Venture Builder. Working at the intersection of business strategy, technology, systems, and digital transformation. Writing about technology, business, personal finance, and the changing relationship between people and work.
             </p>
-            <a href="https://www.instagram.com/_thedurvesh/" target="_blank" rel="noreferrer"
-              style={{ color: '#AFA9EC', fontSize: '0.8rem', textDecoration: 'none', letterSpacing: '0.06em', transition: 'opacity 0.2s' }}
-              onMouseEnter={e => e.currentTarget.style.opacity = '0.7'}
-              onMouseLeave={e => e.currentTarget.style.opacity = '1'}>
-              Follow on Instagram →
-            </a>
+            <Link
+              to="/about"
+              style={{ color: '#AFA9EC', fontSize: '0.8rem', textDecoration: 'none', letterSpacing: '0.08em', textTransform: 'uppercase', fontWeight: 600 }}
+            >
+              More About Me →
+            </Link>
           </div>
         </div>
       </section>

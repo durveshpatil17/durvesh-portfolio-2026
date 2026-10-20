@@ -1,341 +1,215 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { S } from '../theme';
+import { usePageMeta } from '../utils/usePageMeta';
 
 gsap.registerPlugin(ScrollTrigger);
+
+const PRINCIPLES = [
+  {
+    num: '01',
+    title: 'Understand before designing',
+    copy: 'Start with the underlying problem, the people affected, and the constraints that shape the possible solutions.',
+  },
+  {
+    num: '02',
+    title: 'Connect business and systems',
+    copy: 'Technical decisions should make sense in the context of the business objectives, workflows, dependencies, and resources involved.',
+  },
+  {
+    num: '03',
+    title: 'Design for implementation',
+    copy: 'A system design is useful when its components, responsibilities, and trade-offs are clear enough to guide real work.',
+  },
+  {
+    num: '04',
+    title: 'Stay practical',
+    copy: 'Not every problem needs a complex architecture or an AI solution. The right approach is the one that addresses the problem within the actual constraints.',
+  },
+];
 
 export default function AboutPage() {
   const pageRef = useRef(null);
 
+  usePageMeta(
+    'About — A Technical Foundation. A Business Perspective.',
+    'Technology Consultant working across technology strategy, system architecture, product design, and implementation planning. Background combining IT engineering and MBA-ITBM at SCIT Symbiosis.'
+  );
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   useEffect(() => {
     const ctx = gsap.context(() => {
-      const mm = gsap.matchMedia();
-
-      mm.add('(min-width: 768px)', () => {
-        gsap.utils.toArray('.reveal').forEach(el => {
-          gsap.fromTo(el,
-            { y: 20, opacity: 0 },
-            {
-              y: 0, opacity: 1, duration: 0.7, ease: 'power2.out',
-              scrollTrigger: {
-                trigger: el, start: 'top 88%',
-                toggleActions: 'play none none none',
-              },
-            }
-          );
-        });
-      });
-
-      mm.add('(max-width: 767px)', () => {
-        gsap.utils.toArray('.reveal').forEach(el => {
-          gsap.fromTo(el, { opacity: 0 }, {
-            opacity: 1, duration: 0.6, ease: 'power2.out',
+      gsap.utils.toArray('.reveal-about').forEach((el) => {
+        gsap.fromTo(
+          el,
+          { y: 16, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.6,
+            ease: 'power2.out',
             scrollTrigger: {
-              trigger: el, start: 'top 90%',
+              trigger: el,
+              start: 'top 88%',
               toggleActions: 'play none none none',
             },
-          });
-        });
+          }
+        );
       });
     }, pageRef);
 
     return () => ctx.revert();
   }, []);
 
-  // Shared style tokens
-  const SECTION_LABEL = {
-    fontSize: '11px', fontWeight: 500, letterSpacing: '0.18em',
-    textTransform: 'uppercase', color: '#999999',
-    display: 'block', marginBottom: '0.875rem',
-  };
-  const LIGHT_BORDER = { borderTop: '0.5px solid #E5E4E0' };
-  const DARK_BORDER  = { borderTop: '0.5px solid rgba(255,255,255,0.07)' };
-  const SECTION_LIGHT = {
-    padding: 'clamp(4rem,8vw,7rem) clamp(1.25rem,5vw,4rem)',
-    background: '#FAFAF8',
-  };
-  const SECTION_ALT = {
-    padding: 'clamp(4rem,8vw,7rem) clamp(1.25rem,5vw,4rem)',
-    background: '#F5F4F0',
-  };
-  const CONTAINER = { maxWidth: '1160px', margin: '0 auto' };
-
   return (
-    <div ref={pageRef}>
+    <main ref={pageRef} style={{ minHeight: '100vh', background: '#FAFAF8', paddingTop: '60px' }}>
 
-      {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-          01. HERO — Dark, full viewport, one photo
-      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-      <section style={{
-        minHeight: '100svh',
-        position: 'relative',
-        background: '#0C0C0F',
-        overflow: 'hidden',
-        display: 'flex',
-        alignItems: 'flex-end',
-        paddingBottom: 'clamp(4rem, 8vw, 7rem)',
-      }}>
+      {/* ── Section 1 — Introduction ── */}
+      <section
+        style={{
+          padding: 'clamp(3.5rem, 7vw, 6rem) clamp(1.25rem, 5vw, 4rem)',
+          background: '#FAFAF8',
+          borderBottom: '0.5px solid #E5E4E0',
+        }}
+      >
+        <div
+          style={{
+            maxWidth: '1160px',
+            margin: '0 auto',
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+            gap: 'clamp(2.5rem, 5vw, 4.5rem)',
+            alignItems: 'center',
+          }}
+        >
+          <div>
+            <span className="sec-label">ABOUT</span>
+            <h1
+              style={{
+                fontFamily: S.serif,
+                fontSize: 'clamp(2.4rem, 5.5vw, 4.2rem)',
+                color: '#111111',
+                fontWeight: 400,
+                lineHeight: 1.1,
+                marginTop: '0.5rem',
+                marginBottom: '1.75rem',
+              }}
+            >
+              A business problem is rarely solved by technology alone.
+            </h1>
 
-        {/* Photo — right half on desktop */}
-        <div className="hidden lg:block" style={{
-          position: 'absolute', top: 0, right: 0, bottom: 0,
-          width: '48%', zIndex: 0,
-        }}>
-          <img
-            src="/assets/images/personal/Profile photo.jpg"
-            alt="Durvesh H. Patil"
-            style={{
-              width: '100%', height: '100%',
-              objectFit: 'cover', objectPosition: 'center top',
-              display: 'block',
-            }}
-          />
-          {/* Gradient — photo fades into dark background */}
-          <div style={{
-            position: 'absolute', inset: 0,
-            background: 'linear-gradient(to right, #0C0C0F 0%, rgba(12,12,15,0.55) 40%, transparent 80%)',
-            zIndex: 1,
-          }} />
-          <div style={{
-            position: 'absolute', inset: 0,
-            background: 'linear-gradient(to top, #0C0C0F 0%, transparent 40%)',
-            zIndex: 1,
-          }} />
-        </div>
-
-        {/* Mobile photo — top portion */}
-        <div className="lg:hidden" style={{
-          position: 'absolute', top: 0, left: 0, right: 0,
-          height: '58vh', overflow: 'hidden',
-        }}>
-          <img
-            src="/assets/images/personal/Profile photo.jpg"
-            alt="Durvesh H. Patil"
-            style={{
-              width: '100%', height: '100%',
-              objectFit: 'cover', objectPosition: 'center top',
-            }}
-          />
-          <div style={{
-            position: 'absolute', inset: 0,
-            background: 'linear-gradient(to bottom, rgba(12,12,15,0.1) 0%, rgba(12,12,15,0.55) 55%, #0C0C0F 100%)',
-          }} />
-        </div>
-
-        {/* Text content — left, anchored to bottom */}
-        <div style={{
-          position: 'relative', zIndex: 2,
-          width: '100%', maxWidth: '1160px', margin: '0 auto',
-          padding: '0 clamp(1.25rem,5vw,4rem)',
-        }}>
-          <div className="reveal" style={{ maxWidth: '540px' }}>
-
-            {/* Eyebrow */}
-            <div style={{
-              display: 'flex', alignItems: 'center',
-              gap: '12px', marginBottom: '1.75rem',
-            }}>
-              <div style={{ width: '28px', height: '1px', background: 'rgba(255,255,255,0.25)' }} />
-              <span style={{
-                fontSize: '11px', letterSpacing: '0.2em',
-                textTransform: 'uppercase',
-                color: 'rgba(255,255,255,0.38)', fontWeight: 500,
-              }}>
-                About
-              </span>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem', color: '#555555', fontSize: 'clamp(0.98rem, 1.4vw, 1.08rem)', lineHeight: 1.8, fontWeight: 300 }}>
+              <p style={{ margin: 0 }}>
+                My work centres on understanding how businesses operate, what needs to change, and how technology can help make that change practical.
+              </p>
+              <p style={{ margin: 0 }}>
+                I work as a Technology Consultant across technology strategy, system architecture, product and system design, and implementation planning. Alongside consulting, I’m developing ventures of my own in technology.
+              </p>
+              <p style={{ margin: 0 }}>
+                My experience across financial services, algorithmic trading technology, and health-tech has given me different contexts in which to think about the relationship between business needs and technical decisions.
+              </p>
             </div>
-
-            {/* Name */}
-            <h1 style={{
-              fontFamily: S.serif,
-              fontSize: 'clamp(3.5rem, 10vw, 8rem)',
-              lineHeight: 0.92, fontWeight: 400,
-              color: '#FFFFFF',
-              letterSpacing: '-0.02em',
-              marginBottom: '0.06em',
-            }}>
-              Durvesh
-            </h1>
-            <h1 style={{
-              fontFamily: S.serif,
-              fontSize: 'clamp(3.5rem, 10vw, 8rem)',
-              lineHeight: 0.92, fontWeight: 400,
-              fontStyle: 'italic',
-              color: 'rgba(255,255,255,0.65)',
-              letterSpacing: '-0.02em',
-              marginBottom: 'clamp(1.75rem, 3.5vw, 2.75rem)',
-            }}>
-              Patil<span style={{ color: '#534AB7' }}>.</span>
-            </h1>
-
-            {/* One-liner */}
-            <p style={{
-              fontSize: 'clamp(14px, 1.6vw, 17px)',
-              color: 'rgba(255,255,255,0.42)',
-              lineHeight: 1.7,
-              maxWidth: '440px',
-              fontWeight: 300,
-            }}>
-              Digital strategy, fintech, enterprise technology, AI in business, IT risk — and writing that connects them. Deployed, not just studied.
-            </p>
-          </div>
-        </div>
-
-        {/* Scroll indicator */}
-        <div style={{
-          position: 'absolute',
-          bottom: '2rem', right: 'clamp(1.25rem,5vw,4rem)',
-          zIndex: 3,
-          display: 'flex', flexDirection: 'column',
-          alignItems: 'flex-end', gap: '6px',
-        }}>
-          <div style={{
-            width: '1px', height: '40px',
-            background: 'linear-gradient(to bottom, rgba(255,255,255,0.25), transparent)',
-          }} />
-          <span style={{
-            fontSize: '9px', letterSpacing: '0.2em',
-            textTransform: 'uppercase',
-            color: 'rgba(255,255,255,0.2)',
-          }}>
-            Scroll
-          </span>
-        </div>
-      </section>
-
-      {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-          02. WHO I AM — Pull quote + honest paragraph
-      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-      <section style={{ ...SECTION_LIGHT, ...LIGHT_BORDER }}>
-        <div style={CONTAINER}>
-
-          {/* Pull quote */}
-          <div className="reveal" style={{
-            display: 'flex', gap: '2rem',
-            alignItems: 'flex-start',
-            marginBottom: 'clamp(3rem, 6vw, 5rem)',
-          }}>
-            <div style={{
-              width: '2px', flexShrink: 0,
-              alignSelf: 'stretch',
-              background: '#534AB7',
-              opacity: 0.35,
-              borderRadius: '1px',
-              minHeight: '60px',
-            }} />
-            <p style={{
-              fontFamily: S.serif, fontStyle: 'italic',
-              fontSize: 'clamp(1.3rem, 2.8vw, 2.1rem)',
-              color: '#111111', lineHeight: 1.4,
-              fontWeight: 400, maxWidth: '800px',
-            }}>
-              "The gap between building technology and deploying it well is where most organizations lose — and where strategy, governance, and communication actually earn their place."
-            </p>
           </div>
 
-          {/* One honest paragraph — two columns on desktop */}
-          <div className="reveal" style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(280px,1fr))',
-            gap: 'clamp(2rem, 5vw, 5rem)',
-          }}>
-            <p style={{
-              fontSize: '15px', color: '#666666',
-              lineHeight: 1.8, fontWeight: 300,
-            }}>
-              Engineering background from KBT College Nashik. MBA in IT &amp; Business Management at SCIT, Pune. Work spans digital strategy at a fintech infrastructure company, MF distribution operations, published research on AI-driven trading systems, and digital campaign execution across four consecutive major events. Each one a real environment with real consequences.
-            </p>
-            <p style={{
-              fontSize: '15px', color: '#666666',
-              lineHeight: 1.8, fontWeight: 300,
-            }}>
-              The writing on this site documents what gets learned in those environments — on enterprise technology, IT risk, AI in business, financial systems, and how organizations make decisions at the edge of their own capability. Specific things, not trend summaries.
-            </p>
-            <p style={{
-              fontSize: '15px', color: '#666666',
-              lineHeight: 1.8, fontWeight: 300, marginTop: '1.5rem',
-            }}>
-              Strategy, fintech, AI, enterprise systems, IT risk, and the future of work — that is the frame. Everything on this site fits inside it.
-            </p>
+          <div>
+            <div
+              style={{
+                borderRadius: '16px',
+                overflow: 'hidden',
+                border: '0.5px solid #E5E4E0',
+                boxShadow: '0 4px 28px rgba(0,0,0,0.06)',
+                maxWidth: '460px',
+                margin: '0 auto',
+              }}
+            >
+              <img
+                src="/assets/images/personal/Profile photo.jpg"
+                alt="Durvesh Patil — Technology Consultant & Venture Builder"
+                style={{ width: '100%', aspectRatio: '4/5', objectFit: 'cover', display: 'block' }}
+              />
+              <div style={{ padding: '1rem 1.25rem', background: '#FFFFFF', borderTop: '0.5px solid #EAEAE6' }}>
+                <p style={{ fontSize: '11px', textTransform: 'uppercase', letterSpacing: '0.1em', color: '#888888', margin: 0, fontWeight: 500 }}>
+                  Durvesh Patil · Technology Consultant
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-          03. THE PATH — 4 milestone cards, 2×2 grid
-      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-      <section style={{ ...SECTION_ALT, ...LIGHT_BORDER }}>
-        <div style={CONTAINER}>
+      {/* ── Section 2 — How I Approach the Work ── */}
+      <section
+        className="reveal-about"
+        style={{
+          padding: 'clamp(3.5rem, 6vw, 5.5rem) clamp(1.25rem, 5vw, 4rem)',
+          background: '#FFFFFF',
+          borderBottom: '0.5px solid #E5E4E0',
+        }}
+      >
+        <div style={{ maxWidth: '1160px', margin: '0 auto' }}>
+          <span className="sec-label">PRINCIPLES</span>
+          <h2
+            style={{
+              fontFamily: S.serif,
+              fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)',
+              color: '#111111',
+              fontWeight: 400,
+              marginTop: '0.35rem',
+              marginBottom: '2.5rem',
+            }}
+          >
+            How I Think About Technology
+          </h2>
 
-          <div className="reveal" style={{ marginBottom: 'clamp(2rem, 4vw, 3rem)' }}>
-            <span style={SECTION_LABEL}>The path</span>
-            <h2 style={{
-              fontSize: 'clamp(1.5rem, 3vw, 2.2rem)',
-              color: '#111111', fontWeight: 400,
-            }}>
-              Background &amp; direction.
-            </h2>
-          </div>
-
-          <div className="reveal" style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(260px,1fr))',
-            gap: '1px',
-            background: '#E5E4E0',
-            border: '0.5px solid #E5E4E0',
-            borderRadius: '16px',
-            overflow: 'hidden',
-          }}>
-            {[
-              {
-                label: 'Education',
-                title: 'B.E. IT → MBA',
-                body: 'B.E. Information Technology from KBT College of Engineering, Nashik. Now MBA-ITBM at SCIT Pune, Symbiosis International University, 2024–26. Building at the intersection of IT, business management, risk, and consulting.',
-              },
-              {
-                label: 'Live Industry Work',
-                title: 'NLP Strategy Pipeline',
-                body: 'Built an end-to-end NLP-to-strategy system for Indian financial markets with Dematade Algo Technology Solutions during final year of engineering. Framed not just as a technical build — but as an exploration of AI-assisted decision support, system adoption, and business-usable output. Pre-Placement Offer received.',
-              },
-              {
-                label: 'Published Research',
-                title: '2 Research Papers',
-                body: 'Presented and published at an international conference on AI for Innovation and Sustainability. Second paper published in an international science journal. Academic output alongside practical execution.',
-              },
-              {
-                label: 'Leadership',
-                title: 'Digital Strategy Execution',
-                body: 'Led digital strategy and content execution for Techfest 2024 &amp; 2025 and Fusion 2025 &amp; 2026. Built and scaled the system from zero across three consecutive years — framed as campaign architecture, team coordination, and operational execution, not just content creation.',
-              },
-            ].map((card, i) => (
-              <div key={card.label} style={{
-                background: '#FAFAF8',
-                padding: 'clamp(1.5rem, 2.5vw, 2.25rem)',
-                display: 'flex',
-                flexDirection: 'column',
-                gap: '0.625rem',
-              }}>
-                <span style={{
-                  fontSize: '10px', fontWeight: 600,
-                  letterSpacing: '0.14em', textTransform: 'uppercase',
-                  color: '#534AB7',
-                }}>
-                  {card.label}
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+              gap: '1.5rem',
+            }}
+          >
+            {PRINCIPLES.map((item) => (
+              <div
+                key={item.num}
+                style={{
+                  background: '#FAFAF8',
+                  border: '0.5px solid #E5E4E0',
+                  borderRadius: '14px',
+                  padding: '1.75rem',
+                  display: 'flex',
+                  flexDirection: 'column',
+                }}
+              >
+                <span
+                  style={{
+                    fontFamily: S.serif,
+                    fontSize: '1rem',
+                    color: S.accent,
+                    fontStyle: 'italic',
+                    marginBottom: '0.75rem',
+                  }}
+                >
+                  {item.num}
                 </span>
-                <h3 style={{
-                  fontSize: 'clamp(1rem, 1.8vw, 1.2rem)',
-                  color: '#111111', fontWeight: 500,
-                  lineHeight: 1.25,
-                }}>
-                  {card.title}
+                <h3
+                  style={{
+                    fontFamily: S.serif,
+                    fontSize: '1.25rem',
+                    color: '#111111',
+                    fontWeight: 400,
+                    lineHeight: 1.3,
+                    marginBottom: '0.75rem',
+                  }}
+                >
+                  {item.title}
                 </h3>
-                <p style={{
-                  fontSize: '14px', color: '#666666',
-                  lineHeight: 1.7, fontWeight: 300,
-                }}>
-                  {card.body}
+                <p style={{ color: '#555555', fontSize: '0.92rem', lineHeight: 1.7, fontWeight: 300, margin: 0 }}>
+                  {item.copy}
                 </p>
               </div>
             ))}
@@ -343,271 +217,277 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-          04. RECOGNITION — Two moments, light bg
-      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-      <section style={{ ...SECTION_LIGHT, ...LIGHT_BORDER }}>
-        <div style={CONTAINER}>
+      {/* ── Section 3 — Experience Across Domains ── */}
+      <section
+        className="reveal-about"
+        style={{
+          padding: 'clamp(3.5rem, 6vw, 5rem) clamp(1.25rem, 5vw, 4rem)',
+          background: '#FAFAF8',
+          borderBottom: '0.5px solid #E5E4E0',
+        }}
+      >
+        <div style={{ maxWidth: '820px', margin: '0 auto' }}>
+          <span className="sec-label">DOMAINS</span>
+          <h2
+            style={{
+              fontFamily: S.serif,
+              fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)',
+              color: '#111111',
+              fontWeight: 400,
+              marginTop: '0.35rem',
+              marginBottom: '1.25rem',
+            }}
+          >
+            Different Domains. A Common Thread.
+          </h2>
+          <p style={{ color: '#444444', fontSize: 'clamp(1rem, 1.4vw, 1.1rem)', lineHeight: 1.85, fontWeight: 300, margin: 0 }}>
+            My work has touched financial services, trading-related technology, and health-tech. Each domain presents different requirements and constraints, but the questions remain connected: What problem needs to be solved? What must the system do? Which decisions matter most? And how can the solution be implemented responsibly?
+          </p>
+        </div>
+      </section>
 
-          <div className="reveal" style={{ marginBottom: 'clamp(2rem, 4vw, 3.5rem)' }}>
-            <span style={SECTION_LABEL}>Recognition</span>
-            <h2 style={{
-              fontSize: 'clamp(1.5rem, 3vw, 2.2rem)',
-              color: '#111111', fontWeight: 400,
-            }}>
-              What the work led to.
-            </h2>
-          </div>
-
-          {/* Primary — Special Achievers Award */}
-          <div className="reveal" style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(280px,1fr))',
-            gap: 'clamp(2rem, 4vw, 4rem)',
-            alignItems: 'center',
-            marginBottom: 'clamp(2.5rem, 4vw, 4rem)',
-            padding: 'clamp(1.5rem, 3vw, 2.5rem)',
-            background: '#FFFFFF',
-            border: '0.5px solid #E5E4E0',
-            borderRadius: '20px',
-          }}>
-            {/* Photo */}
-            <div style={{
-              borderRadius: '14px',
-              overflow: 'hidden',
-              border: '0.5px solid #E5E4E0',
-              position: 'relative',
-            }}>
-              <img
-                src="/assets/images/achievements/Special Achievers award- Most outstanding Content creator award.jpg"
-                alt="Special Achievers Award — Most Outstanding Content Creator"
-                style={{
-                  width: '100%',
-                  aspectRatio: '4/3',
-                  objectFit: 'cover',
-                  display: 'block',
-                }}
-              />
-            </div>
-
-            {/* Text */}
+      {/* ── Section 4 — Technology & Business Background ── */}
+      <section
+        className="reveal-about"
+        style={{
+          padding: 'clamp(3.5rem, 6vw, 5.5rem) clamp(1.25rem, 5vw, 4rem)',
+          background: '#FFFFFF',
+          borderBottom: '0.5px solid #E5E4E0',
+        }}
+      >
+        <div style={{ maxWidth: '1160px', margin: '0 auto' }}>
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+              gap: 'clamp(2rem, 4vw, 4rem)',
+              alignItems: 'center',
+            }}
+          >
             <div>
-              {/* Award badge */}
-              <div style={{
-                display: 'inline-flex', alignItems: 'center',
-                gap: '0.5rem', marginBottom: '1.25rem',
-                padding: '0.4rem 1rem',
-                background: 'rgba(83,74,183,0.06)',
-                border: '0.5px solid rgba(83,74,183,0.2)',
-                borderRadius: '30px',
-              }}>
-                <span style={{ fontSize: '12px', color: '#534AB7' }}>★</span>
-                <span style={{
-                  fontSize: '10px', letterSpacing: '0.12em',
-                  textTransform: 'uppercase', color: '#534AB7',
-                  fontWeight: 600,
-                }}>
-                  Special Achievers Award · April 2026
-                </span>
-              </div>
-
-              <h3 style={{
-                fontFamily: S.serif,
-                fontSize: 'clamp(1.3rem, 2.5vw, 2rem)',
-                color: '#111111', fontWeight: 400,
-                lineHeight: 1.2,
-                marginBottom: '1rem',
-              }}>
-                Most Outstanding<br />
-                <em>Content Creator.</em>
-              </h3>
-
-              <p style={{
-                fontSize: '15px', color: '#666666',
-                lineHeight: 1.75, fontWeight: 300,
-                marginBottom: '1.5rem',
-              }}>
-                Awarded on farewell day by{' '}
-                <strong style={{ color: '#333333', fontWeight: 500 }}>
-                  Dr. Satish R. Devane, Director
-                </strong>
-                , Maratha Vidya Prasarak Samaj's KBT College of Engineering — in
-                front of the entire graduating batch of 2026. Four years of consistent
-                work, recognised in one moment.
-              </p>
-
-              {/* Supporting details */}
-              <div style={{
-                borderTop: '0.5px solid #E5E4E0',
-                paddingTop: '1.25rem',
-                display: 'flex', flexDirection: 'column',
-                gap: '0.625rem',
-              }}>
-                {[
-                  'KBT College of Engineering, Nashik — Maratha Vidya Prasarak Samaj',
-                  'Farewell Day, 25 April 2026',
-                  'Recognised for four consecutive years of social media leadership',
-                ].map(detail => (
-                  <div key={detail} style={{
-                    display: 'flex', alignItems: 'flex-start', gap: '0.75rem',
-                  }}>
-                    <span style={{
-                      width: '4px', height: '4px', borderRadius: '50%',
-                      background: '#534AB7', flexShrink: 0, marginTop: '0.55rem',
-                      opacity: 0.5,
-                    }} />
-                    <span style={{
-                      fontSize: '13px', color: '#999999',
-                      fontWeight: 300, lineHeight: 1.6,
-                    }}>
-                      {detail}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Secondary — Fusion 2025 felicitation */}
-          <div className="reveal" style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(280px,1fr))',
-            gap: 'clamp(1.5rem, 3vw, 3rem)',
-            alignItems: 'center',
-            padding: 'clamp(1.25rem, 2.5vw, 2rem)',
-            background: '#F5F4F0',
-            border: '0.5px solid #E5E4E0',
-            borderRadius: '16px',
-          }}>
-            <div>
-              <div style={{
-                display: 'inline-flex', alignItems: 'center',
-                gap: '0.5rem', marginBottom: '1rem',
-                padding: '0.35rem 0.875rem',
-                background: 'rgba(83,74,183,0.06)',
-                border: '0.5px solid rgba(83,74,183,0.15)',
-                borderRadius: '30px',
-              }}>
-                <span style={{
-                  fontSize: '10px', letterSpacing: '0.12em',
-                  textTransform: 'uppercase', color: '#534AB7', fontWeight: 600,
-                }}>
-                  Felicitation · January 2025
-                </span>
-              </div>
-              <h3 style={{
-                fontFamily: S.serif,
-                fontSize: 'clamp(1.1rem, 2vw, 1.5rem)',
-                color: '#111111', fontWeight: 400,
-                lineHeight: 1.25, marginBottom: '0.75rem',
-              }}>
-                Felicitated by Sarchitnis Adv. Nitin Baburao Thakare,<br />
-                <em>Maratha Vidya Prasarak Samaj.</em>
-              </h3>
-              <p style={{
-                fontSize: '14px', color: '#666666',
-                lineHeight: 1.7, fontWeight: 300,
-              }}>
-                Recognised on stage at Fusion 2025, KBT College Nashik — the same
-                event whose promotion reel crossed one million organic views. The
-                moment that made four years of consistent work feel concrete.
-              </p>
-            </div>
-            <div style={{
-              borderRadius: '12px', overflow: 'hidden',
-              border: '0.5px solid #E5E4E0',
-            }}>
-              <img
-                src="/assets/images/achievements/Crossed 1 Million Views on Social Media event promotion reel of Fusion 2k25.jpg"
-                alt="Felicitation at Fusion 2025"
+              <span className="sec-label">BACKGROUND</span>
+              <h2
                 style={{
-                  width: '100%', aspectRatio: '4/3',
-                  objectFit: 'cover', display: 'block',
+                  fontFamily: S.serif,
+                  fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)',
+                  color: '#111111',
+                  fontWeight: 400,
+                  marginTop: '0.35rem',
+                  marginBottom: '1.25rem',
                 }}
-              />
+              >
+                Technical Foundations, Business Context
+              </h2>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', color: '#555555', fontSize: '0.98rem', lineHeight: 1.8, fontWeight: 300 }}>
+                <p style={{ margin: 0 }}>
+                  My background combines Information Technology engineering with an MBA in Information Technology Business Management at SCIT, Symbiosis.
+                </p>
+                <p style={{ margin: 0 }}>
+                  That combination informs how I approach technology work: with an interest in the architecture and implementation of systems, alongside the business priorities and operational realities they must serve.
+                </p>
+              </div>
+            </div>
+
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+              <div
+                style={{
+                  background: '#FAFAF8',
+                  border: '0.5px solid #E5E4E0',
+                  borderRadius: '12px',
+                  padding: '1.5rem',
+                }}
+              >
+                <span style={{ fontSize: '10px', textTransform: 'uppercase', letterSpacing: '0.12em', color: S.accent, fontWeight: 600 }}>
+                  Business Management
+                </span>
+                <h3 style={{ fontFamily: S.serif, fontSize: '1.2rem', color: '#111111', fontWeight: 400, marginTop: '0.35rem', marginBottom: '0.25rem' }}>
+                  MBA in IT Business Management (ITBM)
+                </h3>
+                <p style={{ fontSize: '12px', color: '#777777', margin: 0 }}>
+                  Symbiosis Centre for Information Technology (SCIT), Symbiosis International University, Pune
+                </p>
+              </div>
+
+              <div
+                style={{
+                  background: '#FAFAF8',
+                  border: '0.5px solid #E5E4E0',
+                  borderRadius: '12px',
+                  padding: '1.5rem',
+                }}
+              >
+                <span style={{ fontSize: '10px', textTransform: 'uppercase', letterSpacing: '0.12em', color: S.accent, fontWeight: 600 }}>
+                  Engineering Foundation
+                </span>
+                <h3 style={{ fontFamily: S.serif, fontSize: '1.2rem', color: '#111111', fontWeight: 400, marginTop: '0.35rem', marginBottom: '0.25rem' }}>
+                  Bachelor of Engineering in Information Technology
+                </h3>
+                <p style={{ fontSize: '12px', color: '#777777', margin: 0 }}>
+                  MVP&apos;s KBT College of Engineering, SPPU, Nashik
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
+      {/* ── Section 5 — Independent Work & Ventures ── */}
+      <section
+        className="reveal-about"
+        style={{
+          padding: 'clamp(3.5rem, 6vw, 5rem) clamp(1.25rem, 5vw, 4rem)',
+          background: '#FAFAF8',
+          borderBottom: '0.5px solid #E5E4E0',
+        }}
+      >
+        <div style={{ maxWidth: '820px', margin: '0 auto' }}>
+          <span className="sec-label">VENTURE BUILDING</span>
+          <h2
+            style={{
+              fontFamily: S.serif,
+              fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)',
+              color: '#111111',
+              fontWeight: 400,
+              marginTop: '0.35rem',
+              marginBottom: '1.25rem',
+            }}
+          >
+            Building Alongside Consulting
+          </h2>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', color: '#444444', fontSize: 'clamp(0.98rem, 1.4vw, 1.08rem)', lineHeight: 1.85, fontWeight: 300 }}>
+            <p style={{ margin: 0 }}>
+              Consulting lets me work through problems in different business contexts. Developing ventures of my own creates another opportunity to apply the same thinking directly—to examine a problem, test assumptions, make product decisions, and work through implementation.
+            </p>
+            <p style={{ margin: 0 }}>
+              Both inform the way I think about technology: as something that must make sense in practice, not only on paper.
+            </p>
+          </div>
+          <div style={{ marginTop: '1.75rem' }}>
+            <Link
+              to="/ventures"
+              style={{
+                fontSize: '11px',
+                fontWeight: 600,
+                letterSpacing: '0.12em',
+                textTransform: 'uppercase',
+                color: S.accent,
+                textDecoration: 'none',
+              }}
+            >
+              Explore Ventures in Development →
+            </Link>
+          </div>
+        </div>
+      </section>
 
-      {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-          06. CONTACT — Dark, minimal, one action
-      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-      <section style={{
-        padding: 'clamp(4rem,8vw,7rem) clamp(1.25rem,5vw,4rem)',
-        background: '#0C0C0F',
-        ...DARK_BORDER,
-        textAlign: 'center',
-      }}>
-        <div style={{ maxWidth: '560px', margin: '0 auto' }}>
-          <div className="reveal">
-            <span style={{
-              ...SECTION_LABEL,
-              color: 'rgba(255,255,255,0.25)',
-            }}>
-              Connect
-            </span>
+      {/* ── Section 6 — Writing & Research ── */}
+      <section
+        className="reveal-about"
+        style={{
+          padding: 'clamp(3.5rem, 6vw, 5rem) clamp(1.25rem, 5vw, 4rem)',
+          background: '#FFFFFF',
+          borderBottom: '0.5px solid #E5E4E0',
+        }}
+      >
+        <div style={{ maxWidth: '820px', margin: '0 auto' }}>
+          <span className="sec-label">WRITING &amp; RESEARCH</span>
+          <h2
+            style={{
+              fontFamily: S.serif,
+              fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)',
+              color: '#111111',
+              fontWeight: 400,
+              marginTop: '0.35rem',
+              marginBottom: '1.25rem',
+            }}
+          >
+            Thinking Beyond Implementation
+          </h2>
+          <p style={{ color: '#444444', fontSize: 'clamp(0.98rem, 1.4vw, 1.08rem)', lineHeight: 1.85, fontWeight: 300, marginBottom: '2rem' }}>
+            I also write and research topics spanning technology, business, personal finance, careers, and the changing world of work. I’m interested in understanding the systems and incentives behind the visible outcome, and in making complex ideas easier to reason about.
+          </p>
+          <Link
+            to="/writing"
+            style={{
+              padding: '0.8rem 1.8rem',
+              background: '#111111',
+              color: '#FFFFFF',
+              borderRadius: '30px',
+              fontSize: '11px',
+              fontWeight: 600,
+              letterSpacing: '0.12em',
+              textTransform: 'uppercase',
+              textDecoration: 'none',
+              display: 'inline-flex',
+              alignItems: 'center',
+              transition: 'opacity 0.2s',
+            }}
+            onMouseEnter={(e) => (e.currentTarget.style.opacity = '0.85')}
+            onMouseLeave={(e) => (e.currentTarget.style.opacity = '1')}
+          >
+            Read My Writing →
+          </Link>
+        </div>
+      </section>
 
-            <h2 style={{
+      {/* ── Section 7 — Closing ── */}
+      <section
+        style={{
+          padding: 'clamp(4rem, 7vw, 6rem) clamp(1.25rem, 5vw, 4rem)',
+          background: '#111118',
+          textAlign: 'center',
+        }}
+      >
+        <div style={{ maxWidth: '720px', margin: '0 auto' }}>
+          <span className="sec-label" style={{ color: 'rgba(255,255,255,0.4)' }}>CONVERSATION</span>
+          <h2
+            style={{
               fontFamily: S.serif,
               fontSize: 'clamp(1.8rem, 4vw, 3rem)',
-              color: '#FFFFFF', fontWeight: 400,
-              fontStyle: 'italic',
-              lineHeight: 1.1,
+              color: '#FFFFFF',
+              fontWeight: 400,
+              lineHeight: 1.18,
+              marginTop: '0.5rem',
               marginBottom: '1rem',
-            }}>
-              Let's talk.
-            </h2>
-
-            <p style={{
+            }}
+          >
+            Good work begins with a clear understanding of the problem.
+          </h2>
+          <p
+            style={{
               fontSize: '15px',
-              color: 'rgba(255,255,255,0.35)',
-              lineHeight: 1.7, fontWeight: 300,
+              color: 'rgba(255,255,255,0.65)',
+              lineHeight: 1.75,
+              fontWeight: 300,
               marginBottom: '2.5rem',
-            }}>
-              Whether you're a recruiter, a collaborator, or someone
-              figuring out their path — I read everything.
-            </p>
-
-            <div style={{
-              display: 'flex',
-              justifyContent: 'center',
-              gap: 'clamp(1.25rem, 3vw, 2.5rem)',
-              flexWrap: 'wrap',
-            }}>
-              {[
-                { label: 'Email',              href: 'mailto:durveshpatilit@gmail.com' },
-                { label: 'LinkedIn',           href: 'https://www.linkedin.com/in/durveshpatil9212/' },
-                { label: '@_thedurvesh',       href: 'https://www.instagram.com/_thedurvesh/' },
-                { label: '@cinesyncbydurvesh', href: 'https://www.instagram.com/cinesyncbydurvesh/' },
-              ].map(link => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  target="_blank" rel="noreferrer"
-                  style={{
-                    fontSize: '13px',
-                    color: 'rgba(255,255,255,0.35)',
-                    textDecoration: 'none',
-                    fontWeight: 300,
-                    letterSpacing: '0.04em',
-                    transition: 'color 0.2s',
-                    minHeight: '44px',
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                  }}
-                  onMouseEnter={e => e.target.style.color = '#FFFFFF'}
-                  onMouseLeave={e => e.target.style.color = 'rgba(255,255,255,0.35)'}
-                >
-                  {link.label}
-                </a>
-              ))}
-            </div>
-          </div>
+            }}
+          >
+            If you’re working through a technology decision, planning a product, or evaluating how a system should evolve, I welcome thoughtful conversations about the challenge.
+          </p>
+          <Link
+            to="/contact"
+            style={{
+              padding: '0.85rem 2rem',
+              background: '#FFFFFF',
+              color: '#0C0C0F',
+              borderRadius: '30px',
+              fontSize: '11px',
+              fontWeight: 700,
+              letterSpacing: '0.12em',
+              textTransform: 'uppercase',
+              textDecoration: 'none',
+              display: 'inline-flex',
+              alignItems: 'center',
+              transition: 'opacity 0.2s',
+            }}
+            onMouseEnter={(e) => (e.currentTarget.style.opacity = '0.85')}
+            onMouseLeave={(e) => (e.currentTarget.style.opacity = '1')}
+          >
+            Get in Touch →
+          </Link>
         </div>
       </section>
 
-    </div>
+    </main>
   );
 }

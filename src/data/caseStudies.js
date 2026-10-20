@@ -1,38 +1,54 @@
 export const caseStudies = [
   {
     id: 1,
-    tag: 'FinTech · i-Need Fin Essential Services',
-    title: 'Family MFD Business Operations & Tech',
-    problem: 'Manual operations and client onboarding processes for family Mutual Fund Distribution business.',
-    approach: 'Managed KYC, MF suitability, portfolio tracking, while building an AI-based SIP allocation mini-platform.',
-    impact: 'Onboarded 36+ clients contributing ₹13L+ AUM through SIP and lumpsum.',
+    tag: 'Financial Services · i-Need Fin-Essential Services',
+    title: 'Family Financial Services Operations & Technology',
+    problem: 'Manual client onboarding processes, KYC workflows, and portfolio reviews within a family-run financial services practice.',
+    approach: 'Contributed across strategy, digital development, technology initiatives, and operations—managing onboarding workflows, KYC coordination, suitability assessments, and portfolio tracking.',
+    impact: 'Established structured digital onboarding and portfolio tracking workflows; exploring technology initiatives to digitise advisory operations.',
     details: {
-      role: 'Business & Tech Assistant',
+      role: 'Strategy, Digital Development & Operations',
       period: '2022 – Present',
       bullets: [
-        'Onboarded 36+ clients contributing 13L+ AUM through SIP and lumpsum.',
-        'Managed KYC, onboarding and MF suitability.',
-        'Assisted in portfolio tracking and basic performance reporting.',
-        'Building AI-based SIP allocation & onboarding mini-platform.'
+        'Business and technology strategy for client-facing operations.',
+        'Digital presence and customer-facing workflow improvements.',
+        'Operational processes, KYC coordination, and technology initiatives.',
+        'Exploration of digital opportunities and workflow automation within financial services.'
       ]
     }
   },
   {
     id: 2,
-    tag: 'AI Engineering · Dematade Algo Technology Solutions',
-    title: 'AI Strategy Generator Module',
-    problem: 'Need for automated strategy creation for Indian F&O and crypto markets.',
-    approach: 'Led the strategy module development within an 8-member team, building backend APIs using Python, Redis, MySQL, and OpenAI.',
-    impact: 'Developed robust parameter validation and execution previews for generated strategies.',
+    tag: 'Financial Technology · Dematade Algo Technology Solutions',
+    title: 'Algorithmic Trading Strategy Generator',
+    problem: 'Translating strategy requirements and algorithmic parameters into verifiable software execution workflows for Indian financial markets.',
+    approach: 'Contributed within an 8-member engineering team to strategy module development, backend APIs using Python, Redis, MySQL, and OpenAI, with parameter validation and execution preview workflows.',
+    impact: 'Built reliable strategy generation and validation workflows connecting product requirements with backend implementation; received Pre-Placement Offer.',
     details: {
-      role: 'AI Project Lead (Strategy Module)',
-      period: '2025 – Present',
+      role: 'Project Lead (Strategy Module)',
+      period: '2025 – 2026',
       bullets: [
-        'Building AI-based strategy generator for Indian F&O and crypto markets.',
-        'Developed APIs for NIFTY, BANKNIFTY and crypto strategy creation.',
+        'Contributed to software related to trading-strategy creation and system workflows.',
+        'Developed backend APIs for strategy creation and parameter validation.',
         'Worked on parameter validation and execution previews for generated strategies.',
-        'Built backend using Python, Redis, MySQL and OpenAI.',
-        'Working with an 8-member engineering team on feature development and testing.'
+        'Built backend components using Python, Redis, MySQL, and OpenAI within an 8-member engineering team.'
+      ]
+    }
+  },
+  {
+    id: 3,
+    tag: 'Health Technology',
+    title: 'Health-Tech Software & Operational Systems',
+    problem: 'Healthcare software environments require high usability, strict operational alignment, and reliable data handling.',
+    approach: 'Contributed to technology work within the healthcare domain, accounting for user needs, operational realities, and system reliability.',
+    impact: 'Contributed to practical system workflows designed around operational constraints and end-user requirements in a domain-specific environment.',
+    details: {
+      role: 'Technology Contributor',
+      period: 'Professional Experience',
+      bullets: [
+        'Technology-related work within the healthcare domain.',
+        'Evaluating user needs and operational realities for domain-specific software.',
+        'Designing workflows focused on reliability and usability.'
       ]
     }
   }

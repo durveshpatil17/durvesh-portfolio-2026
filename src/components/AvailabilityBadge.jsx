@@ -1,19 +1,12 @@
-import React from 'react';
 import { S } from '../theme';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export default function AvailabilityBadge() {
-  const location = useLocation();
   const navigate = useNavigate();
 
   const handleClick = (e) => {
     e.preventDefault();
-    if (location.pathname === '/') {
-      const el = document.getElementById('contact');
-      if (el) el.scrollIntoView({ behavior: 'smooth' });
-    } else {
-      navigate('/#contact');
-    }
+    navigate('/contact');
   };
 
   return (
@@ -21,8 +14,8 @@ export default function AvailabilityBadge() {
       onClick={handleClick}
       className="hidden md:inline-flex items-center gap-2 px-3 py-1.5 rounded-full cursor-pointer transition-colors"
       style={{
-        background: 'rgba(201, 168, 76, 0.15)',
-        border: '1px solid rgba(201, 168, 76, 0.25)',
+        background: 'rgba(83, 74, 183, 0.08)',
+        border: '1px solid rgba(83, 74, 183, 0.25)',
       }}
     >
       <span
@@ -30,20 +23,20 @@ export default function AvailabilityBadge() {
           width: '6px',
           height: '6px',
           borderRadius: '50%',
-          background: S.gold,
+          background: S.accent,
           animation: 'pulse 2s infinite',
         }}
       />
       <span
         style={{
-          color: S.gold,
-          fontSize: '0.6rem',
+          color: S.accent,
+          fontSize: '0.65rem',
           textTransform: 'uppercase',
           letterSpacing: '0.12em',
           fontWeight: 600,
         }}
       >
-        Open to Internship 2026
+        Available for Advisory &amp; Projects
       </span>
       <style>{`
         @keyframes pulse {
@@ -55,3 +48,4 @@ export default function AvailabilityBadge() {
     </button>
   );
 }
+
